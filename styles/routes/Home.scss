@@ -1,0 +1,4 @@
+.container {
+  @include box();
+  @include make-flex();
+}
