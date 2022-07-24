@@ -1,4 +1,112 @@
-.container {
-  @include box();
+.LandingPage {
+  @include box($height: 100vh);
   @include make-flex();
+	
+	&__mainContainer {
+		@include make-flex($just: flex-start);
+		width: 100%;
+		max-width: 1585px;
+		height: 100%;
+		background-color: #0f1621;
+		
+	}
+	
+	.HeroSection {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		@include make-flex($dir: row, $just: flex-start);
+		
+		&__background {
+			position: absolute;
+			left: 50%;
+			width: 50%;
+			height: 100%;
+			mix-blend-mode: exclusion;
+			transform: rotate(179.5deg);
+		}
+		
+		&__image {
+			position: relative;
+			margin: 30px 0 30px 30px;
+			width: 60%;
+			height: 90%;
+			border-radius: 10px;
+			overflow: hidden;
+		}
+		
+		&__imageOverlay {
+			@include box($width: 100%, $height: 100%);
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0) 25%, #121922 100%);
+			z-index: 2;
+		}
+		
+		&__right {
+			position: absolute;
+			top: 15%;
+			left: 40%;
+			z-index: 3;
+		}
+		
+		&__title {
+			@include make-flex($dir: column, $align: flex-start, $just: flex-start);
+		}
+		
+		&__titleText {
+			text-align: left;
+			// font-family: 'Sequel100Black-105';
+			color: #fff;
+			font-size: 6em;
+			line-height: 100%;
+			font-weight: bold;
+			text-align: center;
+			
+			&--green {
+				color: #CAFA08;
+			}
+		}
+		
+		&__description {
+			width: 40%;
+			margin-top: 7%;
+			margin-left: 20%;
+			
+			p {
+				color: #fff;
+				font-family: 'Fraunces';
+				font-style: normal;
+				font-weight: 400;
+			}
+		}
+		
+		&__scrollButtonDiv {
+			@include make-flex($dir: row, $align: center, $just: center);
+			margin-top: 35%;
+			padding: 10px 30px;
+			background: rgba(255, 255, 255, 0.04);
+			border-width: 1px 1px 1px 0px;
+			border-style: solid;
+			border-color: rgba(255, 255, 255, 0.1);
+			box-shadow: 14px 17px 50px rgba(0, 0, 0, 0.25);
+			backdrop-filter: blur(20px);
+			border-radius: 0px 40px 40px 0px;
+			
+			p {
+				color: #fff;
+				font-family: 'Sequel100Black-55';
+			}
+		}
+		
+		&__scrollButtonImage {
+			position: relative;
+			width: 25px;
+			height: 25px;
+			margin-right: 10px;
+		}
+		
+		
+	}
 }
