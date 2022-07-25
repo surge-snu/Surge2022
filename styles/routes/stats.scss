@@ -1,0 +1,80 @@
+@import "../fonts.scss";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&display=swap");
+
+.StatsPage {
+  margin: 1.38vw;
+  &__main {
+    &--topbar {
+      &__title {
+        font-family: "Sequel100Black-105";
+        color: #ffffff;
+        font-size: 1.04vw;
+      }
+      &__content {
+        font-family: "Fraunces", serif;
+        color: #ffffff;
+        font-size: 0.902vw;
+      }
+    }
+    &--stats {
+        margin-left: 5vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        &__content {
+            border-right: 2px solid #789FFF;
+            margin-right: 2.08vw;
+            &--title {
+            margin-top: 4.8611vw;
+
+                margin-right: 2.08vw;
+                display: flex;
+                align-items: center;
+                &__image {
+                    height: 5.55vw;
+                    width: 5.55vw;
+                    margin-right: 2.08vw;
+                }
+                &__desc {
+                    p{
+                        color: #ffffff;
+                        font-family: 'Sequel100Black-96';
+                        font-size: 2.08vw;
+                    }
+                }
+            }
+        }
+        &__data {
+            margin-top: 3vw;
+            &--figures {
+                align-items: center;
+                display: flex;
+                &__content {
+                    .infinite {
+                        font-size: 4.861vw;
+                    }
+                    .descInf {
+                        top: -5.9vw;
+                        left: 3.125vw;
+                    }
+                    &--number {
+                        font-family: 'Sequel100Black-96';
+                        color: #193559;
+                        font-size: 3.472vw;
+                        margin-right: 12vw;
+                        // position: absolute;
+                    }
+                    &--desc{
+                        font-family: 'BLACKHAWK';
+                        color: #C4F750;
+                        font-size: 3.472vw;
+                        position: relative;
+                        top: -4.514vw;
+                        left: 4.861vw;
+                    }
+                }
+            }            
+        }
+    }
+  }
+}

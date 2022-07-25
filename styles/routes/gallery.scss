@@ -1,0 +1,40 @@
+.Gallery {
+  margin: 1.38vw;
+  &__main {
+    &--topbar {
+      &__title {
+        font-family: "Sequel100Black-105";
+        color: #ffffff;
+        font-size: 1.04vw;
+      }
+      &__content {
+        font-family: "Fraunces", serif;
+        color: #ffffff;
+        font-size: 0.902vw;
+      }
+    }
+    &--images{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        &__img {
+            margin: 1vw;
+            width: 45vw;
+        }
+    }
+    &--bottom{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        &__explore{
+            margin-right: 1vw;
+            font-family: 'BLACKHAWK';
+            color: #FE5349;
+            font-size: 3vw;
+        }
+        &__arrow{
+            width: 7vw;
+        }
+    }
+  }
+}

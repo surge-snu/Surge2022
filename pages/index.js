@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import "../styles/routes/Home.scss";
+import Gallery from "./routes/gallery";
+import Stats from "./routes/stats";
 
 export default function Home() {
   return (
@@ -11,7 +13,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Surge 2022!</main>
+      <Stats />
+      <Gallery />
     </div>
   );
 }
