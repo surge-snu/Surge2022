@@ -1,0 +1,82 @@
+@import "./fonts.scss";
+
+$color_1: #fff;
+$color_2: #cafa08;
+$color_3: #789fff;
+$color_4: #111821;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: $color_1;
+}
+.text {
+	margin-right: 50%;
+}
+.heading_section {
+	display: flex;
+}
+.about_container {
+	align-items: center;
+	margin-top: 122px;
+	margin-left: 122px;
+	display: flex;
+}
+.backtext_aboutus {
+	align-items: right;
+	margin-top: 30%;
+	margin-left: 150%;
+	font-family: "Sequel100Black-105";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 120px;
+	line-height: 138.8%;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: $color_3;
+	color: transparent;
+}
+
+.heading_aboutus {
+	margin-left: -1337px;
+	font-family: "Sequel100Black-105";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 60px;
+	line-height: 100px;
+	margin-right: -700px;
+}
+.heading_aboutus span {
+	color: $color_2;
+	font-family: "Sequel100Black-96";
+}
+.paragraph_aboutus {
+	font-family: "Rische Demo";
+	margin-right: -500px;
+	margin-top: 50px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 23px;
+	line-height: 149.5%;
+}
+.button_aboutus {
+	font-family: "Sequel100Black-55";
+	margin-top: 50px;
+	box-sizing: border-box;
+	width: 406px;
+	height: 90px;
+	background: $color_4;
+	border: 2px solid $color_1;
+	border-radius: 100px;
+	font-family: "Sequel100Black-55";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 149.5%;
+	cursor: pointer;
+}
+
+.football {
+	margin-top: -300px;
+	width: fit-content;
+}
