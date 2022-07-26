@@ -1,0 +1,73 @@
+.news {
+  @include make-flex;
+
+  &__letter {
+    @include box($width: 92.7%, $height: 64%);
+    @include make-flex($dir: column);
+    background-color: #0f3fb6;
+    border-radius: 10px;
+    padding: 80px;
+    margin: 80px;
+    background-image: url("../../public/newsletterBG.png");
+    background-size: cover;
+    background-position: center;
+    &__content {
+      @include make-flex($dir: column);
+      &__text {
+        @include make-flex();
+        &--header {
+          font-family: "blackhawk";
+          font-size: 55px;
+          font-weight: 400;
+          color: #cafa08;
+        }
+        &__subscribe {
+          @include make-flex();
+          margin-left: 94px;
+          &--sub {
+            font-family: Sequel100Black-55;
+            font-size: 70px;
+            color: #ffffff;
+          }
+          &--news {
+            font-family: Sequel100Black-95;
+            font-size: 70px;
+            margin-top: -50px;
+            color: #ffffff;
+            text-decoration: underline #cafa08;
+            text-underline-offset: 15px;
+          }
+        }
+      }
+      &__entryField {
+        @include box($width: 807px, $height: 87px);
+        @include make-flex($dir: row);
+        background: #ffffff;
+        margin: 30px;
+        margin-left: 110px;
+        border-radius: 5px;
+        border: 3px;
+        border-color: #000000;
+        border-style: solid;
+        &--textField {
+          @include box($width: 500px);
+          background: white;
+          border: 0px;
+
+          font-family: Sequel100Black-55;
+          outline: none;
+          font-size: 20px;
+          text-align: center;
+          margin-left: 70px;
+        }
+        &--button {
+          @include box($width: 189px, $height: 58px);
+          font-size: 20px;
+          font-family: Sequel100Black-55;
+          border-radius: 7px;
+          background-color: #cafa08;
+        }
+      }
+    }
+  }
+}
