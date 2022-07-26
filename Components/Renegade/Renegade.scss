@@ -1,0 +1,33 @@
+
+.Renegade {
+	@include make-flex($dir: column, $just: space-between, $align: flex-start);
+	width: 100%;
+	
+	&__title {
+		margin-left: 100px;
+		// font-family: 'Sequel100Black-105';
+		font-size: 75px;
+	}
+	
+	&__subtitleDiv {
+		position: absolute;
+		top: 0;
+		right: 74px;
+	}
+	
+	&__subtitle {
+	// font-family: 'Sequel100Black-105';
+		font-size: 40px;
+	}
+	
+	&__subtitle--green {
+		color: #CAFA08;
+	}
+	
+	&__cards {
+		@include make-flex($dir: row, $just: flex-start, $align: flex-start);
+		width: 100%;
+		gap: 20px;
+		overflow-x: auto;
+	}
+}

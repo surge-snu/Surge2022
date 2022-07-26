@@ -1,12 +1,11 @@
 .LandingPage {
-  @include box($height: 100vh);
+  @include box($width: 100vw, $height: 100vh);
   @include make-flex();
 	
 	&__mainContainer {
 		@include make-flex($just: flex-start);
-		width: 100%;
+		@include box($width: 100vw, $height: 100vh);
 		max-width: 1585px;
-		height: 100%;
 		background-color: #0f1621;
 		
 	}
@@ -20,6 +19,7 @@
 		&__background {
 			position: absolute;
 			left: 50%;
+			top: 0;
 			width: 50%;
 			height: 100%;
 			mix-blend-mode: exclusion;

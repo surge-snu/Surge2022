@@ -53,10 +53,12 @@ a {
 }
 
 html,
-body {
+body, 
+#__next {
   @include box(100vw, 100vh);
+	// overflow: auto;
 }
 
-#__next {
-  @include box();
-}
+// #__next {
+//   @include box();
+// }
