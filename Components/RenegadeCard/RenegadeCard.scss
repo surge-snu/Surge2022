@@ -3,6 +3,7 @@
 	@include box($width: 175px, $height: 310px);
 	position: relative;
 	background-color: #193559;
+	flex-shrink: 0;
 	
 	&__image {
 		@include box($width: 75%, $height: 60%);

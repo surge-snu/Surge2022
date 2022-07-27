@@ -1,33 +1,112 @@
 
 .Renegade {
 	@include make-flex($dir: column, $just: space-between, $align: flex-start);
-	width: 100%;
+	position: relative;
+	width: 100vw;
+	padding: 60px 0px 30px 0;
 	
 	&__title {
-		margin-left: 100px;
+		margin: 0 0 100px 50px;
 		// font-family: 'Sequel100Black-105';
 		font-size: 75px;
+		
+		@include respondAt(800px) {
+			margin: 0 0 0 20px;
+			font-size: 60px;
+		}
 	}
 	
 	&__subtitleDiv {
 		position: absolute;
-		top: 0;
+		z-index: 2;
+		top: 10%;
 		right: 74px;
+		text-align: end;
+		
+		@include respondAt(800px) {
+			position: inherit;
+			text-align: start;
+			top: 0;
+			right: 0;
+			margin: 0 0 0 20px;
+		}
 	}
 	
 	&__subtitle {
 	// font-family: 'Sequel100Black-105';
 		font-size: 40px;
+		color: #fff;
+		
+		&--green {
+			color: #CAFA08;
+		}
 	}
 	
-	&__subtitle--green {
-		color: #CAFA08;
+	&__desc {
+		display: none;
+		padding: 30px;
+		
+		@include respondAt(800px) {
+			display: block;
+		}
+		
+		p {
+			color: #fff;
+			font-family: 'Fraunces';
+			font-style: normal;
+			font-weight: 400;
+		}
 	}
 	
 	&__cards {
 		@include make-flex($dir: row, $just: flex-start, $align: flex-start);
-		width: 100%;
+		max-width: 100%;
 		gap: 20px;
 		overflow-x: auto;
+		
+		// ::-webkit-scrollbar {
+		// 	display: none;
+		// 	width: 0px;
+		// 	height: 0px;
+		// }
+		// ::-webkit-scrollbar-thumb {
+		// 	display: none;
+		// }
+		// ::-webkit-scrollbar-track {
+		// 	display: none;
+		// }
+		// ::-webkit-scrollbar-track-piece {
+		// 	display: none;
+		// }
+	}
+	
+	&__explore {
+		@include make-flex($dir: row, $just: flex-end);
+		width: 100%;
+		padding: 5% 3% 2% 0;
+		gap: 20px;
+		
+		p {
+			color: #FE5349;
+			font-family: 'BLACKHAWK';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 25px;
+			
+			@include respondAt(800px) {
+				font-size: 20px;
+			}
+		}
+	}
+	
+	&__rightArrow {
+		position: relative;
+		width: 75px;
+		height: 25px;
+		
+		@include respondAt(800px) {
+			width: 50px;
+			height: 20px;
+		}
 	}
 }
