@@ -66,6 +66,26 @@
       padding-left: 200px;
       // padding-top: 30px;
       padding-bottom: 20px;
+      @include respondAt(1095px) {
+        display: none;
+      }
+    }
+    &--copyrightUnderLogo {
+      @include box(auto, auto);
+      font-family: "Clash Display", sans-serif;
+      display: none;
+
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 22px;
+      text-align: center;
+      color: #787777;
+
+      // padding-top: 30px;
+      padding-bottom: 40px;
+      @include respondAt(1095px) {
+        display: flex;
+      }
     }
   }
 
@@ -95,32 +115,49 @@
         text-decoration: none;
         color: #000;
       }
+    }
 
-      .mailIcon,
-      .callIcon,
-      .SocialMediaHandles {
-        @include make-flex($dir: row);
-        gap: 5px;
-        a {
-          &:hover {
-            color: #ffc107;
-          }
-        }
+    &--socialMedia {
+      font-family: "Poppins", sans-serif;
+      list-style-type: none;
+      @include make-flex($align: flex-start);
+      gap: 8px;
+      a {
+        font-size: 15px;
+        text-decoration: none;
+        color: #000;
       }
+      @include respondAt(1095px) {
+        flex-direction: row;
+        margin-right: 10px;
+      }
+    }
 
-      .SocialMediaHandles {
-        @include make-flex($dir: row, $just: flex-start);
-        @include box(100%, auto);
-        gap: 5px;
-        margin-top: 20px;
-
-        a {
-          img {
-            width: 45px;
-          }
+    .mailIcon,
+    .callIcon,
+    .SocialMediaHandles {
+      @include make-flex($dir: row);
+      gap: 5px;
+      a {
+        &:hover {
+          color: #ffc107;
         }
       }
     }
+
+    .SocialMediaHandles {
+      @include make-flex($dir: row, $just: flex-start);
+      @include box(100%, auto);
+      gap: 5px;
+      margin-top: 20px;
+
+      a {
+        img {
+          width: 45px;
+        }
+      }
+    }
+
     &--rowHeading {
       font-family: "Sequel100Black-65";
 
@@ -130,7 +167,7 @@
       letter-spacing: 0.02em;
       color: #000000;
     }
-    &--socialMedia {
+    &--socialHeading {
       font-family: "Sequel100Black-65";
       width: 25vw;
       font-style: normal;
@@ -139,6 +176,9 @@
       letter-spacing: 0.02em;
       color: #000000;
       padding-left: 60px;
+      @include respondAt(1095px) {
+        display: none;
+      }
     }
     &--rowItem {
       color: #000000;
@@ -150,6 +190,17 @@
     }
     &--rowImage {
       width: 22px;
+    }
+
+    &--socialRow {
+      padding: 9px;
+      @include respondAt(1095px) {
+        padding: 0px;
+      }
+    }
+    &--rowSocials {
+      width: 22px;
+      margin-left: 70px;
     }
   }
 }

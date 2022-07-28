@@ -6,8 +6,8 @@ export default function Demo() {
   return (
     <div>
       <main>Ok</main>
+
       <Footer />
-      <Newsletter />
     </div>
   );
 }

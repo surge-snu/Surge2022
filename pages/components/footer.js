@@ -7,6 +7,9 @@ export default function Footer() {
       <div className="FooterWrapper__container">
         <div className="FooterWrapper__left">
           <p className="FooterWrapper__left--logo"> Surge</p>
+          <p className="FooterWrapper__left--copyrightUnderLogo">
+            © 2022 Surge. Alll Rights Reserved
+          </p>
         </div>
 
         <div className="FooterWrapper__right">
@@ -81,8 +84,34 @@ export default function Footer() {
             </li>
           </ul>
 
-          <ul className="FooterWrapper__right--Service">
-            <li className="FooterWrapper__right--socialMedia">Social Media</li>
+          <ul className="FooterWrapper__right--socialMedia">
+            <li className="FooterWrapper__right--socialHeading">
+              Social Media
+            </li>
+            <li className="FooterWrapper__right--socialRow">
+              <a href="mailto:">
+                <img
+                  className="FooterWrapper__right--rowSocials"
+                  src="instagram.svg"
+                />
+              </a>
+            </li>
+            <li className="FooterWrapper__right--socialRow">
+              <a href="tel:">
+                <img
+                  className="FooterWrapper__right--rowSocials"
+                  src="linkedin.svg"
+                />
+              </a>
+            </li>
+            <li className="FooterWrapper__right--socialRow">
+              <a href="https://www.linkedin.com/snu.xplore/">
+                <img
+                  className="FooterWrapper__right--rowSocials"
+                  src="facebook.svg"
+                />
+              </a>
+            </li>
           </ul>
         </div>
       </div>

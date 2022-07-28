@@ -20,14 +20,24 @@
           font-size: 55px;
           font-weight: 400;
           color: #cafa08;
+
+          @include respondAt(1095px) {
+            font-size: 20px;
+          }
         }
         &__subscribe {
           @include make-flex();
           margin-left: 94px;
+          @include respondAt(1095px) {
+            margin-left: 0px;
+          }
           &--sub {
             font-family: Sequel100Black-55;
             font-size: 70px;
             color: #ffffff;
+            @include respondAt(1095px) {
+              font-size: 31.5px;
+            }
           }
           &--news {
             font-family: Sequel100Black-95;
@@ -36,6 +46,10 @@
             color: #ffffff;
             text-decoration: underline #cafa08;
             text-underline-offset: 15px;
+            @include respondAt(1095px) {
+              font-size: 31.5px;
+              margin-top: -10px;
+            }
           }
         }
       }
