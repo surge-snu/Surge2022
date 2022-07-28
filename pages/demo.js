@@ -7,6 +7,7 @@ export default function Demo() {
     <div>
       <main>Ok</main>
 
+      <Newsletter />
       <Footer />
     </div>
   );
