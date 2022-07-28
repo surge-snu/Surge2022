@@ -1,4 +1,5 @@
 @import "./fonts.scss";
+@import "./mixins";
 
 $color_1: #fff;
 $color_2: #cafa08;
@@ -79,4 +80,57 @@ $color_4: #111821;
 .football {
 	margin-top: -300px;
 	width: fit-content;
+}
+
+@include respondAt(580px) {
+	.text {
+		margin-top: 80vh;
+		margin-right: -85%;
+		margin-left: 70px;
+	}
+	.heading_section {
+		display: flex;
+		flex-direction: column;
+	}
+	.about_container {
+		margin-top: 0px;
+		margin-left: 0px;
+		display: flex;
+	}
+	.backtext_aboutus {
+		align-items: right;
+		margin-top: 0%;
+		margin-left: 0%;
+		margin-bottom: 10px;
+		font-size: 65px;
+	}
+
+	.heading_aboutus {
+		margin-left: 0px;
+		font-size: 70px;
+		line-height: 89px;
+		margin-right: -37rem;
+	}
+	.paragraph_aboutus {
+		margin-right: -35rem;
+		margin-top: 50px;
+		font-size: 36px;
+	}
+	.button_aboutus {
+		margin-top: 50px;
+		background: $color_4;
+		border: 3px solid $color_1;
+		font-size: 30px;
+	}
+	.image {
+		margin-top: -60vh;
+		margin-right: -50rem;
+	}
+	.football {
+		margin-top: 0px;
+		margin-right: 0px;
+		object-position: 450px -200px;
+		overflow-x: hidden;
+		width: fit-content;
+	}
 }
