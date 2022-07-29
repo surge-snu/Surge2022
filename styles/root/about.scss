@@ -1,4 +1,3 @@
-@import "./fonts.scss";
 @import "./mixins";
 
 $color_1: #fff;
@@ -79,7 +78,8 @@ $color_4: #111821;
 
 .football {
 	margin-top: -300px;
-	width: fit-content;
+	object-position: 50px -10px;
+	overflow-x: hidden;
 }
 
 @include respondAt(580px) {

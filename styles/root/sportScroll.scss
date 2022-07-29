@@ -1,11 +1,9 @@
+@import "./mixins";
+
 body {
     align-items: center;
     display: flex;
     margin-top: 45vh;
-}
-
-@mixin gradient {
-    background: linear-gradient(to right, #0f1621 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 $animationSpeed: 20s;
@@ -45,7 +43,6 @@ $animationSpeed: 20s;
 
     &::before,
     &::after {
-        @include gradient;
         content: "";
         height: 100px;
         position: absolute;
@@ -67,5 +64,14 @@ $animationSpeed: 20s;
         animation: scroll $animationSpeed linear infinite;
         display: flex;
         width: calc(500px * 1500);
+    }
+}
+
+@include respondAt(580px) {
+    .sport_text_1 {
+        font-size: 30px;
+    }
+    .sport_text_2 {
+        font-size: 30px;
     }
 }
