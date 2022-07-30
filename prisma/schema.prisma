@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Notify {
+  id        Int      @id @default(autoincrement())
+  email     String   @db.VarChar(100)
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id      String @id @default(uuid())
+  name    String @db.VarChar(100)
+  email   String @unique @db.VarChar(100)
+  college String @db.VarChar(100)
+  role    Role   @default(USER)
+}
+
+model Event {
+  id         String @id @default(uuid())
+  name       String @db.VarChar(100)
+  maxPlayers Int
+  minPlayers Int
+}
+
+enum Role {
+  USER
+  ADMIN
+  ADMIN_SUPER
+}

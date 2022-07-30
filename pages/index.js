@@ -3,6 +3,10 @@ import Image from "next/image";
 import "../styles/routes/Home.scss";
 
 export default function Home() {
+  const handler = async () => {
+    const data = await fetch("/api/notify-list?email=asd");
+    console.log(data);
+  };
   return (
     <div className="container">
       <Head>
@@ -12,6 +16,7 @@ export default function Home() {
       </Head>
 
       <main>Surge 2022!</main>
+      <button onClick={handler}>Ping</button>
     </div>
   );
 }
