@@ -1,112 +1,115 @@
-
 .Renegade {
-	@include make-flex($dir: column, $just: space-between, $align: flex-start);
-	position: relative;
-	width: 100vw;
-	padding: 60px 0px 30px 0;
-	
-	&__title {
-		margin: 0 0 100px 50px;
-		// font-family: 'Sequel100Black-105';
-		font-size: 75px;
-		
-		@include respondAt(800px) {
-			margin: 0 0 0 20px;
-			font-size: 60px;
-		}
-	}
-	
-	&__subtitleDiv {
-		position: absolute;
-		z-index: 2;
-		top: 10%;
-		right: 74px;
-		text-align: end;
-		
-		@include respondAt(800px) {
-			position: inherit;
-			text-align: start;
-			top: 0;
-			right: 0;
-			margin: 0 0 0 20px;
-		}
-	}
-	
-	&__subtitle {
-	// font-family: 'Sequel100Black-105';
-		font-size: 40px;
-		color: #fff;
-		
-		&--green {
-			color: #CAFA08;
-		}
-	}
-	
-	&__desc {
-		display: none;
-		padding: 30px;
-		
-		@include respondAt(800px) {
-			display: block;
-		}
-		
-		p {
-			color: #fff;
-			font-family: 'Fraunces';
-			font-style: normal;
-			font-weight: 400;
-		}
-	}
-	
-	&__cards {
-		@include make-flex($dir: row, $just: flex-start, $align: flex-start);
-		max-width: 100%;
-		gap: 20px;
-		overflow-x: auto;
-		
-		// ::-webkit-scrollbar {
-		// 	display: none;
-		// 	width: 0px;
-		// 	height: 0px;
-		// }
-		// ::-webkit-scrollbar-thumb {
-		// 	display: none;
-		// }
-		// ::-webkit-scrollbar-track {
-		// 	display: none;
-		// }
-		// ::-webkit-scrollbar-track-piece {
-		// 	display: none;
-		// }
-	}
-	
-	&__explore {
-		@include make-flex($dir: row, $just: flex-end);
+  @include make-flex($dir: column, $just: space-between, $align: flex-start);
+  @include box();
+  gap: 20px;
+
+  &__top {
+    @include box($height: unset);
+    max-height: 175px;
+    @include make-flex($align: flex-start, $just: flex-start);
+    position: relative;
+
+    &--outlineTitle {
+      font-family: "Sequel100Black-105";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 120px;
+      line-height: 138.8%;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #789fff;
+      color: transparent;
+      z-index: 1;
+      @include respondAt(975px) {
+        font-size: 60px;
+      }
+	  @include respondAt(580px) {
+        font-size: 9vw;
+      }
+    }
+    &--title {
+      font-family: "Sequel100Black-105";
+      font-size: 60px;
+      position: absolute;
+      width: 65%;
+      text-align: right;
+      top: 0;
+      right: 0;
+      z-index: 2;
+
+      span {
+        color: #cafa08;
+        font-family: "Sequel100Black-96";
+      }
+      @include respondAt(1200px) {
+        font-size: 50px;
+      }
+      @include respondAt(975px) {
+        font-size: 40px;
+      }
+      @include respondAt(805px) {
+        font-size: 30px;
+      }
+      @include respondAt(805px) {
+        position: relative;
+        align-self: flex-end;
+      }
+
+      @include respondAt(600px) {
+        font-size: 5vw;
+      }
+	  @include respondAt(500px) {
 		width: 100%;
-		padding: 5% 3% 2% 0;
-		gap: 20px;
-		
-		p {
-			color: #FE5349;
-			font-family: 'BLACKHAWK';
-			font-style: normal;
-			font-weight: 400;
-			font-size: 25px;
-			
-			@include respondAt(800px) {
-				font-size: 20px;
-			}
-		}
-	}
-	
-	&__rightArrow {
-		position: relative;
-		width: 75px;
-		height: 25px;
-		
-		@include respondAt(800px) {
-			width: 50px;
-			height: 20px;
-		}
-	}
+	  }
+    }
+  }
+
+  &__middle {
+    width: 45%;
+    font-family: "Fraunces", serif;
+    font-size: 19px;
+
+    @include respondAt(940px) {
+      width: 70%;
+    }
+    @include respondAt(500px) {
+      width: 100%;
+	  font-size: 15px;
+    }
+  }
+
+  &__cards {
+    @include make-flex($dir: row, $just: flex-start, $align: flex-start);
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    @include box();
+  }
+
+  &__bottom {
+    @include make-flex($dir: row, $just: flex-end);
+    width: 100%;
+    gap: 20px;
+
+    p {
+      color: #fe5349;
+      font-family: "BLACKHAWK";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+
+      @include respondAt(800px) {
+        font-size: 20px;
+      }
+    }
+    &--arrow {
+      position: relative;
+      width: 75px;
+      height: 25px;
+
+      @include respondAt(800px) {
+        width: 50px;
+        height: 20px;
+      }
+    }
+  }
 }
