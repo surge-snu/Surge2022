@@ -82,9 +82,9 @@ export default function Home() {
             <h1 className="AboutSection__below--title">ABOUT</h1>
           </div>
         </section>
-        {/* <section className="RenegadeSection">
+        <section className="RenegadeSection">
           <Renegade />
-        </section> */}
+        </section>
         <Footer />
       </div>
     </>
