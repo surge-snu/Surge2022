@@ -1,7 +1,7 @@
 .HeaderWrapper {
   @include box(100%, 123px);
   @include make-flex($dir: row);
-  background: rgba(15, 22, 33, 0.75);
+  background: #0f162173;
   backdrop-filter: blur(50px);
   z-index: 999;
   transition: 0.2s;
@@ -18,7 +18,7 @@
 
   @include respondAt(915px) {
     justify-content: space-between;
-    padding: 0 50px 0 35px;
+    padding: 0px 20px 0 8px;
     height: 70px;
   }
 
