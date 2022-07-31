@@ -301,4 +301,22 @@
       margin-top: 80px;
     }
   }
+
+  .StatsSection {
+    @include box(100vw);
+    max-width: 1500px;
+    position: relative;
+    min-height: calc(100vh - 70px);
+    max-height: 710px;
+    margin-top: 50px; 
+    @include make-flex($just: flex-start);
+
+    @include respondAt(1518px) {
+      width: 90vw;
+    }
+    @include respondAt(915px) {
+      min-height: unset;
+      margin-top: 80px;
+    }
+  }
 }

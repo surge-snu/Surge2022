@@ -1,0 +1,102 @@
+.StatsSection {
+  &__top {
+    @include make-flex($align: flex-start);
+    @include box($height: auto);
+    &--title {
+      font-family: "Sequel100Black-105";
+      font-size: 60px;
+
+      span {
+        color: #cafa08;
+        font-family: "Sequel100Black-96";
+      }
+      @include respondAt(1200px) {
+        font-size: 50px;
+      }
+      @include respondAt(975px) {
+        font-size: 40px;
+      }
+      @include respondAt(805px) {
+        font-size: 30px;
+      }
+      @include respondAt(600px) {
+        font-size: 5vw;
+      }
+    }
+
+    &--text {
+      font-family: "Fraunces", serif;
+      font-size: 20px;
+      width: 50%;
+      @include respondAt(1200px) {
+        width: 60%;
+      }
+      @include respondAt(730px) {
+        width: 80%;
+      }
+      @include respondAt(630px) {
+        width: 100%;
+      }
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &__bottom {
+    @include box($height: 545px);
+    @include make-flex($dir: row);
+
+    &--left {
+      @include box(30%);
+      @include make-flex($just: space-evenly, $align: flex-start);
+    }
+    &--right {
+      @include box(70%);
+    }
+    &--middle {
+      @include box(0px, 55%);
+      border-right: 2px solid #789fff;
+    }
+  }
+
+  &__left {
+    &--row {
+      @include make-flex($dir: row, $just: flex-start);
+      gap: 20px;
+
+      h2 {
+        color: #ffffff;
+        font-family: "Sequel100Black-96";
+        font-size: 33px;
+      }
+      img {
+        height: 50px;
+      }
+    }
+  }
+
+  &__right {
+    &--row {
+      @include box($height: 33%);
+      @include make-flex($just: space-evenly, $dir: row);
+    }
+    &--item {
+      position: relative;
+
+      h3 {
+        font-size: 55px;
+        font-family: "Sequel100Black-96";
+        color: #193559;
+      }
+      span {
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        color: #cafa08;
+        font-family: "BLACKHAWK";
+        font-size: 50px;
+      }
+    }
+  }
+}

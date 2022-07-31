@@ -5,6 +5,7 @@ import Header from "../Components/Header/Header";
 import SportScroll from "../Components/SportScroll/SportScroll";
 import "../styles/routes/Home.scss";
 import Footer from "../Components/Footer/Footer";
+import Stats from "../Components/Stats/stats";
 
 export default function Home() {
   const handler = async () => {
@@ -84,6 +85,9 @@ export default function Home() {
         </section>
         <section className="RenegadeSection">
           <Renegade />
+        </section>
+        <section className="StatsSection">
+          <Stats />
         </section>
         <Footer />
       </div>
