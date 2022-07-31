@@ -1,0 +1,70 @@
+$animationSpeed: 20s;
+
+.slider {
+  text-align: center;
+  vertical-align: middle;
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 60px 0;
+
+  @include respondAt(916px) {
+    margin: 30px 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    min-width: 500px;
+    z-index: 2;
+  }
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  &__track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(500px * 1500);
+
+    &--item {
+      padding: 0 60px;
+    }
+
+    &--type1 {
+      font-size: 80px;
+      font-family: "BLACKHAWK";
+      color: #5284ff;
+
+      @include respondAt(580px) {
+        font-size: 30px;
+      }
+    }
+    &--type2 {
+      font-size: 80px;
+      font-family: "BLACKHAWK";
+      color: #cafa08;
+      @include respondAt(580px) {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 10));
+  }
+}
