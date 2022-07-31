@@ -4,7 +4,7 @@
   @include box(100%, 350px);
   background: #fefeff;
   padding: 20px;
-  @include respondAt(1145px) {
+  @include respondAt(1165px) {
     height: auto;
     gap: 10px;
   }
