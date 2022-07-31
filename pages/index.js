@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import Renegade from "../components/Renegade/Renegade";
+
+import Header from "../Components/Header/Header";
+import SportScroll from "../Components/SportScroll/SportScroll";
 import "../styles/routes/Home.scss";
  
 export default function Home() {

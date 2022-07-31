@@ -1,0 +1,4 @@
+.HeaderWrapper {
+  @include box(100%, 190px);
+  @include make-flex($just: space-between);
+}

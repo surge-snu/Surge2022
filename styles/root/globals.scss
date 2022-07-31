@@ -48,7 +48,7 @@ a {
   }
   body {
     color: white;
-    background: #0F1621;
+    background: #0f1621;
   }
 }
 
@@ -57,6 +57,7 @@ body,
 #__next {
   @include box(100vw, 100vh);
 	// overflow: auto;
+  background-color: #0f1621;
 }
 
 // #__next {
