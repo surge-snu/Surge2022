@@ -48,13 +48,14 @@ a {
   }
   body {
     color: white;
-    background: #0F1621;
+    background: #0f1621;
   }
 }
 
 html,
 body {
   @include box(100vw, 100vh);
+  background-color: #0f1621;
 }
 
 #__next {
