@@ -3,7 +3,7 @@
   @include make-flex($dir: row);
   background: rgba(15, 22, 33, 0.75);
   backdrop-filter: blur(50px);
-  z-index: 1;
+  z-index: 999;
   transition: 0.2s;
   position: fixed;
   padding: 0 20px;

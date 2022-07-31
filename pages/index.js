@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Renegade from "../Components/Renegade/Renegade";
 
 import Header from "../Components/Header/Header";
@@ -53,6 +52,35 @@ export default function Home() {
           </div>
         </section>
         <SportScroll />
+        <section className="AboutSection">
+          <div className="AboutSection__above">
+            <h1 className="AboutSection__above--title">
+              THE{" "}
+              <span>
+                ANUAL SPORTS <br />
+                FEST{" "}
+              </span>
+              OF SHIV NADAR <br />
+              UNIVERSITY
+            </h1>
+          
+            <p className="AboutSection__above--text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud
+            </p>
+            <a className="AboutSection__above--fancyLink" href="/team">
+              MEET THE TEAM
+            </a>
+          </div>
+          <div className="AboutSection__below">
+            <img
+              className="AboutSection__below--image"
+              src="/Img/football.svg"
+            />
+            <h1 className="AboutSection__below--title">ABOUT</h1>
+          </div>
+        </section>
         {/* <section className="RenegadeSection">
           <Renegade />
         </section> */}
