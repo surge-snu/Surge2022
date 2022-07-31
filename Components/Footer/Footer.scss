@@ -1,5 +1,6 @@
 .FooterWrapper {
   @include make-flex();
+  margin-top: 50px;
   @include box(100%, 350px);
   background: #fefeff;
   padding: 20px;

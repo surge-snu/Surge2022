@@ -4,6 +4,7 @@ import Renegade from "../Components/Renegade/Renegade";
 import Header from "../Components/Header/Header";
 import SportScroll from "../Components/SportScroll/SportScroll";
 import "../styles/routes/Home.scss";
+import Footer from "../Components/Footer/Footer";
 
 export default function Home() {
   const handler = async () => {
@@ -63,7 +64,7 @@ export default function Home() {
               OF SHIV NADAR <br />
               UNIVERSITY
             </h1>
-          
+
             <p className="AboutSection__above--text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -84,6 +85,7 @@ export default function Home() {
         {/* <section className="RenegadeSection">
           <Renegade />
         </section> */}
+        <Footer />
       </div>
     </>
   );
