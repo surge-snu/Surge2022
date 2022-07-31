@@ -11,7 +11,7 @@ export default function Stats() {
           Lorem Epsime rafdrw e kdsd fdosm Lorem Epsime rafdrw e kdsd fdosm
         </p>
       </div>
-      <div className="StatsSection__bottom">
+      <div className="StatsSection__bottom--desktop">
         <div className="StatsSection__bottom--left">
           <div className="StatsSection__left--row">
             <img src="/Img/circle.png" />
@@ -70,6 +70,20 @@ export default function Stats() {
               <span>FUN</span>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="StatsSection__bottom--mobile">
+        <div className="StatsSection__mobile--item">
+          <h3>130+</h3>
+          <span>EVENTS</span>
+        </div>
+        <div className="StatsSection__mobile--item">
+          <h3>20+</h3>
+          <span>FACULTY</span>
+        </div>
+        <div className="StatsSection__mobile--item">
+          <h3>100+</h3>
+          <span>SPORTS</span>
         </div>
       </div>
     </>

@@ -307,7 +307,6 @@
     max-width: 1500px;
     position: relative;
     min-height: calc(100vh - 70px);
-    max-height: 710px;
     margin-top: 50px; 
     @include make-flex($just: flex-start);
 
