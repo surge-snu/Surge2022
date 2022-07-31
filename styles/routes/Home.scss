@@ -1,4 +1,5 @@
-.container {
-  @include box();
+.LandingPage {
   @include make-flex();
+  @include box();
+  
 }
