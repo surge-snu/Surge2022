@@ -4,11 +4,11 @@ import Footer from "./components/Footer/Footer";
 
 export default function Demo() {
   return (
-    <div>
+    <>
       <main>Ok</main>
 
       {/* <Newsletter /> */}
       <Footer />
-    </div>
+    </>
   );
 }

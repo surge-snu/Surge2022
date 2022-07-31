@@ -1,17 +1,16 @@
-
 .FooterWrapper {
   @include make-flex();
   @include box(100%, 350px);
   background: #fefeff;
+  padding: 20px;
   @include respondAt(840px) {
     height: auto;
   }
 
   &__container {
-    @include make-flex($dir: row, $just: none);
+    @include make-flex($dir: row, $just: space-between);
     @include box($height: 95%);
-    max-width: 1585px;
-    padding: 0px 170px;
+    max-width: 1500px;
 
     @include respondAt(1525px) {
       padding: 0 130px;
@@ -33,7 +32,7 @@
   }
 
   &__left {
-    @include box(40%);
+    @include box(35%);
     @include make-flex($align: flex-start, $just: flex-start);
     gap: 20px;
 
@@ -49,8 +48,7 @@
       font-family: "Sequel100Black-65";
       font-weight: 600;
       font-size: 3.5rem;
-      padding: 0 10px;
-      margin-top: 58px;
+      color: #000;
     }
 
     &--Copyright {
@@ -62,9 +60,6 @@
       line-height: 22px;
       text-align: center;
       color: #787777;
-      padding-left: 200px;
-      // padding-top: 30px;
-      padding-bottom: 20px;
       @include respondAt(1095px) {
         display: none;
       }
@@ -91,8 +86,8 @@
   &__right {
     @include make-flex($dir: row, $just: space-between, $align: flex-start);
     gap: 80px;
-    @include box(50%);
-    padding: 70px 0;
+    @include box(unset);
+    padding-top: 30px;
 
     @include respondAt(1095px) {
       width: 69%;
@@ -174,32 +169,22 @@
       font-weight: 500;
       letter-spacing: 0.02em;
       color: #000000;
-      padding-left: 60px;
-      @include respondAt(1095px) {
-        display: none;
-      }
     }
     &--rowItem {
       color: #000000;
       font-family: "Sequel100Black-55";
+
+      a {
+        height: 100%;
+      }
     }
 
     &--RowIcon {
-      padding: 9px;
-    }
-    &--rowImage {
-      width: 22px;
-    }
-
-    &--socialRow {
-      padding: 9px;
-      @include respondAt(1095px) {
-        padding: 0px;
+      @include make-flex($dir: row);
+      gap: 10px;
+      img{
+        height: 20px;
       }
-    }
-    &--rowSocials {
-      width: 22px;
-      margin-left: 70px;
     }
   }
 }

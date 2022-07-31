@@ -61,54 +61,58 @@ export default function Footer() {
           <ul className="FooterWrapper__right--Service">
             <li className="FooterWrapper__right--rowHeading">Contacts</li>
             <li className="FooterWrapper__right--RowIcon">
-              <a href="mailto:">
-                <img
-                  className="FooterWrapper__right--rowImage"
-                  src="mail.svg"
-                />
+              <img className="FooterWrapper__right--rowImage" src="mail.svg" />
+              <a className="FooterWrapper__right--rowItem" href="mailto:">
+                snusurge@gmai.com
               </a>
             </li>
             <li className="FooterWrapper__right--RowIcon">
-              <a href="tel:">
-                <img
-                  className="FooterWrapper__right--rowImage"
-                  src="phone.svg"
-                />
+              <img className="FooterWrapper__right--rowImage" src="phone.svg" />
+              <a className="FooterWrapper__right--rowItem" href="tel:">
+                9999999999
               </a>
             </li>
             <li className="FooterWrapper__right--RowIcon">
-              <a href="https://www.linkedin.com/snu.xplore/">
-                <img className="FooterWrapper__right--rowImage" src="map.svg" />
+              <img className="FooterWrapper__right--rowImage" src="map.svg" />
+              <a
+                className="FooterWrapper__right--rowItem"
+                href="https://www.linkedin.com/snu.xplore/"
+              >
+                Delhi, Noida
               </a>
             </li>
           </ul>
 
-          <ul className="FooterWrapper__right--socialMedia">
-            <li className="FooterWrapper__right--socialHeading">
-              Social Media
-            </li>
-            <li className="FooterWrapper__right--socialRow">
-              <a href="mailto:">
-                <img
-                  className="FooterWrapper__right--rowSocials"
-                  src="instagram.svg"
-                />
+          <ul className="FooterWrapper__right--Service">
+            <li className="FooterWrapper__right--rowHeading">Social Media</li>
+            <li className="FooterWrapper__right--RowIcon">
+              <img
+                className="FooterWrapper__right--RowIcon"
+                src="instagram.svg"
+              />
+              <a className="FooterWrapper__right--rowItem" href="#">
+                Instagram
               </a>
             </li>
-            <li className="FooterWrapper__right--socialRow">
-              <a href="tel:">
-                <img
-                  className="FooterWrapper__right--rowSocials"
-                  src="linkedin.svg"
-                />
+            <li className="FooterWrapper__right--RowIcon">
+              <img
+                className="FooterWrapper__right--RowIcon"
+                src="linkedin.svg"
+              />
+              <a className="FooterWrapper__right--rowItem" href="#">
+                LinkedIn
               </a>
             </li>
-            <li className="FooterWrapper__right--socialRow">
-              <a href="https://www.linkedin.com/snu.xplore/">
-                <img
-                  className="FooterWrapper__right--rowSocials"
-                  src="facebook.svg"
-                />
+            <li className="FooterWrapper__right--RowIcon">
+              <img
+                className="FooterWrapper__right--RowIcon"
+                src="facebook.svg"
+              />
+              <a
+                className="FooterWrapper__right--rowItem"
+                href="https://www.linkedin.com/snu.xplore/"
+              >
+                Facebook
               </a>
             </li>
           </ul>
