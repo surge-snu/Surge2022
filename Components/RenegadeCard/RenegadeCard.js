@@ -1,41 +1,25 @@
 import React from "react";
+import "./RenegadeCard.scss";
 
 export default function RenegadeCard() {
-	return (
-		<div className="RenegadeCard">
-			<div className="RenegadeCard__image">
-			</div>
-			<div className="RenegadeCard__caption">
-				<p>SURGE23</p>
-				<div className="RenegadeCard__versus">
-					<p>avee</p>
-					<p>SNU</p>
-					<p>vs</p>
-					<p>AMITY</p>
-				</div>
-			</div>
-			<div className="RenegadeCard__title">
-				<h3>BATTLE</h3>
-				<p>MAGNITE</p>
-			</div>
-			<div className="RenegadeCard__subtitle">
-				<h3>BREEZE 23</h3>
-			</div>
-			<div className="RenegadeCard__date">
-				<p>23rd March 2023</p>
-			</div>
-			<div className="RenegadeCard__topRight">
-				<p>10/10</p>
-			</div>
-			<div className="RenegadeCard__middleRight">
-				<p>BATTLE SNU</p>
-			</div>
-			<div className="RenegadeCard__bottomRight">
-				<p>lorem ipsum</p>
-			</div>
-			<div className="RenegadeCard__bottomLeft">
-				<p>Lorem ipsum dolor sit amet.</p>
-			</div>
-		</div>
-	);
+  return (
+    <div className="RenegadeCard">
+      <div className="RenegadeCard__top">
+        <div className="RenegadeCard__top--left"></div>
+        <div className="RenegadeCard__top--middle"></div>
+        <div className="RenegadeCard__top--right">
+          <span>10/10</span>
+          <span>BATTLE SNU</span>
+        </div>
+      </div>
+      <div className="RenegadeCard__bottom">
+        <div className="RenegadeCard__bottom--teams">
+          SNU <span>VS</span> AMITY
+        </div>
+        <div className="RenegadeCard__bottom--eventTitle">BATTLE MAGNITE</div>
+        <div className="RenegadeCard__bottom--eventEra">BREEZE 22</div>
+        <div className="RenegadeCard__bottom--timeline">23rd March 2023</div>
+      </div>
+    </div>
+  );
 }
