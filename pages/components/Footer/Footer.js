@@ -1,5 +1,4 @@
-import "../../styles/root/footer.scss";
-import phone from "../../public/phone.svg";
+import "./Footer.scss";
 
 export default function Footer() {
   return (
