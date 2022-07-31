@@ -36,3 +36,11 @@
   align-items: $align;
   justify-content: $just;
 }
+
+$screen-sm-max: 400px;
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-max}) {
+      @content;
+  }
+}
