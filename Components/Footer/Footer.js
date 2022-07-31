@@ -61,19 +61,19 @@ export default function Footer() {
           <ul className="FooterWrapper__right--Service">
             <li className="FooterWrapper__right--rowHeading">Contacts</li>
             <li className="FooterWrapper__right--RowIcon">
-              <img className="FooterWrapper__right--rowImage" src="mail.svg" />
+              <img className="FooterWrapper__right--rowImage" src="/Img/mail.svg" />
               <a className="FooterWrapper__right--rowItem" href="mailto:">
                 snusurge@gmai.com
               </a>
             </li>
             <li className="FooterWrapper__right--RowIcon">
-              <img className="FooterWrapper__right--rowImage" src="phone.svg" />
+              <img className="FooterWrapper__right--rowImage" src="/Img/phone.svg" />
               <a className="FooterWrapper__right--rowItem" href="tel:">
                 9999999999
               </a>
             </li>
             <li className="FooterWrapper__right--RowIcon">
-              <img className="FooterWrapper__right--rowImage" src="map.svg" />
+              <img className="FooterWrapper__right--rowImage" src="/Img/map.svg" />
               <a
                 className="FooterWrapper__right--rowItem"
                 href="https://www.linkedin.com/snu.xplore/"
@@ -88,7 +88,7 @@ export default function Footer() {
             <li className="FooterWrapper__right--RowIcon">
               <img
                 className="FooterWrapper__right--RowIcon"
-                src="instagram.svg"
+                src="/Img/instagram.svg"
               />
               <a className="FooterWrapper__right--rowItem" href="#">
                 Instagram
@@ -97,7 +97,7 @@ export default function Footer() {
             <li className="FooterWrapper__right--RowIcon">
               <img
                 className="FooterWrapper__right--RowIcon"
-                src="linkedin.svg"
+                src="/Img/linkedin.svg"
               />
               <a className="FooterWrapper__right--rowItem" href="#">
                 LinkedIn
@@ -106,7 +106,7 @@ export default function Footer() {
             <li className="FooterWrapper__right--RowIcon">
               <img
                 className="FooterWrapper__right--RowIcon"
-                src="facebook.svg"
+                src="/Img/facebook.svg"
               />
               <a
                 className="FooterWrapper__right--rowItem"
