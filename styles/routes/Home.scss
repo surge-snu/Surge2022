@@ -1,5 +1,4 @@
 .LandingPage {
-  @include make-flex();
+  @include make-flex($just: flex-start);
   @include box();
-  
 }
