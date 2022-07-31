@@ -1,23 +1,155 @@
 .LandingPage {
-  @include make-flex($just: flex-start);
   @include make-flex($dir: column, $just: flex-start);
-  width: 100vw;
-  min-height: 100vh;
-  max-width: 1500px;
+  @include box($height: unset);
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #0f1621;
 
   .HeroSection {
-    width: 100vw;
-    height: 100vh;
+    @include box(100vw, calc(100vh - 123px));
+    max-width: 1500px;
     position: relative;
-    @include make-flex($dir: row, $just: flex-start);
+    margin-top: 123px;
+    max-height: 710px;
+    @include make-flex($dir: row);
 
-    @include respondAt(800px) {
-      align-items: flex-start;
-      height: 50vh;
-      padding-top: 30px;
+    @include respondAt(1518px) {
+      width: 90vw;
+    }
+
+    @include respondAt(915px) {
+      margin-top: 70px;
+    }
+
+    @include respondAt(510px){
+      height: calc(80vh - 123px);
+    }
+    &__left {
+      @include box(65%);
+      border-radius: 30px 0 0 30px;
+      position: relative;
+
+      &::after {
+        top: 0;
+        left: 0;
+        content: "";
+        @include box();
+        position: absolute;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0) 25%,
+          #121922d8 100%
+        );
+      }
+
+      @include respondAt(810px) {
+        width: 100%;
+        border-radius: 20px;
+      }
+    }
+    &__right {
+      @include box(35%);
+      mix-blend-mode: exclusion;
+      transform: rotate(179.5deg);
+      object-fit: cover;
+
+      @include respondAt(810px) {
+        display: none;
+      }
+    }
+
+    &__top {
+      @include box();
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include make-flex($align: flex-end);
+      gap: 60px;
+
+      &--heading {
+        font-family: "Sequel100Black-105";
+        color: #fff;
+        font-size: 75px;
+        line-height: 100%;
+        font-weight: bold;
+        padding-right: 10%;
+
+        span {
+          color: #cafa08;
+        }
+
+        @include respondAt(1070px) {
+          font-size: 60px;
+        }
+
+        @include respondAt(810px) {
+          padding: 0 20px;
+          width: 100%;
+        }
+        @include respondAt(735px) {
+          font-size: 50px;
+        }
+        @include respondAt(620px) {
+          font-size: 40px;
+        }
+        @include respondAt(510px) {
+          font-size: 7.5vw;
+        }
+      }
+
+      &--text {
+        padding-right: 10%;
+        width: 50%;
+        font-family: "Fraunces", serif;
+        font-size: 19px;
+        @include respondAt(1070px) {
+          width: 60%;
+        }
+
+        @include respondAt(810px) {
+          padding: 0 20px;
+          width: 100%;
+        }
+        @include respondAt(510px) {
+          font-size: 15px;
+        }
+      }
+
+      &--actionContainer {
+        width: 35%;
+        @include make-flex($align: flex-start);
+        @include respondAt(810px) {
+          width: 100%;
+          padding: 0 20px;
+          align-items: flex-end;
+        }
+        @include respondAt(510px) {
+          align-items: center;
+        }
+      }
+
+      &--action {
+        @include make-flex($dir: row);
+        height: 50px;
+        background: rgba(255, 255, 255, 0.04);
+        border-width: 1px 1px 1px 0px;
+        border-style: solid;
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 14px 17px 50px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(20px);
+        border-radius: 0px 40px 40px 0px;
+        padding: 10px 20px 10px 10px;
+        gap: 10px;
+        font-family: "Sequel100Black-55";
+
+        img {
+          height: 100%;
+        }
+
+        @include respondAt(810px) {
+          border-radius: 40px;
+        }
+      }
     }
 
     &__background {
@@ -57,7 +189,7 @@
       z-index: 2;
     }
 
-    &__right {
+    &__rightOld {
       position: absolute;
       top: 15%;
       left: 40%;
@@ -83,7 +215,7 @@
 
     &__titleText {
       text-align: left;
-      // font-family: 'Sequel100Black-105';
+      font-family: "Sequel100Black-105";
       color: #fff;
       font-size: 75px;
       line-height: 100%;
