@@ -54,7 +54,7 @@ export default function Home() {
           </div>
         </section>
         <SportScroll />
-        <section className="AboutSection">
+        <section className="AboutSection" id="about">
           <div className="AboutSection__above">
             <h1 className="AboutSection__above--title">
               THE{" "}
@@ -83,7 +83,7 @@ export default function Home() {
             <h1 className="AboutSection__below--title">ABOUT</h1>
           </div>
         </section>
-        <section className="RenegadeSection">
+        <section className="RenegadeSection" id="events">
           <Renegade />
         </section>
         <section className="StatsSection">

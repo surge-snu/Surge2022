@@ -291,6 +291,7 @@
     position: relative;
     min-height: 100vh;
     max-height: 710px;
+    margin-top: 70px;
     @include make-flex($dir: row);
 
     @include respondAt(1518px) {

@@ -2,7 +2,7 @@ import "./Footer.scss";
 
 export default function Footer() {
   return (
-    <div className="FooterWrapper">
+    <div className="FooterWrapper" id="contact">
       <div className="FooterWrapper__container">
         <div className="FooterWrapper__left">
           <p className="FooterWrapper__left--logo"> Surge</p>

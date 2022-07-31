@@ -4,6 +4,7 @@ import "./Header.scss";
 
 function Header() {
   const [navState, setNavState] = React.useState(false);
+  const [hash, setHash] = React.useState("");
   const router = useRouter();
 
   React.useEffect(() => {
@@ -19,6 +20,15 @@ function Header() {
       window.removeEventListener("scroll", () => {});
     };
   });
+
+  React.useEffect(() => {
+    window.onhashchange = () => {
+
+      setHash(window.location.hash);
+      console.log(window.location.hash);
+    };
+  }, []);
+
   return (
     <div className="HeaderWrapper">
       <span className="HeaderWrapper__logo">
@@ -31,29 +41,22 @@ function Header() {
       >
         <ul className="HeaderWrapper__MenuList--left">
           <li className="HeaderWrapper__MenuList--item">
-            <a
-              href="#"
-              className={`${router.pathname === "/" ? "route--active" : ""} `}
-            >
+            <a href="/" className={`${hash === "" ? "route--active" : ""} `}>
               Home
             </a>
           </li>
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#"
-              className={`${
-                router.pathname === "/about" ? "route--active" : ""
-              } `}
+              href="#about"
+              className={`${hash === "#about" ? "route--active" : ""} `}
             >
               About
             </a>
           </li>
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#"
-              className={`${
-                router.pathname === "/gallery" ? "route--active" : ""
-              } `}
+              href="#gallery"
+              className={`${hash === "#gallery" ? "route--active" : ""} `}
             >
               Gallery
             </a>
@@ -65,30 +68,24 @@ function Header() {
         <ul className="HeaderWrapper__MenuList--right">
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#"
-              className={`${
-                router.pathname === "/events" ? "route--active" : ""
-              } `}
+              href="#events"
+              className={`${hash === "#events" ? "route--active" : ""} `}
             >
               Events
             </a>
           </li>
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#"
-              className={`${
-                router.pathname === "/contact" ? "route--active" : ""
-              } `}
+              href="#contact"
+              className={`${hash === "#contact" ? "route--active" : ""} `}
             >
               Contact
             </a>
           </li>
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#"
-              className={`${
-                router.pathname === "/privacy" ? "route--active" : ""
-              } `}
+              href="#privacy"
+              className={`${hash === "#privacy" ? "route--active" : ""} `}
             >
               Privacy
             </a>
