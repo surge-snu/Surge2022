@@ -1,4 +1,4 @@
-import Renegade from "../components/Renegade/Renegade";
+import Renegade from "../Components/Renegade/Renegade";
 
 
 export default function demo() {
