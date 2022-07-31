@@ -1,4 +1,197 @@
 .HeaderWrapper {
-  @include box(100%, 190px);
-  @include make-flex($just: space-between);
+  @include box(100%, 123px);
+  @include make-flex($dir: row);
+  position: relative;
+  padding: 0 20px;
+  #NavBarInput,
+  .hamButton {
+    display: none;
+  }
+
+  @include respondAt(1090px) {
+    padding: 0 10px;
+  }
+
+  @include respondAt(915px) {
+    justify-content: space-between;
+    padding: 0 50px 0 35px;
+  }
+
+  &__logo {
+    display: none;
+    font-family: "Sequel100Black-55";
+    font-size: 28px;
+    a {
+      padding: 8px 10px 5px 10px;
+    }
+    @include respondAt(915px) {
+      display: block;
+    }
+  }
+
+  &__Menu {
+    gap: 20px;
+    max-width: 1500px;
+    @include box();
+    @include make-flex($dir: row, $just: space-around);
+    @include respondAt(915px) {
+      top: 0;
+      right: 0;
+      gap: unset;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      max-width: 290px;
+      flex-direction: column;
+      padding: 123px 14px 0 24px;
+      background-color: #0f1621;
+      justify-content: flex-start;
+      transform: translateX(100%);
+      border-left: 4px solid #cafa0a;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+      &--open {
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  &__MenuList {
+    @include box();
+    @include make-flex($just: space-between, $dir: row);
+    &--item {
+      list-style: none;
+      min-width: 103px;
+
+      @include respondAt(915px) {
+        width: 100%;
+        height: 45px;
+      }
+    }
+
+    &--center {
+      font-family: "Sequel100Black-55";
+      font-size: 28px;
+
+      @include respondAt(915px) {
+        display: none;
+      }
+    }
+
+    &--left,
+    &--right {
+      gap: 20px;
+      font-size: 19px;
+      @include box(35%);
+      font-family: "Sequel100Black-55";
+      @include make-flex($just: space-between, $dir: row);
+
+      @include respondAt(1090px) {
+        width: 40%;
+      }
+
+      @include respondAt(915px) {
+        width: 100%;
+        flex-direction: column;
+        height: unset;
+        gap: 10px;
+        justify-content: space-evenly;
+      }
+      a {
+        padding: 8px 10px 5px 10px;
+        position: relative;
+        z-index: 1;
+
+        @include respondAt(915px) {
+          width: 100%;
+        }
+        &:hover {
+          background-color: #cafa0a;
+          color: #0f1621;
+
+          &:before {
+            z-index: -1;
+            @include box();
+            content: "";
+            position: absolute;
+            background-color: #ffffff;
+            bottom: -5px;
+            right: -5px;
+          }
+        }
+      }
+
+      .route--active {
+        background-color: #cafa0a;
+        color: #0f1621;
+
+        &:before {
+          z-index: -1;
+          @include box();
+          content: "";
+          position: absolute;
+          background-color: #ffffff;
+          bottom: -5px;
+          right: -5px;
+        }
+      }
+    }
+  }
+
+  &__Hamburger {
+    @include respondAt(915px) {
+      height: 28px;
+      width: 28px;
+      z-index: 2;
+    }
+  }
+  #NavBarInput {
+    @include respondAt(915px) {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      height: 28px;
+      margin: 0;
+      width: 28px;
+    }
+  }
+  .hamButton {
+    @include respondAt(915px) {
+      z-index: 1;
+      width: auto;
+      height: 28px;
+      @include make-flex();
+      label {
+        height: 100%;
+        margin: unset;
+        @include make-flex($just: space-around);
+        span {
+          width: 28px;
+          display: block;
+          transform-origin: 4px 0px;
+          transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+          border-top: 3px solid rgb(255, 255, 255);
+          border-radius: 10px;
+          &:first-child {
+            transform-origin: 0% 0%;
+          }
+          &:nth-last-child(2) {
+            transform-origin: 0% 100%;
+          }
+        }
+      }
+    }
+  }
+
+  #NavBarInput:checked ~ .hamButton > label > .span.HL1 {
+    opacity: 1;
+    transform: rotate(45deg) translate(3px, -4px);
+  }
+  #NavBarInput:checked ~ .hamButton > label > .span.HL2 {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  #NavBarInput:checked ~ .hamButton > label > .span.HL3 {
+    transform: rotate(-45deg) translate(4px, 0px);
+  }
 }
