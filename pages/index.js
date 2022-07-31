@@ -4,6 +4,10 @@ import Renegade from "../components/Renegade/Renegade";
 import "../styles/routes/Home.scss";
  
 export default function Home() {
+  const handler = async () => {
+    const data = await fetch("/api/notify-list?email=asd");
+    console.log(data);
+  };
   return (
     <div className="LandingPage">
       <Head>

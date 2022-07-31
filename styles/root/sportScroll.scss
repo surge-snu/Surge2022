@@ -1,0 +1,77 @@
+@import "./mixins";
+
+body {
+    align-items: center;
+    display: flex;
+    margin-top: 45vh;
+}
+
+$animationSpeed: 20s;
+
+// Animation
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 10));
+    }
+}
+.slide {
+    padding: 0 60px;
+}
+
+// Styling
+.sport_text_1 {
+    font-size: 80px;
+    font-family: "BLACKHAWK";
+    color: #5284ff;
+}
+.sport_text_2 {
+    font-size: 80px;
+    font-family: "BLACKHAWK";
+    color: #cafa08;
+}
+.slider {
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+        content: "";
+        height: 100px;
+        position: absolute;
+        width: 500px;
+        z-index: 2;
+    }
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    .slide-track {
+        animation: scroll $animationSpeed linear infinite;
+        display: flex;
+        width: calc(500px * 1500);
+    }
+}
+
+@include respondAt(580px) {
+    .sport_text_1 {
+        font-size: 30px;
+    }
+    .sport_text_2 {
+        font-size: 30px;
+    }
+}
