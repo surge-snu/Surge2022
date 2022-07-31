@@ -1,8 +1,14 @@
-import Renegade from "../Components/Renegade/Renegade";
+import "../styles/routes/Home.scss";
+import Footer from "./components/Footer/Footer";
+// import Newsletter from "./Components/newsletter";
 
+export default function Demo() {
+  return (
+    <>
+      <main>Ok</main>
 
-export default function demo() {
-	return (
-		<Renegade />
-	);
+      {/* <Newsletter /> */}
+      <Footer />
+    </>
+  );
 }
