@@ -5,7 +5,20 @@ import "./Header.scss";
 function Header() {
   const [navState, setNavState] = React.useState(false);
   const router = useRouter();
-  console.log(router.pathname);
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 1) {
+        document.querySelector(".HeaderWrapper").style.height = "70px";
+      } else {
+        document.querySelector(".HeaderWrapper").style.height = "";
+      }
+    });
+
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  });
   return (
     <div className="HeaderWrapper">
       <span className="HeaderWrapper__logo">
