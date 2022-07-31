@@ -1,0 +1,108 @@
+
+.RenegadeCard {
+	@include box($width: 175px, $height: 310px);
+	position: relative;
+	background-color: #193559;
+	flex-shrink: 0;
+	
+	&__image {
+		@include box($width: 75%, $height: 60%);
+		background-color: #fff;
+		margin: 10% auto 0;
+	}
+	
+	&__caption {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir:row, $just: space-evenly, $align: center);
+		margin-top: 7px;
+		
+		p {
+			color: #fff;
+			font-size: small;
+		}
+	}
+	
+	&__versus {
+		@include box($width: fit-content, $height: fit-content);
+		@include make-flex($dir: row, $just: center, $align: center);
+		gap: 3px;
+		
+		p {
+			color: #fff;
+			font-size: xx-small;
+		}
+	}
+	
+	&__title {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir: column, $just: center, $align: center);
+		margin: 8px 0;
+		gap: 3px;
+		
+		h3, p {
+			color: #fff;
+			line-height: 0.8;
+		}
+		p {
+			font-size: x-small;
+			font-weight: 800;
+		}
+	}
+	
+	&__subtitle {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir: column, $just: center, $align: center);
+		margin-top: 8px;
+		
+		h3 {
+			color: #fff;
+			line-height: 0.8;
+		}
+	}
+	
+	&__date {
+		@include box($width: fit-content, $height: fit-content);
+		@include make-flex($dir: column, $just: center, $align: center);
+		margin: 5px auto;
+		padding: 0 15px;
+		background-color: #C4F750;		
+		
+		p {
+			color: #000;
+			font-size: xx-small;
+		}
+	}
+	
+	&__topRight, &__middleRight, &__bottomRight, &__bottomLeft {
+		@include box($width: 50px, $height: fit-content);
+		position: absolute;
+		transform: rotate(90deg) translate(0, -115%) scale(0.8);
+		
+		p {
+			color: #fff;
+			font-size: xx-small;
+		}
+	}
+	
+	&__topRight {
+		top: 10%;
+		right: 0;
+	}
+	
+	&__middleRight {
+		top: 50%;
+		right: 0;
+	}
+	
+	&__bottomRight {
+		bottom: 10%;
+		right: 0;
+	}
+	
+	&__bottomLeft {
+		bottom: 10%;
+		left: 0;
+		transform: rotate(90deg) translate(-50%, 100%) scale(0.5);
+		white-space: nowrap;
+	}
+}
