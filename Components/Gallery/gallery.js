@@ -1,4 +1,4 @@
-import "../../styles/routes/gallery.scss";
+import "./gallery.scss";
 
 export default function Gallery() {
   return (
