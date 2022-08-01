@@ -6,6 +6,7 @@ import SportScroll from "../Components/SportScroll/SportScroll";
 import "../styles/routes/Home.scss";
 import Footer from "../Components/Footer/Footer";
 import Stats from "../Components/Stats/stats";
+import Newsletter from "../Components/Newsletter/Newsletter";
 
 export default function Home() {
   const handler = async () => {
@@ -17,7 +18,7 @@ export default function Home() {
       <Head>
         <title>Surge 2022</title>
         <meta name="description" content="Awesome website for Surge" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/Img/Sports icon.png" />
       </Head>
       <div className="LandingPage">
         <Header />
@@ -89,6 +90,7 @@ export default function Home() {
         <section className="StatsSection">
           <Stats />
         </section>
+        <Newsletter />
         <Footer />
       </div>
     </>
