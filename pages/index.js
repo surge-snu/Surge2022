@@ -9,10 +9,6 @@ import Stats from "../Components/Stats/stats";
 import Newsletter from "../Components/Newsletter/Newsletter";
 
 export default function Home() {
-  const handler = async () => {
-    const data = await fetch("/api/notify-list?email=asd");
-    console.log(data);
-  };
   return (
     <>
       <Head>
