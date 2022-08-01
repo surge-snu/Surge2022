@@ -1,0 +1,195 @@
+.Newsletter {
+  @include make-flex;
+  @include box(100vw, 350px);
+
+  &__container {
+    gap: 20px;
+    @include box();
+    max-width: 1500px;
+    border-radius: 10px;
+    @include make-flex();
+    background-color: #0f3fb6;
+    background-image: url("../../public/Img/newsletterBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    h2 {
+      font-family: "blackhawk";
+      font-size: 55px;
+      font-weight: 400;
+      color: #cafa08;
+      line-height: 32px;
+
+      @include respondAt(1095px) {
+        font-size: 20px;
+      }
+    }
+    p {
+      font-family: Sequel100Black-55;
+      font-size: 40px;
+      color: #ffffff;
+      text-align: center;
+      @include respondAt(1095px) {
+        font-size: 31.5px;
+      }
+      span {
+        font-family: Sequel100Black-95;
+        font-size: 40px;
+        margin-top: -50px;
+        color: #ffffff;
+        text-decoration: underline #cafa08;
+        text-underline-offset: 15px;
+        @include respondAt(1095px) {
+          font-size: 31.5px;
+          margin-top: -10px;
+        }
+      }
+    }
+
+    &--row {
+      position: relative;
+      @include make-flex($dir: row);
+      width: 37%;
+
+      input {
+        height: 55px;
+        width: 100%;
+        border-radius: 4px;
+        border-style: none;
+        border: 1px solid #cafa08;
+        padding: 0 171px 0 15px;
+
+        font-family: "Sequel100Black-55";
+        outline: none;
+        font-size: 20px;
+      }
+
+      button {
+        position: absolute;
+        right: 9px;
+        height: 70%;
+        padding: 0 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 17px;
+        font-family: "Sequel100Black-55";
+        border-radius: 3px;
+        background-color: #cafa08;
+        color: #0f1621;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0f3fb6;
+          color: #cafa08;
+        }
+      }
+    }
+  }
+  // &__container {
+  //   @include box($width: 92.7%, $height: 64%);
+  //   background-image: url("/public/Img/newsletterBG.png");
+  //   background-size: cover;
+  //   background-position: center;
+  //   @include make-flex($dir: column);
+  //   background-color: #0f3fb6;
+  //   border-radius: 10px;
+  //   padding: 80px;
+  //   margin: 80px;
+
+  //   @include respondAt(1095px) {
+  //     background-image: url("/public/Img/newsletterBGmobile.svg");
+  //     background-size: cover;
+  //   }
+  //   &__content {
+  //     @include make-flex($dir: column);
+  //     &__text {
+  //       @include make-flex();
+  //       &--header {
+  //         font-family: "blackhawk";
+  //         font-size: 55px;
+  //         font-weight: 400;
+  //         color: #cafa08;
+
+  //         @include respondAt(1095px) {
+  //           font-size: 20px;
+  //         }
+  //       }
+  //       &__subscribe {
+  //         @include make-flex();
+  //         margin-left: 94px;
+  //         @include respondAt(1095px) {
+  //           margin-left: 0px;
+  //         }
+  //         &--sub {
+  // font-family: Sequel100Black-55;
+  // font-size: 70px;
+  // color: #ffffff;
+  // @include respondAt(1095px) {
+  //   font-size: 31.5px;
+  // }
+  //         }
+  //         &--news {
+  // font-family: Sequel100Black-95;
+  // font-size: 70px;
+  // margin-top: -50px;
+  // color: #ffffff;
+  // text-decoration: underline #cafa08;
+  // text-underline-offset: 15px;
+  // @include respondAt(1095px) {
+  //   font-size: 31.5px;
+  //   margin-top: -10px;
+  // }
+  //         }
+  //       }
+  //     }
+  //     &__entryField {
+  //       @include box($width: 807px, $height: 87px);
+  //       @include make-flex($dir: row);
+  //       background: #ffffff;
+  //       margin: 30px;
+  //       margin-left: 110px;
+  //       border-radius: 5px;
+  //       border: 3px;
+  //       border-color: #000000;
+  //       border-style: solid;
+
+  //       @include respondAt(1095px) {
+  //         @include box($width: 82%, $height: 100%);
+  //         margin: 0px;
+  //         margin-left: 0px;
+  //         margin-top: 20px;
+  //       }
+  //       &--textField {
+  //         @include box($width: 500px);
+  //         background: white;
+  //         border: 0px;
+
+  // font-family: Sequel100Black-55;
+  // outline: none;
+  // font-size: 20px;
+  // text-align: center;
+  // margin-left: 70px;
+  //         @include respondAt(1095px) {
+  //           @include box($width: 210px, $height: 100%);
+  //           font-size: 10px;
+  //           text-align: left;
+  //           margin-left: 40px;
+  //         }
+  //       }
+  //       &--button {
+  //         @include box($width: 189px, $height: 58px);
+  // font-size: 20px;
+  // font-family: Sequel100Black-55;
+  // border-radius: 7px;
+  // background-color: #cafa08;
+  //         @include respondAt(1095px) {
+  //           @include box($width: 116px, $height: 24px);
+  //           font-size: 10px;
+  //           padding: 0px;
+  //           margin: 6px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
