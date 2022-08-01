@@ -104,7 +104,6 @@
       a {
         padding: 8px 10px 5px 10px;
         position: relative;
-        z-index: 1;
 
         @include respondAt(915px) {
           width: 100%;
