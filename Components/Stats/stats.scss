@@ -65,7 +65,7 @@
     &--mobile {
       display: none;
       @include respondAt(825px) {
-        @include make-flex($dir: row);
+        @include make-flex($dir: row, $just: space-around);
         @include box($height: auto);
         flex-wrap: wrap;
         gap: 55px;

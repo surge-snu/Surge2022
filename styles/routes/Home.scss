@@ -271,6 +271,9 @@
         @include respondAt(975px) {
           font-size: 60px;
         }
+        @include respondAt(401px) {
+          font-size: 14vw;
+        }
       }
 
       &--image {
@@ -280,6 +283,10 @@
         position: absolute;
         @include respondAt(915px) {
           top: -140px;
+        }
+
+        @include respondAt(660px) {
+          display: none;
         }
       }
     }
@@ -308,7 +315,7 @@
     max-width: 1500px;
     position: relative;
     min-height: calc(100vh - 70px);
-    margin-top: 50px; 
+    margin-top: 50px;
     @include make-flex($just: flex-start);
 
     @include respondAt(1518px) {
