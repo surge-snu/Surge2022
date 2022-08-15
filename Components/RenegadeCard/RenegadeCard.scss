@@ -19,7 +19,8 @@
 
     &--middle {
       @include box(calc(100% - 60px));
-      background-color: rgb(182, 182, 182);
+      // background-color: rgb(182, 182, 182);
+			// background-color: #fff;
     }
 
     &--right {

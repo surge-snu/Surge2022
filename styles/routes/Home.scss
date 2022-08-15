@@ -65,12 +65,13 @@
       gap: 60px;
 
       &--heading {
-        font-family: "Sequel100Black-105";
+        font-family: "Sequel100Black-105", "Helvetica", "Impact";
         color: #fff;
         font-size: 75px;
         line-height: 100%;
-        font-weight: bold;
+				font-weight: 900;
         padding-right: 10%;
+				margin: 0 auto;
 
         span {
           color: #cafa08;
@@ -116,7 +117,7 @@
       &--actionContainer {
         width: 35%;
         @include make-flex($align: flex-start);
-        @include respondAt(810px) {
+        @include respondAt(880px) {
           width: 100%;
           padding: 0 20px;
           align-items: flex-end;
@@ -144,7 +145,7 @@
           height: 100%;
         }
 
-        @include respondAt(810px) {
+        @include respondAt(880px) {
           border-radius: 40px;
         }
       }
