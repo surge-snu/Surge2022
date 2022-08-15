@@ -208,7 +208,7 @@
       &--text {
         font-family: "Fraunces", serif;
         font-size: 20px;
-        width: 50%;
+        width: 75%;
         @include respondAt(1200px) {
           width: 60%;
         }
@@ -220,6 +220,7 @@
         }
         @include respondAt(500px) {
           font-size: 15px;
+					font-weight: 600;
         }
       }
       &--fancyLink {
