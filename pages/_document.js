@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
 				<Head>
-					<link
+					{/* <link
             href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
 					/>
@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300&display=swap"
             rel="stylesheet"
-          />
+          /> */}
         </Head>
         <body>
           <Main />
