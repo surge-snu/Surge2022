@@ -22,7 +22,7 @@ export default function Home() {
 					<div
 						className="HeroSection__left"
 						style={{
-							backgroundImage: `url("/Img/HeroImgLeft.svg")`,
+							backgroundImage: `url("/Img/HeroImgLeft.png")`,
 							backgroundSize: "cover",
 							backgroundPosition: "center",
 							backgroundRepeat: "no-repeat",
