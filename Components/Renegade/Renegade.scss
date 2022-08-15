@@ -1,7 +1,7 @@
 .Renegade {
   @include make-flex($dir: column, $just: space-between, $align: flex-start);
   @include box();
-  gap: 20px;
+  gap: 30px;
 
   &__top {
     @include box($height: unset);
@@ -64,15 +64,15 @@
   }
 
   &__middle {
-    width: 45%;
+    width: 60%;
     font-family: "Fraunces", serif;
     font-size: 19px;
+		margin-top: 7px;
 
-    @include respondAt(940px) {
-      width: 70%;
+    @include respondAt(805px) {
+      width: 100%;
     }
     @include respondAt(500px) {
-      width: 100%;
 	  font-size: 15px;
     }
   }

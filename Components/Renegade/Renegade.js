@@ -13,12 +13,10 @@ export default function Renegade() {
         </h2>
       </div>
       <p className="Renegade__middle">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud
+        The eSports tournament of Shiv Nadar University took place in 2021 conducted by Surge. Amidst the COVID-19 pandemic, the students of SNU organized one of the best college level eSports competitions in the country in collaboration with Nexus, the gaming society of SNU.
       </p>
       <div className="Renegade__cards">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+        {[...Array(10).keys()].map((i) => (
           <RenegadeCard key={i} />
         ))}
       </div>

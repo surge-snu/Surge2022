@@ -38,9 +38,7 @@ export default function Home() {
               <span>CHAMPIONS</span>
             </h1>
             <p className="HeroSection__top--text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud
+              Whole-heartedly focused on the growing sports ambition on campus, everyone from legends to noobs will be a part of a week of fulfilled dreams in the form of tournaments, one-on-one battles, and exertion both physical and mental, as records are formed and broken.
             </p>
             <div className="HeroSection__top--actionContainer">
               <div className="HeroSection__top--action">
@@ -64,9 +62,7 @@ export default function Home() {
             </h1>
 
             <p className="AboutSection__above--text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud
+              Surge brings to all a platform to promote visibility, interaction, and dedication to sports. Our sports clubs get to not only increase their audience, but also nurture in everyone the spirit of competition, teamwork and sportsmanship. We endeavor to boost the zest for sports by bringing about a new era for sports, showcasing legendary clashes between the best and the brightest.
             </p>
             <a className="AboutSection__above--fancyLink" href="/team">
               MEET THE TEAM
