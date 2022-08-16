@@ -1,0 +1,172 @@
+.StatsSection {
+  @include respondAt(1200px) {
+    gap: 40px;
+  }
+
+  &__top {
+    @include make-flex($align: flex-start);
+    @include box($height: auto);
+    &--title {
+      font-family: "Sequel100Black-105";
+      font-size: 60px;
+
+      span {
+        color: #cafa08;
+        font-family: "Sequel100Black-96";
+      }
+      @include respondAt(1200px) {
+        font-size: 50px;
+      }
+      @include respondAt(975px) {
+        font-size: 40px;
+      }
+      @include respondAt(805px) {
+        font-size: 30px;
+      }
+      @include respondAt(600px) {
+        font-size: 5vw;
+      }
+    }
+
+    &--text {
+      font-family: "Fraunces", serif;
+      font-size: 20px;
+      width: 50%;
+      @include respondAt(1200px) {
+        width: 60%;
+      }
+      @include respondAt(730px) {
+        width: 80%;
+      }
+      @include respondAt(630px) {
+        width: 100%;
+      }
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &__bottom {
+    &--desktop {
+      @include box($height: 545px);
+      @include make-flex($dir: row);
+      @include respondAt(1200px) {
+        flex-direction: column;
+        height: auto;
+        gap: 50px;
+      }
+
+      @include respondAt(825px) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+      @include respondAt(825px) {
+        @include make-flex($dir: row, $just: space-around);
+        @include box($height: auto);
+        flex-wrap: wrap;
+        gap: 55px;
+      }
+    }
+
+    &--left {
+      @include box(30%);
+      @include make-flex($just: space-evenly, $align: flex-start);
+
+      @include respondAt(1200px) {
+        flex-direction: row;
+        width: 100%;
+      }
+    }
+    &--right {
+      @include box(70%);
+      @include respondAt(1200px) {
+        width: 100%;
+        @include make-flex($dir: row);
+      }
+    }
+    &--middle {
+      @include box(0px, 55%);
+      border-right: 2px solid #789fff;
+      @include respondAt(1200px) {
+        @include box(55%, 0);
+        border-right: none;
+        border-bottom: 2px solid #789fff;
+      }
+    }
+  }
+
+  &__left {
+    &--row {
+      @include make-flex($dir: row, $just: flex-start);
+      gap: 20px;
+
+      @include respondAt(1200px) {
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      h2 {
+        color: #ffffff;
+        font-family: "Sequel100Black-96";
+        font-size: 33px;
+      }
+      img {
+        height: 50px;
+      }
+    }
+  }
+
+  &__right {
+    &--row {
+      @include box($height: 33%);
+      @include make-flex($just: space-evenly, $dir: row);
+      @include respondAt(1200px) {
+        height: 100%;
+        width: 33%;
+        flex-direction: column;
+        gap: 50px;
+      }
+    }
+    &--item {
+      position: relative;
+
+      h3 {
+        font-size: 55px;
+        font-family: "Sequel100Black-96";
+        color: #193559;
+      }
+      span {
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        color: #cafa08;
+        font-family: "BLACKHAWK";
+        font-size: 50px;
+      }
+    }
+  }
+
+  &__mobile {
+    &--item {
+      position: relative;
+
+      h3 {
+        font-size: 55px;
+        font-family: "Sequel100Black-96";
+        color: #193559;
+      }
+      span {
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        color: #cafa08;
+        font-family: "BLACKHAWK";
+        font-size: 50px;
+      }
+    }
+  }
+}

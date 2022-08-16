@@ -1,0 +1,186 @@
+.RenegadeCard {
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
+  @include make-flex();
+  background-color: #193559;
+  @include box($width: 240px, $height: 410px);
+  background-image: url("../../public/Img/CardBgVector.svg");
+
+  &__top {
+    @include box($height: 57%);
+    @include make-flex($dir: row, $just: space-between);
+    padding-top: 30px;
+
+    &--left,
+    &--right {
+      @include box(30px, 100%);
+    }
+
+    &--middle {
+      @include box(calc(100% - 60px));
+      // background-color: rgb(182, 182, 182);
+			// background-color: #fff;
+    }
+
+    &--right {
+      @include make-flex($dir: column, $just: space-between);
+      span {
+        width: 35px;
+        height: 105px;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        @include make-flex();
+        transform: rotate(-90deg);
+        font-family: "Fraunces", serif;
+      }
+    }
+  }
+
+  &__bottom {
+    @include box(100%, 43%);
+    @include make-flex($just: space-between);
+	padding-bottom: 20px;
+    gap: 5px;
+    &--teams {
+      padding: 0 30px;
+      @include box(100%, 30px);
+      @include make-flex($dir: row, $just: flex-end);
+      gap: 10px;
+      font-family: "BLACKHAWK";
+
+      span {
+        font-family: "Sequel100Black-96";
+        font-size: 14px;
+      }
+    }
+
+    &--eventEra {
+      padding: 0 30px;
+      @include box(100%, 40px);
+      font-family: "BLACKHAWK";
+      @include make-flex($dir: row);
+      color: #b6c9ff;
+      font-size: 40px;
+    }
+
+    &--eventTitle {
+      padding: 0 30px;
+      @include box(100%, unset);
+      text-align: center;
+      font-family: "Sequel100Black-95";
+      font-size: 20px;
+      color: white;
+    }
+
+    &--timeline {
+      font-size: 9px;
+      font-family: "Sequel100Black-105";
+      //   padding: 0 30px;
+      @include make-flex();
+      background-color: #c4f750;
+      color: #193559;
+      @include box(calc(100% - 60px), 15px);
+    }
+  }
+
+  &__caption {
+    @include box($width: 100%, $height: fit-content);
+    @include make-flex($dir: row, $just: space-evenly, $align: center);
+    margin-top: 7px;
+
+    p {
+      color: #fff;
+      font-size: small;
+    }
+  }
+
+  &__versus {
+    @include box($width: fit-content, $height: fit-content);
+    @include make-flex($dir: row, $just: center, $align: center);
+    gap: 3px;
+
+    p {
+      color: #fff;
+      font-size: xx-small;
+    }
+  }
+
+  &__title {
+    @include box($width: 100%, $height: fit-content);
+    @include make-flex($dir: column, $just: center, $align: center);
+    margin: 8px 0;
+    gap: 3px;
+
+    h3,
+    p {
+      color: #fff;
+      line-height: 0.8;
+    }
+    p {
+      font-size: x-small;
+      font-weight: 800;
+    }
+  }
+
+  &__subtitle {
+    @include box($width: 100%, $height: fit-content);
+    @include make-flex($dir: column, $just: center, $align: center);
+    margin-top: 8px;
+
+    h3 {
+      color: #fff;
+      line-height: 0.8;
+    }
+  }
+
+  &__date {
+    @include box($width: fit-content, $height: fit-content);
+    @include make-flex($dir: column, $just: center, $align: center);
+    margin: 5px auto;
+    padding: 0 15px;
+    background-color: #c4f750;
+
+    p {
+      color: #000;
+      font-size: xx-small;
+    }
+  }
+
+  &__topRight,
+  &__middleRight,
+  &__bottomRight,
+  &__bottomLeft {
+    @include box($width: 50px, $height: fit-content);
+    position: absolute;
+    transform: rotate(90deg) translate(0, -115%) scale(0.8);
+
+    p {
+      color: #fff;
+      font-size: xx-small;
+    }
+  }
+
+  &__topRight {
+    top: 10%;
+    right: 0;
+  }
+
+  &__middleRight {
+    top: 50%;
+    right: 0;
+  }
+
+  &__bottomRight {
+    bottom: 10%;
+    right: 0;
+  }
+
+  &__bottomLeft {
+    bottom: 10%;
+    left: 0;
+    transform: rotate(90deg) translate(-50%, 100%) scale(0.5);
+    white-space: nowrap;
+  }
+}

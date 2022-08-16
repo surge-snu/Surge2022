@@ -1,0 +1,156 @@
+.FooterWrapper {
+  @include make-flex();
+  @include box(100%, 350px);
+  background: #fefeff;
+  padding: 20px;
+  @include respondAt(1165px) {
+    height: auto;
+    gap: 10px;
+  }
+
+  &__container {
+    @include make-flex($dir: row, $just: space-between);
+    @include box($height: 95%);
+    max-width: 1500px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  &__left {
+    @include box(auto);
+    @include make-flex($align: flex-start, $just: flex-start);
+    gap: 20px;
+
+    @include respondAt(1145px) {
+      width: 100%;
+      align-items: center;
+    }
+    &--logo {
+      font-family: "Sequel100Black-65";
+      font-weight: 600;
+      font-size: 3.5rem;
+      color: #000;
+    }
+
+    &--Copyright {
+      @include box(auto, auto);
+      font-family: "Clash Display", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+      color: #787777;
+    }
+    &--copyrightUnderLogo {
+      @include box(auto, auto);
+      font-family: "Clash Display", sans-serif;
+      display: none;
+
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 22px;
+      text-align: center;
+      color: #787777;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__right {
+    @include make-flex($dir: row, $just: space-between, $align: flex-start);
+    gap: 80px;
+    @include box(unset);
+    padding-top: 30px;
+
+    @include respondAt(1145px) {
+      width: 100%;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 35px;
+    }
+    &--Service {
+      font-family: "Poppins", sans-serif;
+      list-style-type: none;
+      @include make-flex($align: flex-start);
+      gap: 8px;
+      // flex-grow: 1;
+      a {
+        font-size: 15px;
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
+    &--socialMedia {
+      font-family: "Poppins", sans-serif;
+      list-style-type: none;
+      @include make-flex($align: flex-start);
+      gap: 8px;
+      a {
+        font-size: 15px;
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
+    .mailIcon,
+    .callIcon,
+    .SocialMediaHandles {
+      @include make-flex($dir: row);
+      gap: 5px;
+      a {
+        &:hover {
+          color: #ffc107;
+        }
+      }
+    }
+
+    .SocialMediaHandles {
+      @include make-flex($dir: row, $just: flex-start);
+      @include box(100%, auto);
+      gap: 5px;
+      margin-top: 20px;
+
+      a {
+        img {
+          width: 45px;
+        }
+      }
+    }
+
+    &--rowHeading {
+      font-family: "Sequel100Black-65";
+
+      font-style: normal;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #000000;
+    }
+    &--socialHeading {
+      font-family: "Sequel100Black-65";
+      width: 25vw;
+      font-style: normal;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #000000;
+    }
+    &--rowItem {
+      color: #000000;
+      font-family: "Sequel100Black-55";
+
+      a {
+        height: 100%;
+      }
+    }
+
+    &--RowIcon {
+      @include make-flex($dir: row);
+      gap: 10px;
+      img {
+        height: 20px;
+      }
+    }
+  }
+}
