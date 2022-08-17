@@ -17,8 +17,8 @@ export default function Home() {
 				<meta name="description" content="Awesome website for Surge" />
 				<link rel="icon" href="/Img/Sports icon.png" />
 			</Head>
-			<Authentication />
-			{/* <div className="LandingPage">
+			
+			<div className="LandingPage">
 				<Header />
 				<section className="HeroSection">
 					<div
@@ -86,7 +86,7 @@ export default function Home() {
 				</section>
 				<Newsletter />
 				<Footer />
-			</div> */}
+			</div>
 		</>
 	);
 }
