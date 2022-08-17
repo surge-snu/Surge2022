@@ -1,0 +1,76 @@
+.LogIn {
+  @include box(90vw);
+  align-items: center;
+  margin-top: 2vw;
+  &__email,
+  &__password {
+    margin-top: 1vw;
+    &--label {
+      font-size: 1.66vw;
+      font-family: "Sequel100Black-65";
+    }
+    &--input {
+      font-size: 1.66vw;
+      font-family: "Sequel100Black-55";
+      width: 100%;
+      height: 4.09vw;
+      border-radius: 4.77px;
+      background-color: transparent;
+      border: 1px solid white;
+      padding: 0.66vw;
+    }
+  }
+  &__bottom {
+    margin-top: 1vw;
+    @include make-flex($dir: row, $just: space-between);
+    &--signedIn {
+      align-self: center;
+      label {
+        font-size: 1.36vw;
+        font-family: "Sequel100Black-55";
+        color: rgba(255, 255, 255, 0.7);
+      }
+      input[type="checkbox"] {
+        width: 2.36vw;
+        height: 1.36vw;
+        border-radius: 4.77px;
+        accent-color: white;
+        border: 1px solid white;
+        padding: 0.66vw;
+      }
+    }
+    &--forgotPassword {
+      font-size: 1.36vw;
+      font-family: "Sequel100Black-55";
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+  &__button {
+    margin-top: 1vw;
+    @include make-flex($dir: row, $just: center);
+    button {
+        border: 0px;
+        background-color: white;
+        color: black;
+        font-family: "Sequel100Black-65";
+        font-size: 1.68vw;
+        padding: 0px 1.5vw 0px 1.5vw;
+    }
+  }
+  &__signup {
+    margin-top: 1vw;
+    @include make-flex($dir: row, $just: center);
+    &--text {
+        font-size: 1.36vw;
+        font-family: "Sequel100Black-55";
+        color: rgba(255, 255, 255, 0.7);
+        margin-right: 0.3vw;
+    }
+    a{
+        color: rgba(255, 255, 255, 1);
+        text-decoration: underline;
+        font-family: "Sequel100Black-55";
+        font-size: 1.36vw;
+    }
+  }
+}

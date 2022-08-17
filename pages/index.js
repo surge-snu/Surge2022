@@ -7,6 +7,7 @@ import Newsletter from "../Components/Newsletter/Newsletter";
 import SportScroll from "../Components/SportScroll/SportScroll";
 import Stats from "../Components/Stats/stats";
 import "../styles/routes/Home.scss";
+import Authentication from "../Components/Authentication/Authentication";
 
 export default function Home() {
 	return (
@@ -16,7 +17,8 @@ export default function Home() {
 				<meta name="description" content="Awesome website for Surge" />
 				<link rel="icon" href="/Img/Sports icon.png" />
 			</Head>
-			<div className="LandingPage">
+			<Authentication />
+			{/* <div className="LandingPage">
 				<Header />
 				<section className="HeroSection">
 					<div
@@ -84,7 +86,7 @@ export default function Home() {
 				</section>
 				<Newsletter />
 				<Footer />
-			</div>
+			</div> */}
 		</>
 	);
 }
