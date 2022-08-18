@@ -22,7 +22,7 @@ export default function Authentication() {
             <h2>SURGE</h2>
             <div className='Authentication__tabs'>
                 <a href="#login" className={hash === '#login' ? 'route--active' : ''}>Login</a>
-                <a href="#signup" className={hash === '#signup' ? 'route--active' : ''}>Sign Up</a>
+                <a href="#signup" className={hash === '#login' ? '' : 'route--active'}>Sign Up</a>
             </div>
             {hash === "#login" ? <Login /> : <SignUp />}
         </div>
