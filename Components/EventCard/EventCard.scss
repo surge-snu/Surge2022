@@ -1,0 +1,158 @@
+.EventCardWrapper {
+  @include box($width: 48vw, $height: 316px);
+  background-color: #193559;
+  border-radius: 20px;
+}
+
+.EventCardMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  padding: 30px;
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__indoor {
+      @include box($width: auto, $height: auto);
+      background-color: #ff4f46;
+      border-radius: 9px;
+      padding: 1px 20px 1px 20px;
+      &--text {
+        font-size: 10px;
+        font-family: Sequel100Black-55;
+      }
+    }
+    &__content {
+      padding-top: 20px;
+      &--header {
+        font-family: Sequel100Black-75;
+        font-size: 15.62px;
+      }
+      &--desc {
+        font-family: Sequel100Black-45;
+        color: #a1a1a1;
+        font-size: 10px;
+        width: 26vw;
+        padding-top: 8px;
+      }
+    }
+    &__details {
+      padding-top: 35px;
+      &--price {
+        @include make-flex($dir: row, $just: space-between, $align: center);
+        gap: 45px;
+        padding-bottom: 20px;
+        &__elem {
+          font-size: 12px;
+          font-family: "Satoshi", sans-serif;
+
+          @include make-flex($dir: row, $just: none);
+          gap: 5px;
+          &__icon {
+            width: 15px;
+          }
+        }
+      }
+    }
+  }
+  &__right {
+    margin-top: 220px;
+    &--wrapper {
+      display: flex;
+      justify-content: center;
+      &__cta {
+        display: flex;
+        padding: 2px 15px;
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 40px;
+        color: black;
+        background: #cafa08;
+        transition: 1s;
+        box-shadow: 3px 3px 0 #ffffff;
+        transform: skewX(-8deg);
+        align-items: center;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          transition: 0.5s;
+          box-shadow: 6px 6px 0 #ded93e;
+        }
+        &__span {
+          font-family: Sequel100Black-65;
+          font-size: 10px;
+          &:nth-child(2) {
+            transition: 0.5s;
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+
+    .cta span:nth-child(2) {
+      transition: 0.5s;
+      margin-right: 0px;
+    }
+
+    .cta:hover span:nth-child(2) {
+      transition: 0.5s;
+      margin-right: 45px;
+    }
+
+    span {
+      transform: skewX(15deg);
+      color: black;
+    }
+
+    span:nth-child(2) {
+      width: 20px;
+      margin-left: 16px;
+      position: relative;
+      top: 12%;
+    }
+
+    /**************SVG****************/
+
+    path.one {
+      transition: 0.4s;
+      transform: translateX(-60%);
+    }
+
+    path.two {
+      transition: 0.5s;
+      transform: translateX(-30%);
+    }
+
+    .cta:hover path.three {
+      animation: color_anim 1s infinite 0.2s;
+    }
+
+    .cta:hover path.one {
+      transform: translateX(0%);
+      animation: color_anim 1s infinite 0.6s;
+    }
+
+    .cta:hover path.two {
+      transform: translateX(0%);
+      animation: color_anim 1s infinite 0.4s;
+    }
+
+    /* SVG animations */
+
+    @keyframes color_anim {
+      0% {
+        fill: white;
+      }
+      50% {
+        fill: #fbc638;
+      }
+      100% {
+        fill: white;
+      }
+    }
+  }
+}
