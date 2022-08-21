@@ -13,11 +13,11 @@
       font-size: 19px;
       font-family: "Sequel100Black-55";
       width: 100%;
-      height: 4.09vw;
+      height: 45px;
       border-radius: 4.77px;
       background-color: transparent;
       border: 1px solid white;
-      padding: 0.66vw;
+      padding: 7px 10px;
     }
   }
   &__password {
@@ -34,11 +34,11 @@
         font-size: 19px;
         font-family: "Sequel100Black-55";
         width: 100%;
-        height: 4.09vw;
-        border-radius: 4.77px;
+        height: 45px;
+        border-radius: 5px;
         background-color: transparent;
         border: 1px solid white;
-        padding: 0.66vw;
+        padding: 7px 10px;
       }
     }
   }
@@ -69,15 +69,15 @@
       background-color: white;
       color: black;
       font-family: "Sequel100Black-65";
-      font-size: 1.68vw;
-      padding: 0px 1.5vw 0px 1.5vw;
+      font-size: 18px;
+      padding: 0px 16px;
     }
   }
   &__login {
     @include make-flex($dir: row, $just: center);
     gap: 10px;
     &--text {
-      font-size: 1.36vw;
+      font-size: 18px;
       font-family: "Sequel100Black-55";
       color: rgba(255, 255, 255, 0.7);
       line-height: 20px;
@@ -86,7 +86,7 @@
       color: rgba(255, 255, 255, 1);
       text-decoration: none;
       font-family: "Sequel100Black-55";
-      font-size: 1.36vw;
+      font-size: 18px;
       line-height: 20px;
       &:hover {
         text-decoration: underline;
