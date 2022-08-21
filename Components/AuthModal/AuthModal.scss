@@ -1,0 +1,89 @@
+.AuthModal {
+  @include make-flex($just: flex-start);
+  @include box(100vw, 100vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.49);
+  backdrop-filter: blur(15px);
+  z-index: 100;
+  padding-top: 70px;
+
+  &__container {
+    gap: 10px;
+    position: relative;
+    min-height: 450px;
+    border-radius: 7px;
+    @include make-flex($just: flex-start);
+    @include box(600px, auto);
+    border: 1px solid #cafa0a;
+    background-color: #0f1621;
+
+    &--close {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      font-size: 30px;
+      cursor: pointer;
+
+      &:hover {
+        color: #fe5349;
+      }
+    }
+  }
+
+  h2 {
+    font-family: "Sequel100Black-65";
+    font-size: 54px;
+    text-align: center;
+    width: 100%;
+    line-height: 90px;
+  }
+  &__tabs {
+    font-size: 15px;
+    font-family: "Sequel100Black-65";
+    @include make-flex($dir: row, $just: flex-start);
+    @include box(100%, auto);
+    padding: 0 30px;
+    gap: 30px;
+
+    a {
+      z-index: 1;
+      p {
+        padding: 8px 10px 5px 10px;
+        position: relative;
+        @include respondAt(915px) {
+          width: 100%;
+        }
+        &:hover {
+          background-color: #cafa0a;
+          color: #0f1621;
+
+          &:before {
+            z-index: -1;
+            @include box();
+            content: "";
+            position: absolute;
+            background-color: #ffffff;
+            bottom: -5px;
+            right: -5px;
+          }
+        }
+      }
+    }
+    .route--active p {
+      background-color: #cafa0a;
+      color: #0f1621;
+
+      &:before {
+        z-index: -1;
+        @include box();
+        content: "";
+        position: absolute;
+        background-color: #ffffff;
+        bottom: -5px;
+        right: -5px;
+      }
+    }
+  }
+}
