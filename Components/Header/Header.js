@@ -22,11 +22,9 @@ function Header() {
   });
 
   React.useEffect(() => {
-    window.onhashchange = () => {
-
+    window.addEventListener("hashchange", () => {
       setHash(window.location.hash);
-      console.log(window.location.hash);
-    };
+    });
   }, []);
 
   return (
@@ -84,10 +82,12 @@ function Header() {
           </li>
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#privacy"
-              className={`${hash === "#privacy" ? "route--active" : ""} `}
+              href="#login"
+              className={`${
+                hash === "#login" || hash === "#signup" ? "route--active" : ""
+              } `}
             >
-              Privacy
+              Login
             </a>
           </li>
         </ul>
