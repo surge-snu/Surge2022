@@ -8,6 +8,10 @@
     &--label {
       font-size: 19px;
       font-family: "Sequel100Black-65";
+			
+			@include respondAt(500px) {
+        font-size: 15px;
+      }
     }
     &--input {
       font-size: 19px;
@@ -18,37 +22,29 @@
       background-color: transparent;
       border: 1px solid white;
       padding: 7px 10px;
+			
+			@include respondAt(500px) {
+				font-size: 15px;
+				height: 30px;
+			}
     }
   }
-  &__bottom {
-    @include make-flex($dir: row, $just: space-between);
-    &--signedIn {
-      gap: 10px;
-      @include make-flex($dir: row);
-      label {
-        font-size: 15px;
-        line-height: 20px;
-
-        font-family: "Sequel100Black-55";
-        color: rgba(255, 255, 255, 0.7);
-        cursor: pointer;
-      }
-      input[type="checkbox"] {
-        @include box(15px, 15px);
-        accent-color: white;
-        cursor: pointer;
-      }
-    }
-    &--forgotPassword {
-      font-size: 15px;
-      line-height: 20px;
-      font-family: "Sequel100Black-55";
-      color: rgba(255, 255, 255, 0.7);
-      &:hover {
-        color: white;
-      }
-    }
-  }
+  &__forgotPassword {
+		width: 100%;
+		text-align: end;
+		font-size: 15px;
+		line-height: 20px;
+		font-family: "Sequel100Black-55";
+		color: rgba(255, 255, 255, 0.7);
+		&:hover {
+			color: white;
+		}
+		
+		@include respondAt(500px) {
+			font-size: 12px;
+			line-height: 16px;
+		}
+	}
   &__button {
     @include make-flex($dir: row, $just: center);
     button {
@@ -58,16 +54,32 @@
       font-family: "Sequel100Black-65";
       font-size: 18px;
       padding: 0px 16px;
+			
+			@include respondAt(500px) {
+				font-size: 15px;
+			}
     }
   }
   &__signup {
     @include make-flex($dir: row, $just: center);
     gap: 10px;
+		
+		@include respondAt(500px) {
+			margin-top: 10px;
+		}
+		
     &--text {
       font-size: 18px;
       font-family: "Sequel100Black-55";
       color: rgba(255, 255, 255, 0.7);
       line-height: 20px;
+			
+			@include respondAt(500px) {
+				font-size: 14px;
+			}
+			@include respondAt(365px) {
+				font-size: 10px;
+			}
     }
     a {
       color: rgba(255, 255, 255, 1);
@@ -75,6 +87,13 @@
       font-family: "Sequel100Black-55";
       font-size: 18px;
       line-height: 20px;
+			
+			@include respondAt(500px) {
+				font-size: 14px;
+			}
+			@include respondAt(365px) {
+				font-size: 10px;
+			}
     }
   }
 }

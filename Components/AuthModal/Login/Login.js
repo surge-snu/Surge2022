@@ -10,19 +10,8 @@ export default function Login() {
         <div className="LogIn__password--label">Password</div>
         <input className="LogIn__password--input" type="password" required />
       </div>
-      <div className="LogIn__bottom">
-        <div className="LogIn__bottom--signedIn">
-          <input
-            type="checkbox"
-            id="signedIn"
-            name="signedIn"
-            value="keepSignedIn"
-          />
-          <label htmlFor="signedIn">Keep me signed in</label>
-        </div>
-        <div className="LogIn__bottom--forgotPassword">
-          <a href="#">Forgot Password?</a>
-        </div>
+      <div className="LogIn__forgotPassword">
+        <a href="#">Forgot Password?</a>
       </div>
       <div className="LogIn__button">
         <button type="submit">Log In</button>
