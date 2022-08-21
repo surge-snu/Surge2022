@@ -9,6 +9,9 @@
   z-index: 100;
   padding-top: 70px;
 
+  @include respondAt(620px) {
+    padding: 10px;
+  }
   &__container {
     gap: 10px;
     position: relative;
@@ -29,6 +32,10 @@
       &:hover {
         color: #fe5349;
       }
+    }
+
+    @include respondAt(620px) {
+      @include box($height: auto);
     }
   }
 
