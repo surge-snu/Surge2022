@@ -19,10 +19,19 @@
       -webkit-text-stroke-color: #789fff;
       color: transparent;
       z-index: 1;
+			@include respondAt(1200px) {
+        font-size: 100px;
+				margin-top: 20px;
+      }
       @include respondAt(975px) {
         font-size: 60px;
+				margin-top: 40px;
       }
-	  @include respondAt(580px) {
+			@include respondAt(850px) {
+        font-size: 50px;
+				margin-top: 30px;
+      }
+	  	@include respondAt(580px) {
         font-size: 9vw;
       }
     }
@@ -30,7 +39,7 @@
       font-family: "Sequel100Black-105";
       font-size: 60px;
       position: absolute;
-      width: 65%;
+      width: 75%;
       text-align: right;
       top: 0;
       right: 0;
@@ -40,13 +49,13 @@
         color: #cafa08;
         font-family: "Sequel100Black-96";
       }
-      @include respondAt(1200px) {
+      @include respondAt(1400px) {
         font-size: 50px;
       }
-      @include respondAt(975px) {
+      @include respondAt(1075px) {
         font-size: 40px;
       }
-      @include respondAt(805px) {
+      @include respondAt(850px) {
         font-size: 30px;
       }
       @include respondAt(805px) {
@@ -54,8 +63,8 @@
         align-self: flex-end;
       }
 
-      @include respondAt(600px) {
-        font-size: 5vw;
+      @include respondAt(650px) {
+        font-size: 4vw;
       }
 	  @include respondAt(500px) {
 		width: 100%;

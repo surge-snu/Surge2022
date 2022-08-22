@@ -1,7 +1,13 @@
-import '../styles/root/globals.scss';
+import AuthModal from "../Components/AuthModal/AuthModal";
+import "../styles/root/globals.scss";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <AuthModal />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
