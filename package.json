@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/pin-input": "^2.0.10",
+    "@chakra-ui/react": "^2.2.8",
     "@prisma/client": "^4.1.1",
     "next": "^12.2.3",
     "prisma": "^4.1.1",
