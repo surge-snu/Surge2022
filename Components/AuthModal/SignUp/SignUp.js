@@ -62,46 +62,48 @@ export default function SignUp() {
 
   return (
     <form method="POST" className="SignUp" onSubmit={handleSubmit}>
-      <div className="SignUp__name">
-        <div className="SignUp__name--label">Name</div>
+      <div className="SignUp__row">
+        <label htmlFor="friendlyName">Name</label>
         <input
-          className="SignUp__name--input"
+          id="friendlyName"
           type="text"
           required
           onChange={(e) => onChange("friendlyName", e)}
         />
+        {errors.friendlyName && <span className="SignUp__row--error">{errors.friendlyName}</span>}
       </div>
-      <div className="SignUp__email">
-        <div className="SignUp__email--label">Email ID</div>
+      <div className="SignUp__row">
+        <label htmlFor="email">Email ID</label>
         <input
-          className="SignUp__email--input"
+          id="email"
           type="email"
           required
           onChange={(e) => onChange("email", e)}
         />
+        {errors.email && <span className="SignUp__row--error">{errors.email}</span>}
       </div>
-      <div className="SignUp__password">
-        <div className="SignUp__password--first">
-          <div className="SignUp__password--first__label">Password</div>
+      <div className="SignUp__col">
+        <div>
+          <label htmlFor="password">Password</label>
           <input
-            className="SignUp__password--first__input"
+            id="password"
             type="password"
             required
             onChange={(e) => onChange("password", e)}
           />
         </div>
-        <div className="SignUp__password--confirm">
-          <div className="SignUp__password--confirm__label">
-            Confirm Password
-          </div>
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
-            className="SignUp__password--confirm__input"
+            id="confirmPassword"
             type="password"
             required
             onChange={(e) => onChange("confirmPassword", e)}
           />
         </div>
       </div>
+      {errors.password && <span className="SignUp__row--error">{errors.password}</span>}
+      {errors.confirmPassword && <span className="SignUp__row--error">{errors.confirmPassword}</span>}
       <div className="SignUp__bottom">
         <div className="SignUp__bottom--signedIn">
           <input type="checkbox" id="tandc" name="tandc" value="tandc" />
