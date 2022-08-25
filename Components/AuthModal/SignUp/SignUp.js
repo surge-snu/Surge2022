@@ -1,15 +1,9 @@
 import './SignUp.scss';
 import React from 'react';
-import { PinInput, PinInputField } from '@chakra-ui/pin-input';
-import { ChakraProvider, extendTheme, HStack } from '@chakra-ui/react';
+import PinInput from 'react-pin-input';
 
 export default function SignUp() {  
-	const [showOtp, setShowOtp] = React.useState(false);
-	const theme = extendTheme({
-		colors: {
-			brand: "#000"
-		}
-	});
+	const [showOtp, setShowOtp] = React.useState(true);
 	
 	return (
 		<div>
@@ -25,14 +19,25 @@ export default function SignUp() {
 						<div className="Otp__desc">
 							<p>Please type the verification code sent to xyz@gmail.com</p>
 						</div>
-						<HStack className="Otp__pin">
-							<PinInput otp placeholder=''>
-								<PinInputField borderColor="black" />
-								<PinInputField borderColor="black" />
-								<PinInputField borderColor="black" />
-								<PinInputField borderColor="black" />
-							</PinInput>
-						</HStack>
+						<div className="Otp__pin">
+							<PinInput 
+								length={4} 
+								initialValue="" 
+								onChange={(value, index) => {}} 
+								type="numeric" 
+								inputMode="number"
+								style={{padding: '10px'}}  
+								inputStyle={{
+									borderColor: 'black',
+									borderRadius: '8px',
+									marginRight: '20px',
+									color: 'black',
+									fontSize: '20px',
+								}}
+								onComplete={(value, index) => {}}
+								autoSelect={true}
+							/>
+						</div>
 						<div className="Otp__again">
 							<div className="Otp__again--text">
 								<p>Didn't get the code? &nbsp;</p>
