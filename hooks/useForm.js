@@ -21,8 +21,10 @@ export default function useForm({
   const onChange = (fieldName, e) => {
     setErrors({});
     const newData = { ...formData, [fieldName]: e.target.value };
-    const validationErrors = validate(newData);
-    if (hasError(validationErrors)) setErrors(validationErrors);
+    if (typeof validate === "function") {
+      const validationErrors = validate(newData);
+      if (hasError(validationErrors)) setErrors(validationErrors);
+    }
     setFormData(newData);
     onChangeError(errors);
   };
