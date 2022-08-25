@@ -45,7 +45,15 @@ export default function SignUp() {
     validate,
     initialValues,
     onSubmit: async (formData) => {
-      console.log(formData);
+      if (Object.keys(errors).length !== 0) return;
+
+      fetch("/api/auth/send-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
     },
     onChangeError: (errors) => {
       console.log(errors);
