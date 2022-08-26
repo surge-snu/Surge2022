@@ -5,6 +5,7 @@ export default function RenegadeCard({
 	title = "BATTLE MAGNITE",
 	date = "8-11 April 2021",
 	imageLink = "",
+	info = "",
 }) {
 	return (
 		<div className="RenegadeCard">
@@ -26,7 +27,10 @@ export default function RenegadeCard({
           SNU <span>VS</span> AMITY
         </div> */}
 				<div className="RenegadeCard__bottom--eventTitle">{title}</div>
-				<div className="RenegadeCard__bottom--timeline">{date}</div>
+				<div className="RenegadeCard__bottom--info">
+					<div className="RenegadeCard__bottom--eventInfo">{info}</div>
+					<div className="RenegadeCard__bottom--timeline">{date}</div>
+				</div>
 			</div>
 		</div>
 	);

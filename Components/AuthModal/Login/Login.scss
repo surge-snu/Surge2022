@@ -1,5 +1,5 @@
 .LogIn {
-  gap: 15px;
+  gap: 20px;
   padding: 10px 30px 20px;
   @include box($height: auto);
   @include make-flex($just: flex-start, $align: stretch);
@@ -48,6 +48,7 @@
   &__button {
     @include make-flex($dir: row, $just: center);
     button {
+      cursor: pointer;
       border: 0px;
       background-color: white;
       color: black;

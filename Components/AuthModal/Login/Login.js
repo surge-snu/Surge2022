@@ -30,9 +30,9 @@ export default function Login() {
           }}
         />
       </div>
-      <div className="LogIn__forgotPassword">
+      {/* <div className="LogIn__forgotPassword">
         <a href="#">Forgot Password?</a>
-      </div>
+      </div> */}
       <div className="LogIn__button">
         <button type="submit">Log In</button>
       </div>
