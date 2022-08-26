@@ -16,6 +16,7 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   };
+  const [showOtp, setShowOtp] = React.useState(false);
 
   function validate(formValues) {
     const errs = {};
@@ -61,62 +62,119 @@ export default function SignUp() {
   });
 
   return (
-    <form method="POST" className="SignUp" onSubmit={handleSubmit}>
-      <div className="SignUp__row">
-        <label htmlFor="friendlyName">Name</label>
-        <input
-          id="friendlyName"
-          type="text"
-          required
-          onChange={(e) => onChange("friendlyName", e)}
-        />
-        {errors.friendlyName && <span className="SignUp__row--error">{errors.friendlyName}</span>}
-      </div>
-      <div className="SignUp__row">
-        <label htmlFor="email">Email ID</label>
-        <input
-          id="email"
-          type="email"
-          required
-          onChange={(e) => onChange("email", e)}
-        />
-        {errors.email && <span className="SignUp__row--error">{errors.email}</span>}
-      </div>
-      <div className="SignUp__col">
-        <div>
-          <label htmlFor="password">Password</label>
+    <>
+      {showOtp && (
+        <div class="Otp">
+          <div className="Otp__container">
+            <span
+              className="Otp__close"
+              onClick={() => {
+                setShowOtp(false);
+              }}
+            >
+              &#10799;
+            </span>
+            <div className="Otp__title">
+              <p>Verification Code</p>
+            </div>
+            <div className="Otp__desc">
+              <p>Please type the verification code sent to xyz@gmail.com</p>
+            </div>
+            <div className="Otp__pin">
+              <PinInput
+                length={4}
+                initialValue=""
+                onChange={(value, index) => {}}
+                type="numeric"
+                inputMode="number"
+                style={{ padding: "10px" }}
+                inputStyle={{
+                  borderColor: "black",
+                  borderRadius: "8px",
+                  marginRight: "20px",
+                  color: "black",
+                  fontSize: "20px",
+                }}
+                onComplete={(value, index) => {}}
+                autoSelect={true}
+              />
+            </div>
+            <div className="Otp__again">
+              <div className="Otp__again--text">
+                <p>Didn't get the code? &nbsp;</p>
+              </div>
+              <a>Send Again</a>
+            </div>
+          </div>
+        </div>
+      )}
+      <form method="POST" className="SignUp" onSubmit={handleSubmit}>
+        <div className="SignUp__row">
+          <label htmlFor="friendlyName">Name</label>
           <input
-            id="password"
-            type="password"
+            id="friendlyName"
+            type="text"
             required
-            onChange={(e) => onChange("password", e)}
+            onChange={(e) => onChange("friendlyName", e)}
           />
+          {errors.friendlyName && (
+            <span className="SignUp__row--error">{errors.friendlyName}</span>
+          )}
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
+        <div className="SignUp__row">
+          <label htmlFor="email">Email ID</label>
           <input
-            id="confirmPassword"
-            type="password"
+            id="email"
+            type="email"
             required
-            onChange={(e) => onChange("confirmPassword", e)}
+            onChange={(e) => onChange("email", e)}
           />
+          {errors.email && (
+            <span className="SignUp__row--error">{errors.email}</span>
+          )}
         </div>
-      </div>
-      {errors.password && <span className="SignUp__row--error">{errors.password}</span>}
-      {errors.confirmPassword && <span className="SignUp__row--error">{errors.confirmPassword}</span>}
-      <div className="SignUp__bottom">
-        <div className="SignUp__bottom--signedIn">
-          <input type="checkbox" id="tandc" name="tandc" value="tandc" />
-          <label htmlFor="tandc">I agree to the Terms and Privacy Policy</label>
+        <div className="SignUp__col">
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              required
+              onChange={(e) => onChange("password", e)}
+            />
+          </div>
+          <div>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              type="password"
+              required
+              onChange={(e) => onChange("confirmPassword", e)}
+            />
+          </div>
         </div>
-      </div>
-      <div className="SignUp__button">
-        <button type="submit">Sign Up</button>
-      </div>
-      <div className="SignUp__login">
-        <div className="SignUp__login--text">Already have an account?</div>
-        <a href="#login">LogIn</a>
-      </div>
-    </form>
+        {errors.password && (
+          <span className="SignUp__row--error">{errors.password}</span>
+        )}
+        {errors.confirmPassword && (
+          <span className="SignUp__row--error">{errors.confirmPassword}</span>
+        )}
+        <div className="SignUp__bottom">
+          <div className="SignUp__bottom--signedIn">
+            <input type="checkbox" id="tandc" name="tandc" value="tandc" />
+            <label htmlFor="tandc">
+              I agree to the Terms and Privacy Policy
+            </label>
+          </div>
+        </div>
+        <div className="SignUp__button">
+          <button type="submit">Sign Up</button>
+        </div>
+        <div className="SignUp__login">
+          <div className="SignUp__login--text">Already have an account?</div>
+          <a href="#login">LogIn</a>
+        </div>
+      </form>
+    </>
   );
 }
