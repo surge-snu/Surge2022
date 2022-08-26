@@ -1,93 +1,100 @@
 .Otp {
-	@include box($height: 100%, $width: 100%);
-	@include make-flex($dir: column, $just: center);
-	position: absolute;
+  @include box($height: 100%, $width: 100%);
+  @include make-flex($dir: column, $just: center);
+  position: absolute;
   top: 0;
   left: 0;
-  // backdrop-filter: blur(5px);
-	border-radius: 7px;
+  backdrop-filter: blur(5px);
+  border-radius: 7px;
   z-index: 2;
-	
-	&__container {
-		@include box($height: auto, $width: 400px);
-		@include make-flex($dir: column, $align: flex-start);
-		position: relative;
-		padding: 30px;
-		margin: auto;
-		gap: 10px;
-		border-radius: 8px;
-		background-color: #FFFFFF;
-		
-	}
-	
-	&__close {
-		position: absolute;
-		top: 10px;
-		right: 20px;
-		
-		color: #000;
-	}
-	
-	&__title {
-		font-family: 'Sequel100Black-65';
-		font-size: 15px;
-		
-		p {
-			color: #000;
-		}
-	}
-	
-	&__desc {
-		font-family: 'Sequel100Black-45';
-		font-size: 12px;
-		
-		p {
-			color: #000;
-		}
-	}
-	
-	&__pin {
-		margin: 10px auto;
-	}
-	
-	&__again {
-		@include make-flex($dir: row);
-		margin: 0 auto;
-		
-		&--text {
-			font-family: "Sequel100Black-55";
+
+  &__container {
+    @include box($height: auto, $width: 400px);
+    @include make-flex($dir: column, $align: flex-start);
+    position: relative;
+    padding: 30px;
+    margin: auto;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+    &:hover {
+      color: #fe5349;
+    }
+
+    @include respondAt(400px) {
+      top: 10px;
+    }
+  }
+
+  &__title {
+    font-family: "Sequel100Black-65";
+    font-size: 15px;
+
+    p {
+      color: #000;
+    }
+  }
+
+  &__desc {
+    font-family: "Sequel100Black-45";
+    font-size: 12px;
+
+    p {
+      color: #000;
+    }
+  }
+
+  &__pin {
+    margin: 10px auto;
+  }
+
+  &__again {
+    @include make-flex($dir: row);
+    margin: 0 auto;
+
+    &--text {
+      font-family: "Sequel100Black-55";
       color: rgba(255, 255, 255, 0.7);
       font-size: 10px;
-			p {
-				color: #000;
-			}
-			
-			@include respondAt(500px) {
-				// font-size: 14px;
-			}
-			@include respondAt(365px) {
-				// font-size: 10px;
-			}
+      p {
+        color: #000;
+      }
+
+      @include respondAt(500px) {
+        // font-size: 14px;
+      }
+      @include respondAt(365px) {
+        // font-size: 10px;
+      }
     }
     a {
       color: rgba(255, 255, 255, 1);
       text-decoration: none;
       font-family: "Sequel100Black-55";
       font-size: 10px;
-			color: #000;
-			
+      color: #000;
+
       &:hover {
         text-decoration: underline;
       }
-			
-			@include respondAt(500px) {
-				// font-size: 14px;
-			}
-			@include respondAt(400px) {
-				// font-size: 10px;
-			}
+
+      @include respondAt(500px) {
+        // font-size: 14px;
+      }
+      @include respondAt(400px) {
+        // font-size: 10px;
+      }
     }
-	}
+  }
 }
 
 .SignUp {
@@ -95,14 +102,14 @@
   padding: 10px 30px 20px;
   @include box($height: auto);
   @include make-flex($just: flex-start, $align: stretch);
-	
+
   &__name,
   &__email {
     &--label {
       font-size: 19px;
       font-family: "Sequel100Black-65";
-			
-			@include respondAt(500px) {
+
+      @include respondAt(500px) {
         font-size: 15px;
       }
     }
@@ -115,32 +122,32 @@
       background-color: transparent;
       border: 1px solid white;
       padding: 7px 10px;
-			
-			@include respondAt(500px) {
-				font-size: 15px;
-				height: 30px;
-			}
+
+      @include respondAt(500px) {
+        font-size: 15px;
+        height: 30px;
+      }
     }
   }
   &__password {
     @include make-flex($dir: row, $just: space-between);
     gap: 20px;
-		
-		@include respondAt(500px) {
-			flex-direction: column;
-			gap: 15px;
-		}
-		
+
+    @include respondAt(500px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+
     &--first,
     &--confirm {
       width: 100%;
       &__label {
         font-size: 19px;
         font-family: "Sequel100Black-65";
-				
-				@include respondAt(500px) {
-					font-size: 15px;
-				}
+
+        @include respondAt(500px) {
+          font-size: 15px;
+        }
       }
       &__input {
         font-size: 19px;
@@ -151,11 +158,11 @@
         background-color: transparent;
         border: 1px solid white;
         padding: 7px 10px;
-				
-				@include respondAt(500px) {
-					font-size: 15px;
-					height: 30px;
-				}
+
+        @include respondAt(500px) {
+          font-size: 15px;
+          height: 30px;
+        }
       }
     }
   }
@@ -170,11 +177,11 @@
         font-family: "Sequel100Black-55";
         cursor: pointer;
         color: rgba(255, 255, 255, 0.7);
-				
-				@include respondAt(500px) {
-					font-size: 12px;
-					line-height: 16px;
-				}
+
+        @include respondAt(500px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
       input[type="checkbox"] {
         cursor: pointer;
@@ -193,10 +200,10 @@
       font-family: "Sequel100Black-65";
       font-size: 18px;
       padding: 0px 16px;
-			
-			@include respondAt(500px) {
-				font-size: 15px;
-			}
+
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
     }
   }
   &__login {
@@ -207,13 +214,13 @@
       font-family: "Sequel100Black-55";
       color: rgba(255, 255, 255, 0.7);
       line-height: 20px;
-			
-			@include respondAt(500px) {
-				font-size: 14px;
-			}
-			@include respondAt(365px) {
-				font-size: 10px;
-			}
+
+      @include respondAt(500px) {
+        font-size: 14px;
+      }
+      @include respondAt(365px) {
+        font-size: 10px;
+      }
     }
     a {
       color: rgba(255, 255, 255, 1);
@@ -224,13 +231,13 @@
       &:hover {
         text-decoration: underline;
       }
-			
-			@include respondAt(500px) {
-				font-size: 14px;
-			}
-			@include respondAt(400px) {
-				font-size: 10px;
-			}
+
+      @include respondAt(500px) {
+        font-size: 14px;
+      }
+      @include respondAt(400px) {
+        font-size: 10px;
+      }
     }
   }
 }
