@@ -33,7 +33,6 @@ export default function AuthModal() {
         setIsOpen(false);
       }
     });
-    // console.log(window.location.hash);
   });
 
   React.useEffect(() => {
@@ -81,7 +80,16 @@ export default function AuthModal() {
                 <p>Sign Up</p>
               </a>
             </div>
-            {hash === "#login" && <Login />}
+            {hash === "#login" && (
+              <Login
+                onLogin={() => {
+                  setIsOpen(false);
+                  setHash("");
+                  window.location.hash = "";
+                  router.replace(window.location.pathname);
+                }}
+              />
+            )}
             {hash === "#signup" && <SignUp />}
           </div>
         </div>
