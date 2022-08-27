@@ -26,29 +26,30 @@ export default function SignUp() {
 
   function validate(formValues) {
     const errs = {};
-    if (!isUsername(formValues.friendlyName)) {
+    if (formValues.friendlyName && !isUsername(formValues.friendlyName)) {
       errs.friendlyName = "Invalid friendly name";
     }
 
-    if (!isEmail(formValues.email)) {
+    if (formValues.email && !isEmail(formValues.email)) {
       errs.email = "Invalid Email";
     }
 
-    if (!isPassword(formValues.password.trim())) {
+    if (formValues.password && !isPassword(formValues.password.trim())) {
       errs.password =
-        "Password must have at least one digit, one uppercase & one lowercase letter and min. 8 characters length";
+        "Password must have at least one digit, one uppercase, one lowercase letter and min. 8 characters length";
     }
 
-    if (formValues.confirmPassword.trim() !== formValues.password.trim()) {
+    if (
+      formValues.confirmPassword &&
+      formValues.confirmPassword.trim() !== formValues.password.trim()
+    ) {
       errs.confirmPassword = "Password and confirm password must match";
-    } else {
-      errs.confirmPassword = "";
     }
 
     return errs;
   }
 
-  const {formData, onChange, isSubmitting, handleSubmit, errors } = useForm({
+  const { formData, onChange, isSubmitting, handleSubmit, errors } = useForm({
     validate,
     initialValues,
     onSubmit: async (formData) => {
@@ -193,7 +194,7 @@ export default function SignUp() {
         )}
         <div className="SignUp__bottom">
           <div className="SignUp__bottom--signedIn">
-            <input type="checkbox" id="tandc" name="tandc" value="tandc" />
+            <input type="checkbox" id="tandc" name="tandc" value="tandc" required />
             <label htmlFor="tandc">
               I agree to the Terms and Privacy Policy
             </label>
