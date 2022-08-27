@@ -5,7 +5,6 @@ export default function Newsletter() {
   const [email, setEmail] = React.useState("");
   const handler = async () => {
     const data = await fetch(`/api/notify-list?email=${email}`);
-    // console.log(data);
 
     if (data.status === 200) {
       window.alert("You have been added to the newsletter list");

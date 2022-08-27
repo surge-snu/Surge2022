@@ -5,11 +5,15 @@
   overflow-x: hidden;
   background-color: #0f1621;
   .HeroSection {
-    @include box(100vw, calc(100vh - 123px));
+    @include box(100vw, 
+		700px
+		// calc(100vh - 123px)
+		);
     max-width: 1500px;
+		// min-height: 700px;
+    // max-height: 710px;
     position: relative;
     margin-top: 123px;
-    max-height: 710px;
     @include make-flex($dir: row);
 
     @include respondAt(1518px) {
@@ -140,6 +144,7 @@
         padding: 10px 20px 10px 10px;
         gap: 10px;
         font-family: "Sequel100Black-55";
+				white-space: nowrap;
 
         img {
           height: 100%;

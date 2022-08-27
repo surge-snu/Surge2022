@@ -9,42 +9,49 @@ export default function Renegade() {
 			title: "Valorant",
 			date: "8-11 April 2021",
 			imageLink: "/Img/Valorant.png",
+			info: "Standard 5v5"
 		},
 		{
 			id: 2,
 			title: "COD: MOBILE",
 			date: "8-11 April 2021",
 			imageLink: "/Img/COD.png",
+			info: "Search & Destroy"
 		},
 		{
 			id: 3,
 			title: "ROCKET LEAGUE",
 			date: "8-11 April 2021",
 			imageLink: "/Img/Rocket-League.png",
+			info: "Standard 3v3"
 		},
 		{
 			id: 4,
 			title: "CLASH ROYALE",
 			date: "8-11 April 2021",
 			imageLink: "/Img/Clash-Royale.png",
+			info: "2v2 Friendly"
 		},
 		{
 			id: 5,
 			title: "CHESS",
 			date: "9-11 April 2021",
 			imageLink: "/Img/Chess.png",
+			info: "Swiss Tournament Format"
 		},
 		{
 			id: 6,
 			title: "WIKI GAME",
 			date: "8-11 April 2021",
 			imageLink: "/Img/wiki.png",
+			info: "Prize pool: ₹500"
 		},
 		{
 			id: 7,
 			title: "TAMBOLA",
 			date: "8-11 April 2021",
 			imageLink: "/Img/Tambola.svg",
+			info: "Informal Game"
 		},
 	];
 
@@ -66,13 +73,14 @@ export default function Renegade() {
 						title={card.title}
 						date={card.date}
 						imageLink={card.imageLink}
+						info={card.info}
 					/>
 				))}
 			</div>
-			<div className="Renegade__bottom">
+			{/* <div className="Renegade__bottom">
 				<p>EXPLORE GALLERY</p>
 				<img loading="lazy" className="Renegade__bottom--arrow" src="/Img/RightArrow.svg" />
-			</div>
+			</div> */}
 		</div>
 	);
 }

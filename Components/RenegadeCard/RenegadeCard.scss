@@ -73,6 +73,18 @@
       font-size: 20px;
       color: white;
     }
+		
+		&--info {
+			@include make-flex($dir: column, $just: center);
+			gap: 10px;
+			width: 100%;
+		}
+		
+		&--eventInfo {
+			text-align: center;
+			padding: 0 10px;
+			font-family: "BlacKHawk";
+		}
 
     &--timeline {
       font-size: 9px;
