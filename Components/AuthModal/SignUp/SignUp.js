@@ -3,13 +3,7 @@ import React from "react";
 import useForm from "../../../hooks/useForm";
 import { isEmail, isPassword, isUsername } from "../../../utils/validate";
 
-// export async function getServerSideProps() {
-//   return {
-//     props: "allFoods",
-//   };
-// }
-
-export default function SignUp() {
+	export default function SignUp() {
   const initialValues = {
     friendlyName: "",
     email: "",
