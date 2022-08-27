@@ -286,8 +286,8 @@
       &--image {
         top: -7%;
         right: -270px;
-        height: 370px;
         position: absolute;
+        @include box(370px, 370px);
         @include respondAt(915px) {
           top: -140px;
         }
