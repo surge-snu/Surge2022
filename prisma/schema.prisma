@@ -18,11 +18,12 @@ model Notify {
 }
 
 model User {
-  id      String @id @default(uuid())
-  name    String @db.VarChar(100)
-  email   String @unique @db.VarChar(100)
-  college String @db.VarChar(100)
-  role    Role   @default(USER)
+  id       String @id @default(uuid())
+  name     String @db.VarChar(100)
+  email    String @unique @db.VarChar(100)
+  college  String @db.VarChar(100)
+  role     Role   @default(USER)
+  password String @default("")
 }
 
 model Event {

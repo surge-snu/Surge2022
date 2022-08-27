@@ -2,6 +2,7 @@ import "./SignUp.scss";
 import React from "react";
 import useForm from "../../../hooks/useForm";
 import { isEmail, isPassword, isUsername } from "../../../utils/validate";
+
 import PinInput from "react-pin-input";
 
 export default function SignUp() {

@@ -1,10 +1,11 @@
-// const nodemailer = require("nodemailer");
-// const customAlphabet = require("nanoid/customAlphabet");
-
 import nodemailer from "nodemailer";
 import { customAlphabet } from "nanoid";
+import { withIronSessionApiRoute } from "iron-session/next/dist";
+import { ironOptions } from "../../../lib/ironOptions";
 
-export default function SendOtp(req, res) {
+export default withIronSessionApiRoute(SendOtp, ironOptions);
+
+function SendOtp(req, res) {
   const email = req.body.email;
   const nanoid = customAlphabet("1234567890abcdef");
   const otp = nanoid(5);
@@ -34,6 +35,7 @@ export default function SendOtp(req, res) {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
+    req.session.otp = otp;
     res.send({ status: "success", otp: "sent" });
   });
 }
