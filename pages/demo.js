@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import useAuth from "../hooks/useAuth";
 import "../styles/routes/Home.scss";
 
 export function getServerSideProps(context) {
@@ -15,17 +16,12 @@ export function getServerSideProps(context) {
   };
 }
 export default function Demo({ user }) {
-  // const router = useRouter();
-
-  // React.useEffect(() => {
-  //   if (user === null) {
-  //     router.replace("#login", undefined, { shallow: true });
-  //   }
-  // },[]);
+  const { logout } = useAuth();
 
   return (
     <main>
       {user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
+      {user !== null && <button onClick={logout}>Logout</button>}
     </main>
   );
 }
