@@ -1,7 +1,8 @@
 import nodemailer from "nodemailer";
 import { customAlphabet } from "nanoid";
-import { withIronSessionApiRoute } from "iron-session/next/dist";
+import { withIronSessionApiRoute } from "iron-session/next";
 import { ironOptions } from "../../../lib/ironOptions";
+import { hashSync } from "bcrypt";
 
 export default withIronSessionApiRoute(SendOtp, ironOptions);
 
@@ -35,7 +36,6 @@ function SendOtp(req, res) {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-    req.session.otp = otp;
-    res.send({ status: "success", otp: "sent" });
+    res.send({ status: "success", otp: `${hashSync(otp, 10)}` });
   });
 }
