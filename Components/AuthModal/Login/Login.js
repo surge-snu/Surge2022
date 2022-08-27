@@ -72,9 +72,9 @@ export default function Login({ onLogin }) {
           <span className="LogIn__row--error">{authError.message}</span>
         )}
       </div>
-      <div className="LogIn__forgotPassword">
+      {/* <div className="LogIn__forgotPassword">
         <a href="#">Forgot Password?</a>
-      </div>
+      </div> */}
       <div className="LogIn__button">
         <button type="submit">Log In</button>
       </div>

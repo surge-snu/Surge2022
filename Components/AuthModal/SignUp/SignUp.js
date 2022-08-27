@@ -3,14 +3,25 @@ import React from "react";
 import useForm from "../../../hooks/useForm";
 import { isEmail, isPassword, isUsername } from "../../../utils/validate";
 
-	export default function SignUp() {
+import PinInput from "react-pin-input";
+
+export default function SignUp() {
   const initialValues = {
     friendlyName: "",
     email: "",
     password: "",
     confirmPassword: "",
   };
-  const [showOtp, setShowOtp] = React.useState(false);
+	const [showOtp, setShowOtp] = React.useState(true);
+	
+	const [isMobile, setIsMobile] = React.useState(false);
+	React.useEffect(() => {
+		if (window.innerWidth < 500) {
+			setIsMobile(true);
+		} else {
+			setIsMobile(false);
+		}
+	});
 
   function validate(formValues) {
     const errs = {};
@@ -76,21 +87,25 @@ import { isEmail, isPassword, isUsername } from "../../../utils/validate";
             </div>
             <div className="Otp__pin">
               <PinInput
-                length={4}
-                initialValue=""
+                length={5}
                 onChange={(value, index) => {}}
-                type="numeric"
-                inputMode="number"
+								type="custom"
                 style={{ padding: "10px" }}
                 inputStyle={{
                   borderColor: "black",
-                  borderRadius: "8px",
-                  marginRight: "20px",
+                  borderRadius: (isMobile) ? "4px" : "8px",
+                  marginRight: (isMobile) ? "5px" : "10px",
                   color: "black",
-                  fontSize: "20px",
-                }}
+									fontSize: (isMobile) ? "15px" : "20px",
+									height: (isMobile) ? "30px" : "50px",
+									width: (isMobile) ? "30px" : "50px",
+								}}
+								inputFocusStyle={{
+									borderWidth: "2px",
+								}}
                 onComplete={(value, index) => {}}
-                autoSelect={true}
+								autoSelect={true}
+								validate={(value) => (/^[a-z0-9]*$/.test(value)) ? value : ""}
               />
             </div>
             <div className="Otp__again">
@@ -137,7 +152,7 @@ import { isEmail, isPassword, isUsername } from "../../../utils/validate";
               onChange={(e) => onChange("password", e)}
             />
           </div>
-          <div>
+          <div className="SignUp__col--confirm">
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               id="confirmPassword"
