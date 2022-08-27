@@ -16,11 +16,11 @@ export default function Login({ onLogin }) {
   function validate(formValues) {
     const errs = {};
 
-    if (!isEmail(formValues.email)) {
+    if (formValues.email && !isEmail(formValues.email)) {
       errs.email = "Invalid Email";
     }
 
-    if (!isPassword(formValues.password.trim())) {
+    if (formValues.password && !isPassword(formValues.password.trim())) {
       errs.password =
         "Password must have at least one digit, one uppercase & one lowercase letter and min. 8 characters length";
     }

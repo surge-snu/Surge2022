@@ -112,6 +112,7 @@
 
   &__row {
     @include make-flex($dir: column, $align: flex-start);
+    gap: 7px;
   }
 
   &__col {
@@ -119,7 +120,9 @@
     gap: 20px;
 
     & > div {
+      @include make-flex();
       width: 50%;
+      gap: 7px;
     }
     @include respondAt(600px) {
       @include make-flex($dir: column);
@@ -138,8 +141,9 @@
       width: 100%;
     }
     label {
+      width: 100%;
+      line-height: 19px;
       font-size: 19px;
-      line-height: 2;
       font-family: "Sequel100Black-65";
 
       @include respondAt(500px) {
