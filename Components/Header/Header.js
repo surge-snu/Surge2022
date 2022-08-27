@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 function Header() {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
-
+  const { user } = useAuth();
 
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
