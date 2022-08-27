@@ -45,7 +45,15 @@ export function AuthProvider({ children, ssrUser, ...props }) {
       });
   }
   async function signup(email, password) {}
-  async function logout() {}
+  async function logout() {
+    return fetch("/api/auth/logout", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        return res;
+      });
+  }
 
   const auth = {
     user,
