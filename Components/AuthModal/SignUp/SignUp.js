@@ -1,11 +1,11 @@
 import "./SignUp.scss";
 import React from "react";
-import useForm from "../../../hooks/useForm";
-import { isEmail, isPassword, isUsername } from "../../../utils/validate";
-import PinInput from "react-pin-input";
-import { register, sendOtp } from "../../../operations/auth.fetch";
-import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 const bcrypt = require("bcryptjs");
+import PinInput from "react-pin-input";
+import useForm from "../../../hooks/useForm";
+import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
+import { register, sendOtp } from "../../../operations/auth.fetch";
+import { isEmail, isPassword, isUsername } from "../../../utils/validate";
 
 export default function SignUp() {
   const initialValues = {
@@ -18,6 +18,7 @@ export default function SignUp() {
   const [cryptOtp, setCryptOtp] = React.useState("");
   const [showLoader, setShowLoader] = React.useState(false);
   const [otpError, setOtpError] = React.useState("");
+  const [duplicateError, setDuplicateError] = React.useState({});
 
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
@@ -30,17 +31,13 @@ export default function SignUp() {
 
   async function validate(formValues) {
     const errs = {};
+    setDuplicateError({});
     if (formValues.friendlyName && !isUsername(formValues.friendlyName)) {
       errs.friendlyName = "Invalid friendly name";
     }
 
     if (formValues.email && !isEmail(formValues.email)) {
       errs.email = "Invalid Email";
-    } else {
-      // const isAlreadyAUser = await getUser(formValues.email);
-      // if (isAlreadyAUser) {
-      //   errs.email = "Account already exists";
-      // }
     }
 
     if (formValues.password && !isPassword(formValues.password.trim())) {
@@ -68,8 +65,12 @@ export default function SignUp() {
 
       await sendOtp(formData).then((res) => {
         setCryptOtp(res.otp);
-        setShowOtp(true);
         setShowLoader(false);
+        if (res.status === 200) {
+          setShowOtp(true);
+        } else {
+          setDuplicateError(res.message);
+        }
       });
     },
   });
@@ -159,6 +160,9 @@ export default function SignUp() {
           {errors.friendlyName && (
             <span className="SignUp__row--error">{errors.friendlyName}</span>
           )}
+          {duplicateError.name && (
+            <span className="SignUp__row--error">{duplicateError.name}</span>
+          )}
         </div>
         <div className="SignUp__row">
           <label htmlFor="email">Email ID</label>
@@ -170,6 +174,9 @@ export default function SignUp() {
           />
           {errors.email && (
             <span className="SignUp__row--error">{errors.email}</span>
+          )}
+          {duplicateError.email && (
+            <span className="SignUp__row--error">{duplicateError.email}</span>
           )}
         </div>
         <div className="SignUp__col">
@@ -197,6 +204,9 @@ export default function SignUp() {
         )}
         {errors.confirmPassword && (
           <span className="SignUp__row--error">{errors.confirmPassword}</span>
+        )}
+        {duplicateError.password && (
+          <span className="SignUp__row--error">{duplicateError.password}</span>
         )}
         <div className="SignUp__bottom">
           <div className="SignUp__bottom--signedIn">
