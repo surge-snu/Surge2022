@@ -90,7 +90,17 @@ export default function AuthModal() {
                 }}
               />
             )}
-            {hash === "#signup" && <SignUp />}
+            {hash === "#signup" && (
+              <SignUp
+                onSignUp={() => {
+                  setIsOpen(false);
+                  setHash("");
+                  window.location.hash = "";
+                  router.replace(window.location.pathname);
+                  router.reload()
+                }}
+              />
+            )}
           </div>
         </div>
       )}

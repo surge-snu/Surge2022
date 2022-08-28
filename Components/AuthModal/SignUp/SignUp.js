@@ -7,7 +7,7 @@ import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 import { register, sendOtp } from "../../../operations/auth.fetch";
 import { isEmail, isPassword, isUsername } from "../../../utils/validate";
 
-export default function SignUp() {
+export default function SignUp({ onSignUp }) {
   const initialValues = {
     friendlyName: "",
     email: "",
@@ -118,8 +118,22 @@ export default function SignUp() {
                 }}
                 onComplete={async (value) => {
                   const isMatch = bcrypt.compareSync(value, cryptOtp);
-                  if (isMatch) await register(formData);
-                  else setOtpError("Invalid OTP");
+                  setShowLoader(true);
+
+                  if (isMatch) {
+                    await register(formData).then((res) => {
+                      if (res.status === 200) {
+                        setShowLoader(false);
+                        setShowOtp(false);
+                        onSignUp();
+                      } else {
+                        setCryptOtp(res.message);
+                      }
+                    });
+                  } else {
+                    setShowLoader(false);
+                    setOtpError("Invalid OTP");
+                  }
                 }}
                 autoSelect={true}
                 validate={(value) => (/^[a-z0-9]*$/.test(value) ? value : "")}
