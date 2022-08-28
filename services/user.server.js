@@ -1,6 +1,6 @@
 import db from "../lib/prisma";
 
-export async function getUser(email) {
+export async function fetchUser(email) {
   return db.user.findUnique({
     where: {
       email,
@@ -14,11 +14,10 @@ export async function createUser(data) {
   });
 }
 
-export async function fetchFriendlyName() {
-  return db.user.findMany({
-    select: {
-      email: true,
-      friendlyName: true,
+export async function fetchFriendlyName(name) {
+  return db.user.findUnique({
+    where: {
+      name,
     },
   });
 }
