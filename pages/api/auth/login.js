@@ -11,7 +11,13 @@ async function loginRoute(req, res) {
   //   password: "$2b$09$LN3F0oodRRZNTwzLAIWvUulsUpNJRr/j2F/JlNdji7iEVyzP3bKQG",
   //   email: email,
   // };
-  const user = await getUser();
+  const user = await getUser(email);
+
+  if (user === null) {
+    return res.status(400).json({
+      message: "User not found, try signing up...",
+    })
+  }
   const isMatch = await compareSync(password, user.password);
   delete user.password;
   if (isMatch) {
