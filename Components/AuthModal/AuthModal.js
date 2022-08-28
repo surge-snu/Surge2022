@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./AuthModal.scss";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
@@ -113,7 +112,15 @@ export default function AuthModal() {
                 }}
               />
             )}
-            {hash === "#reset-password" && <ResetPassword />}
+            {hash === "#reset-password" && (
+              <ResetPassword
+                onPasswordReset={() => {
+                  setIsOpen(false);
+                  setHash("#login");
+                  window.location.hash = "#login";
+                }}
+              />
+            )}
           </div>
         </div>
       )}
