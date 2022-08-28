@@ -1,18 +1,3 @@
-export async function login(formData) {
-  return fetch("/api/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  }).then(async (res) => {
-    return {
-      response: await res.json(),
-      status: res.status,
-    };
-  });
-}
-
 export async function sendOtp(formData) {
   return await fetch("/api/auth/send-otp", {
     method: "POST",

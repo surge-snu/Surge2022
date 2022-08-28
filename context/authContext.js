@@ -1,6 +1,7 @@
 import { withIronSessionSsr } from "iron-session/next";
 import React from "react";
 import { ironOptions } from "../lib/ironOptions";
+import { loginEndPoint } from "../operations/auth.fetch";
 
 export const AuthContext = React.createContext({});
 
@@ -15,8 +16,21 @@ export const getUserFromSession = withIronSessionSsr(async ({ req }) => {
 
 export function AuthProvider({ children, ssrUser, ...props }) {
   const [user, setUser] = React.useState(ssrUser);
+
   async function login(formData, setSetAuthError) {
-    await login(formData)
+    return fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(async (res) => {
+        return {
+          response: await res.json(),
+          status: res.status,
+        };
+      })
       .then((res) => {
         if (res.status === 200) {
           setSetAuthError({});
