@@ -1,7 +1,6 @@
 import { withIronSessionApiRoute } from "iron-session/next";
 import { ironOptions } from "../../../lib/ironOptions";
 import { compareSync } from "bcrypt";
-import db from "../../../lib/prisma";
 import { getUser } from "../../../services/user.server";
 
 export default withIronSessionApiRoute(loginRoute, ironOptions);
