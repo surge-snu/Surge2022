@@ -37,8 +37,13 @@ async function SendOtp(req, res) {
   const otp = nanoid(5);
   var mailOptions = {
     to: email,
-    subject: "Otp for Surge registration",
-    html: OTPTemplate("Account Verification", otp, friendlyName),
+    subject: "OTP for Surge registration",
+    html: OTPTemplate(
+      "Account Verification",
+      otp,
+      friendlyName,
+      "If you didn't request this, you can ignore this email"
+    ),
   };
   let transporter = nodemailer.createTransport({
     service: "Gmail",
@@ -49,14 +54,14 @@ async function SendOtp(req, res) {
     },
   });
 
-  // console.log(otp);
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      return console.log(error);
+      return res.status(400).json({
+        status: 400,
+        message: { email: "Something went wrong, Try again later..." },
+        error: JSON.stringify(error),
+      });
     }
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
     res.status(200).json({ status: 200, otp: `${hashSync(otp, 10)}` });
   });
 }

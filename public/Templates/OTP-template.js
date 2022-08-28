@@ -1,4 +1,4 @@
-export const OTPTemplate = (otpType, otp, userName) => {
+export const OTPTemplate = (otpType, otp, userName, bottomText) => {
   return `
   <!DOCTYPE html>
   <html
@@ -328,8 +328,7 @@ export const OTPTemplate = (otpType, otp, userName) => {
                                 color: #ffffff;
                               "
                             >
-                              If you didn't request this, you can ignore this
-                              email or
+                              ${bottomText} or
                               <a
                                 style="color: white"
                                 href="mailto:surge@snu.edu.in"
