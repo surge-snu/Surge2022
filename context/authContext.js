@@ -4,7 +4,7 @@ import { ironOptions } from "../lib/ironOptions";
 
 export const AuthContext = React.createContext({});
 
-export const getUser = withIronSessionSsr(async ({ req }) => {
+export const getUserFromSession = withIronSessionSsr(async ({ req }) => {
   // console.log(req.session);
   if (req.session.user === undefined) {
     return null;
@@ -45,7 +45,15 @@ export function AuthProvider({ children, ssrUser, ...props }) {
       });
   }
   async function signup(email, password) {}
-  async function logout() {}
+  async function logout() {
+    return fetch("/api/auth/logout", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        return res;
+      });
+  }
 
   const auth = {
     user,

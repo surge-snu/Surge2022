@@ -5,6 +5,8 @@
   @include make-flex($just: flex-start, $align: stretch);
 
   &__row {
+    @include make-flex();
+    gap: 7px;
     &--error {
       color: #fe5349;
       font-family: Roboto;
@@ -12,8 +14,10 @@
     }
     label {
       font-size: 19px;
+      width: 100%;
+      line-height: 19px;
       font-family: "Sequel100Black-65";
-
+      margin-bottom: 2px;
       @include respondAt(500px) {
         font-size: 15px;
       }

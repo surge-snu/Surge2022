@@ -1,11 +1,13 @@
 import "./SignUp.scss";
 import React from "react";
-import useForm from "../../../hooks/useForm";
-import { isEmail, isPassword, isUsername } from "../../../utils/validate";
-import PinInput from "react-pin-input";
 const bcrypt = require("bcryptjs");
+import PinInput from "react-pin-input";
+import useForm from "../../../hooks/useForm";
+import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
+import { register, sendOtp } from "../../../operations/auth.fetch";
+import { isEmail, isPassword, isUsername } from "../../../utils/validate";
 
-export default function SignUp() {
+export default function SignUp({ onSignUp }) {
   const initialValues = {
     friendlyName: "",
     email: "",
@@ -14,6 +16,9 @@ export default function SignUp() {
   };
   const [showOtp, setShowOtp] = React.useState(false);
   const [cryptOtp, setCryptOtp] = React.useState("");
+  const [showLoader, setShowLoader] = React.useState(false);
+  const [otpError, setOtpError] = React.useState("");
+  const [duplicateError, setDuplicateError] = React.useState({});
 
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
@@ -24,56 +29,55 @@ export default function SignUp() {
     }
   });
 
-  function validate(formValues) {
+  async function validate(formValues) {
     const errs = {};
-    if (!isUsername(formValues.friendlyName)) {
+    setDuplicateError({});
+    if (formValues.friendlyName && !isUsername(formValues.friendlyName)) {
       errs.friendlyName = "Invalid friendly name";
     }
 
-    if (!isEmail(formValues.email)) {
+    if (formValues.email && !isEmail(formValues.email)) {
       errs.email = "Invalid Email";
     }
 
-    if (!isPassword(formValues.password.trim())) {
+    if (formValues.password && !isPassword(formValues.password.trim())) {
       errs.password =
-        "Password must have at least one digit, one uppercase & one lowercase letter and min. 8 characters length";
+        "Password must have at least one digit, one uppercase, one lowercase letter and min. 8 characters length";
     }
 
-    if (formValues.confirmPassword.trim() !== formValues.password.trim()) {
+    if (
+      formValues.confirmPassword &&
+      formValues.confirmPassword.trim() !== formValues.password.trim()
+    ) {
       errs.confirmPassword = "Password and confirm password must match";
-    } else {
-      errs.confirmPassword = "";
     }
 
     return errs;
   }
 
-  const {formData, onChange, isSubmitting, handleSubmit, errors } = useForm({
+  const { formData, onChange, handleSubmit, errors } = useForm({
     validate,
     initialValues,
     onSubmit: async (formData) => {
       if (Object.keys(errors).length !== 0) return;
 
-      const response = await fetch("/api/auth/send-otp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          setCryptOtp(res.otp);
+      setShowLoader(true);
+
+      await sendOtp(formData).then((res) => {
+        setCryptOtp(res.otp);
+        setShowLoader(false);
+        if (res.status === 200) {
           setShowOtp(true);
-        });
-    },
-    onChangeError: (errors) => {
-      console.log(errors);
+        } else {
+          setDuplicateError(res.message);
+        }
+      });
     },
   });
 
   return (
     <>
+      {showLoader && <BlurredSpinner style={{ borderRadius: "7px" }} />}
       {showOtp && (
         <div className="Otp">
           <div className="Otp__container">
@@ -89,25 +93,11 @@ export default function SignUp() {
               <p>Verification Code</p>
             </div>
             <div className="Otp__desc">
-              <p>Please type the verification code sent to xyz@gmail.com</p>
+              <p>Please type the verification code sent to {formData.email}</p>
             </div>
             <div className="Otp__pin">
               <PinInput
                 length={5}
-                onChange={(value) => {
-                  if (value.length === 5) {
-                    const isMatch = bcrypt.compareSync(value, cryptOtp);
-                    if (isMatch) {
-                      fetch("/api/auth/register", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(formData),
-                      });
-                    }
-                  }
-                }}
                 type="custom"
                 style={{
                   display: "flex",
@@ -126,16 +116,48 @@ export default function SignUp() {
                 inputFocusStyle={{
                   border: "2px solid",
                 }}
-                onComplete={(value, index) => {}}
+                onComplete={async (value) => {
+                  const isMatch = bcrypt.compareSync(value, cryptOtp);
+                  setShowLoader(true);
+
+                  if (isMatch) {
+                    await register(formData).then((res) => {
+                      if (res.status === 200) {
+                        setShowLoader(false);
+                        setShowOtp(false);
+                        onSignUp();
+                      } else {
+                        setCryptOtp(res.message);
+                      }
+                    });
+                  } else {
+                    setShowLoader(false);
+                    setOtpError("Invalid OTP");
+                  }
+                }}
                 autoSelect={true}
                 validate={(value) => (/^[a-z0-9]*$/.test(value) ? value : "")}
               />
             </div>
+            {otpError !== "" && <span className="Otp__error">{otpError}</span>}
             <div className="Otp__again">
               <div className="Otp__again--text">
                 <p>Didn't get the code? &nbsp;</p>
               </div>
-              <a>Send Again</a>
+              <span
+                onClick={async () => {
+                  setShowLoader(true);
+                  setShowOtp(false);
+
+                  await sendOtp(formData).then((res) => {
+                    setCryptOtp(res.otp);
+                    setShowOtp(true);
+                    setShowLoader(false);
+                  });
+                }}
+              >
+                Send Again
+              </span>
             </div>
           </div>
         </div>
@@ -152,6 +174,9 @@ export default function SignUp() {
           {errors.friendlyName && (
             <span className="SignUp__row--error">{errors.friendlyName}</span>
           )}
+          {duplicateError.name && (
+            <span className="SignUp__row--error">{duplicateError.name}</span>
+          )}
         </div>
         <div className="SignUp__row">
           <label htmlFor="email">Email ID</label>
@@ -163,6 +188,9 @@ export default function SignUp() {
           />
           {errors.email && (
             <span className="SignUp__row--error">{errors.email}</span>
+          )}
+          {duplicateError.email && (
+            <span className="SignUp__row--error">{duplicateError.email}</span>
           )}
         </div>
         <div className="SignUp__col">
@@ -191,9 +219,18 @@ export default function SignUp() {
         {errors.confirmPassword && (
           <span className="SignUp__row--error">{errors.confirmPassword}</span>
         )}
+        {duplicateError.password && (
+          <span className="SignUp__row--error">{duplicateError.password}</span>
+        )}
         <div className="SignUp__bottom">
           <div className="SignUp__bottom--signedIn">
-            <input type="checkbox" id="tandc" name="tandc" value="tandc" />
+            <input
+              type="checkbox"
+              id="tandc"
+              name="tandc"
+              value="tandc"
+              required
+            />
             <label htmlFor="tandc">
               I agree to the Terms and Privacy Policy
             </label>

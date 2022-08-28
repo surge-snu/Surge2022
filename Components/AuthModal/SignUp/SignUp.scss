@@ -68,23 +68,28 @@
     //   margin: 10px auto;
   }
 
+  &__error {
+    color: #fe5349;
+    font-family: Roboto;
+    width: 100%;
+    text-align: center;
+  }
+
   &__again {
     @include make-flex($dir: row);
     margin: 0 auto;
 
-    &--text {
+    p {
       font-family: "Sequel100Black-55";
       color: rgba(255, 255, 255, 0.7);
       font-size: 13px;
-      p {
-        color: #000;
-      }
-
+      color: #000;
       @include respondAt(500px) {
         font-size: 10px;
       }
     }
-    a {
+
+    span {
       color: rgba(255, 255, 255, 1);
       text-decoration: none;
       font-family: "Sequel100Black-55";
@@ -112,6 +117,7 @@
 
   &__row {
     @include make-flex($dir: column, $align: flex-start);
+    gap: 7px;
   }
 
   &__col {
@@ -119,7 +125,9 @@
     gap: 20px;
 
     & > div {
+      @include make-flex();
       width: 50%;
+      gap: 7px;
     }
     @include respondAt(600px) {
       @include make-flex($dir: column);
@@ -138,8 +146,9 @@
       width: 100%;
     }
     label {
+      width: 100%;
+      line-height: 19px;
       font-size: 19px;
-      line-height: 2;
       font-family: "Sequel100Black-65";
 
       @include respondAt(500px) {

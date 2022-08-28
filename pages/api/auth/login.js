@@ -1,7 +1,7 @@
 import { withIronSessionApiRoute } from "iron-session/next";
 import { ironOptions } from "../../../lib/ironOptions";
 import { compareSync } from "bcrypt";
-import db from "../../../lib/prisma";
+import { fetchUser } from "../../../services/user.server";
 
 export default withIronSessionApiRoute(loginRoute, ironOptions);
 
@@ -11,11 +11,13 @@ async function loginRoute(req, res) {
   //   password: "$2b$09$LN3F0oodRRZNTwzLAIWvUulsUpNJRr/j2F/JlNdji7iEVyzP3bKQG",
   //   email: email,
   // };
-  const user = await db.user.findUnique({
-    where: {
-      email,
-    },
-  });
+  const user = await fetchUser(email);
+
+  if (user === null) {
+    return res.status(400).json({
+      message: "User not found, try signing up...",
+    })
+  }
   const isMatch = await compareSync(password, user.password);
   delete user.password;
   if (isMatch) {

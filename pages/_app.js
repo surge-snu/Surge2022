@@ -1,6 +1,6 @@
 import AuthModal from "../Components/AuthModal/AuthModal";
 import "../styles/root/globals.scss";
-import { AuthProvider, getUser } from "../context/authContext";
+import { AuthProvider, getUserFromSession } from "../context/authContext";
 import App from "next/app";
 
 function MyApp({ Component, pageProps, user }) {
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps, user }) {
 MyApp.getInitialProps = async (appContext) => {
   if (appContext.router.isSsr === undefined) {
     const appProps = await App.getInitialProps(appContext);
-    const user = await getUser(appContext.ctx);
+    const user = await getUserFromSession(appContext.ctx);
     return { ...appProps, user: user };
   } else {
     const appProps = await App.getInitialProps(appContext);
