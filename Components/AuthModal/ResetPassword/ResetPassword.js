@@ -6,7 +6,6 @@ import { isEmail, isPassword } from "../../../utils/validate";
 import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 import PinInput from "react-pin-input";
 import { changePassword, passwordOtp } from "../../../operations/auth.fetch";
-import { toast } from "react-toastify";
 
 function ResetPassword({ onPasswordReset }) {
   const initialValues = {
@@ -75,9 +74,7 @@ function ResetPassword({ onPasswordReset }) {
           if (res.status === 200) {
             setShowLoader(false);
             setShowOtp(false);
-            toast.success("Changed password Successfully! Login to continue", {
-              theme:"dark",
-            });
+
             onPasswordReset();
           }
         });
