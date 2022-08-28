@@ -4,7 +4,7 @@ import { ironOptions } from "../lib/ironOptions";
 
 export const AuthContext = React.createContext({});
 
-export const getUser = withIronSessionSsr(async ({ req }) => {
+export const getUserFromSession = withIronSessionSsr(async ({ req }) => {
   // console.log(req.session);
   if (req.session.user === undefined) {
     return null;
