@@ -51,14 +51,22 @@
   &__desc {
     font-family: "Sequel100Black-45";
     width: 100%;
-    font-size: 12px;
+    @include make-flex();
+    gap: 10px;
 
     @include respondAt(500px) {
       font-size: 10px;
     }
 
     p {
+      line-height: 19px;
+      font-size: 13px;
       color: #000;
+    }
+    em {
+      color: #000;
+      width: 100%;
+      text-align: center;
     }
   }
 
