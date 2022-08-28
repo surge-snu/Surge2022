@@ -68,23 +68,28 @@
     //   margin: 10px auto;
   }
 
+  &__error {
+    color: #fe5349;
+    font-family: Roboto;
+    width: 100%;
+    text-align: center;
+  }
+
   &__again {
     @include make-flex($dir: row);
     margin: 0 auto;
 
-    &--text {
+    p {
       font-family: "Sequel100Black-55";
       color: rgba(255, 255, 255, 0.7);
       font-size: 13px;
-      p {
-        color: #000;
-      }
-
+      color: #000;
       @include respondAt(500px) {
         font-size: 10px;
       }
     }
-    a {
+
+    span {
       color: rgba(255, 255, 255, 1);
       text-decoration: none;
       font-family: "Sequel100Black-55";

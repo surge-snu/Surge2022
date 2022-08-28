@@ -3,6 +3,8 @@ import React from "react";
 import useForm from "../../../hooks/useForm";
 import { isEmail, isPassword, isUsername } from "../../../utils/validate";
 import PinInput from "react-pin-input";
+import { register, sendOtp } from "../../../operations/auth.fetch";
+import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 const bcrypt = require("bcryptjs");
 
 export default function SignUp() {
@@ -14,6 +16,8 @@ export default function SignUp() {
   };
   const [showOtp, setShowOtp] = React.useState(false);
   const [cryptOtp, setCryptOtp] = React.useState("");
+  const [showLoader, setShowLoader] = React.useState(false);
+  const [otpError, setOtpError] = React.useState("");
 
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
@@ -24,7 +28,7 @@ export default function SignUp() {
     }
   });
 
-  function validate(formValues) {
+  async function validate(formValues) {
     const errs = {};
     if (formValues.friendlyName && !isUsername(formValues.friendlyName)) {
       errs.friendlyName = "Invalid friendly name";
@@ -32,6 +36,11 @@ export default function SignUp() {
 
     if (formValues.email && !isEmail(formValues.email)) {
       errs.email = "Invalid Email";
+    } else {
+      // const isAlreadyAUser = await getUser(formValues.email);
+      // if (isAlreadyAUser) {
+      //   errs.email = "Account already exists";
+      // }
     }
 
     if (formValues.password && !isPassword(formValues.password.trim())) {
@@ -49,32 +58,25 @@ export default function SignUp() {
     return errs;
   }
 
-  const { formData, onChange, isSubmitting, handleSubmit, errors } = useForm({
+  const { formData, onChange, handleSubmit, errors } = useForm({
     validate,
     initialValues,
     onSubmit: async (formData) => {
       if (Object.keys(errors).length !== 0) return;
 
-      const response = await fetch("/api/auth/send-otp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          setCryptOtp(res.otp);
-          setShowOtp(true);
-        });
-    },
-    onChangeError: (errors) => {
-      console.log(errors);
+      setShowLoader(true);
+
+      await sendOtp(formData).then((res) => {
+        setCryptOtp(res.otp);
+        setShowOtp(true);
+        setShowLoader(false);
+      });
     },
   });
 
   return (
     <>
+      {showLoader && <BlurredSpinner style={{ borderRadius: "7px" }} />}
       {showOtp && (
         <div className="Otp">
           <div className="Otp__container">
@@ -90,25 +92,11 @@ export default function SignUp() {
               <p>Verification Code</p>
             </div>
             <div className="Otp__desc">
-              <p>Please type the verification code sent to xyz@gmail.com</p>
+              <p>Please type the verification code sent to {formData.email}</p>
             </div>
             <div className="Otp__pin">
               <PinInput
                 length={5}
-                onChange={(value) => {
-                  if (value.length === 5) {
-                    const isMatch = bcrypt.compareSync(value, cryptOtp);
-                    if (isMatch) {
-                      fetch("/api/auth/register", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(formData),
-                      });
-                    }
-                  }
-                }}
                 type="custom"
                 style={{
                   display: "flex",
@@ -127,16 +115,34 @@ export default function SignUp() {
                 inputFocusStyle={{
                   border: "2px solid",
                 }}
-                onComplete={(value, index) => {}}
+                onComplete={async (value) => {
+                  const isMatch = bcrypt.compareSync(value, cryptOtp);
+                  if (isMatch) await register(formData);
+                  else setOtpError("Invalid OTP");
+                }}
                 autoSelect={true}
                 validate={(value) => (/^[a-z0-9]*$/.test(value) ? value : "")}
               />
             </div>
+            {otpError !== "" && <span className="Otp__error">{otpError}</span>}
             <div className="Otp__again">
               <div className="Otp__again--text">
                 <p>Didn't get the code? &nbsp;</p>
               </div>
-              <a>Send Again</a>
+              <span
+                onClick={async () => {
+                  setShowLoader(true);
+                  setShowOtp(false);
+
+                  await sendOtp(formData).then((res) => {
+                    setCryptOtp(res.otp);
+                    setShowOtp(true);
+                    setShowLoader(false);
+                  });
+                }}
+              >
+                Send Again
+              </span>
             </div>
           </div>
         </div>
@@ -194,7 +200,13 @@ export default function SignUp() {
         )}
         <div className="SignUp__bottom">
           <div className="SignUp__bottom--signedIn">
-            <input type="checkbox" id="tandc" name="tandc" value="tandc" required />
+            <input
+              type="checkbox"
+              id="tandc"
+              name="tandc"
+              value="tandc"
+              required
+            />
             <label htmlFor="tandc">
               I agree to the Terms and Privacy Policy
             </label>
