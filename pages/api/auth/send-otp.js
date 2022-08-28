@@ -4,6 +4,7 @@ import { withIronSessionApiRoute } from "iron-session/next";
 import { ironOptions } from "../../../lib/ironOptions";
 import { hashSync } from "bcrypt";
 import { fetchFriendlyName, fetchUser } from "../../../services/user.server";
+import { OTPTemplate } from "../../../public/Templates/OTP-template";
 
 export default withIronSessionApiRoute(SendOtp, ironOptions);
 
@@ -15,13 +16,13 @@ async function SendOtp(req, res) {
   if (isUser !== null) {
     return res.status(400).json({
       status: 400,
-      message: { email: "User already exists, try a different one..." },
+      message: { email: "Account already exists, Try logging in..." },
     });
   }
   if (isFriendlyName !== null) {
     return res.status(400).json({
       status: 400,
-      message: { name: "Username already exists, try another one..." },
+      message: { name: "Username already in use, try a different one..." },
     });
   }
 
@@ -37,11 +38,7 @@ async function SendOtp(req, res) {
   var mailOptions = {
     to: email,
     subject: "Otp for Surge registration",
-    html:
-      "<h3>OTP for account verification is </h3>" +
-      "<h1 style='font-weight:bold;'>" +
-      otp +
-      "</h1>",
+    html: OTPTemplate("Account Verification", otp, friendlyName),
   };
   let transporter = nodemailer.createTransport({
     service: "Gmail",
