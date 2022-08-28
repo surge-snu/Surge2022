@@ -18,11 +18,11 @@ export default function useForm({
 
   const hasError = (err = errors) => Object.entries(err).some(([, val]) => val);
 
-  const onChange = (fieldName, e) => {
+  const onChange = async (fieldName, e) => {
     setErrors({});
     const newData = { ...formData, [fieldName]: e.target.value };
     if (typeof validate === "function") {
-      const validationErrors = validate(newData);
+      const validationErrors = await validate(newData);
       if (hasError(validationErrors)) setErrors(validationErrors);
     }
     setFormData(newData);
