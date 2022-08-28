@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
+import ResetPassword from "./ResetPassword/ResetPassword";
 
 export default function AuthModal() {
   const [hash, setHash] = React.useState("");
@@ -15,7 +16,8 @@ export default function AuthModal() {
 
     if (
       window.location.hash === "#login" ||
-      window.location.hash === "#signup"
+      window.location.hash === "#signup" ||
+      window.location.hash === "#reset-password"
     ) {
       setIsOpen(true);
     } else {
@@ -26,7 +28,8 @@ export default function AuthModal() {
 
       if (
         window.location.hash === "#login" ||
-        window.location.hash === "#signup"
+        window.location.hash === "#signup" ||
+        window.location.hash === "#reset-password"
       ) {
         setIsOpen(true);
       } else {
@@ -72,12 +75,21 @@ export default function AuthModal() {
               </a>
               <a
                 href="#signup"
-                className={hash === "#login" ? "" : "route--active"}
+                className={hash === "#signup" ? "route--active" : ""}
                 onClick={() => {
                   setHash("#signup");
                 }}
               >
                 <p>Sign Up</p>
+              </a>
+              <a
+                href="#reset-password"
+                className={hash === "#reset-password" ? "route--active" : ""}
+                onClick={() => {
+                  setHash("#reset-password");
+                }}
+              >
+                <p>Reset pass</p>
               </a>
             </div>
             {hash === "#login" && (
@@ -97,10 +109,11 @@ export default function AuthModal() {
                   setHash("");
                   window.location.hash = "";
                   router.replace(window.location.pathname);
-                  router.reload()
+                  router.reload();
                 }}
               />
             )}
+            {hash === "#reset-password" && <ResetPassword />}
           </div>
         </div>
       )}

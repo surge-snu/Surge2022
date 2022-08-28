@@ -65,6 +65,7 @@
     @include make-flex($dir: row, $just: flex-start);
     @include box(100%, auto);
     padding: 0 30px;
+    flex-wrap: wrap;
     gap: 30px;
 
     @include respondAt(400px) {
@@ -73,6 +74,10 @@
 
     a {
       z-index: 1;
+      @include respondAt(450px) {
+        flex-grow: 1;
+        text-align: center;
+      }
       p {
         padding: 8px 10px 5px 10px;
         position: relative;
