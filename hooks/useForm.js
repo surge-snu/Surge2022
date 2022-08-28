@@ -26,7 +26,7 @@ export default function useForm({
       if (hasError(validationErrors)) setErrors(validationErrors);
     }
     setFormData(newData);
-    onChangeError(errors);
+    if (typeof onChangeError === "function") onChangeError(errors);
   };
 
   async function handleSubmit(event) {
