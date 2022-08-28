@@ -25,18 +25,13 @@ export function AuthProvider({ children, ssrUser, ...props }) {
       },
       body: JSON.stringify(formData),
     })
-      .then(async (res) => {
-        return {
-          response: await res.json(),
-          status: res.status,
-        };
-      })
+      .then(async (res) => await res.json())
       .then((res) => {
         if (res.status === 200) {
           setSetAuthError({});
-          setUser(res.response);
+          setUser(res.user);
         } else {
-          setSetAuthError(res.response);
+          setSetAuthError(res.message);
         }
         return res;
       })
