@@ -14,6 +14,17 @@ export async function createUser(data) {
   });
 }
 
+export async function changeUserPassword(data) {
+  return db.user.update({
+    where: {
+      email: data.email,
+    },
+    data: {
+      password: data.password,
+    },
+  });
+}
+
 export async function fetchFriendlyName(name) {
   return db.user.findUnique({
     where: {

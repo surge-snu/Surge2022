@@ -94,6 +94,7 @@ export default function SignUp({ onSignUp }) {
             </div>
             <div className="Otp__desc">
               <p>Please type the verification code sent to {formData.email}</p>
+              <em>(Also check your spam folder)</em>
             </div>
             <div className="Otp__pin">
               <PinInput

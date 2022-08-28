@@ -3,26 +3,19 @@ import { customAlphabet } from "nanoid";
 import { withIronSessionApiRoute } from "iron-session/next";
 import { ironOptions } from "../../../lib/ironOptions";
 import { hashSync } from "bcrypt";
-import { fetchFriendlyName, fetchUser } from "../../../services/user.server";
+import { fetchUser } from "../../../services/user.server";
 import { OTPTemplate } from "../../../public/Templates/OTP-template";
 
-export default withIronSessionApiRoute(SendOtp, ironOptions);
+export default withIronSessionApiRoute(SendPasswordOtp, ironOptions);
 
-async function SendOtp(req, res) {
-  const { email, friendlyName, password, confirmPassword } = req.body;
+async function SendPasswordOtp(req, res) {
+  const { email, password, confirmPassword } = req.body;
   const isUser = await fetchUser(email);
-  const isFriendlyName = await fetchFriendlyName(friendlyName);
 
-  if (isUser !== null) {
+  if (isUser === null) {
     return res.status(400).json({
       status: 400,
-      message: { email: "Account already exists, Try logging in..." },
-    });
-  }
-  if (isFriendlyName !== null) {
-    return res.status(400).json({
-      status: 400,
-      message: { name: "Username already in use, try a different one..." },
+      message: { email: "Account does not exist, Sign up instead" },
     });
   }
 
@@ -37,12 +30,12 @@ async function SendOtp(req, res) {
   const otp = nanoid(5);
   var mailOptions = {
     to: email,
-    subject: "OTP for Surge registration",
+    subject: "OTP for Surge Password Reset",
     html: OTPTemplate(
-      "Account Verification",
+      "Password Reset",
       otp,
-      friendlyName,
-      "If you didn't request this, you can ignore this email"
+      isUser.name,
+      "If you didn't request for password reset, you can ignore this email"
     ),
   };
   let transporter = nodemailer.createTransport({
@@ -62,6 +55,7 @@ async function SendOtp(req, res) {
         error: JSON.stringify(error),
       });
     }
+
     res.status(200).json({ status: 200, otp: `${hashSync(otp, 10)}` });
   });
 }
