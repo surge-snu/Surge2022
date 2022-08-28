@@ -6,8 +6,9 @@ import { isEmail, isPassword } from "../../../utils/validate";
 import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 import PinInput from "react-pin-input";
 import { changePassword, passwordOtp } from "../../../operations/auth.fetch";
+import { toast } from "react-toastify";
 
-function ResetPassword({onPasswordReset}) {
+function ResetPassword({ onPasswordReset }) {
   const initialValues = {
     email: "",
     password: "",
@@ -51,7 +52,7 @@ function ResetPassword({onPasswordReset}) {
 
     return errs;
   }
-
+  
   const { formData, onChange, handleSubmit, errors } = useForm({
     validate,
     initialValues,
@@ -74,7 +75,10 @@ function ResetPassword({onPasswordReset}) {
           if (res.status === 200) {
             setShowLoader(false);
             setShowOtp(false);
-            onPasswordReset()
+            toast.success("Changed password Successfully! Login to continue", {
+              theme:"dark",
+            });
+            onPasswordReset();
           }
         });
       }
@@ -101,6 +105,7 @@ function ResetPassword({onPasswordReset}) {
             </div>
             <div className="Otp__desc">
               <p>Please type the verification code sent to {formData.email}</p>
+              <em>(Also check your spam folder)</em>
             </div>
             <div className="Otp__pin">
               <PinInput
@@ -150,10 +155,14 @@ function ResetPassword({onPasswordReset}) {
                   setShowLoader(true);
                   setShowOtp(false);
 
-                  await sendOtp(formData).then((res) => {
+                  await passwordOtp(formData).then((res) => {
                     setCryptOtp(res.otp);
-                    setShowOtp(true);
                     setShowLoader(false);
+                    if (res.status === 200) {
+                      setShowOtp(true);
+                    } else {
+                      setDuplicateError(res.message);
+                    }
                   });
                 }}
               >
@@ -235,7 +244,7 @@ function ResetPassword({onPasswordReset}) {
               </span>
             )}
             <div className="ResetPasswordWrapper__button">
-              <button type="submit">Sign Up</button>
+              <button type="submit">Change Password</button>
             </div>
           </>
         )}
