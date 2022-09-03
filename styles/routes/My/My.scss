@@ -1,0 +1,10 @@
+.MyLayout {
+  @include box($height: 100vh);
+  @include make-flex($dir: row, $align: flex-start, $just: flex-start);
+
+  &__page {
+    @include box(calc(100% - 265px));
+    @include make-flex($dir: column, $align: flex-start, $just: flex-start);
+    background-color: #193559;
+  }
+}

@@ -1,8 +1,6 @@
 import "../../styles/routes/My/MyIndex.scss";
 
 export async function getServerSideProps(context) {
-  console.log(context.req.session.user === undefined);
-
   if (context.req.session.user === undefined) {
     return {
       props: { user: null },
