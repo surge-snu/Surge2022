@@ -1,7 +1,6 @@
 import { withIronSessionSsr } from "iron-session/next";
 import React from "react";
 import { ironOptions } from "../lib/ironOptions";
-import { loginEndPoint } from "../operations/auth.fetch";
 
 export const AuthContext = React.createContext({});
 
