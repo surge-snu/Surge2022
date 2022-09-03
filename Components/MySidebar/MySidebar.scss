@@ -1,0 +1,72 @@
+.MySidebarWrapper {
+  @include box(265px);
+
+  &__top {
+    @include box($height: auto);
+    @include make-flex($dir: column, $align: flex-start);
+    padding: 30px 20px;
+
+    &--left {
+      @include box($height: auto);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      h2 {
+        width: 100%;
+        font-family: "Sequel100Black-55";
+        font-size: 25px;
+        color: white;
+      }
+      span {
+        width: 100%;
+        font-family: "Sequel100Black-45";
+        font-size: 15px;
+        color: #878a90;
+      }
+    }
+  }
+
+  &__bottom {
+    @include box($height: calc(100% - 140px));
+    overflow-y: auto;
+    @include make-flex($just: flex-start, $align: flex-start);
+  }
+
+  &__item {
+    @include box(100%, 50px);
+    padding-left: 24px;
+    position: relative;
+    @include make-flex($align: flex-start);
+    font-family: "Sequel100Black-45";
+    // border-bottom: 1px solid #878a90;
+    &::after {
+      bottom: 0px;
+      left: 0;
+      content: "";
+      width: 80%;
+      display: block;
+      position: absolute;
+      border-bottom: 1px solid #878a90;
+    }
+    &::before {
+      content: "";
+      border-left: 3px solid transparent;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &--active {
+      background-color: #193559;
+      color: #c4f750;
+
+      &::before {
+        content: "";
+        border-left: 3px solid #c4f750;
+      }
+      &::after {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+}
