@@ -5,6 +5,7 @@ import App from "next/app";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps, user }) {
+  const getLayout = Component.getLayout || ((page) => page);
   return (
     <AuthProvider ssrUser={user}>
       <Head>
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps, user }) {
         <link rel="icon" href="/Img/Sports icon.png" />
       </Head>
       <AuthModal />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </AuthProvider>
   );
 }
