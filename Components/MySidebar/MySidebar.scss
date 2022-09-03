@@ -1,0 +1,168 @@
+.MySidebarWrapper {
+  @include box(265px);
+
+  &__top {
+    @include box($height: auto);
+    @include make-flex($dir: column, $align: flex-start);
+    padding: 30px 20px;
+
+    &--left {
+      @include box($height: auto);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      h2 {
+        width: 100%;
+        font-family: "Sequel100Black-55";
+        font-size: 25px;
+        color: white;
+      }
+      span {
+        width: 100%;
+        font-family: "Sequel100Black-45";
+        font-size: 15px;
+        color: #878a90;
+      }
+    }
+  }
+
+  &__bottom {
+    @include box($height: calc(100% - 140px));
+    overflow-y: auto;
+    @include make-flex($just: flex-start, $align: flex-start);
+  }
+
+  &__item {
+    @include box(100%, 50px);
+    padding-left: 24px;
+    position: relative;
+    @include make-flex($align: flex-start);
+    font-family: "Sequel100Black-45";
+    // border-bottom: 1px solid #878a90;
+    &::after {
+      bottom: 0px;
+      left: 0;
+      content: "";
+      width: 80%;
+      display: block;
+      position: absolute;
+      border-bottom: 1px solid #878a90;
+    }
+    &::before {
+      content: "";
+      border-left: 3px solid transparent;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &--active {
+      background-color: #193559;
+      color: #c4f750;
+
+      &::before {
+        content: "";
+        border-left: 3px solid #c4f750;
+      }
+      &::after {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+
+  #NavBarInput,
+  .hamButton {
+    display: none;
+  }
+
+  @include respondAt(915px) {
+    top: 0;
+    left: 0;
+    gap: unset;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    max-width: 265px;
+    position: fixed;
+    flex-direction: column;
+    // padding: 123px 14px 0 24px;
+    background-color: #0f1621;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+    border-right: 4px solid #cafa0a;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    &--open {
+      transform: translateX(0%);
+    }
+  }
+
+  &__Hamburger {
+    #NavBarInput,
+    .hamButton {
+      display: none;
+    }
+
+    @include respondAt(915px) {
+      position: absolute;
+      height: 28px;
+      width: 28px;
+      right: -45px;
+      top: 10px;
+      z-index: 2;
+    }
+
+    #NavBarInput {
+      @include respondAt(915px) {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        height: 28px;
+        margin: 0;
+        width: 28px;
+      }
+    }
+    &--open {
+      right: 7px;
+    }
+    .hamButton {
+      @include respondAt(915px) {
+        z-index: 1;
+        width: auto;
+        height: 28px;
+        @include make-flex();
+        label {
+          height: 100%;
+          margin: unset;
+          @include make-flex($just: space-around);
+          span {
+            width: 28px;
+            display: block;
+            transform-origin: 4px 0px;
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+            border-top: 3px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            &:first-child {
+              transform-origin: 0% 0%;
+            }
+            &:nth-last-child(2) {
+              transform-origin: 0% 100%;
+            }
+          }
+        }
+      }
+    }
+
+    #NavBarInput:checked ~ .hamButton > label > .span.HL1 {
+      opacity: 1;
+      transform: rotate(45deg) translate(3px, -4px);
+    }
+    #NavBarInput:checked ~ .hamButton > label > .span.HL2 {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    #NavBarInput:checked ~ .hamButton > label > .span.HL3 {
+      transform: rotate(-45deg) translate(4px, 0px);
+    }
+  }
+}

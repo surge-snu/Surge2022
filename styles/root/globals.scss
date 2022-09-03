@@ -57,7 +57,8 @@ html,
 body,
 #__next {
   overflow-x: hidden;
-  width: 99vw;
+  @include box(100vw, auto);
+  min-height: 100vh;
   background-color: #0f1621;
   @include make-flex($just: flex-start);
 
