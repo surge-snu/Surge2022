@@ -6,5 +6,9 @@
     @include box(calc(100% - 265px));
     @include make-flex($dir: column, $align: flex-start, $just: flex-start);
     background-color: #193559;
+    @include respondAt(915px) {
+      width: 100%;
+      padding-top: 45px;
+    }
   }
 }
