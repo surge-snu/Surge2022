@@ -26,7 +26,7 @@ export default function MyHome({ user }) {
   const [receivedInvitations, setReceivedInvitations] = React.useState([]);
 
   return (
-    <main>
+    <main style={{ display: "flex", flexDirection: "column" }}>
       {user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
       {user !== null && <button onClick={logout}>Logout</button>}
       <button
@@ -43,7 +43,8 @@ export default function MyHome({ user }) {
       {sentInvitations.map((invitation) => {
         return (
           <label key={invitation.id}>
-            {invitation.fromId} - {invitation.status}&nbsp;
+            {invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
+            {invitation.status}&nbsp;
             <button
               onClick={async () => {
                 await updateInvitationOps({
@@ -64,7 +65,8 @@ export default function MyHome({ user }) {
       {receivedInvitations.map((invitation) => {
         return (
           <label key={invitation.id}>
-            {invitation.fromId}&nbsp;
+            {invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
+            {invitation.status}&nbsp;
             <button
               onClick={async () => {
                 await updateInvitationOps({
