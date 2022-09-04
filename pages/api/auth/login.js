@@ -12,7 +12,6 @@ async function loginRoute(req, res) {
   //   email: email,
   // };
   const user = await fetchUser(email);
-
   if (user === null) {
     return res.status(400).json({
       status: 400,
