@@ -1,0 +1,120 @@
+.InvitationWidgetWrapper {
+  width: 60%;
+  min-height: 40px;
+  position: relative;
+  @include make-flex($just: flex-start);
+  gap: 25px;
+  &--top {
+    @include make-flex($dir: row);
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  &__inputWrapper {
+    position: relative;
+    height: 33px;
+    flex-grow: 1;
+    max-width: 300px;
+    input {
+      @include box();
+      padding: 4px 8px;
+      color: black;
+      font-family: "Sequel100Black-45";
+      outline: none;
+      font-size: 17px;
+      line-height: 100%;
+    }
+    span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      background-color: #cafa0862;
+      color: black;
+      padding: 2px 5px;
+      @include make-flex();
+      border-radius: 10px;
+    }
+  }
+
+  &__chips {
+    @include make-flex($dir: row, $just: space-between);
+    white-space: nowrap;
+    gap: 5px;
+    flex-grow: 1;
+    overflow: hidden;
+    color: white;
+    background-color: #5284ff;
+    padding: 4px 5px 4px 8px;
+    border-radius: 4px;
+    font-family: "Sequel100Black-45";
+    line-height: 100%;
+    button {
+      @include box(25px, 25px);
+      cursor: pointer;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      font-weight: 900;
+      border-radius: 4px;
+      //   border: 1px dashed #ff4f46;
+
+      &:hover {
+        background-color: #cafa08;
+        color: black;
+      }
+    }
+  }
+
+  &__results {
+    @include box();
+    background-color: #233761;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 0 10px;
+    li {
+      list-style: none;
+      height: 50px;
+      @include make-flex($align: flex-start);
+      font-family: "Sequel100Black-55";
+      gap: 5px;
+      line-height: 100%;
+      font-size: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 0 10px;
+      border-bottom: 1px solid #7b87a0;
+
+      &:first-child {
+        margin-top: 10px;
+      }
+      &:last-child {
+        border-bottom: 1px solid transparent;
+        margin-bottom: 10px;
+      }
+
+      &:hover {
+        background-color: #476ec38e;
+        border-bottom: 1px solid transparent;
+      }
+
+      span {
+        font-size: 13px;
+        color: #7b87a0;
+      }
+    }
+  }
+  &__sendInvites {
+    background-color: #233761;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "Sequel100Black-55";
+    font-size: 15px;
+    line-height: 100%;
+    color: white;
+  }
+}
