@@ -5,6 +5,48 @@ export async function fetchUser(email) {
     where: {
       email,
     },
+    include: {
+      sentInvitations: {
+        include: {
+          toUser: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              college: true,
+            },
+          },
+          fromUser: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              college: true,
+            },
+          },
+        },
+      },
+      receivedInvitations: {
+        include: {
+          toUser: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              college: true,
+            },
+          },
+          fromUser: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              college: true,
+            },
+          },
+        },
+      },
+    },
   });
 }
 
@@ -29,6 +71,16 @@ export async function fetchFriendlyName(name) {
   return db.user.findUnique({
     where: {
       name,
+    },
+  });
+}
+
+export async function fetchAllUsers() {
+  return db.user.findMany({
+    select: {
+      id: true,
+      name: true,
+      email: true,
     },
   });
 }
