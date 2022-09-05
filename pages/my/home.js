@@ -43,18 +43,20 @@ export default function MyHome({ user }) {
       {sentInvitations.map((invitation) => {
         return (
           <label key={invitation.id}>
-            {invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
+            {invitation.toUser.name} - {invitation.toUser.email} -{" "}
             {invitation.status}&nbsp;
-            <button
-              onClick={async () => {
-                await updateInvitationOps({
-                  id: invitation.id,
-                  status: "REVOKED",
-                });
-              }}
-            >
-              Revoke Invitation
-            </button>
+            {invitation.status !== "REVOKED" && (
+              <button
+                onClick={async () => {
+                  await updateInvitationOps({
+                    id: invitation.id,
+                    status: "REVOKED",
+                  });
+                }}
+              >
+                Revoke Invitation
+              </button>
+            )}
             &nbsp;
           </label>
         );
@@ -67,27 +69,31 @@ export default function MyHome({ user }) {
           <label key={invitation.id}>
             {invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
             {invitation.status}&nbsp;
-            <button
-              onClick={async () => {
-                await updateInvitationOps({
-                  id: invitation.id,
-                  status: "ACCEPTED",
-                });
-              }}
-            >
-              Accept
-            </button>
-            &nbsp;
-            <button
-              onClick={async () => {
-                await updateInvitationOps({
-                  id: invitation.id,
-                  status: "REJECTED",
-                });
-              }}
-            >
-              Decline
-            </button>
+            {invitation.status !== "REVOKED" && (
+              <>
+                <button
+                  onClick={async () => {
+                    await updateInvitationOps({
+                      id: invitation.id,
+                      status: "ACCEPTED",
+                    });
+                  }}
+                >
+                  Accept
+                </button>
+                &nbsp;
+                <button
+                  onClick={async () => {
+                    await updateInvitationOps({
+                      id: invitation.id,
+                      status: "REJECTED",
+                    });
+                  }}
+                >
+                  Decline
+                </button>
+              </>
+            )}
             &nbsp;
           </label>
         );
