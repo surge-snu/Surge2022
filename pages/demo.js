@@ -1,4 +1,5 @@
 import React from "react";
+import InvitationWidget from "../Components/InvitationWidget/InvitationWidget";
 import { sendInvitationOps } from "../operations/invitation.fetch";
 import { fetchAllUsers } from "../services/user.server";
 import "../styles/routes/Home.scss";
@@ -19,24 +20,31 @@ export async function getServerSideProps(context) {
 }
 export default function Demo({ user, allUsers }) {
   const [player, setPlayer] = React.useState("");
-  const [possibleResults, setPossibleResults] = React.useState([]);
-  const [invitedPlayers, setInvitedPlayers] = React.useState([]);
+
   const eventId = "ef0bec37-83e7-43c5-b92a-6d16a8bf2120";
 
-  React.useEffect(() => {
-    if (player !== "") {
-      const results = allUsers.filter((user) => {
-        return user.name.toLowerCase().includes(player.toLowerCase());
-      });
-      setPossibleResults(results);
-    } else {
-      setPossibleResults([]);
-    }
-  }, [player]);
+  // React.useEffect(() => {
+  //   if (player !== "") {
+  //     const results = allUsers.filter((user) => {
+  //       return user.name.toLowerCase().includes(player.toLowerCase());
+  //     });
+  //     setPossibleResults(results);
+  //   } else {
+  //     setPossibleResults([]);
+  //   }
+  // }, [player]);
 
   return (
-    <main>
-      <h1>
+    <main className="DemoPage">
+      <h2>{user.name}</h2>
+      <InvitationWidget
+        allUsers={allUsers}
+        maxPlayers={6}
+        minPlayers={2}
+        user={user}
+        eventId={eventId}
+      />
+      {/* <h1>
         {user !== null ? (
           <p>
             Hello {user.email} - {user.id}
@@ -104,7 +112,7 @@ export default function Demo({ user, allUsers }) {
               );
             })}
         </ul>
-      </div>
+      </div> */}
     </main>
   );
 }
