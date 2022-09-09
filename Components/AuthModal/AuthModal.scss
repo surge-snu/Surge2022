@@ -1,0 +1,132 @@
+.AuthModal {
+  @include make-flex($just: flex-start);
+  @include box(100vw, 100vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.49);
+  backdrop-filter: blur(15px);
+  z-index: 11;
+  padding-top: 70px;
+
+  @include respondAt(620px) {
+    padding: 10px;
+  }
+  &__container {
+    gap: 10px;
+    position: relative;
+    min-height: 450px;
+    border-radius: 7px;
+    @include make-flex($just: flex-start);
+    @include box(600px, auto);
+    border: 1px solid #cafa0a;
+    background-color: #0f1621;
+
+    @include respondAt(400px) {
+      min-height: 400px;
+    }
+
+    &--close {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      font-size: 30px;
+      cursor: pointer;
+
+      &:hover {
+        color: #fe5349;
+      }
+
+      @include respondAt(400px) {
+        top: 10px;
+      }
+    }
+
+    @include respondAt(620px) {
+      @include box($height: auto);
+    }
+  }
+
+  h2 {
+    font-family: "Sequel100Black-65";
+    font-size: 54px;
+    text-align: center;
+    width: 100%;
+    line-height: 90px;
+
+    @include respondAt(400px) {
+      font-size: 40px;
+      line-height: 70px;
+    }
+  }
+  &__tabs {
+    font-size: 15px;
+    font-family: "Sequel100Black-65";
+    @include make-flex($dir: row, $just: flex-start);
+    @include box(100%, auto);
+    padding: 0 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @include respondAt(400px) {
+      font-size: 12px;
+    }
+
+    a {
+      z-index: 1;
+      @include respondAt(450px) {
+        flex-grow: 1;
+        text-align: center;
+      }
+      p {
+        padding: 8px 10px 5px 10px;
+        position: relative;
+        @include respondAt(915px) {
+          width: 100%;
+        }
+        background-color: #0f1621;
+        border: 1px dashed #cafa0a;
+
+        &:before {
+          z-index: -1;
+          @include box();
+          content: "";
+          position: absolute;
+          border: 1px dashed #ffffff;
+          bottom: -5px;
+          right: -5px;
+        }
+        &:hover {
+          background-color: #cafa0a;
+          color: #0f1621;
+          border: 1px solid #cafa0a;
+
+          &:before {
+            z-index: -1;
+            border: 1px solid #ffffff;
+            @include box();
+            content: "";
+            position: absolute;
+            background-color: #ffffff;
+            bottom: -5px;
+            right: -5px;
+          }
+        }
+      }
+    }
+    .route--active p {
+      background-color: #cafa0a;
+      color: #0f1621;
+
+      &:before {
+        z-index: -1;
+        @include box();
+        content: "";
+        position: absolute;
+        background-color: #ffffff;
+        bottom: -5px;
+        right: -5px;
+      }
+    }
+  }
+}

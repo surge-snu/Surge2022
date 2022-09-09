@@ -1,0 +1,62 @@
+.MyIndex {
+  @include box($height: 100vh);
+  @include make-flex();
+  gap: 15px;
+  z-index: 1;
+
+  &__container {
+    border: 1px solid #cafa0a;
+    max-height: 245px;
+    max-width: 535px;
+    border-radius: 5px;
+
+    @include box();
+    @include make-flex($just: space-evenly);
+    h1 {
+      font-family: "Sequel100Black-65";
+      line-height: 100%;
+      font-size: 54px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    a {
+      padding: 8px 10px 8px 10px;
+      position: relative;
+      font-family: "Sequel100Black-55";
+      font-size: 19px;
+      line-height: 100%;
+      background-color: #0f1621;
+      border: 1px dashed #cafa0a;
+      @include respondAt(915px) {
+        width: 100%;
+      }
+      &:before {
+        z-index: -1;
+        @include box();
+        content: "";
+        position: absolute;
+        border: 1px dashed #ffffff;
+        bottom: -7px;
+        right: -7px;
+      }
+
+      &:hover {
+        background-color: #cafa0a;
+        color: #0f1621;
+        border: 1px solid #cafa0a;
+
+        &:before {
+          z-index: -1;
+          border: 1px solid #ffffff;
+          @include box();
+          content: "";
+          position: absolute;
+          background-color: #ffffff;
+          bottom: -7px;
+          right: -7px;
+        }
+      }
+    }
+  }
+}

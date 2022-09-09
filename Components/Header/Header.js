@@ -1,11 +1,11 @@
 import React from "react";
-import { useRouter } from "next/router";
 import "./Header.scss";
+import useAuth from "../../hooks/useAuth";
 
 function Header() {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
-  const router = useRouter();
+  const { user } = useAuth();
 
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -22,11 +22,9 @@ function Header() {
   });
 
   React.useEffect(() => {
-    window.onhashchange = () => {
-
+    window.addEventListener("hashchange", () => {
       setHash(window.location.hash);
-      console.log(window.location.hash);
-    };
+    });
   }, []);
 
   return (
@@ -83,12 +81,18 @@ function Header() {
             </a>
           </li>
           <li className="HeaderWrapper__MenuList--item">
-            <a
-              href="#privacy"
-              className={`${hash === "#privacy" ? "route--active" : ""} `}
-            >
-              Privacy
-            </a>
+            {!user ? (
+              <a
+                href="#login"
+                className={`${
+                  hash === "#login" || hash === "#signup" ? "route--active" : ""
+                } `}
+              >
+                Login
+              </a>
+            ) : (
+              <a href="/my">Profile</a>
+            )}
           </li>
         </ul>
       </div>

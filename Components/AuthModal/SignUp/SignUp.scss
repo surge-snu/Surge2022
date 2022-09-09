@@ -1,0 +1,256 @@
+.Otp {
+  @include box($height: 100%, $width: 100%);
+  @include make-flex($dir: column, $just: center);
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  border-radius: 7px;
+  z-index: 2;
+
+  &__container {
+    @include box($height: auto, $width: 400px);
+    @include make-flex($dir: column, $align: flex-start);
+    position: relative;
+    padding: 30px;
+    margin: auto;
+    border-radius: 8px;
+    background-color: #ffffff;
+    gap: 10px;
+
+    @include respondAt(500px) {
+      width: 90%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    cursor: pointer;
+    color: #000;
+
+    transform: scale(2);
+  }
+
+  &__title {
+    font-family: "Sequel100Black-65";
+    font-size: 20px;
+    line-height: 19px;
+    width: 100%;
+
+    @include respondAt(500px) {
+      font-size: 15px;
+    }
+
+    p {
+      color: #000;
+    }
+  }
+
+  &__desc {
+    font-family: "Sequel100Black-45";
+    width: 100%;
+    @include make-flex();
+    gap: 10px;
+
+    @include respondAt(500px) {
+      font-size: 10px;
+    }
+
+    p {
+      line-height: 19px;
+      font-size: 13px;
+      color: #000;
+    }
+    em {
+      color: #000;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__pin {
+    width: 100%;
+    @include make-flex();
+    //   margin: 10px auto;
+  }
+
+  &__error {
+    color: #fe5349;
+    font-family: Roboto;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__again {
+    @include make-flex($dir: row);
+    margin: 0 auto;
+
+    p {
+      font-family: "Sequel100Black-55";
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+      color: #000;
+      @include respondAt(500px) {
+        font-size: 10px;
+      }
+    }
+
+    span {
+      color: rgba(255, 255, 255, 1);
+      text-decoration: none;
+      font-family: "Sequel100Black-55";
+      font-size: 13px;
+      color: #000;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include respondAt(500px) {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.SignUp {
+  gap: 15px;
+  padding: 10px 30px 20px;
+  @include box($height: auto);
+  @include make-flex($just: flex-start, $align: stretch);
+  overflow-y: auto;
+
+  &__row {
+    @include make-flex($dir: column, $align: flex-start);
+    gap: 7px;
+  }
+
+  &__col {
+    @include make-flex($dir: row);
+    gap: 20px;
+
+    & > div {
+      @include make-flex();
+      width: 50%;
+      gap: 7px;
+    }
+    @include respondAt(600px) {
+      @include make-flex($dir: column);
+
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+
+  &__row,
+  &__col {
+    &--error {
+      color: #fe5349;
+      font-family: Roboto;
+      width: 100%;
+    }
+    label {
+      width: 100%;
+      line-height: 19px;
+      font-size: 19px;
+      font-family: "Sequel100Black-65";
+
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+    input {
+      font-size: 19px;
+      font-family: "Sequel100Black-55";
+      width: 100%;
+      height: 45px;
+      border-radius: 4.77px;
+      background-color: transparent;
+      border: 1px solid white;
+      padding: 7px 10px;
+
+      @include respondAt(500px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__bottom {
+    @include make-flex($dir: row, $just: space-between);
+    &--signedIn {
+      gap: 10px;
+      @include make-flex($dir: row);
+      label {
+        font-size: 15px;
+        line-height: 20px;
+        font-family: "Sequel100Black-55";
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.7);
+
+        @include respondAt(500px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+      input[type="checkbox"] {
+        cursor: pointer;
+        accent-color: white;
+        @include box(15px, 15px);
+      }
+    }
+  }
+  &__button {
+    @include make-flex($dir: row, $just: center);
+    button {
+      cursor: pointer;
+      border: 0px;
+      background-color: white;
+      color: black;
+      font-family: "Sequel100Black-65";
+      font-size: 18px;
+      padding: 0px 16px;
+
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+  }
+  &__login {
+    @include make-flex($dir: row, $just: center);
+    gap: 10px;
+    &--text {
+      font-size: 18px;
+      font-family: "Sequel100Black-55";
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 20px;
+
+      @include respondAt(500px) {
+        font-size: 14px;
+      }
+      @include respondAt(365px) {
+        font-size: 10px;
+      }
+    }
+    a {
+      color: rgba(255, 255, 255, 1);
+      text-decoration: none;
+      font-family: "Sequel100Black-55";
+      font-size: 18px;
+      line-height: 20px;
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include respondAt(500px) {
+        font-size: 14px;
+      }
+      @include respondAt(400px) {
+        font-size: 10px;
+      }
+    }
+  }
+}

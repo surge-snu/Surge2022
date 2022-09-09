@@ -3,9 +3,10 @@
   @include make-flex($dir: row);
   background: #0f162173;
   backdrop-filter: blur(50px);
-  z-index: 999;
+  z-index: 10;
   transition: 0.2s;
   position: fixed;
+  top: 0;
   padding: 0 20px;
   #NavBarInput,
   .hamButton {

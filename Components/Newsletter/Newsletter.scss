@@ -8,7 +8,7 @@
     gap: 20px;
     @include box();
     max-width: 1500px;
-    border-radius: 10px;
+    // border-radius: 10px;
     @include make-flex();
     background-color: #0f3fb6;
     background-image: url("../../public/Img/newsletterBG.png");
