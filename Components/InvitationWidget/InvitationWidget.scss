@@ -1,31 +1,36 @@
 .InvitationWidgetWrapper {
-  width: 60%;
+  @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+  width: 100%;
   min-height: 40px;
   position: relative;
-  @include make-flex($just: flex-start);
   gap: 25px;
+	
   &--top {
-    @include make-flex($dir: row);
+		@include box(60%, 100%);
+    @include make-flex($dir: row, $just: space-between, $align: center);
     flex-wrap: wrap;
     gap: 10px;
     background-color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px 10px;
   }
+	
   &__inputWrapper {
+		@include box($width: 60%, $height: 100%);
+		@include make-flex($dir: row, $just: space-between, $align: center);
     position: relative;
-    height: 33px;
     flex-grow: 1;
-    max-width: 300px;
+		
     input {
       @include box();
-      padding: 4px 8px;
+      padding: 0px 10px;
       color: black;
       font-family: "Sequel100Black-45";
       outline: none;
-      font-size: 17px;
-      line-height: 100%;
+			border: none;
+      font-size: 10px;
     }
+		
     span {
       position: absolute;
       right: 0;
@@ -40,17 +45,29 @@
   }
 
   &__chips {
+		@include box(100%, fit-content);
     @include make-flex($dir: row, $just: space-between);
     white-space: nowrap;
     gap: 5px;
-    flex-grow: 1;
     overflow: hidden;
     color: white;
-    background-color: #5284ff;
-    padding: 4px 5px 4px 8px;
+    background-color: #5284FF26;;
+    padding: 0 8px;
     border-radius: 4px;
     font-family: "Sequel100Black-45";
-    line-height: 100%;
+		font-size: 10px;
+		
+		&--box {
+			@include box(100%, fit-content);
+    	@include make-flex($dir: column, $align: flex-start);
+			overflow: hidden;
+			padding: 5px 0;
+			
+			p:last-child {
+				font-size: 8px;
+			}
+		}
+		
     button {
       @include box(25px, 25px);
       cursor: pointer;
@@ -69,30 +86,24 @@
   }
 
   &__results {
-    @include box();
-    background-color: #233761;
+    @include box(60%, 100%);
     border: 1px solid #ffffff;
     border-radius: 5px;
-    padding: 0 10px;
+		
     li {
-      list-style: none;
-      height: 50px;
-      @include make-flex($align: flex-start);
-      font-family: "Sequel100Black-55";
-      gap: 5px;
-      line-height: 100%;
-      font-size: 15px;
-      cursor: pointer;
-      border-radius: 5px;
+      @include make-flex($dir: row, $just: flex-start, $align: center);
+			position: relative;
+      height: 30px;
       padding: 0 10px;
       border-bottom: 1px solid #7b87a0;
+      cursor: pointer;
+      font-family: "Sequel100Black-55";
+      font-size: 12px;
+      gap: 5px;
+      list-style: none;
 
-      &:first-child {
-        margin-top: 10px;
-      }
       &:last-child {
         border-bottom: 1px solid transparent;
-        margin-bottom: 10px;
       }
 
       &:hover {
@@ -101,20 +112,54 @@
       }
 
       span {
-        font-size: 13px;
+        font-size: 10px;
         color: #7b87a0;
       }
+			
+			p {
+				position: absolute;
+				right: 20px;
+				font-size: 20px;
+				color: #cafa08;
+			}
     }
   }
-  &__sendInvites {
-    background-color: #233761;
-    border: 1px solid #ffffff;
-    border-radius: 2px;
-    padding: 10px;
-    cursor: pointer;
-    font-family: "Sequel100Black-55";
-    font-size: 15px;
-    line-height: 100%;
-    color: white;
-  }
+	
+	&__invites {
+		@include box(35%, 100%);
+		@include make-flex($dir: column, $just: flex-start, $align: center);
+		gap: 30px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		
+		&--heading {
+			@include box(100%, fit-content);
+			padding: 10px;
+			background: #0F1621;
+			border-radius: 5px;
+			
+			p {
+				font-size: 10px;
+			}
+		}
+		
+		&--list {
+			@include box(100%, 100%);
+			@include make-flex($dir: column, $just: flex-start, $align: center);
+			gap: 10px;
+		}
+		
+		&--button {
+			background-color: #233761;
+			border: 1px solid #ffffff;
+			border-radius: 2px;
+			padding: 10px;
+			cursor: pointer;
+			font-family: "Sequel100Black-55";
+			font-size: 15px;
+			line-height: 100%;
+			color: white;
+		}
+	}
 }

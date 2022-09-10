@@ -67,10 +67,11 @@
 		@include box(100%, 100%);
 		
 		&Heading {
-			@include box(100%, 100%);
+			@include box(50%, 100%);
 			@include make-flex($dir: row, $just: space-between, $align: center);
 			font-family: 'Sequel100Black-65';
 			font-size: 20px;
+			margin-left: 10%;
 			
 			h3 {
 				color: #cafa08;
@@ -79,7 +80,7 @@
 			&--divider {
 				@include box(100%, 1px);
 				margin-left: 30px;
-				background: #FFFFFF;
+				background: rgba(255, 255, 255, 0.4);
 			}
 		}
 		
