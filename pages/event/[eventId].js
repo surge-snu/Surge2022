@@ -57,15 +57,32 @@ export default function EventPage({ eventDetails, allUsers}) {
 	function switchContent() {
 		switch (hash) {
 			case '#schedule':
-				return <>
+				return <div className="EventPage__contentDiv">
 					
-				</>;
+				</div>;
 			case '#prizes':
-				return <>
-					
-				</>;
+				return <div className="EventPage__contentDiv">
+					<div className="EventPage__contentHeading">
+						<h3>Prizes</h3>
+						<div className="EventPage__contentHeading--divider"></div>
+					</div>
+					<div>
+						<p>FILECOIN ?</p>
+					</div>
+					<div className="EventPage__content--prizes">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.</p>
+						<p>
+							Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet.
+							Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.
+						</p>
+						<p>
+							Prizes up for grabs
+							Rs 20000 for best use of IPFS and/or Filecoin
+						</p>
+					</div>
+				</div>;
 			case '#team':
-				return <>
+				return <div className="EventPage__contentDiv">
 					<div className="EventPage__contentHeading">
 						<h3>Team</h3>
 						<div className="EventPage__contentHeading--divider"></div>
@@ -78,14 +95,16 @@ export default function EventPage({ eventDetails, allUsers}) {
 							eventId={eventDetails.eventId}
 						/>
 					</div>
-				</>;
+				</div>;
 			default:
-				return <div className="EventPage__content--overview">
-					<h3>Rules and Guidelines</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu.
-					</p>
-					<pre>{JSON.stringify(eventDetails, null, 2)}</pre>
+				return <div className="EventPage__contentDiv">
+					<div className="EventPage__content--overview">
+						<h3>Rules and Guidelines</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu.
+						</p>
+						{/* <pre>{JSON.stringify(eventDetails, null, 2)}</pre> */}
+					</div>
 				</div>;
 		};
 	}

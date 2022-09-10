@@ -59,6 +59,21 @@ function InvitationWidget({ allUsers, maxPlayers, minPlayers, eventId, user }) {
 						})}
 				</ul>
 			}
+			<div className="InvitationWidgetWrapper__sentInvite">
+				{invitedPlayers.map((player, index) => {
+					return (
+						<div className="InvitationWidgetWrapper__sentInvite--player" key={index}>
+							<div className="InvitationWidgetWrapper__sentInvite--playerBox">
+								<p>{player.name}</p>
+								<p>{player.email}</p>
+							</div>
+							<span>
+								Invite Accepted
+							</span>
+						</div>
+					);
+				})}
+			</div>
 			<div className="InvitationWidgetWrapper__invites">
 				<div className="InvitationWidgetWrapper__invites--heading">
 					<p>This hackathon let's you have upto {maxPlayers} teammates.
@@ -105,12 +120,12 @@ function InvitationWidget({ allUsers, maxPlayers, minPlayers, eventId, user }) {
 					</button>
 				)}
 			</div>
-			<pre>
+			{/* <pre>
 				{JSON.stringify(results, null, 2)}
 			</pre>
 			<pre>
 				{JSON.stringify(invitedPlayers, null, 2)}
-			</pre>
+			</pre> */}
     </div>
   );
 }
