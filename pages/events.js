@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from "react";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
@@ -44,11 +44,36 @@ export default function AllEvents({ allEvents }) {
     </div>
   );
 }
-=======
 import Head from "next/head";
 import EventCard from '../Components/EventCard/EventCard';
 import Header from '../Components/Header/Header';
-import '../styles/routes/Events.scss';
+import Footer from "../Components/Footer/Footer";
+import { fetchAllEvents } from "../services/events.server";
+import "../styles/routes/AllEvents.scss";
+
+export async function getServerSideProps(context) {
+  let allEvents = await fetchAllEvents();
+  allEvents = allEvents.map((event) => {
+    event.timeFrom = event.timeFrom.toString();
+    event.timeTo = event.timeTo.toString();
+    event.dateFrom = event.dateFrom.toString();
+    event.dateTo = event.dateTo.toString();
+    return event;
+  });
+
+  if (context.req.session.user === undefined) {
+    return {
+      props: {
+        user: null,
+        allEvents,
+      },
+    };
+  }
+
+  return {
+    props: { user: context.req.session.user, allEvents },
+  };
+}
 
 export default function Events() {
 	
@@ -91,4 +116,23 @@ export default function Events() {
 		</>
 	);
 }
+<<<<<<< HEAD
 >>>>>>> d9d90b3e36ed89741ba85d290d8944d6a810109e
+=======
+
+// export default function AllEvents({ allEvents }) {
+//   return (
+//     <div className="AllEventsPage">
+//       <Header />
+//       {allEvents.map((event, index) => {
+//         return (
+//           <a key={index} href={`/event/${event.eventId}`}>
+//             {event.eventName} - {event.eventId}
+//           </a>
+//         );
+//       })}
+//       <Footer />
+//     </div>
+//   );
+// }
+>>>>>>> a688e4ad9a21263d2c8221b1338f8bd15c39ca0c
