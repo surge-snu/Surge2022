@@ -2,58 +2,65 @@ import "./EventCard.scss";
 
 export default function EventCard() {
   return (
-    <div className="EventCardWrapper">
-      <div className="EventCardMain">
-        <div className="EventCardMain__left">
-          <div className="EventCardMain__left__indoor">
-            <p className="EventCardMain__left__indoor--text">Indoor</p>
-          </div>
-          <div className="EventCardMain__left__content">
-            <p className="EventCardMain__left__content--header">
-              Lorem
-              <span className="EventCardMain__left__content--header--lime">
-                Epsime
-              </span>
-            </p>
-            <p className="EventCardMain__left__content--desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
-            </p>
-          </div>
-          <div className="EventCardMain__left__details">
-            <div className="EventCardMain__left__details--price">
-              <p className="EventCardMain__left__details--price__elem1">
-                <img
-                  src="/Img/eye.svg"
-                  className="EventCardMain__left__details--price__elem1__icon"
-                />
-                100rs / person
-              </p>
-            </div>
-            <div className="EventCardMain__left__details--calendar">
-              <p className="EventCardMain__left__details--price__elem2">
-                <img
-                  src="/Img/calendar.svg"
-                  className="EventCardMain__left__details--price__elem2__icon"
-                />
-                19 Aug 22, 12:00 AM IST - 23 Aug 22, 12:00 AM IST
-              </p>
-            </div>
-            <div className="EventCardMain__left__details--date"></div>
-          </div>
+    <div className="EventCard">
+      <div className="EventCard__left">
+        <div className="EventCard__left__indoor">
+          <p className="EventCard__left__indoor--text">Indoor</p>
         </div>
-        <div className="EventCardMain__right">
-          <div class="EventCardMain__right--wrapper">
-            <a class="EventCardMain__right--wrapper__cta" href="#">
-              <span className="EventCardMain__right--wrapper__cta__span">
-                Register
-              </span>
+        <div className="EventCard__left__content">
+          <p className="EventCard__left__content--header">
+            Lorem
+            <span className="EventCard__left__content--header--lime">
+              Epsime
+            </span>
+          </p>
+          <p className="EventCard__left__content--desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
+          </p>
+        </div>
+        <div className="EventCard__left__details">
+          <div className="EventCard__left__details--price">
+            <p className="EventCard__left__details--price__elem">
               <img
-                src="/Img/eventArrow.svg"
-                className="EventCardMain__right--wrapper__cta--arrow"
+                src="/Img/eye.svg"
+                className="EventCard__left__details--price__elem__icon"
               />
-            </a>
+              100rs / person
+            </p>
           </div>
+          <div className="EventCard__left__details--calendar">
+            <p className="EventCard__left__details--price__elem2">
+              <img
+                src="/Img/calendar.svg"
+                className="EventCard__left__details--price__elem2__icon"
+              />
+              19 Aug 22, 12:00 AM IST - 23 Aug 22, 12:00 AM IST
+            </p>
+          </div>
+          <div className="EventCard__left__details--date"></div>
         </div>
+      </div>
+      <div className="EventCard__right">
+        <a class="EventCard__right__cta" href="#">
+          <span className="EventCard__right__cta--register">Register</span>
+          <span className="EventCard__right__cta--icon">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.86816 14.3217H21.5115M21.5115 14.3217L13.6898 6.5M21.5115 14.3217L13.6898 22.1433"
+                stroke="#CAFA08"
+                stroke-width="3.35214"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
       </div>
     </div>
   );
