@@ -116,9 +116,7 @@ export default function Events() {
 		</>
 	);
 }
-<<<<<<< HEAD
->>>>>>> d9d90b3e36ed89741ba85d290d8944d6a810109e
-=======
+
 
 // export default function AllEvents({ allEvents }) {
 //   return (
@@ -135,4 +133,4 @@ export default function Events() {
 //     </div>
 //   );
 // }
->>>>>>> a688e4ad9a21263d2c8221b1338f8bd15c39ca0c
+
