@@ -6,6 +6,7 @@ import Newsletter from "../Components/Newsletter/Newsletter";
 import SportScroll from "../Components/SportScroll/SportScroll";
 import Stats from "../Components/Stats/stats";
 import "../styles/routes/Home.scss";
+import Schedule from "./schedule";
 
 export default function Home() {
   return (
