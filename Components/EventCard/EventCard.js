@@ -1,6 +1,6 @@
 import "./EventCard.scss";
 
-export default function EventCard() {
+export default function EventCard({event}) {
   return (
     <div className="EventCard">
       <div className="EventCard__left">
@@ -25,7 +25,7 @@ export default function EventCard() {
                 src="/Img/eye.svg"
                 className="EventCard__left__details--price__elem__icon"
               />
-              100rs / person
+							{ event.pricePerPlayer }rs / person
             </p>
           </div>
           <div className="EventCard__left__details--calendar">

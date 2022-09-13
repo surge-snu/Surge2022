@@ -49,7 +49,7 @@ import EventCard from '../Components/EventCard/EventCard';
 import Header from '../Components/Header/Header';
 import Footer from "../Components/Footer/Footer";
 import { fetchAllEvents } from "../services/events.server";
-import "../styles/routes/AllEvents.scss";
+import "../styles/routes/Events.scss";
 
 export async function getServerSideProps(context) {
   let allEvents = await fetchAllEvents();
@@ -75,8 +75,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Events() {
-	
+export default function Events({ allEvents }) {
 	return (
 		<>
 			<Head>
@@ -105,32 +104,17 @@ export default function Events() {
 						</div>
 						<div className="Events__bottom--cards">
 							{
-								[...Array(10).keys()].map(i => (
-									<EventCard />
+								allEvents.map(event => (
+									<EventCard event={event} />
 								))
 							}
 						</div>
+						{/* <pre>
+							{JSON.stringify(allEvents, null, 2)}
+						</pre> */}
 					</div>
 				</div>
 			</div>
 		</>
 	);
 }
-
-
-// export default function AllEvents({ allEvents }) {
-//   return (
-//     <div className="AllEventsPage">
-//       <Header />
-//       {allEvents.map((event, index) => {
-//         return (
-//           <a key={index} href={`/event/${event.eventId}`}>
-//             {event.eventName} - {event.eventId}
-//           </a>
-//         );
-//       })}
-//       <Footer />
-//     </div>
-//   );
-// }
-

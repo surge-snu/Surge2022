@@ -29,7 +29,11 @@
         font-family: Sequel100Black-45;
       }
     }
-    &__content {
+    &__content {			
+			@include box($width: 100%, $height: 100px);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			
       &--header {
         font-family: Sequel100Black-75;
         font-size: 16px;
@@ -44,6 +48,7 @@
       }
 
       &--desc {
+        @include box($width: 80%);				
         font-family: Sequel100Black-45;
         color: #dfdfdf;
         font-size: 10px;
