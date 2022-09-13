@@ -9,13 +9,13 @@ export default function EventCard({event}) {
         </div>
         <div className="EventCard__left__content">
           <p className="EventCard__left__content--header">
-            Lorem
-            <span className="EventCard__left__content--header--lime">
+            {event.eventName}
+            {/* <span className="EventCard__left__content--header--lime">
               Epsime
-            </span>
+            </span> */}
           </p>
           <p className="EventCard__left__content--desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
+            {event.description}
           </p>
         </div>
         <div className="EventCard__left__details">
