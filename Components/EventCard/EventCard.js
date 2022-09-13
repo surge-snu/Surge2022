@@ -1,6 +1,6 @@
 import "./EventCard.scss";
 
-export default function EventCard() {
+export default function EventCard({event}) {
   return (
     <div className="EventCard">
       <div className="EventCard__left">
@@ -9,12 +9,10 @@ export default function EventCard() {
         </div>
         <div className="EventCard__left__content">
           <p className="EventCard__left__content--header">
-            Lorem Impsum Dolor Sit
+            {event.eventName}
           </p>
           <p className="EventCard__left__content--desc">
-            Lorem ipsum dolor sit amet, consecteturadipiscing elit. Ut et
-            massa mi dolor sit ame.Lorem ipsum dolor sit amet,
-            consecteturadipiscing elit.
+            {event.description}
           </p>
         </div>
         <div className="EventCard__left__details">
@@ -24,21 +22,22 @@ export default function EventCard() {
                 src="/Img/clock.svg"
                 className="EventCard__left__details--price__elem__icon"
               />
-              2 Days left
+							{Date.parse(event.dateFrom)} Days left
+							{/* number of days left to event */}
             </p>
             <p className="EventCard__left__details--price__elem">
               <img
                 src="/Img/eye.svg"
                 className="EventCard__left__details--price__elem__icon"
               />
-              100rs / person
+							{ event.pricePerPlayer }rs / person
             </p>
             <p className="EventCard__left__details--price__elem">
               <img
                 src="/Img/people.svg"
                 className="EventCard__left__details--price__elem__icon"
               />
-              20 registered
+							{ event.teamsRegistered } registered
             </p>
           </div>
           <div className="EventCard__left__details--calendar">
@@ -54,7 +53,7 @@ export default function EventCard() {
         </div>
       </div>
       <div className="EventCard__right">
-        <a class="EventCard__right__cta" href="#">
+        <a class="EventCard__right__cta" href={"../event/" + event.eventId}>
             <span className="EventCard__right__cta--register">
               Register
             </span>
