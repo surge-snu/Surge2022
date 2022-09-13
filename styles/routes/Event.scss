@@ -68,21 +68,23 @@
 		
 		&Div {
 			@include box(100%, 100%);
-			padding-left: 10%;
+			@include make-flex($dir: column, $just: flex-start, $align: flex-start);
+			padding-left: 15%;
+			gap: 15px;
 		}
 		
 		&Heading {
-			@include box(50%, 100%);
-			@include make-flex($dir: row, $just: space-between, $align: center);
+			@include box(60%, 100%);
+			@include make-flex($dir: row, $just: flex-start, $align: center);
 			font-family: 'Sequel100Black-65';
-			font-size: 20px;
+			font-size: 25px;
 			
 			h3 {
 				color: #cafa08;
 			}
 			
 			&--divider {
-				@include box(100%, 1px);
+				@include box(65%, 1px);
 				margin-left: 30px;
 				background: rgba(255, 255, 255, 0.4);
 			}
@@ -106,8 +108,8 @@
 			}
 		}
 		
-		&--prizes {
-			@include box(50%, 100%);
+		&--prizes, &--schedule {
+			@include box(60%, 100%);
 			padding: 30px;
 			@include make-flex($dir: column, $just: flex-start, $align: flex-start);
 			gap: 30px;

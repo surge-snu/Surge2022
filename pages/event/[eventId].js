@@ -6,6 +6,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "../../styles/routes/Event.scss";
 import InvitationWidget from "../../Components/InvitationWidget/InvitationWidget";
+import Schedule from "../../Components/Schedule/Schedule";
 
 export async function getServerSideProps(context) {
   const { eventId } = context.query;
@@ -58,7 +59,13 @@ export default function EventPage({ eventDetails, allUsers}) {
 		switch (hash) {
 			case '#schedule':
 				return <div className="EventPage__contentDiv">
-					
+					<div className="EventPage__contentHeading">
+						<h3>Schedule</h3>
+						<div className="EventPage__contentHeading--divider"></div>
+					</div>
+					<div className="EventPage__content--schedule">
+						<Schedule />
+					</div>
 				</div>;
 			case '#prizes':
 				return <div className="EventPage__contentDiv">
