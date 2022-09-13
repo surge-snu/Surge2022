@@ -1,0 +1,97 @@
+.eventGist {
+  @include box($width: 33%);
+  &__top {
+    padding: 20px 20px 0px 20px;
+    // @include box($width: 20vw);
+    // width: 20vw;
+    @include make-flex($dir: row);
+    &__right {
+      padding: 20px 20px 0px 20px;
+
+      &--title {
+        font-family: Satoshi Variable, "Satoshi", sans-serif;
+        font-size: 20px;
+        color: #ffffff;
+        padding-bottom: 0px;
+        font-weight: 900;
+        font-size: 14px;
+      }
+      &--desc {
+        font-family: Sequel100Black-45;
+        color: #dfdfdf;
+        font-size: 10px;
+        width: 20vw;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        font-size: 14px;
+        font-weight: 900;
+      }
+    }
+  }
+  &__bottom {
+    @include make-flex();
+    &__price {
+      @include make-flex($dir: row);
+      gap: 15.5vw;
+      &__rs {
+        &--title {
+          font-size: 14px;
+          padding: 3px;
+        }
+        &--cost {
+          font-size: 22px;
+          font-weight: 900;
+        }
+      }
+      &__cart {
+        @include make-flex($dir: column, $just: center, $align: center);
+        &--title {
+          font-size: 14px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+    &__payment {
+      @include make-flex();
+      padding: 20px;
+      &--description {
+        width: 22vw;
+        font-size: 13.8px;
+        font-weight: 500;
+      }
+      &__cta {
+        padding: 30px;
+        &--cta {
+          @include make-flex($dir: row, $just: center, $align: center);
+          @include box($width: 23vw);
+          background-color: #cafa08;
+          border-radius: 10px;
+          gap: 14px;
+          font-size: 15px;
+          padding: 10px;
+          color: black;
+          transition: 0.1s;
+          &:hover {
+            background-color: #caed18;
+            filter: drop-shadow(0px 0px 6px #cafa08);
+          }
+
+          &--img {
+            width: 29px;
+          }
+        }
+      }
+    }
+    &__register {
+      @include make-flex($dir: column, $just: center, $align: flex-start);
+      padding: 20px;
+      margin-left: -119px;
+      &__closes {
+        padding-bottom: 10px;
+      }
+      &__time {
+        color: #cafa08;
+      }
+    }
+  }
+}
