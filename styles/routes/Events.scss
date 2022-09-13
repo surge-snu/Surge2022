@@ -1,0 +1,100 @@
+.EventsPage {
+	@include make-flex($dir: column, $just: flex-start, $align: flex-start);
+  @include box($height: 100vh);
+  background-color: #0f1621;	
+}
+
+.Events {
+	@include box($width: fit-content, $height: fit-content);
+	margin-top: 80px;
+	padding: 50px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	
+	@include respondAt(800px) {
+		margin-top: 70px;
+		padding: 30px;
+	}
+	
+	&__top {
+		@include make-flex($dir: column, $just: flex-start, $align: flex-start);
+		gap: 15px;
+		
+		&--title {
+			font-family: 'Sequel100Black-105';
+			font-size: 40px;
+			line-height: 60px;
+			
+			span {
+				color: #cafa08;
+			}
+			
+			@include respondAt(800px) {
+				font-size: 30px;
+				line-height: 40px;
+			}
+		}
+	
+		&--desc {
+			@include box($width: 65%);
+			font-family: 'Fraunces';
+			font-size: 20px;
+			
+			@include respondAt(800px) {
+				font-size: 13px;
+			}
+		}
+	}
+	
+	&__mid {
+		@include box($width: 65%, $height: fit-content);
+		margin: 30px 0 60px 0;
+		
+		@include respondAt(800px) {
+			@include box($width: 80%, $height: fit-content);
+			margin: 20px 0 30px 0;
+		}
+		
+		&--input { 
+			@include box();
+			border-radius: 7px;
+			border: none;
+			padding: 10px 70px 10px 30px;
+			background-color: #111821;
+			border: 2px solid #FFFFFF;
+			border-radius: 100px;
+			
+			font-family: 'Sequel100Black-55';	
+			font-size: 15px;
+			color: rgba(255, 255, 255, 0.3);
+			
+			@include respondAt(800px) {
+				padding: 10px 20px;
+				font-size: 12px;
+			}
+		}
+	}
+	
+	&__bottom {
+		@include make-flex($dir: column, $just: flex-start, $align: flex-start);
+		gap: 10px;
+		
+		&--title {
+			font-family: 'Sequel100Black-55';
+			font-size: 20px;
+			
+			@include respondAt(800px) {
+				font-size: 15px;
+			}
+		}
+		
+		&--cards {
+			@include box($width: 100%);
+			@include make-flex($dir: row, $just: flex-start, $align: flex-start);
+			height: fit-content;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+	}
+	
+}

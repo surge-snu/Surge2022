@@ -1,0 +1,114 @@
+.EventCard {
+	@include box($width: 500px, $height: 300px);
+	position: relative;
+  padding: 30px;
+  background-color: #193559;
+  border-radius: 20px;
+	
+	@include respondAt(800px) {
+		@include box($width: 400px, $height: 250px);
+		padding: 20px;
+	}
+	
+  &__left {
+    @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+		gap: 15px;
+		
+		@include respondAt(800px) {
+			gap: 10px;
+		}
+
+    &__indoor {
+      background-color: #ff4f46;
+      border-radius: 9px;
+      padding: 1px 20px;
+			
+      &--text {
+        font-size: 10px;
+        font-family: Sequel100Black-55;
+      }
+    }
+    &__content {			
+      &--header {
+        font-family: Sequel100Black-75;
+        font-size: 16px;
+				
+				@include respondAt(800px) {
+					font-size: 14px;
+				}
+      }
+			
+      &--desc {
+        width: 80%;
+        font-family: Sequel100Black-45;
+        color: #a1a1a1;
+        font-size: 11px;
+				
+				@include respondAt(800px) {
+					width: 100%;
+					font-size: 10px;
+				}
+      }
+    }
+		
+    &__details {
+      &--price {
+        @include make-flex($dir: row, $just: space-between, $align: center);
+        gap: 45px;
+        padding-bottom: 15px;
+				
+				@include respondAt(800px) {
+					gap: 20px;
+					padding-bottom: 10px;
+				}
+				
+        &__elem {
+          @include make-flex($dir: row, $just: none);
+          font-size: 12px;
+          font-family: "Satoshi", sans-serif;
+          gap: 5px;
+					
+					@include respondAt(800px) {
+						font-size: 10px;
+					}
+					
+          &__icon {
+            width: 15px;
+          }
+        }
+      }
+    }
+  }
+  &__right {
+		position: absolute;
+		right: 30px;
+		bottom: 20px;
+		
+		&__cta {
+			@include make-flex($dir: row, $align: center, $just: center);
+			padding: 2px 15px;
+			gap: 15px;
+			color: black;
+			background: #cafa08;
+			transition: 1s;
+			box-shadow: 3px 3px 0 #ffffff;
+			transform: skewX(-8deg);
+			
+			&:focus {
+				outline: none;
+			}
+			
+			&:hover {
+				transition: 0.5s;
+				box-shadow: 6px 6px 0 black;
+			}
+			
+			&--register {
+				font-family: Sequel100Black-65;
+				font-size: 10px;
+				transform: skewX(15deg);
+				color: black;
+			}
+    }
+  }
+}
