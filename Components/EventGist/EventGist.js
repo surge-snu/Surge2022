@@ -1,11 +1,11 @@
 import "./EventGist.scss";
 
-export default function EventGist() {
+export default function EventGist({ className }) {
   return (
-    <div className="eventGist">
+    <div className={`eventGist ${className}`}>
       <div className="eventGist__top">
         <p className="eventGist__top--title">RUNS FROM</p>
-				<p className="eventGist__top--desc">Oct 11-13, 2022</p>
+        <p className="eventGist__top--desc">Oct 11-13, 2022</p>
         <p className="eventGist__top--title">HAPPENING</p>
         <p className="eventGist__top--desc">Indoor Sports Complex</p>
       </div>
