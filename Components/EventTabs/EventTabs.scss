@@ -22,6 +22,7 @@
 
   &--ghostHoverItem {
     z-index: -1;
+    opacity: 0;
     position: absolute;
     @include make-flex($dir: row, $just: center, $align: center);
     border-radius: 3px;

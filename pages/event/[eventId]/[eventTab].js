@@ -10,7 +10,7 @@ import { fetchAllUsers } from "../../../services/user.server";
 import "../../../styles/routes/Events/Event.scss";
 
 export async function getServerSideProps(context) {
-  const { eventId } = context.query;
+  const { eventId, eventTab } = context.query;
   let eventDetails = await fetchEvent(eventId);
 
   if (eventDetails === null) {
@@ -32,6 +32,7 @@ export async function getServerSideProps(context) {
       props: {
         user: null,
         eventDetails: eventDetails,
+        eventTab: eventTab,
       },
     };
   }
@@ -42,14 +43,12 @@ export async function getServerSideProps(context) {
       user: context.req.session.user,
       eventDetails: eventDetails,
       allUsers,
+      eventTab: eventTab,
     },
   };
 }
 
-export default function EventTabContent({ eventDetails, allUsers }) {
-  const router = useRouter();
-  const { eventTab } = router.query;
-
+export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
   function switchContent(route) {
     switch (route) {
       case "overview":
@@ -193,7 +192,10 @@ EventTabContent.getLayout = function getLayout(page) {
           {eventDetails.eventName.toUpperCase()}
         </p>
       </div>
-      <EventTabs eventId={eventDetails.eventId} />
+      <EventTabs
+        eventId={eventDetails.eventId}
+        currentTab={page.props.eventTab}
+      />
       {page}
       <Footer />
     </div>

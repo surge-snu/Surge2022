@@ -2,16 +2,14 @@ import Link from "next/link";
 import React from "react";
 import "./EventTabs.scss";
 
-function EventTabs({ eventId }) {
-  const [activeTab, setActiveTab] = React.useState("overview");
+function EventTabs({ eventId, currentTab }) {
+  const [activeTab, setActiveTab] = React.useState(currentTab);
   const [hoverTab, setHoverTab] = React.useState(null);
 
   React.useEffect(() => {
     const activeTabElem = document.getElementById(activeTab);
     const ghostTab = document.getElementById("ghost-tab");
-    ghostTab.style.width = `${
-      activeTabElem.getBoundingClientRect().width
-    }px`;
+    ghostTab.style.width = `${activeTabElem.getBoundingClientRect().width}px`;
     ghostTab.style.left = `${activeTabElem.offsetLeft}px`;
   }, [activeTab]);
 
@@ -21,9 +19,7 @@ function EventTabs({ eventId }) {
       const ghostTab = document.getElementById("hover-ghost-tab");
       ghostTab.style.opacity = "1";
 
-      ghostTab.style.width = `${
-        hoverTabElem.getBoundingClientRect().width
-      }px`;
+      ghostTab.style.width = `${hoverTabElem.getBoundingClientRect().width}px`;
       ghostTab.style.left = `${hoverTabElem.offsetLeft}px`;
     } else {
       const ghostTab = document.getElementById("hover-ghost-tab");
