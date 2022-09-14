@@ -66,7 +66,7 @@ function Header() {
         <ul className="HeaderWrapper__MenuList--right">
           <li className="HeaderWrapper__MenuList--item">
             <a
-              href="#events"
+              href="/events"
               className={`${hash === "#events" ? "route--active" : ""} `}
             >
               Events
