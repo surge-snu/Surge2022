@@ -1,9 +1,10 @@
 .MyLayout {
   @include box($height: 100vh);
   @include make-flex($dir: row, $align: flex-start, $just: flex-start);
+	overflow-x: auto;
 
   &__page {
-    @include box(calc(100% - 265px));
+		width: calc(100% - 265px);
     @include make-flex($dir: column, $align: flex-start, $just: flex-start);
     background-color: #193559;
     @include respondAt(915px) {
@@ -11,4 +12,57 @@
       padding-top: 45px;
     }
   }
+}
+
+.MyHome{
+	@include box($width: 100%, $height: 100%);
+	@include make-flex($dir: column, $align: flex-start, $just: flex-start);
+	padding: 30px;
+	gap: 30px;
+	
+	&__title {
+		font-family: 'Sequel100Black-45';
+		
+	}
+	
+	&__info, &__payment, &__events {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir: column, $align: flex-start, $just: flex-start);
+		background: #0F1621;
+		border: 1px solid rgba(244, 244, 244, 0.6);
+		border-radius: 8px;
+	}
+	
+	&__section--title {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir: row, $align: center, $just: flex-start);
+		gap: 20px;
+		padding: 10px;
+	}
+	
+	&--divider {
+		@include box(100%, 1px);
+		background: rgba(244, 244, 244, 0.6);
+	}
+	
+	&__info--row {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir: row, $align: center, $just: flex-start);
+		padding: 10px 20px;
+		
+		p:first-child {
+			@include box($width: 100%, $height: fit-content);
+		}
+		
+		p:nth-child(2) {
+			@include box($width: 100%, $height: fit-content);
+		}
+	}
+	
+	&__sectionRow--green {
+		@include box($width: 100%, $height: fit-content);
+		@include make-flex($dir: row, $align: center, $just: flex-start);
+		padding: 10px 20px;
+		color: #cafa08;
+	}
 }

@@ -1,9 +1,0 @@
-.AllEventsPage {
-  @include make-flex($dir: column, $just: flex-end);
-  @include box($height: unset);
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color: #0f1621;
-
-  min-height: 100vh;
-}
