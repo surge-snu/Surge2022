@@ -10,16 +10,12 @@
 	padding: 20px;
 
   @include respondAt(800px) {
-    @include box($width: 380px, $height: 250px);
+    @include box($width: 300px, $height: 210px);
     padding: 20px;
   }
 
   &__left {
     @include make-flex($dir: column, $just: flex-start, $align: flex-start);
-		
-    @include respondAt(800px) {
-      gap: 10px;
-    }
 
     &__indoor {
       &--text {

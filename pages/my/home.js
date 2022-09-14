@@ -26,79 +26,124 @@ export default function MyHome({ user }) {
   const [receivedInvitations, setReceivedInvitations] = React.useState([]);
 
   return (
-    <main style={{ display: "flex", flexDirection: "column" }}>
-      {user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
-      {user !== null && <button onClick={logout}>Logout</button>}
-      <button
-        onClick={async () => {
-          await fetchInvitationsOps(user.email).then((res) => {
-            setReceivedInvitations(res.message.receivedInvitations);
-            setSentInvitations(res.message.sentInvitations);
-          });
-        }}
-      >
-        Refresh Invitations
-      </button>
-      <h3>Sent Invitations</h3>
-      {sentInvitations.map((invitation) => {
-        return (
-          <label key={invitation.id}>
-            {invitation.toUser.name} - {invitation.toUser.email} -{" "}
-            {invitation.status}&nbsp;
-            {invitation.status !== "REVOKED" && (
-              <button
-                onClick={async () => {
-                  await updateInvitationOps({
-                    id: invitation.id,
-                    status: "REVOKED",
-                  });
-                }}
-              >
-                Revoke Invitation
-              </button>
-            )}
-            &nbsp;
-          </label>
-        );
-      })}
-      <br />
-      <br />
-      <h3>Received Invitations</h3>
-      {receivedInvitations.map((invitation) => {
-        return (
-          <label key={invitation.id}>
-            {invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
-            {invitation.status}&nbsp;
-            {invitation.status !== "REVOKED" && (
-              <>
-                <button
-                  onClick={async () => {
-                    await updateInvitationOps({
-                      id: invitation.id,
-                      status: "ACCEPTED",
-                    });
-                  }}
-                >
-                  Accept
-                </button>
-                &nbsp;
-                <button
-                  onClick={async () => {
-                    await updateInvitationOps({
-                      id: invitation.id,
-                      status: "REJECTED",
-                    });
-                  }}
-                >
-                  Decline
-                </button>
-              </>
-            )}
-            &nbsp;
-          </label>
-        );
-      })}
-    </main>
+		<>
+			<div className="MyHome">
+				<h3 className="MyHome__title">Account Information</h3>
+				<div className="MyHome__info">
+					<div className="MyHome__section--title">
+						Personal Information
+					</div>
+					<div className="MyHome--divider" />
+					<div className="MyHome__info--row">
+						<p>Name</p>
+						<p>{user.name}</p>
+						<img src="/Img/Arrow Right Variant.svg" height={14} />
+					</div>
+					<div className="MyHome--divider" />
+					<div className="MyHome__info--row">
+						<p>Email</p>
+						<p>{user.email}</p>
+						<img src="/Img/Arrow Right Variant.svg" height={14} />
+					</div>
+					<div className="MyHome--divider" />
+					<div className="MyHome__info--row">
+						<p>Password</p>
+						<p>********</p>
+						<img src="/Img/Arrow Right Variant.svg" height={14} />
+					</div>
+				</div>
+				<div className="MyHome__payment">
+					<div className="MyHome__section--title">
+						Payment History
+					</div>
+					<div className="MyHome--divider" />
+					<div className="MyHome__sectionRow--green">
+						<p className="MyHome__text--green">Invoice ID</p>
+						<p className="MyHome__text--green">Status</p>
+						<p className="MyHome__text--green">Total Price</p>
+					</div>
+				</div>
+				<div className="MyHome__events">
+					<div className="MyHome__section--title">
+						Registered Events
+					</div>
+					<div className="MyHome--divider" />
+				</div>
+			</div>
+			<main style={{ display: "flex", flexDirection: "column" }}>
+				{user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
+				{user !== null && <button onClick={logout}>Logout</button>}
+				<button
+					onClick={async () => {
+						await fetchInvitationsOps(user.email).then((res) => {
+							setReceivedInvitations(res.message.receivedInvitations);
+							setSentInvitations(res.message.sentInvitations);
+						});
+					}}
+				>
+					Refresh Invitations
+				</button>
+				<h3>Sent Invitations</h3>
+				{sentInvitations.map((invitation) => {
+					return (
+						<label key={invitation.id}>
+							{invitation.toUser.name} - {invitation.toUser.email} -{" "}
+							{invitation.status}&nbsp;
+							{invitation.status !== "REVOKED" && (
+								<button
+									onClick={async () => {
+										await updateInvitationOps({
+											id: invitation.id,
+											status: "REVOKED",
+										});
+									}}
+								>
+									Revoke Invitation
+								</button>
+							)}
+							&nbsp;
+						</label>
+					);
+				})}
+				<br />
+				<br />
+				<h3>Received Invitations</h3>
+				{receivedInvitations.map((invitation) => {
+					return (
+						<label key={invitation.id}>
+							{invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
+							{invitation.status}&nbsp;
+							{invitation.status !== "REVOKED" && (
+								<>
+									<button
+										onClick={async () => {
+											await updateInvitationOps({
+												id: invitation.id,
+												status: "ACCEPTED",
+											});
+										}}
+									>
+										Accept
+									</button>
+									&nbsp;
+									<button
+										onClick={async () => {
+											await updateInvitationOps({
+												id: invitation.id,
+												status: "REJECTED",
+											});
+										}}
+									>
+										Decline
+									</button>
+								</>
+							)}
+							&nbsp;
+						</label>
+					);
+				})}
+			</main>
+		</>
   );
 }
 

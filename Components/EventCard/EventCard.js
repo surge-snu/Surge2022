@@ -41,7 +41,7 @@ export default function EventCard({event}) {
         </div>
       </div>
       <div className="EventCard__right">
-        <a class="EventCard__right__cta" href="#">
+        <a class="EventCard__right__cta" href={"../event/" + event.eventId}>
           <span className="EventCard__right__cta--register">Register</span>
           <span className="EventCard__right__cta--icon">
             <svg

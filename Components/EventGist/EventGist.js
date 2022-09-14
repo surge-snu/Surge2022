@@ -4,31 +4,10 @@ export default function EventGist() {
   return (
     <div className="eventGist">
       <div className="eventGist__top">
-        <div className="eventGist__top__left">
-          <svg
-            width="3"
-            height="170"
-            viewBox="0 0 3 200"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="1.47656"
-              y1="1.98828"
-              x2="1.47656"
-              y2="198.011"
-              stroke="#CAFA08"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-        </div>
-        <div className="eventGist__top__right">
-          <p className="eventGist__top__right--title">Runs from</p>
-          <p className="eventGist__top__right--desc">Oct 11-13, 2022</p>
-          <p className="eventGist__top__right--title">Happening</p>
-          <p className="eventGist__top__right--desc">Indoor Sports Complex</p>
-        </div>
+        <p className="eventGist__top--title">RUNS FROM</p>
+				<p className="eventGist__top--desc">Oct 11-13, 2022</p>
+        <p className="eventGist__top--title">HAPPENING</p>
+        <p className="eventGist__top--desc">Indoor Sports Complex</p>
       </div>
       <div className="eventGist__bottom">
         <div className="eventGist__bottom__price">
@@ -52,39 +31,18 @@ export default function EventGist() {
             </svg>
           </div>
         </div>
-        <div className="eventGist__bottom__payment">
-          <p className="eventGist__bottom__payment--description">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.Lorem
-            ipsum dolor sit amet consectetur adipiscing elit Ut et.
-          </p>
-          <div className="eventGist__bottom__payment__cta">
-            <a className="eventGist__bottom__payment__cta--cta" href="/demo">
-              Proceed to payment
-              <img
-                className="eventGist__bottom__payment__cta--cta--img"
-                src="/Img/arrow.svg"
-              />
-            </a>
-          </div>
-        </div>
-        <svg
-          width="323"
-          height="2"
-          viewBox="0 0 423 2"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="0.0634766"
-            y1="1.16976"
-            x2="422.872"
-            y2="1.16976"
-            stroke="white"
-            stroke-opacity="0.6"
-            stroke-width="0.765957"
+        <p className="eventGist__bottom__payment--description">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.Lorem
+          ipsum dolor sit amet consectetur adipiscing elit Ut et.
+        </p>
+        <a className="eventGist__bottom__payment__cta--cta" href="/demo">
+          Proceed to payment
+          <img
+            className="eventGist__bottom__payment__cta--cta--img"
+            src="/Img/Arrow 9.svg"
           />
-        </svg>
-
+        </a>
+        <div className="eventGist__bottom--divider" />
         <div className="eventGist__bottom__register">
           <p className="eventGist__bottom__register__closes">
             REGISTRATION CLOSING IN

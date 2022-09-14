@@ -63,14 +63,27 @@
 		}
 	}
 	
+	&__gist {
+		// position: sticky;
+		// top: 0;
+		// right: 0;
+	}
+	
+	&__bottom {
+		@include box(100%, 100%);
+	}
+	
 	&__content{
 		@include box(100%, 100%);
+		@include make-flex($dir: row, $just: flex-end);
+		flex-direction: row-reverse;
 		
 		&Div {
-			@include box(100%, 100%);
+			@include box(75%, 100%);
 			@include make-flex($dir: column, $just: flex-start, $align: flex-start);
 			padding-left: 15%;
 			gap: 15px;
+			position: relative;
 		}
 		
 		&Heading {
@@ -91,7 +104,7 @@
 		}
 		
 		&--overview {
-			@include box(50%, 100%);
+			@include box(100%, 100%);
 			@include make-flex($dir: column, $just: flex-start, $align: flex-start);
 			gap: 20px;
 			
