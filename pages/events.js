@@ -2,7 +2,7 @@ import EventCard from "../Components/EventCard/EventCard";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import { fetchAllEvents } from "../services/events.server";
-import "../styles/routes/Events.scss";
+import "../styles/routes/Events/Events.scss";
 
 export async function getServerSideProps(context) {
   let allEvents = await fetchAllEvents();
