@@ -20,7 +20,10 @@ export default function EventCard({ event }) {
           </div>
         </div>
       </div>
-      <a className="EventCard__bottom" href={"../event/" + event.eventId}>
+      <a
+        className="EventCard__bottom"
+        href={`/event/${event.eventId}/overview`}
+      >
         <span className="EventCard__bottom--register">Register</span>
         <svg
           width="15"
