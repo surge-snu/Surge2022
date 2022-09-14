@@ -16,7 +16,7 @@ async function loginRoute(req, res) {
     return res.status(400).json({
       status: 400,
       message: "User not found, try signing up...",
-    });
+    }); 
   }
   const isMatch = await compareSync(password, user.password);
   delete user.password;

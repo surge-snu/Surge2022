@@ -54,7 +54,7 @@ export default function EventCard() {
         </div>
       </div>
       <div className="EventCard__right">
-        <a class="EventCard__right__cta" href="#">
+        <a className="EventCard__right__cta" href="#">
             <span className="EventCard__right__cta--register">
               Register
             </span>
