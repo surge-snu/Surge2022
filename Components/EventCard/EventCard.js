@@ -1,43 +1,23 @@
 import "./EventCard.scss";
 
-export default function EventCard({event}) {
+export default function EventCard({ event }) {
   return (
     <div className="EventCard">
-      <div className="EventCard__left">
-        <div className="EventCard__left__indoor">
-          <p className="EventCard__left__indoor--text">Indoor</p>
+      <div className="EventCard__top">
+        <div className="EventCard__top--indoor">Indoor</div>
+        <div className="EventCard__top--title">
+          <h2>{event.eventName}</h2>
+          <p>{event.description}</p>
         </div>
-        <div className="EventCard__left__content">
-          <p className="EventCard__left__content--header">
-            {event.eventName}
-            {/* <span className="EventCard__left__content--header--lime">
-              Epsime
-            </span> */}
-          </p>
-          <p className="EventCard__left__content--desc">
-            {event.description}
-          </p>
-        </div>
-        <div className="EventCard__left__details">
-          <div className="EventCard__left__details--price">
-            <p className="EventCard__left__details--price__elem">
-              <img
-                src="/Img/eye.svg"
-                className="EventCard__left__details--price__elem__icon"
-              />
-							{ event.pricePerPlayer }rs / person
-            </p>
+        <div className="EventCard__details">
+          <div className="EventCard__details--price">
+            <img src="/Img/eye.svg" />
+            <p>₹{event.pricePerPlayer} / person</p>
           </div>
-          <div className="EventCard__left__details--calendar">
-            <p className="EventCard__left__details--price__elem2">
-              <img
-                src="/Img/calendar.svg"
-                className="EventCard__left__details--price__elem2__icon"
-              />
-              19 Aug 22, 12:00 AM IST - 23 Aug 22, 12:00 AM IST
-            </p>
+          <div className="EventCard__details--calender">
+            <img src="/Img/calendar.svg" />
+            <p>19 Aug 22, 12:00 AM IST - 23 Aug 22, 12:00 AM IST</p>
           </div>
-          <div className="EventCard__left__details--date"></div>
         </div>
       </div>
       <div className="EventCard__right">
@@ -54,9 +34,9 @@ export default function EventCard({event}) {
               <path
                 d="M5.86816 14.3217H21.5115M21.5115 14.3217L13.6898 6.5M21.5115 14.3217L13.6898 22.1433"
                 stroke="#CAFA08"
-                stroke-width="3.35214"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.35214"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </span>
