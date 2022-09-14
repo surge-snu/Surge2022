@@ -5,13 +5,8 @@
   overflow-x: hidden;
   background-color: #0f1621;
   .HeroSection {
-    @include box(
-      100vw,
-      700px // calc(100vh - 123px)
-    );
+    @include box(100vw, 700px);
     max-width: 1500px;
-    // min-height: 700px;
-    // max-height: 710px;
     position: relative;
     margin-top: 123px;
     @include make-flex($dir: row);
