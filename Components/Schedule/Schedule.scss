@@ -1,0 +1,56 @@
+.SchedulePage {
+	@include box(100%, 100%);
+	@include make-flex($dir: column, $align: flex-start);
+	gap: 20px;
+	
+  &__heading {
+		// font-family: 'Satoshi-Regular';
+		font-size: 15px;
+		color: rgba(255, 255, 255, 0.7);
+	}
+	
+	&__slotList {
+		@include box(100%, 100%);
+		@include make-flex($dir: column, $align: flex-start);
+		gap: 30px;
+	}
+	
+	&__slot {
+		@include box(100%, 100%);
+		@include make-flex($dir: row, $align: center, $just: space-around);
+		background-color: rgba(15, 22, 33, 1);
+		border: 1px solid #ffffff;
+		box-shadow: 9px 9px 0px #c4f750;
+		border-radius: 20px;
+		padding: 15px 10px;
+		
+		&--title {
+			font-family: "Sequel100Black-65";
+			font-size: 14px;
+			color: white;
+		}
+		
+		&--content {
+			@include box(fit-content, 100%);
+			@include make-flex($dir: row);
+			gap: 25px;
+		}
+		
+		&--date, &--time {
+			@include make-flex($dir: row, $align: center);
+			border: 1px solid rgba(255, 255, 255, 0.7);
+			border-radius: 7px;
+			padding: 5px 15px;
+			
+			img {
+				width: 20px;
+				margin-right: 5px;
+			}
+			
+			p {
+				font-size: 14px;
+				color: rgba(255, 255, 255, 0.7);
+			}
+		}
+	}
+}

@@ -16,6 +16,10 @@
 		padding: 30px;
 	}
 	
+	@include respondAt(340px) {
+		padding: 10px;
+	}
+	
 	&__top {
 		@include make-flex($dir: column, $just: flex-start, $align: flex-start);
 		gap: 15px;

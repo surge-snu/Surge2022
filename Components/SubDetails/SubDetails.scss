@@ -1,0 +1,19 @@
+.subDetails {
+  @include make-flex($align: flex-start);
+  @include box($width: 28vw, $height: auto);
+  background-color: #0f1621;
+  border: solid 1px #ffffff;
+  border-radius: 11px;
+  filter: drop-shadow(6px 6px 0px #cafa08);
+
+  //   drop-shadow: (20px 20px 5px #cafa18);
+  &__title,
+  &__description {
+    padding: 35px 0px 5px 25px;
+    font-family: satoshi variable, "Satoshi", sans-serif;
+  }
+  &__description {
+    margin-bottom: 28px;
+    font-size: 17px;
+  }
+}
