@@ -1,0 +1,208 @@
+.InvitationWidgetWrapper {
+  @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+  width: 100%;
+  min-height: 40px;
+  position: relative;
+  gap: 25px;
+	
+  &--top {
+		@include box(60%, 100%);
+    @include make-flex($dir: row, $just: space-between, $align: center);
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+	
+  &__inputWrapper {
+		@include box($width: 60%, $height: 100%);
+		@include make-flex($dir: row, $just: space-between, $align: center);
+    position: relative;
+    flex-grow: 1;
+		
+    input {
+      @include box();
+      padding: 0px 10px;
+      color: black;
+      font-family: "Sequel100Black-45";
+      outline: none;
+			border: none;
+      font-size: 10px;
+    }
+		
+    span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      background-color: #cafa0862;
+      color: black;
+      padding: 2px 5px;
+      @include make-flex();
+      border-radius: 10px;
+    }
+  }
+
+  &__chips {
+		@include box(100%, fit-content);
+    @include make-flex($dir: row, $just: space-between);
+    gap: 5px;
+		min-height: 40px;
+    padding: 0 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    background-color: #5284FF26;
+    font-family: "Sequel100Black-45";
+		font-size: 10px;
+		line-height: 12px;
+		
+		&--box {
+			@include box(100%, 100%);
+    	@include make-flex($dir: column, $just: center, $align: flex-start);
+			overflow: hidden;
+			padding: 5px 0;
+			gap: -1px;
+			
+			p:last-child {
+				font-size: 7px;
+			}
+		}
+		
+    button {
+      @include box(25px, 25px);
+      cursor: pointer;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      font-weight: 900;
+      border-radius: 4px;
+      padding-bottom: 5px;
+
+      &:hover {
+        background-color: #cafa08;
+        color: black;
+      }
+    }
+  }
+
+  &__results {
+    @include box(60%, 100%);
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+		
+    li {
+      @include make-flex($dir: row, $just: flex-start, $align: center);
+			position: relative;
+      height: 30px;
+      padding: 0 10px;
+      border-bottom: 1px solid #7b87a0;
+      cursor: pointer;
+      font-family: "Sequel100Black-55";
+      font-size: 12px;
+      gap: 5px;
+      list-style: none;
+
+      &:last-child {
+        border-bottom: 1px solid transparent;
+      }
+
+      &:hover {
+        background-color: #476ec38e;
+        border-bottom: 1px solid transparent;
+      }
+
+      span {
+        font-size: 10px;
+        color: #7b87a0;
+      }
+			
+			p {
+				position: absolute;
+				right: 20px;
+				font-size: 20px;
+				color: #cafa08;
+			}
+    }
+  }
+	
+	&__sentInvite {
+		@include box(60%, 100%);
+		@include make-flex($dir: column, $align: flex-start);
+		gap: 10px;
+		
+		&--player {
+			@include box(100%, fit-content);
+			@include make-flex($dir: row, $just: space-between);
+			gap: 5px;
+			min-height: 40px;
+			padding: 2px 15px;
+			border-radius: 4px;
+			white-space: nowrap;
+			overflow: hidden;
+			color: white;
+			background-color: #5284FF26;
+			font-family: "Sequel100Black-45";
+			font-size: 10px;
+			
+			&Box {
+				@include box(100%, 100%);
+				@include make-flex($dir: column, $align: flex-start);
+				overflow: hidden;
+				padding: 10px 0;
+				line-height: 12px;
+				
+				p:last-child {
+					font-size: 7px;
+				}
+			}
+			
+			span {
+				color: #cafa08;
+			}
+			
+		}
+	}
+	
+	&__invites {
+		@include box(35%, 100%);
+		@include make-flex($dir: column, $just: flex-start, $align: center);
+		gap: 30px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		
+		&--heading {
+			@include box(100%, fit-content);
+			padding: 10px;
+			background: #0F1621;
+			border-radius: 5px;
+			
+			p {
+				font-size: 10px;
+			}
+		}
+		
+		&--list {
+			@include box(100%, 100%);
+			@include make-flex($dir: column, $just: flex-start, $align: center);
+			gap: 10px;
+			max-height: 200px;
+			overflow-x: auto;
+		}
+		
+		&--button {
+			background-color: #233761;
+			border: 1px solid #ffffff;
+			border-radius: 2px;
+			padding: 10px;
+			cursor: pointer;
+			font-family: "Sequel100Black-55";
+			font-size: 15px;
+			line-height: 100%;
+			color: white;
+		}
+	}
+}

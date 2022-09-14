@@ -1,11 +1,12 @@
 .HeaderWrapper {
-  @include box(100%, 123px);
+  @include box(100vw, 123px);
   @include make-flex($dir: row);
   background: #0f162173;
   backdrop-filter: blur(50px);
   z-index: 10;
   transition: 0.2s;
   position: fixed;
+  top: 0;
   padding: 0 20px;
   #NavBarInput,
   .hamButton {

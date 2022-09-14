@@ -1,0 +1,90 @@
+.EventCard {
+  @include box(100%, $height: 252px);
+  position: relative;
+  background-color: #193559;
+  border-radius: 10px;
+  background-image: linear-gradient(90deg, #0f1621, #00000000),
+    url("../../public/Img/eventCardBg.svg");
+
+  border: solid #ffffff 1px;
+  @include make-flex($just: space-between);
+
+  &__top {
+    @include make-flex($dir: column, $just: space-between, $align: flex-start);
+    @include box($height: calc(100% - 45px));
+    padding: 20px;
+    &--indoor {
+      font-size: 12px;
+      font-family: Sequel100Black-45;
+      line-height: 10px;
+      padding: 2.5px 6px;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    &--title {
+      @include box();
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      h2 {
+        font-family: Sequel100Black-75;
+        font-size: 22px;
+        &--lime {
+          color: #cafa08;
+          padding-left: 6px;
+        }
+      }
+
+      p {
+        @include box($width: 100%, $height: fit-content);
+        font-family: Sequel100Black-45;
+        color: #dfdfdf;
+        font-size: 13px;
+        line-height: 15px;
+      }
+    }
+  }
+  &__details {
+    @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+    gap: 10px;
+    &--price,
+    &--calender {
+      @include make-flex($dir: row, $just: space-between, $align: center);
+      gap: 45px;
+
+      @include make-flex($dir: row, $just: flex-start);
+      font-size: 13px;
+      font-family: Satoshi Variable, "Satoshi", sans-serif;
+      gap: 5px;
+
+      p {
+        @include box();
+        @include make-flex();
+      }
+
+      img {
+        width: 16px;
+      }
+    }
+  }
+  &__bottom {
+    @include box($width: 100%, $height: 45px);
+    padding: 0 20px;
+    background-color: #0f1621;
+    border-top: solid 1px #ffffff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    @include make-flex($dir: row, $align: center, $just: flex-start);
+    gap: 10px;
+
+    &--register {
+      font-family: Sequel100Black-65;
+      font-size: 15px;
+      color: #cafa08;
+    }
+    svg {
+      height: 100%;
+    }
+  }
+}

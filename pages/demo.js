@@ -1,27 +1,17 @@
-import { useRouter } from "next/router";
 import React from "react";
-import useAuth from "../hooks/useAuth";
-import "../styles/routes/Home.scss";
 
-export function getServerSideProps(context) {
-  if (context.req.session.user === undefined) {
-    return {
-      props: {
-        user: null,
-      },
-    };
-  }
-  return {
-    props: { user: context.req.session.user },
-  };
-}
-export default function Demo({ user }) {
-  const { logout } = useAuth();
-
+// import "../styles/routes/Home.scss";
+import EventCard from "../Components/EventCard/EventCard";
+import SubDetails from "../Components/SubDetails/SubDetails";
+import EventGist from "../Components/EventGist/EventGist";
+export default function Demo() {
   return (
-    <main>
-      {user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
-      {user !== null && <button onClick={logout}>Logout</button>}
-    </main>
+		<div style={{
+			width: "100%",
+			padding: "0",
+			alignItems: "flex-start",
+		}}>
+      <EventGist />
+    </div>
   );
 }

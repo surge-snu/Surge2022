@@ -5,13 +5,8 @@
   overflow-x: hidden;
   background-color: #0f1621;
   .HeroSection {
-    @include box(100vw, 
-		700px
-		// calc(100vh - 123px)
-		);
+    @include box(100vw, 700px);
     max-width: 1500px;
-		// min-height: 700px;
-    // max-height: 710px;
     position: relative;
     margin-top: 123px;
     @include make-flex($dir: row);
@@ -73,9 +68,9 @@
         color: #fff;
         font-size: 75px;
         line-height: 100%;
-				font-weight: 900;
+        font-weight: 900;
         padding-right: 10%;
-				margin: 0 auto;
+        margin: 0 auto;
 
         span {
           color: #cafa08;
@@ -144,7 +139,7 @@
         padding: 10px 20px 10px 10px;
         gap: 10px;
         font-family: "Sequel100Black-55";
-				white-space: nowrap;
+        white-space: nowrap;
 
         img {
           height: 100%;
@@ -226,7 +221,7 @@
         }
         @include respondAt(500px) {
           font-size: 15px;
-					font-weight: 600;
+          font-weight: 600;
         }
       }
       &--fancyLink {
@@ -333,4 +328,10 @@
       margin-top: 80px;
     }
   }
+}
+
+.DemoPage {
+  @include box();
+  @include make-flex();
+  padding: 40px;
 }

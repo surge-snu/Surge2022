@@ -1,0 +1,121 @@
+.EventPage {
+  @include make-flex($dir: column, $just: flex-start);
+  @include box($height: unset);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #0f1621;
+  padding-top: 140px;
+  gap: 40px;
+
+  &__header {
+    @include make-flex($dir: row, $just: center, $align: center);
+    @include box(100%, 50px);
+    background: #23376178;
+    gap: 30px;
+
+    &--green {
+      color: #cafa08;
+    }
+  }
+
+  &__bottom {
+    @include box(100%, 100%);
+  }
+
+  &__container {
+    max-width: 1044px;
+    @include box($height: auto);
+
+    &--header {
+      @include box($height: auto);
+      @include make-flex($dir: row);
+      gap: 25px;
+
+      h2 {
+        font-family: "Sequel100Black-65";
+        font-size: 30px;
+        line-height: 59px;
+        text-transform: capitalize;
+        color: #cafa08;
+      }
+      hr {
+        flex-grow: 1;
+        border: 0.5px solid rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    &--content {
+      @include make-flex($dir: row, $just: flex-start, $align: flex-start);
+      gap: 25px;
+      @include box($height: auto);
+
+      @include respondAt(1113px) {
+        flex-direction: column-reverse;
+      }
+
+      @include respondAt(1084px) {
+        padding: 0 40px;
+      }
+    }
+
+    &--left {
+      @include box(70%, 100%);
+      @include make-flex();
+      gap: 20px;
+      @include respondAt(1113px) {
+        width: 100%;
+      }
+    }
+    &--overview {
+      @include box();
+      background-color: #1d263e;
+      @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+      gap: 20px;
+      border-radius: 10px;
+      padding: 30px;
+
+      h3 {
+        font-family: "Sequel100Black-65";
+        font-size: 20px;
+        line-height: 100%;
+      }
+
+      p {
+        font-family: "Fraunces";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+      }
+    }
+
+    &--prizes,
+    &--schedule {
+      @include box();
+      padding: 30px;
+      @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+      gap: 30px;
+      border-radius: 10px;
+      background: rgba(35, 55, 97, 0.3);
+    }
+
+    &--team {
+      @include box(80%, 100%);
+      min-height: 300px;
+      padding: 30px;
+      @include make-flex($dir: column, $just: flex-start, $align: flex-start);
+      gap: 30px;
+      border-radius: 10px;
+      background: rgba(35, 55, 97, 0.3);
+    }
+
+    &--right {
+      @include box(30%, 100%);
+      @include respondAt(1113px) {
+        width: 100%;
+      }
+    }
+    &--middle {
+      @include box(100%, 100%);
+    }
+  }
+}
