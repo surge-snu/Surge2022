@@ -20,28 +20,24 @@ export default function EventCard({ event }) {
           </div>
         </div>
       </div>
-      <div className="EventCard__right">
-        <a class="EventCard__right__cta" href={"../event/" + event.eventId}>
-          <span className="EventCard__right__cta--register">Register</span>
-          <span className="EventCard__right__cta--icon">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 28 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5.86816 14.3217H21.5115M21.5115 14.3217L13.6898 6.5M21.5115 14.3217L13.6898 22.1433"
-                stroke="#CAFA08"
-                strokeWidth="3.35214"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </a>
-      </div>
+      <a className="EventCard__bottom" href={"../event/" + event.eventId}>
+        <span className="EventCard__bottom--register">Register</span>
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.86816 14.3217H21.5115M21.5115 14.3217L13.6898 6.5M21.5115 14.3217L13.6898 22.1433"
+            stroke="#CAFA08"
+            strokeWidth="3.35214"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
     </div>
   );
 }
