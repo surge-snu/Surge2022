@@ -1,6 +1,5 @@
 import React from "react";
 import { sendInvitationOps } from "../../operations/invitation.fetch";
-import Fuse from "fuse.js";
 import "./InvitationWidget.scss";
 
 function InvitationWidget({ allUsers, maxPlayers, minPlayers, eventId, user }) {
@@ -8,19 +7,14 @@ function InvitationWidget({ allUsers, maxPlayers, minPlayers, eventId, user }) {
   const [results, setResults] = React.useState([]);
   const [invitedPlayers, setInvitedPlayers] = React.useState([]);
 
-	const fuseOptions = {
-		shouldSort: true,
-    keys: ["name", "id", "email"],
-  };
-  const fuse = new Fuse(allUsers, fuseOptions);
-
 	React.useEffect(() => {
+		if (!allUsers)
+			return;
 		setResults(
-			fuse.search(search, { limit: 7 })
-				.map((result) => result.item)
-				.filter((result) => {
-			return !invitedPlayers.some((player) => player.id === result.id);
-		}));
+			allUsers.filter((user) => {
+				return user.username.toLowerCase().includes(search.toLowerCase());
+			})
+		);
   }, [search]);
 
   return (
