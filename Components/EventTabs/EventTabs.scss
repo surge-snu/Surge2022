@@ -9,6 +9,11 @@
   position: relative;
   z-index: 1;
   gap: 7px;
+	
+	@include respondAt(500px) {
+		display: none;
+	}
+	
   &--ghostItem {
     z-index: -1;
     position: absolute;
@@ -52,6 +57,35 @@
       animation: changeColor 0.3s linear forwards;
     }
   }
+	
+	&__mobile {
+		display: none;
+		@include box($width: fit-content, $height: fit-content);
+		padding: 10px 10px;
+		border-radius: 8px;
+		background-color: transparent;
+		transition: all 0.3s ease-in-out;
+		border: none;
+		color: #000;
+		background-color: #cafa0a;
+		font-size: 20px;
+		
+		@include respondAt(500px) {
+			display: block;
+		}
+		
+		option {
+			color: #000;
+			background-color: #cafa0a;
+			font-size: 10px;
+		}
+		
+		option:checked {
+			color: #000;
+			background-color: #cafa0a;
+			font-size: 10px;
+		}
+	}
 }
 
 // animation to change color in 0.3s
