@@ -6,6 +6,7 @@
   background-color: #0f1621;
   padding-top: 140px;
   gap: 40px;
+	max-width: 1200px;
 
   &__header {
     @include make-flex($dir: row, $just: center, $align: center);
@@ -56,6 +57,10 @@
       @include respondAt(1084px) {
         padding: 0 40px;
       }
+			
+			@include respondAt(425px) {
+				padding: 0 20px;
+			}
     }
 
     &--left {
@@ -97,6 +102,12 @@
       border-radius: 10px;
       background: rgba(35, 55, 97, 0.3);
     }
+		
+		&--schedule {
+			@include respondAt(700px) {
+				width: fit-content;
+			}
+		}
 
     &--team {
       @include box(80%, 100%);

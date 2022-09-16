@@ -24,6 +24,14 @@
 		border-radius: 20px;
 		padding: 15px 10px;
 		
+		@include respondAt(700px) {
+			width: fit-content;
+			flex-direction: column;
+			gap: 10px;
+			align-items: flex-start;
+			padding: 15px 20px;
+		}
+		
 		&--title {
 			font-family: "Sequel100Black-65";
 			font-size: 14px;
@@ -34,6 +42,12 @@
 			@include box(fit-content, 100%);
 			@include make-flex($dir: row);
 			gap: 25px;
+			
+			@include respondAt(700px) {
+				width: fit-content;
+				flex-direction: column;
+				gap: 10px;
+			}
 		}
 		
 		&--date, &--time {
