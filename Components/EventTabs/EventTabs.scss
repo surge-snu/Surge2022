@@ -1,43 +1,40 @@
-
-.EventTabsDiv {
-	@include box($width: fit-content, $height: fit-content);
-	@include make-flex($dir: row, $align: flex-start);
-}
-
 .EventTabs {
-  @include box(auto, 48px);
-  @include make-flex($dir: row);
-  list-style: none;
-  border-radius: 5px;
-  border: 1px solid #ffffff;
-  background: rgba(35, 55, 97, 0.2);
-  padding: 5px;
-  position: relative;
-  z-index: 1;
-  gap: 7px;
-	
-	@include respondAt(500px) {
-		// display: none;
-		flex-direction: column;
-		height: fit-content;
-		border: none;
-	}
-	
+  &--desktop {
+    @include box(auto, 48px);
+    @include make-flex($dir: row);
+    list-style: none;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    background: rgba(35, 55, 97, 0.2);
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    gap: 7px;
+
+    @include respondAt(770px) {
+      display: none;
+      flex-direction: column;
+      height: fit-content;
+      border: none;
+    }
+  }
+
   &--ghostItem {
     z-index: -1;
     position: absolute;
     @include make-flex($dir: row, $just: center, $align: center);
     border-radius: 3px;
+    opacity: 0;
     background: #cafa0a;
     transition: all 0.3s ease-in-out;
     height: calc(100% - 10px);
     padding: 5px;
-		
-		@include respondAt(500px) {
-			// display: none;
-			height: 35px;
-			top: 0;
-		}
+
+    @include respondAt(500px) {
+      // display: none;
+      height: 35px;
+      top: 0;
+    }
   }
 
   &--ghostHoverItem {
@@ -50,103 +47,93 @@
     transition: all 0.3s ease-in-out;
     height: calc(100% - 10px);
     padding: 5px;
-		
-		@include respondAt(500px) {
-			display: none;
-		}
+
+    @include respondAt(500px) {
+      display: none;
+    }
   }
 
   &--item,
   &--activeItem {
     z-index: 1;
-    @include box();
+    @include box($height: 38.5px);
     border-radius: 3px;
     cursor: pointer;
-
+    padding: 7px;
     a {
       padding: 0px 13px;
       @include make-flex();
       @include box();
-			
-			@include respondAt(500px) {
-				padding: 5px 13px;
-			}
     }
-		
-		button {
-			background: none;
-			border: none;
-			outline: none;
-			cursor: pointer;
-			
-			padding: 0px 13px;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      padding: 0px 13px;
       @include make-flex();
       @include box();
-			
-			@include respondAt(500px) {
-				padding: 5px 13px;
-			}
-		}
+    }
   }
 
   &--activeItem {
+    background: #cafa0a;
     a {
-      // color: #0f1621;
       animation: changeColor 0.3s linear forwards;
     }
   }
-	
-	&__mobile {
-		display: none;
-		@include box($width: fit-content, $height: fit-content);
-		padding: 10px 10px;
-		border-radius: 8px;
-		background-color: transparent;
-		transition: all 0.3s ease-in-out;
-		border: none;
-		color: #000;
-		background-color: #cafa0a;
-		font-size: 20px;
-		
-		@include respondAt(500px) {
-			display: block;
-		}
-		
-		option {
-			color: #000;
-			background-color: #cafa0a;
-			font-size: 10px;
-		}
-		
-		option:checked {
-			color: #000;
-			background-color: #cafa0a;
-			font-size: 10px;
-		}
-	}
-	
-	&__dropDown {
-		@include box(38px, 38px);
-		@include make-flex();
-		cursor: pointer;
-		
-		background-color: #233761;
-		border-radius: 5px;
-		
-		img {
-			transition: all 0.2s ease-in-out;
-			transform: rotate(90deg);
-		}
-		
-		&--rotate {
-			img {
-				transform: rotate(-90deg);
-			}
-		}
-	}
+
+  &--mobile {
+    display: none;
+    @include box($width: 190px, $height: 150px);
+    padding: 5px 48px 5px 5px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: transparent;
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border: none;
+    border: 1px solid #ffffff;
+    background: rgba(35, 55, 97, 0.2);
+    font-size: 20px;
+
+    @include respondAt(770px) {
+      display: block;
+    }
+  }
+
+  &__dropDown {
+    @include box(38px, 38px);
+    @include make-flex();
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: #233761;
+    border-radius: 5px;
+
+    &:focus {
+      outline: unset;
+    }
+
+    img {
+      transition: all 0.2s ease-in-out;
+      transform: rotate(90deg);
+    }
+
+    &--rotate {
+      img {
+        transform: rotate(-90deg);
+      }
+    }
+  }
 }
 
-// animation to change color in 0.3s
 @keyframes changeColor {
   0% {
     color: white;

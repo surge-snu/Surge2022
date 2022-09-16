@@ -12,7 +12,7 @@ function InvitationWidget({ allUsers, maxPlayers, minPlayers, eventId, user }) {
 			return;
 		setResults(
 			allUsers.filter((user) => {
-				return user.username.toLowerCase().includes(search.toLowerCase());
+				return user.name.toLowerCase().includes(search.toLowerCase());
 			})
 		);
   }, [search]);
