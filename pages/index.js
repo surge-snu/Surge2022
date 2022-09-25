@@ -7,10 +7,16 @@ import SportScroll from "../Components/SportScroll/SportScroll";
 import Stats from "../Components/Stats/stats";
 import "../styles/routes/Home.scss";
 
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      currentPath: context.req.url,
+    },
+  };
+}
 export default function Home() {
   return (
-    <div className="LandingPage">
-      <Header />
+    <>
       <section className="HeroSection">
         <div
           className="HeroSection__left"
@@ -89,7 +95,16 @@ export default function Home() {
         <Stats />
       </section>
       <Newsletter />
+    </>
+  );
+}
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <div className="LandingPage">
+      <Header currentPath={page.props.currentPath} />
+      {page}
       <Footer />
     </div>
   );
-}
+};
