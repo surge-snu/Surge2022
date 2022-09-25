@@ -56,7 +56,7 @@
   &--item,
   &--activeItem {
     z-index: 1;
-    @include box($height: 38.5px);
+    @include box();
     border-radius: 3px;
     cursor: pointer;
     padding: 7px;

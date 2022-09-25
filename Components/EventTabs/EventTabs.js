@@ -10,8 +10,10 @@ function EventTabs({ eventId, currentTab }) {
   React.useEffect(() => {
     const activeTabElem = document.getElementById(activeTab);
     const ghostTab = document.getElementById("ghost-tab");
-    ghostTab.style.width = `${activeTabElem.getBoundingClientRect().width}px`;
-    ghostTab.style.left = `${activeTabElem.offsetLeft}px`;
+    ghostTab.style.width = `${
+      activeTabElem.parentElement.getBoundingClientRect().width
+    }px`;
+    ghostTab.style.left = `${activeTabElem.parentElement.offsetLeft}px`;
   }, [activeTab]);
 
   React.useEffect(() => {
@@ -20,8 +22,10 @@ function EventTabs({ eventId, currentTab }) {
       const ghostTab = document.getElementById("hover-ghost-tab");
       ghostTab.style.opacity = "1";
 
-      ghostTab.style.width = `${hoverTabElem.getBoundingClientRect().width}px`;
-      ghostTab.style.left = `${hoverTabElem.offsetLeft}px`;
+      ghostTab.style.width = `${
+        hoverTabElem.parentElement.getBoundingClientRect().width
+      }px`;
+      ghostTab.style.left = `${hoverTabElem.parentElement.offsetLeft}px`;
     } else {
       const ghostTab = document.getElementById("hover-ghost-tab");
       ghostTab.style.opacity = "0";
