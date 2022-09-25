@@ -97,6 +97,19 @@ export default function Footer() {
 						<li className="FooterWrapper__right--RowIcon">
 							<img loading="lazy"
 								className="FooterWrapper__right--RowIcon"
+								src="/Img/youtube.svg"
+								width={20}
+							/>
+							<a
+								className="FooterWrapper__right--rowItem"
+								href="#"
+							>
+								Surge
+							</a>
+						</li>
+						<li className="FooterWrapper__right--RowIcon">
+							<img loading="lazy"
+								className="FooterWrapper__right--RowIcon"
 								src="/Img/linkedin.svg"
 							/>
 							<a className="FooterWrapper__right--rowItem" href="https://www.linkedin.com/company/surge-shiv-nadar-university/">
