@@ -35,7 +35,7 @@ export default function Footer() {
 							</a>
 						</li>
 					</ul>
-					<ul className="FooterWrapper__right--Service">
+					{/* <ul className="FooterWrapper__right--Service">
 						<li className="FooterWrapper__right--rowHeading">Services</li>
 						<li>
 							<a className="FooterWrapper__right--rowItem" href="/#">
@@ -57,28 +57,28 @@ export default function Footer() {
 								Content
 							</a>
 						</li>
-					</ul>
+					</ul> */}
 					<ul className="FooterWrapper__right--Service">
 						<li className="FooterWrapper__right--rowHeading">Contacts</li>
 						<li className="FooterWrapper__right--RowIcon">
 							<img loading="lazy" className="FooterWrapper__right--rowImage" src="/Img/mail.svg" />
 							<a className="FooterWrapper__right--rowItem" href="mailto:">
-								snusurge@gmai.com
+								surge@snu.edu.in
 							</a>
 						</li>
 						<li className="FooterWrapper__right--RowIcon">
 							<img loading="lazy" className="FooterWrapper__right--rowImage" src="/Img/phone.svg" />
 							<a className="FooterWrapper__right--rowItem" href="tel:">
-								9999999999
+								7078765510
 							</a>
 						</li>
 						<li className="FooterWrapper__right--RowIcon">
 							<img loading="lazy" className="FooterWrapper__right--rowImage" src="/Img/map.svg" />
 							<a
 								className="FooterWrapper__right--rowItem"
-								href="https://www.linkedin.com/snu.xplore/"
+								href=""
 							>
-								Delhi, Noida
+								SNIOE, Delhi, Noida
 							</a>
 						</li>
 					</ul>
@@ -90,8 +90,8 @@ export default function Footer() {
 								className="FooterWrapper__right--RowIcon"
 								src="/Img/instagram.svg"
 							/>
-							<a className="FooterWrapper__right--rowItem" href="#">
-								Instagram
+							<a className="FooterWrapper__right--rowItem" href="https://www.instagram.com/surge.snu/">
+								surge.snu
 							</a>
 						</li>
 						<li className="FooterWrapper__right--RowIcon">
@@ -99,8 +99,8 @@ export default function Footer() {
 								className="FooterWrapper__right--RowIcon"
 								src="/Img/linkedin.svg"
 							/>
-							<a className="FooterWrapper__right--rowItem" href="#">
-								LinkedIn
+							<a className="FooterWrapper__right--rowItem" href="https://www.linkedin.com/company/surge-shiv-nadar-university/">
+								Surge
 							</a>
 						</li>
 						<li className="FooterWrapper__right--RowIcon">
@@ -110,9 +110,9 @@ export default function Footer() {
 							/>
 							<a
 								className="FooterWrapper__right--rowItem"
-								href="https://www.linkedin.com/snu.xplore/"
+								href="https://www.facebook.com/surge.snu/"
 							>
-								Facebook
+								surge.snu
 							</a>
 						</li>
 					</ul>

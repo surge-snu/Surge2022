@@ -64,7 +64,7 @@
 
     @include respondAt(1145px) {
       width: 100%;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
       gap: 35px;
     }
