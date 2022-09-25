@@ -34,7 +34,7 @@ function EventTabs({ eventId, currentTab }) {
 
   React.useEffect(() => {
     const mobileDropDown = document.querySelector(".EventTabs--mobile");
-    if (isDropDownOpen) {
+    if (!isDropDownOpen) {
       mobileDropDown.style.height = "50.5px";
     } else {
       mobileDropDown.style.height = "unset";
@@ -96,29 +96,30 @@ function EventTabs({ eventId, currentTab }) {
         </li>
         <li
           className={`EventTabs--item ${
-            activeTab === "team" ? "EventTabs--activeItem" : ""
+            activeTab === "register" ? "EventTabs--activeItem" : ""
           }`}
         >
-          <Link href={`/event/${eventId}/team`}>
+          <Link href={`/event/${eventId}/register`}>
             <a
-              id="team"
-              onClick={() => setActiveTab("team")}
-              onMouseEnter={() => setHoverTab("team")}
+              id="register"
+              onClick={() => setActiveTab("register")}
+              onMouseEnter={() => setHoverTab("register")}
               onMouseLeave={() => setHoverTab(null)}
             >
-              TEAM
+              REGISTER
             </a>
           </Link>
         </li>
       </ul>
 
-      <ul className="EventTabs--mobile">
-        {["overview", "schedule", "prizes", "team"]
+      <ul className="EventTabs--mobile" style={{ height: "50.5px" }}>
+        {["overview", "schedule", "prizes", "register"]
           .filter((x) => x !== activeTab)
           .concat([activeTab])
           .reverse()
-          .map((tab) => (
+          .map((tab, index) => (
             <li
+              key={index}
               className={`EventTabs--item ${
                 activeTab === tab ? "EventTabs--activeItem" : ""
               }`}
