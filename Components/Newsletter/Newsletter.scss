@@ -15,10 +15,10 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    @include respondAt(580px) {
-      padding: 20px;
-      height: unset;
-    }
+    // @include respondAt(580px) {
+    //   padding: 20px;
+    //   height: unset;
+    // }
 
     h2 {
       font-family: "blackhawk";
