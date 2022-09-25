@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import EventGist from "../../../Components/EventGist/EventGist";
 import EventTabs from "../../../Components/EventTabs/EventTabs";
@@ -154,7 +155,7 @@ export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
             </div>
           </>
         );
-      case "team":
+      case "register":
         return (
           <div className="EventPage__container--content">
             <div className="EventPage__container--middle">
@@ -188,7 +189,9 @@ EventTabContent.getLayout = function getLayout(page) {
         }
       />
       <div className="EventPage__header">
-        <p>EVENTS</p>
+        <Link href="/events">
+          <a>EVENTS</a>
+        </Link>
         <img
           loading="lazy"
           width={20}
