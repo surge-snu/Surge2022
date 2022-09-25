@@ -6,6 +6,7 @@ import Newsletter from "../Components/Newsletter/Newsletter";
 import SportScroll from "../Components/SportScroll/SportScroll";
 import Stats from "../Components/Stats/stats";
 import "../styles/routes/Home.scss";
+import Blogs from "../Components/Blogs/blogs";
 
 export async function getServerSideProps(context) {
   return {
@@ -99,6 +100,9 @@ export default function Home() {
       {/* <section className="RenegadeSection" id="events">
         <Renegade />
       </section> */}
+			<section className="BlogsSection" id="stats">
+				<Blogs />
+			</section>
       <section className="StatsSection">
         <Stats />
       </section>

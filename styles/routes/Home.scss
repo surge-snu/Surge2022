@@ -162,6 +162,14 @@
       }
     }
   }
+	
+	.BlogsSection {
+		@include box(100vw);
+    max-width: 1500px;
+    position: relative;
+    @include make-flex($dir: row);
+		overflow: hidden;
+	}
 
   .AboutSection {
     @include box(100vw);
