@@ -16,6 +16,9 @@
     @include box(100%, 50px);
     background: #23376178;
     gap: 30px;
+    a {
+      text-decoration: underline;
+    }
 
     &--green {
       color: #cafa08;
