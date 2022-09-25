@@ -25,37 +25,24 @@ model User {
   email               String        @unique @db.VarChar(100)
   college             String        @db.VarChar(100)
   password            String        @default("")
-  sentInvitations     Invitations[] @relation("sentInvitations")
-  receivedInvitations Invitations[] @relation("receivedInvitations")
 }
 
 model Event {
   venue           String
   prize           Int
-  // teams           Team[]
-  dateTo          DateTime
-  timeTo          DateTime
+  dateTo          String
   eventId         String   @id @default(uuid())
-  timeFrom        DateTime
-  maxTeams        Int
-  dateFrom        DateTime
+  dateFrom        String
   eventName       String   @db.VarChar(100)
   minPlayers      Int
   maxPlayers      Int
-  description     String
   pricePerPlayer  Int
-  teamsRegistered Int
-}
+  category        Categories
+  rules           String
 
-model Invitations {
-  id       Int              @id @default(autoincrement())
-  toId     String
-  toUser   User             @relation("receivedInvitations", references: [id], fields: [toId])
-  fromId   String
-  sentAt   DateTime         @default(now())
-  status   InvitationStatus @default(PENDING)
-  eventId  String
-  fromUser User             @relation("sentInvitations", references: [id], fields: [fromId])
+  // description     String
+  // teamsRegistered Int
+  // maxTeams        Int
 }
 
 model Team {
@@ -65,17 +52,16 @@ model Team {
 }
 
 // Enums
-enum InvitationStatus {
-  ACCEPTED
-  PENDING
-  REJECTED
-  EXPIRED
-  CANCELLED
-  REVOKED
-}
+
 
 enum Role {
   USER
   ADMIN
   ADMIN_SUPER
+}
+
+enum Categories{
+  MALE
+  FEMALE
+  MIXED
 }
