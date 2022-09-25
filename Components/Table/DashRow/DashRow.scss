@@ -1,0 +1,58 @@
+.DashRowWrapper {
+  @include box($height: auto);
+  min-height: 45px;
+  @include make-flex($dir: column);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Sequel100Black-45";
+  border-top: rgba(244, 244, 244, 0.6) 1px solid;
+  font-size: 12px;
+  p {
+    text-align: left;
+  }
+
+  &__button {
+    @include box($height: 45px);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: "Sequel100Black-45";
+    font-size: 12px;
+    @include make-flex($dir: row);
+
+    &--content {
+      @include box();
+      // @include make-flex($dir: row, $just: flex-start);
+      display: grid;
+      // grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      padding-left: 20px;
+
+      span {
+        // flex-grow: 1;
+        @include box(auto);
+        @include make-flex($dir: row, $just: flex-start);
+        gap: 10px;
+      }
+    }
+
+    &--arrow {
+      @include box(50px, 14px);
+    }
+  }
+
+  &__content {
+    @include box($width: 100%, $height: fit-content);
+    @include make-flex($dir: column, $align: flex-end, $just: flex-start);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+
+    &--active {
+      max-height: 300px;
+    }
+  }
+}
