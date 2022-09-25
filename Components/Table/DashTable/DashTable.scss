@@ -1,0 +1,14 @@
+.DashTableWrapper {
+  @include box($width: 100%, $height: fit-content);
+  @include make-flex($dir: column, $align: flex-start, $just: flex-start);
+  background: #0f1621;
+  border: 1px solid rgba(244, 244, 244, 0.6);
+  border-radius: 8px;
+
+  &__title {
+    @include box($width: 100%, $height: fit-content);
+    @include make-flex($dir: row, $align: center, $just: flex-start);
+    gap: 20px;
+    padding: 10px;
+  }
+}
