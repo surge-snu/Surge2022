@@ -1,4 +1,5 @@
 import React from "react";
+import DashTable from "../../Components/Table/DashTable/DashTable";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import useAuth from "../../hooks/useAuth";
 import {
@@ -6,6 +7,8 @@ import {
   updateInvitationOps,
 } from "../../operations/invitation.fetch";
 import "../../styles/routes/My/My.scss";
+import DashRow from "../../Components/Table/DashRow/DashRow";
+import DashHeader from "../../Components/Table/DashHeader/DashHeader";
 
 export function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
@@ -23,15 +26,15 @@ export function getServerSideProps(context) {
 export default function MyHome({ user }) {
   const { logout } = useAuth();
   const [sentInvitations, setSentInvitations] = React.useState([]);
-	const [receivedInvitations, setReceivedInvitations] = React.useState([]);
-	const [paymentDropdownIndex, setPaymentDropdownIndex] = React.useState(null);
-	const [eventDropdownIndex, setEventDropdownIndex] = React.useState(null);
+  const [receivedInvitations, setReceivedInvitations] = React.useState([]);
+  const [paymentDropdownIndex, setPaymentDropdownIndex] = React.useState(null);
+  const [eventDropdownIndex, setEventDropdownIndex] = React.useState(null);
 
   return (
-		<>
-			<div className="MyHome">
-				<h3 className="MyHome__title">Account Information</h3>
-				<div className="MyHome__info">
+    <>
+      <div className="MyHome">
+        <h3 className="MyHome__title">Account Information</h3>
+        <div className="MyHome__info">
 					<div className="MyHome__sectionTitle">
 						Personal Information
 					</div>
@@ -54,134 +57,79 @@ export default function MyHome({ user }) {
 						<img src="/Img/Arrow Right Variant.svg" height={14} />
 					</div>
 				</div>
-				<div className="MyHome__payment">
-					<div className="MyHome__sectionTitle">
-						Payment History
-					</div>
-					<div className="MyHome__divider" />
-					<div className="MyHome__infoRow MyHome__infoRow--green">
-						<p>Invoice ID</p>
-						<p>Status</p>
-						<p>Total Price</p>
-					</div>
-					{
-						[...Array(5)].map((_, i) => (
-							<div className="MyHome__dropdown" key={i}>
-								<div className="MyHome__divider" />
-								<button
-									className="MyHome__infoRow MyHome__listTile"
-									onClick={() => {
-										setPaymentDropdownIndex(paymentDropdownIndex === i ? null : i);
-									}}>
-									<p>INV-0001</p>
-									<div className="MyHome__paymentStatus">
-										<img src="/Img/Green Tick.svg" height={14} />
-										{/* <img src="/Img/Red Exclamation.svg" height={14} /> */}
-										<p>Paid</p>
-									</div>
-									<p>Rs. 100</p>
-									<img
-										src="/Img/Arrow Right Variant.svg"
-										height={14}
-										style={{
-											transform: paymentDropdownIndex === i ? "rotate(90deg)" : "rotate(0deg)",
-											transition: "transform 0.3s ease-in-out",
-										}}
-									/>
-								</button>
-								<div className={`MyHome__dropDownContent
-									${paymentDropdownIndex === i ? "MyHome__dropDownContent--active" : ""}
-								`}>
-									<div className="MyHome__divider"/>
-									<div style={{
-										padding: "20px 0",
-									}}>
-										<div className="MyHome__ListTileItems">
-											<p>Subtotal</p>
-											<p>Rs. 100</p>
-										</div>
-										<div className="MyHome__ListTileItems">
-											<p>Discount</p>
-											<p>Rs. 100</p>
-										</div>
-										<div className="MyHome__ListTileItems">
-											<p>Taxes & Fees</p>
-											<p>Rs. 100</p>
-										</div>
-									</div>
-									<button className="MyHome__greenButton">
-										Download Invoice
-									</button>
-								</div>
-							</div>
-						))
-					}
-				</div>
-				<div className="MyHome__events">
-					<div className="MyHome__sectionTitle">
-						Registered Events
-					</div>
-					<div className="MyHome__divider" />
-					<div className="MyHome__infoRow MyHome__infoRow--green">
-						<p>Event Name</p>
-						<p>Payment Status</p>
-					</div>
-					{
-						[...Array(5)].map((_, i) => (
-							<div className="MyHome__dropdown" key={i}>
-								<div className="MyHome__divider" />
-								<button
-									className="MyHome__infoRow MyHome__listTile"
-									onClick={() => {
-										setEventDropdownIndex(eventDropdownIndex === i ? null : i);
-									}}>
-									<p>Event Name</p>
-									<div className="MyHome__paymentStatus">
-										<img src="/Img/Green Tick.svg" height={14} />
-										{/* <img src="/Img/Red Exclamation.svg" height={14} /> */}
-										<p>Paid</p>
-									</div>
-									<img
-										src="/Img/Arrow Right Variant.svg"
-										height={14}
-										// rotate arrow if dropdown is open
-										style={{
-											transform: eventDropdownIndex === i ? "rotate(90deg)" : "rotate(0deg)",
-											transition: "transform 0.3s ease-in-out",
-										}}
-									/>
-								</button>
-								<div className={`MyHome__dropDownContent
-									${eventDropdownIndex === i ? "MyHome__dropDownContent--active" : ""}
-								`}>
-									<div className="MyHome__divider"/>
-									<div className="MyHome__teamItems">
-										<div className="MyHome__teamTitle">
-											<p>Team Members</p>
-											<p>2/6 members added to your team</p>
-										</div>
-										{
-											[...Array(6)].map((_, i) => (
-												<div className="MyHome__teamRow MyHome__teamRow--blue" key={i}>
-													{/* <div>
-														<img src="/Img/Profile Picture.svg" height={40} />
-													</div> */}
-													<p>A B Santhosh</p>
-													<p>Admin</p>
-												</div>
-											))
-										}
-									</div>
-									<button className="MyHome__greenButton">
-										View Event
-									</button>
-								</div>
-							</div>
-						))				
-					}
-				</div>
-			</div>
-			{/* <main style={{ display: "flex", flexDirection: "column" }}>
+        <DashTable title="Payment History">
+          <DashHeader headerTitles={["Invoice ID", "Status", "Price"]} />
+          {[...Array(5)].map((_, index) => (
+            <DashRow
+              setDropdownIndex={setPaymentDropdownIndex}
+              dropdownIndex={paymentDropdownIndex}
+              index={index}
+              contentCols={[
+                <span>INV-0001</span>,
+                <span>
+                  <img src="/Img/Green Tick.svg" height={14} />
+                  {/* <img src="/Img/Red Exclamation.svg" height={14} /> */}
+                  <p>Paid</p>
+                </span>,
+                <span>Rs. 100</span>,
+              ]}
+            >
+              <div className="MyHome__ListTileItems">
+                <p>Subtotal</p>
+                <p>Rs. 100</p>
+              </div>
+              <div className="MyHome__ListTileItems">
+                <p>Discount</p>
+                <p>Rs. 100</p>
+              </div>
+              <div className="MyHome__ListTileItems">
+                <p>Taxes & Fees</p>
+                <p>Rs. 100</p>
+              </div>
+              <button className="MyHome__greenButton">Download Invoice</button>
+            </DashRow>
+          ))}
+        </DashTable>
+
+        <DashTable title="Registered Events">
+          <DashHeader
+            headerTitles={["Event Name", "Category", "Price", "Total"]}
+          />
+          {[...Array(5)].map((_, index) => (
+            <DashRow
+              setDropdownIndex={setEventDropdownIndex}
+              dropdownIndex={eventDropdownIndex}
+              index={index}
+              contentCols={[
+                <span>INV-0001</span>,
+                <span>
+                  {/* <img src="/Img/Green Tick.svg" height={14} /> */}
+                  {/* <img src="/Img/Red Exclamation.svg" height={14} /> */}
+                  {/* <p>Paid</p> */}
+                  <p>Male</p>
+                </span>,
+                <span>Rs. 100</span>,
+                <span>Rs. 1500</span>,
+              ]}
+            >
+              <span className="MyHome__ListTileItems">
+                <p>Subtotal</p>
+                <p>Rs. 100</p>
+              </span>
+              <span className="MyHome__ListTileItems">
+                <p>Discount</p>
+                <p>Rs. 100</p>
+              </span>
+              <span className="MyHome__ListTileItems">
+                <p>Taxes & Fees</p>
+                <p>Rs. 100</p>
+              </span>
+              <button className="MyHome__greenButton">Download Invoice</button>
+            </DashRow>
+          ))}
+        </DashTable>
+      </div>
+      {/* <main style={{ display: "flex", flexDirection: "column" }}>
 				{user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
 				{user !== null && <button onClick={logout}>Logout</button>}
 				<button
@@ -254,7 +202,7 @@ export default function MyHome({ user }) {
 					);
 				})}
 			</main> */}
-		</>
+    </>
   );
 }
 
@@ -266,4 +214,3 @@ MyHome.getLayout = function getLayout(page) {
     </div>
   );
 };
-
