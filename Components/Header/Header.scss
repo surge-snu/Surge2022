@@ -67,6 +67,8 @@
     &--item {
       list-style: none;
       min-width: 103px;
+      // height: 39px;
+      @include make-flex();
 
       @include respondAt(915px) {
         width: 100%;
@@ -103,8 +105,10 @@
         justify-content: space-evenly;
       }
       a {
-        padding: 8px 10px 5px 10px;
+        line-height: 100%;
+        padding: 11px 13px;
         position: relative;
+        max-height: 39px;
 
         @include respondAt(915px) {
           width: 100%;
@@ -116,6 +120,7 @@
           &:before {
             z-index: -1;
             @include box();
+            max-height: 39px;
             content: "";
             position: absolute;
             background-color: #ffffff;

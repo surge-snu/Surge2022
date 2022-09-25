@@ -33,6 +33,7 @@ export async function getServerSideProps(context) {
         user: null,
         eventDetails: eventDetails,
         eventTab: eventTab,
+        currentPath: context.req.url,
       },
     };
   }
@@ -44,6 +45,7 @@ export async function getServerSideProps(context) {
       eventDetails: eventDetails,
       allUsers,
       eventTab: eventTab,
+      currentPath: context.req.url,
     },
   };
 }
@@ -177,9 +179,14 @@ export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
 
 EventTabContent.getLayout = function getLayout(page) {
   const eventDetails = page.props.eventDetails;
+
   return (
     <div className="EventPage">
-      <Header />
+      <Header
+        currentPath={
+          page.props.currentPath.split("/")[1] === "event" ? "events" : ""
+        }
+      />
       <div className="EventPage__header">
         <p>EVENTS</p>
         <img

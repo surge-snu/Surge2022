@@ -1,0 +1,20 @@
+.GalleryPage {
+  @include make-flex($dir: column, $just: flex-start);
+  @include box($height: unset);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #0f1621;
+
+  &__container {
+    @include box(100%, auto);
+    max-width: 1500px;
+    position: relative;
+    margin-top: 123px;
+    @include make-flex($align: flex-start);
+    padding: 0 55px 100px;
+
+    @include respondAt(480px) {
+      padding: 0px 17px 80px;
+    }
+  }
+}
