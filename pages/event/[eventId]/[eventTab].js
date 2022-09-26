@@ -3,6 +3,7 @@ import EventGist from "../../../Components/EventGist/EventGist";
 import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
 import Header from "../../../Components/Header/Header";
+import RegistrationForm from "../../../Components/RegistrationForm/RegistrationForm";
 import Schedule from "../../../Components/Schedule/Schedule";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
@@ -142,15 +143,10 @@ export default function EventTabContent({ eventDetails, eventTab }) {
                 <h2>{eventTab}</h2>
                 <hr />
               </div>
-              {/* <InvitationWidget
-                allUsers={allUsers}
+              <RegistrationForm
                 minPlayers={eventDetails.minPlayers}
                 maxPlayers={eventDetails.maxPlayers}
-                eventId={eventDetails.eventId}
-              /> */}
-							<RegistrationForm
-								minPlayers={2}
-							/>
+              />
             </div>
           </div>
         );
