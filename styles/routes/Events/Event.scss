@@ -100,7 +100,9 @@
     }
 
     &--prizes,
-    &--schedule {
+    &--schedule,
+		&--team
+		 {
       @include box();
       padding: 30px;
       @include make-flex($dir: column, $just: flex-start, $align: flex-start);

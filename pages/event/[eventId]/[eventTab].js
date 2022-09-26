@@ -142,6 +142,15 @@ export default function EventTabContent({ eventDetails, eventTab }) {
                 <h2>{eventTab}</h2>
                 <hr />
               </div>
+              {/* <InvitationWidget
+                allUsers={allUsers}
+                minPlayers={eventDetails.minPlayers}
+                maxPlayers={eventDetails.maxPlayers}
+                eventId={eventDetails.eventId}
+              /> */}
+							<RegistrationForm
+								minPlayers={2}
+							/>
             </div>
           </div>
         );

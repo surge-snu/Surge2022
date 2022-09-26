@@ -6,6 +6,7 @@ import Newsletter from "../Components/Newsletter/Newsletter";
 import SportScroll from "../Components/SportScroll/SportScroll";
 import Stats from "../Components/Stats/stats";
 import "../styles/routes/Home.scss";
+import Blogs from "../Components/Blogs/blogs";
 
 export async function getServerSideProps(context) {
   return {
@@ -52,6 +53,12 @@ export default function Home() {
               <p>Scroll to Learn More</p>
             </div>
           </div>
+					{/* <div className="HeroSection__top--date">
+						<p>
+							11 12 13<br />
+							November
+						</p>
+					</div> */}
         </div>
       </section>
       <SportScroll />
@@ -63,8 +70,10 @@ export default function Home() {
               ANUAL SPORTS <br />
               FEST{" "}
             </span>
-            OF SHIV NADAR <br />
-            UNIVERSITY
+						OF
+						<br />
+						SHIV NADAR 
+            IOE
           </h1>
 
           <p className="AboutSection__above--text">
@@ -88,9 +97,12 @@ export default function Home() {
           <h1 className="AboutSection__below--title">ABOUT</h1>
         </div>
       </section>
-      <section className="RenegadeSection" id="events">
+      {/* <section className="RenegadeSection" id="events">
         <Renegade />
-      </section>
+      </section> */}
+			<section className="BlogsSection" id="stats">
+				<Blogs />
+			</section>
       <section className="StatsSection">
         <Stats />
       </section>

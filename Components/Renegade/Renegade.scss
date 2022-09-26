@@ -61,6 +61,7 @@
       @include respondAt(805px) {
         position: relative;
         align-self: flex-end;
+				line-height: 40px;
       }
 
       @include respondAt(650px) {
