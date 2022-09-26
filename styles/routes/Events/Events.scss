@@ -85,6 +85,13 @@
     &--title {
       font-family: "Sequel100Black-55";
       font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @include respondAt(508px) {
+        flex-direction: column;
+      }
 
       @include respondAt(800px) {
         font-size: 15px;

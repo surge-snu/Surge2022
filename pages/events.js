@@ -3,6 +3,8 @@ import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import { fetchAllEvents } from "../services/events.server";
 import "../styles/routes/Events/Events.scss";
+import ButtonGroup from "../Components/ButtonGroup/ButtonGroup";
+import React from "react";
 
 export async function getServerSideProps(context) {
   let allEvents = await fetchAllEvents();
@@ -19,13 +21,15 @@ export async function getServerSideProps(context) {
   return {
     props: {
       user: context.req.session.user,
-      allEvents,
+      allEvents: allEvents.sort((a, b) => (a.eventName > b.eventName ? 1 : -1)),
       currentPath: context.req.url,
     },
   };
 }
 
 export default function Events({ allEvents }) {
+  const [allFilteredEvents, setAllFilteredEvents] = React.useState(allEvents);
+
   return (
     <div className="EventsPage__container">
       <div className="EventsPage__top">
@@ -52,9 +56,31 @@ export default function Events({ allEvents }) {
       <div className="EventsPage__bottom">
         <div className="EventsPage__bottom--title">
           <h3>Upcoming Events</h3>
+          <ButtonGroup
+            onFilterChange={(filter) => {
+              if (filter === "all") {
+                setAllFilteredEvents(allEvents);
+              }
+              if (filter === "male") {
+                setAllFilteredEvents(
+                  allEvents.filter((item) => item.category === "MALE")
+                );
+              }
+              if (filter === "female") {
+                setAllFilteredEvents(
+                  allEvents.filter((item) => item.category === "FEMALE")
+                );
+              }
+              if (filter === "mixed") {
+                setAllFilteredEvents(
+                  allEvents.filter((item) => item.category === "MIXED")
+                );
+              }
+            }}
+          />
         </div>
         <div className="EventsPage__bottom--cards">
-          {allEvents.map((event) => (
+          {allFilteredEvents.map((event) => (
             <EventCard event={event} />
           ))}
         </div>
