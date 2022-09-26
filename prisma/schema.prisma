@@ -1,5 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
@@ -18,41 +16,35 @@ model Notify {
 }
 
 model User {
-  id                  String        @id @default(uuid())
-  name                String        @unique @db.VarChar(100)
-  role                Role          @default(USER)
-  // team        Team[]
-  email               String        @unique @db.VarChar(100)
-  college             String        @db.VarChar(100)
-  password            String        @default("")
+  id       String @id @default(uuid())
+  name     String @unique @db.VarChar(100)
+  role     Role   @default(USER)
+  email    String @unique @db.VarChar(100)
+  college  String @db.VarChar(100)
+  password String @default("")
 }
 
 model Event {
-  venue           String
-  prize           Int
-  dateTo          String
-  eventId         String   @id @default(uuid())
-  dateFrom        String
-  eventName       String   @db.VarChar(100)
-  minPlayers      Int
-  maxPlayers      Int
-  pricePerPlayer  Int
-  category        Categories
-  rules           String
-
-  // description     String
-  // teamsRegistered Int
-  // maxTeams        Int
+  eventId           String     @id @default(uuid())
+  rules             String?    @db.LongText
+  dateTo            String
+  dateFrom          String
+  category          Categories @default(MALE)
+  winnerPrize       Int
+  winningTeamPrize  Int
+  runnerUpTeamPrize Int
+  runnerUpPrize     Int
+  minPlayers        Int
+  maxPlayers        Int
+  pricePerPlayer    Int
+  venue             String
+  location          Locations  @default(INDOOR)
+  eventName         String     @db.VarChar(100)
 }
 
 model Team {
   teamId String @id @default(uuid())
-  // event  Event  @relation(references: [eventId], fields: [eventId])
-  // userId User   @relation(references: [id], fields: [userId])
 }
-
-// Enums
-
 
 enum Role {
   USER
@@ -60,8 +52,13 @@ enum Role {
   ADMIN_SUPER
 }
 
-enum Categories{
+enum Categories {
   MALE
   FEMALE
   MIXED
+}
+
+enum Locations {
+  INDOOR
+  OUTDOOR
 }
