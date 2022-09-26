@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import EventGist from "../../../Components/EventGist/EventGist";
 import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
 import Header from "../../../Components/Header/Header";
 import Schedule from "../../../Components/Schedule/Schedule";
 import { fetchEvent } from "../../../services/events.server";
-import { fetchAllUsers } from "../../../services/user.server";
 import "../../../styles/routes/Events/Event.scss";
 
 export async function getServerSideProps(context) {
@@ -22,11 +20,6 @@ export async function getServerSideProps(context) {
     };
   }
 
-  eventDetails.timeFrom = eventDetails.timeFrom.toString();
-  eventDetails.timeTo = eventDetails.timeTo.toString();
-  eventDetails.dateFrom = eventDetails.dateFrom.toString();
-  eventDetails.dateTo = eventDetails.dateTo.toString();
-
   if (context.req.session.user === undefined) {
     return {
       props: {
@@ -38,19 +31,22 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const allUsers = await fetchAllUsers();
   return {
     props: {
       user: context.req.session.user,
       eventDetails: eventDetails,
-      allUsers,
       eventTab: eventTab,
       currentPath: context.req.url,
     },
   };
 }
 
-export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
+export default function EventTabContent({ eventDetails, eventTab }) {
+  const Cashify = (num) => {
+    return `₹${new Intl.NumberFormat("en-IN", {
+      maximumSignificantDigits: 3,
+    }).format(num)}`;
+  };
   function switchContent(route) {
     switch (route) {
       case "overview":
@@ -64,23 +60,10 @@ export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
                 </div>
                 <div className="EventPage__container--overview">
                   <h3>Rules and Guidelines</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                    amet sapien fringilla, mattis ligula consectetur, ultrices
-                    mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet
-                    augue. Vestibulum auctor ornare leo, non suscipit magna
-                    interdum eu. Curabitur pellentesque nibh nibh, at maximus
-                    ante fermentum sit amet. Pellentesque commodo lacus at
-                    sodales sodales. Quisque sagittis orci ut diam condimentum,
-                    vel euismod erat placerat. In iaculis arcu eros, eget tempus
-                    orci facilisis id.Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
-                    Pellentesque sit amet sapien fringilla, mattis ligula
-                    consectetur, ultrices mauris. Maecenas vitae mattis tellus.
-                    Nullam quis imperdiet augue. Vestibulum auctor ornare leo,
-                    non suscipit magna interdum eu.
-                  </p>
+                  <span
+                    className="markdownBody"
+                    dangerouslySetInnerHTML={{ __html: eventDetails.rules }}
+                  />
                   {/* <pre>{JSON.stringify(eventDetails, null, 2)}</pre> */}
                 </div>
               </div>
@@ -101,7 +84,14 @@ export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
                   <hr />
                 </div>
                 <div className="EventPage__container--schedule">
-                  <Schedule />
+                  <Schedule
+                    data={{
+                      "Registration Starts": eventDetails.dateFrom,
+                      "Registration Ends": eventDetails.dateTo,
+                      "Event Starts": eventDetails.dateFrom,
+                      "Event Ends": eventDetails.dateTo,
+                    }}
+                  />
                 </div>
               </div>
               <EventGist
@@ -122,28 +112,18 @@ export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
                 </div>
                 <div className="EventPage__container--prizes">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                    amet sapien fringilla, mattis ligula consectetur, ultrices
-                    mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet
-                    augue. Vestibulum auctor ornare leo, non suscipit magna
-                    interdum eu. Curabitur pellentesque nibh nibh, at maximus
-                    ante fermentum sit amet. Pellentesque commodo lacus at
-                    sodales sodales. Quisque sagittis orci ut diam condimentum,
-                    vel euismod erat placerat. In iaculis arcu eros, eget tempus
-                    orci facilisis id.
+                    Winner Prize per athlete:{" "}
+                    {Cashify(eventDetails.winnerPrize)}
+                    <br />
+                    Runner Up Prize per athlete:{" "}
+                    {Cashify(eventDetails.runnerUpPrize)}
                   </p>
+
                   <p>
-                    Nullam quis imperdiet augue. Vestibulum auctor ornare leo,
-                    non suscipit magna interdum eu. Curabitur pellentesque nibh
-                    nibh, at maximus ante fermentum sit amet. Pellentesque
-                    commodo lacus at sodales sodales. Quisque sagittis orci ut
-                    diam condimentum, vel euismod erat placerat. In iaculis arcu
-                    eros, eget tempus orci facilisis id.
-                  </p>
-                  <p>
-                    Prizes up for grabs Rs 20000 for best use of IPFS and/or
-                    Filecoin
+                    Winner Team prize: {Cashify(eventDetails.winningTeamPrize)}
+                    <br />
+                    Runner Up Team prize:{" "}
+                    {Cashify(eventDetails.runnerUpTeamPrize)}
                   </p>
                 </div>
               </div>
