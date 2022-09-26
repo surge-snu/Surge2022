@@ -4,6 +4,7 @@ import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
 import Header from "../../../Components/Header/Header";
 import InvitationWidget from "../../../Components/InvitationWidget/InvitationWidget";
+import RegistrationForm from "../../../Components/RegistrationForm/RegistrationForm";
 import Schedule from "../../../Components/Schedule/Schedule";
 import { fetchEvent } from "../../../services/events.server";
 import { fetchAllUsers } from "../../../services/user.server";
@@ -162,12 +163,15 @@ export default function EventTabContent({ eventDetails, allUsers, eventTab }) {
                 <h2>{eventTab}</h2>
                 <hr />
               </div>
-              <InvitationWidget
+              {/* <InvitationWidget
                 allUsers={allUsers}
                 minPlayers={eventDetails.minPlayers}
                 maxPlayers={eventDetails.maxPlayers}
                 eventId={eventDetails.eventId}
-              />
+              /> */}
+							<RegistrationForm
+								minPlayers={2}
+							/>
             </div>
           </div>
         );

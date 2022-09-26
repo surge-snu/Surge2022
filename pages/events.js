@@ -36,12 +36,12 @@ export default function Events({ allEvents }) {
   return (
     <div className="EventsPage__container">
       <div className="EventsPage__top">
-        <h1 className="EventsPage__top--title">
+        <h1 className="EventsPage__title">
           LOREM <span>IPSUM</span>
           <br />
           DOLOR SIT AMET
         </h1>
-        <p className="EventsPage__top--desc">
+        <p className="EventsPage__desc">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud
@@ -57,10 +57,15 @@ export default function Events({ allEvents }) {
         </div>
       </div>
       <div className="EventsPage__bottom">
-        <div className="EventsPage__bottom--title">
+        <div className="EventsPage__subTitle">
           <h3>Upcoming Events</h3>
-        </div>
-        <div className="EventsPage__bottom--cards">
+				</div>
+				{/* <div className="EventsPage__filterList">
+					<div className="EventsPage__filterList--item">All</div>
+					<div className="EventsPage__filterList--item">Male</div>
+					<div className="EventsPage__filterList--item">Female</div>
+				</div>		 */}
+        <div className="EventsPage__cards">
           {allEvents.map((event) => (
             <EventCard event={event} />
           ))}

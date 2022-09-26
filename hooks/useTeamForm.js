@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function useForm({
+export default function useTeamForm({
 	initialValues,
 	validate,
 	onSubmit,
@@ -18,9 +18,15 @@ export default function useForm({
 
 	const hasError = (err = errors) => Object.entries(err).some(([, val]) => val);
 
-	const onChange = async (fieldName, e) => {
+	const onChange = async (fieldName, e, index) => {
 		setErrors({});
-		const newData = { ...formData, [fieldName]: e.target.value };
+		// const newData = { ...formData, [fieldName]: e.target.value };
+		const newData = formData.map((item, i) => {
+			if (i === index) {
+				return { ...item, [fieldName]: e.target.value };
+			}
+			return item;
+		});
 		if (typeof validate === "function") {
 			const validationErrors = await validate(newData);
 			if (hasError(validationErrors)) setErrors(validationErrors);
