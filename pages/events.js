@@ -6,13 +6,6 @@ import "../styles/routes/Events/Events.scss";
 
 export async function getServerSideProps(context) {
   let allEvents = await fetchAllEvents();
-  allEvents = allEvents.map((event) => {
-    event.timeFrom = event.timeFrom.toString();
-    event.timeTo = event.timeTo.toString();
-    event.dateFrom = event.dateFrom.toString();
-    event.dateTo = event.dateTo.toString();
-    return event;
-  });
 
   if (context.req.session.user === undefined) {
     return {
