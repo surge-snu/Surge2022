@@ -1,10 +1,13 @@
 import React from "react";
 import "./Header.scss";
 import useAuth from "../../hooks/useAuth";
+import Link from "next/link";
 
-function Header() {
+function Header({ currentPath = "" }) {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
+
+  const [path, setPath] = React.useState(currentPath.replace("/", ""));
   const { user } = useAuth();
 
   React.useEffect(() => {
@@ -21,12 +24,6 @@ function Header() {
     };
   });
 
-  React.useEffect(() => {
-    window.addEventListener("hashchange", () => {
-      setHash(window.location.hash);
-    });
-  }, []);
-
   return (
     <div className="HeaderWrapper">
       <span className="HeaderWrapper__logo">
@@ -39,46 +36,77 @@ function Header() {
       >
         <ul className="HeaderWrapper__MenuList--left">
           <li className="HeaderWrapper__MenuList--item">
-            <a href="/" className={`${hash === "" ? "route--active" : ""} `}>
-              Home
-            </a>
+            <Link href="/">
+              <a
+                className={`${path === "/" ? "route--active" : ""}`}
+                onClick={() => {
+                  setPath("/");
+                }}
+              >
+                Home
+              </a>
+            </Link>
           </li>
           <li className="HeaderWrapper__MenuList--item">
-            <a
-              href="#about"
-              className={`${hash === "#about" ? "route--active" : ""} `}
-            >
-              About
-            </a>
+            <Link href="/sponsors">
+              <a
+                className={`${path === "sponsors" ? "route--active" : ""}`}
+                onClick={() => {
+                  setPath("sponsors");
+                }}
+              >
+                Sponsors
+              </a>
+            </Link>
           </li>
           <li className="HeaderWrapper__MenuList--item">
-            <a
-              href="#gallery"
-              className={`${hash === "#gallery" ? "route--active" : ""} `}
-            >
-              Gallery
-            </a>
+            <Link href="/gallery">
+              <a
+                className={`${path === "gallery" ? "route--active" : ""} `}
+                onClick={() => {
+                  setPath("gallery");
+                }}
+              >
+                Gallery
+              </a>
+            </Link>
           </li>
         </ul>
         <span className="HeaderWrapper__MenuList--center">
-          <a href="#">Surge</a>
+          <Link href="/">
+            <a
+              onClick={() => {
+                setPath("");
+              }}
+            >
+              Surge
+            </a>
+          </Link>
         </span>
         <ul className="HeaderWrapper__MenuList--right">
           <li className="HeaderWrapper__MenuList--item">
-            <a
-              href="/events"
-              className={`${hash === "#events" ? "route--active" : ""} `}
-            >
-              Events
-            </a>
+            <Link href="/events">
+              <a
+                className={`${path === "events" ? "route--active" : ""} `}
+                onClick={() => {
+                  setPath("events");
+                }}
+              >
+                Events
+              </a>
+            </Link>
           </li>
           <li className="HeaderWrapper__MenuList--item">
-            <a
-              href="#contact"
-              className={`${hash === "#contact" ? "route--active" : ""} `}
-            >
-              Contact
-            </a>
+            <Link href="/contact">
+              <a
+                className={`${path === "contact" ? "route--active" : ""} `}
+                onClick={() => {
+                  setPath("contact");
+                }}
+              >
+                Contact
+              </a>
+            </Link>
           </li>
           <li className="HeaderWrapper__MenuList--item">
             {!user ? (
@@ -91,7 +119,9 @@ function Header() {
                 Login
               </a>
             ) : (
-              <a href="/my">Profile</a>
+              <Link href="/my">
+                <a>Profile</a>
+              </Link>
             )}
           </li>
         </ul>

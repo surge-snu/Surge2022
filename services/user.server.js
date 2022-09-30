@@ -5,43 +5,26 @@ export async function fetchUser(email) {
     where: {
       email,
     },
+  });
+}
+
+export async function fetchUserData(email) {
+  return db.user.findUnique({
+    where: {
+      email,
+    },
     include: {
-      sentInvitations: {
+      Team: {
         include: {
-          toUser: {
+          TeamMembers: {
             select: {
               id: true,
+              teamId: true,
               name: true,
               email: true,
-              college: true,
-            },
-          },
-          fromUser: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-              college: true,
-            },
-          },
-        },
-      },
-      receivedInvitations: {
-        include: {
-          toUser: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-              college: true,
-            },
-          },
-          fromUser: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-              college: true,
+              phone: true,
+              eventId: true,
+              playerType: true,
             },
           },
         },

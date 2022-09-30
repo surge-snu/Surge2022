@@ -21,32 +21,32 @@
   &__top {
     @include make-flex($dir: column, $just: flex-start, $align: flex-start);
     gap: 15px;
-
-    &--title {
-      font-family: "Sequel100Black-105";
-      font-size: 40px;
-      line-height: 60px;
-
-      span {
-        color: #cafa08;
-      }
-
-      @include respondAt(800px) {
-        font-size: 30px;
-        line-height: 40px;
-      }
-    }
-
-    &--desc {
-      @include box($width: 65%);
-      font-family: "Fraunces";
-      font-size: 20px;
-
-      @include respondAt(800px) {
-        font-size: 13px;
-      }
-    }
   }
+	
+	&__title {
+		font-family: "Sequel100Black-105";
+		font-size: 40px;
+		line-height: 60px;
+
+		span {
+			color: #cafa08;
+		}
+
+		@include respondAt(800px) {
+			font-size: 30px;
+			line-height: 40px;
+		}
+	}
+
+	&__desc {
+		@include box($width: 65%);
+		font-family: "Fraunces";
+		font-size: 20px;
+
+		@include respondAt(800px) {
+			font-size: 13px;
+		}
+	}
 
   &__mid {
     @include box($width: 65%, $height: fit-content);
@@ -85,6 +85,13 @@
     &--title {
       font-family: "Sequel100Black-55";
       font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @include respondAt(508px) {
+        flex-direction: column;
+      }
 
       @include respondAt(800px) {
         font-size: 15px;
@@ -106,6 +113,53 @@
       }
     }
   }
+	
+	&__subTitle {
+		font-family: "Sequel100Black-55";
+		font-size: 20px;
+	
+		@include respondAt(800px) {
+			font-size: 15px;
+		}
+	}
+	
+	&__filterList {
+		@include make-flex($dir: row, $just: flex-start, $align: flex-start);
+		background-color: rgba(35, 55, 97, 0.4705882353);
+		border-radius: 100px;
+		
+		&--item {
+			@include box();
+			padding: 5px 20px;
+			
+			&:first-child {
+				padding-left: 30px;
+			}
+			&:last-child {
+				padding-right: 30px;
+			}
+		}
+		
+		&--selectedItem {
+			background-color: #cafa08;
+		}
+	}
+	
+	&__cards {
+		@include box($height: auto);
+		display: grid;
+		gap: 24px;
+		grid-auto-rows: 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+	
+		@include respondAt(1236px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@include respondAt(866px) {
+			grid-template-columns: 1fr;
+		}
+	}
+	
 }
 
 .Events {

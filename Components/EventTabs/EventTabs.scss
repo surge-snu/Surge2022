@@ -1,23 +1,40 @@
 .EventTabs {
-  @include box(auto, 48px);
-  border-radius: 5px;
-  border: 1px solid #ffffff;
-  background: rgba(35, 55, 97, 0.2);
-  list-style: none;
-  @include make-flex($dir: row);
-  padding: 5px;
-  position: relative;
-  z-index: 1;
-  gap: 7px;
+  &--desktop {
+    @include box(auto, 48px);
+    @include make-flex($dir: row);
+    list-style: none;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    background: rgba(35, 55, 97, 0.2);
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    gap: 7px;
+
+    @include respondAt(770px) {
+      display: none;
+      flex-direction: column;
+      height: fit-content;
+      border: none;
+    }
+  }
+
   &--ghostItem {
     z-index: -1;
     position: absolute;
     @include make-flex($dir: row, $just: center, $align: center);
     border-radius: 3px;
+    opacity: 0;
     background: #cafa0a;
     transition: all 0.3s ease-in-out;
     height: calc(100% - 10px);
     padding: 5px;
+
+    @include respondAt(500px) {
+      // display: none;
+      height: 35px;
+      top: 0;
+    }
   }
 
   &--ghostHoverItem {
@@ -30,6 +47,10 @@
     transition: all 0.3s ease-in-out;
     height: calc(100% - 10px);
     padding: 5px;
+
+    @include respondAt(500px) {
+      display: none;
+    }
   }
 
   &--item,
@@ -38,23 +59,87 @@
     @include box();
     border-radius: 3px;
     cursor: pointer;
-
+    padding: 7px;
     a {
       padding: 0px 13px;
       @include make-flex();
       @include box();
     }
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      padding: 0px 13px;
+      @include make-flex();
+      @include box();
+    }
+
+    &:last-child {
+      color: #cafa0a;
+      font-family: "BLACKHAWK";
+      font-size: 25px;
+    }
   }
 
   &--activeItem {
+    background: #cafa0a;
     a {
-      // color: #0f1621;
       animation: changeColor 0.3s linear forwards;
+    }
+  }
+
+  &--mobile {
+    display: none;
+    @include box($width: 190px, $height: 150px);
+    padding: 5px 48px 5px 5px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: transparent;
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border: none;
+    border: 1px solid #ffffff;
+    background: rgba(35, 55, 97, 0.2);
+    font-size: 20px;
+
+    @include respondAt(770px) {
+      display: block;
+    }
+  }
+
+  &__dropDown {
+    @include box(38px, 38px);
+    @include make-flex();
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: #233761;
+    border-radius: 5px;
+
+    &:focus {
+      outline: unset;
+    }
+
+    img {
+      transition: all 0.2s ease-in-out;
+      transform: rotate(90deg);
+    }
+
+    &--rotate {
+      img {
+        transform: rotate(-90deg);
+      }
     }
   }
 }
 
-// animation to change color in 0.3s
 @keyframes changeColor {
   0% {
     color: white;

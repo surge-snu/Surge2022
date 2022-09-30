@@ -1,0 +1,46 @@
+.ButtonGroupWrapper {
+  display: inline-flex;
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
+  overflow: hidden;
+  height: 40px;
+  width: fit-content;
+
+  @include respondAt(508px) {
+    width: 100%;
+    flex-wrap: wrap;
+    height: unset;
+    min-height: 40px;
+  }
+
+  button {
+    border: none;
+    border-right: 1px solid #e1e4e8;
+    padding: 5px 16px;
+    height: 40px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    // line-height: 20px;
+    cursor: pointer;
+    &:hover {
+      background-color: #273354;
+      color: #cafa0a;
+    }
+    &:last-child {
+      border-right: none;
+    }
+    &.active {
+      color: #cafa0a;
+      font-family: "BLACKHAWK";
+      font-size: 28px;
+      line-height: 100%;
+    }
+
+    @include respondAt(508px) {
+      flex-grow: 1;
+      border: 0.3px solid #e1e4e8;
+    }
+  }
+}

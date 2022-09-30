@@ -35,7 +35,9 @@ $animationSpeed: 20s;
   &__track {
     animation: scroll $animationSpeed linear infinite;
     display: flex;
-    width: calc(500px * 1500);
+    // width: calc(500px * 1500);
+		width: max-content;
+		// background-color: red;
 
     &--item {
       padding: 0 60px;
@@ -66,6 +68,7 @@ $animationSpeed: 20s;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 10));
+    // transform: translateX(calc(-250px * 10));
+		transform: translateX(-50%);
   }
 }

@@ -15,29 +15,15 @@ export default function Newsletter() {
 
   return (
     <div className="Newsletter">
-      <div className="Newsletter__container">
-        <h2>GET STARTED</h2>
-        <p>
-          Subscribe to our
-          <br />
-          <span>Newsletter!</span>
-        </p>
-        <form
-          className="Newsletter__container--row"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handler();
-          }}
-        >
-          <input
-            required
-            type="email"
-            placeholder="Enter your email address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit">Get started</button>
-        </form>
-      </div>
+      <iframe
+        width="100%"
+        height="100%"
+        className="Newsletter__container"
+        style={{ border: 0 }}
+        referrerPolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1aSE37-L5EfmVW-p5IqPrVV7YkXxtWJs&q=Shiv+Nadar+University&center=28.5267345,77.5731743"
+        allowFullScreen
+      />
     </div>
   );
 }

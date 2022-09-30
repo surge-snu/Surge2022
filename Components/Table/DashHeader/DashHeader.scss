@@ -1,0 +1,18 @@
+.DashHeaderWrapper {
+  @include box($height: fit-content);
+  gap: 10px;
+  display: grid;
+  padding: 10px 50px 10px 20px;
+  border-top: rgba(244, 244, 244, 0.6) 1px solid;
+
+  span {
+    @include box($width: auto, $height: fit-content);
+    flex-grow: 1;
+  }
+
+  &--green {
+    span {
+      color: #cafa08;
+    }
+  }
+}

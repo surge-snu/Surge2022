@@ -112,10 +112,21 @@
           font-size: 15px;
         }
       }
+			
+			&--date {
+				padding-right: 10%;
+				font-family: "BLACKHAWK";
+				font-size: 60px;
+				text-align: center;
+				
+				p {
+					color: #cafa08;
+				}
+			}
 
       &--actionContainer {
         width: 35%;
-        @include make-flex($align: flex-start);
+        @include make-flex($align: flex-start);				
         @include respondAt(880px) {
           width: 100%;
           padding: 0 20px;
@@ -151,14 +162,22 @@
       }
     }
   }
+	
+	.BlogsSection {
+		@include box(100vw);
+    max-width: 1500px;
+    position: relative;
+    @include make-flex($dir: row);
+		overflow: hidden;
+	}
 
   .AboutSection {
     @include box(100vw);
     max-width: 1500px;
     position: relative;
-    min-height: 100vh;
-    max-height: 710px;
+    min-height: 700px;
     @include make-flex($dir: row);
+		overflow: hidden;
 
     @include respondAt(1518px) {
       width: 90vw;
@@ -186,7 +205,8 @@
 
       &--title {
         font-family: "Sequel100Black-105";
-        font-size: 60px;
+        font-size: 40px;
+				line-height: 45px;
 
         span {
           color: #cafa08;
@@ -203,6 +223,7 @@
         }
         @include respondAt(600px) {
           font-size: 5vw;
+					line-height: 135%;
         }
       }
 
@@ -279,7 +300,7 @@
       }
 
       &--image {
-        top: -7%;
+        top: 0;
         right: -270px;
         position: absolute;
         @include box(370px, 370px);
@@ -298,7 +319,7 @@
     @include box(100vw);
     max-width: 1500px;
     position: relative;
-    min-height: 100vh;
+    // min-height: 100vh;
     max-height: 710px;
     margin-top: 70px;
     @include make-flex($dir: row);
@@ -316,7 +337,7 @@
     @include box(100vw);
     max-width: 1500px;
     position: relative;
-    min-height: calc(100vh - 70px);
+    // min-height: calc(100vh - 70px);
     margin-top: 50px;
     @include make-flex($just: flex-start);
 

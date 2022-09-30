@@ -11,3 +11,14 @@ export async function fetchEvent(eventId) {
     },
   });
 }
+
+export async function createTeam(data) {
+  return {
+    teamDetails: await db.team.create({
+      data: data.teamDetails,
+    }),
+    teamMembers: await db.teamMember.createMany({
+      data: data.teamMembers,
+    }),
+  };
+}

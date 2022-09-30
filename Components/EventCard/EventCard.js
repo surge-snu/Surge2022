@@ -6,7 +6,9 @@ export default function EventCard({ event }) {
       <div className="EventCard__top">
         <div className="EventCard__top--indoor">Indoor</div>
         <div className="EventCard__top--title">
-          <h2>{event.eventName}</h2>
+          <h2>
+            {event.eventName} ({event.category})
+          </h2>
           <p>{event.description}</p>
         </div>
         <div className="EventCard__details">
