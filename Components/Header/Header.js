@@ -24,16 +24,6 @@ function Header({ currentPath = "" }) {
     };
   });
 
-  // React.useEffect(() => {
-  //   window.addEventListener("hashchange", () => {
-  //     setHash(window.location.hash);
-  //   });
-  // }, []);
-
-  React.useEffect(() => {
-    console.log(path);
-  }, [path]);
-
   return (
     <div className="HeaderWrapper">
       <span className="HeaderWrapper__logo">

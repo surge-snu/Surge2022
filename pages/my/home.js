@@ -2,10 +2,6 @@ import React from "react";
 import DashTable from "../../Components/Table/DashTable/DashTable";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import useAuth from "../../hooks/useAuth";
-import {
-  fetchInvitationsOps,
-  updateInvitationOps,
-} from "../../operations/invitation.fetch";
 import "../../styles/routes/My/My.scss";
 import DashRow from "../../Components/Table/DashRow/DashRow";
 import DashHeader from "../../Components/Table/DashHeader/DashHeader";
@@ -25,8 +21,6 @@ export function getServerSideProps(context) {
 }
 export default function MyHome({ user }) {
   const { logout } = useAuth();
-  const [sentInvitations, setSentInvitations] = React.useState([]);
-  const [receivedInvitations, setReceivedInvitations] = React.useState([]);
   const [paymentDropdownIndex, setPaymentDropdownIndex] = React.useState(null);
   const [eventDropdownIndex, setEventDropdownIndex] = React.useState(null);
 
@@ -35,28 +29,26 @@ export default function MyHome({ user }) {
       <div className="MyHome">
         <h3 className="MyHome__title">Account Information</h3>
         <div className="MyHome__info">
-					<div className="MyHome__sectionTitle">
-						Personal Information
-					</div>
-					<div className="MyHome__divider" />
-					<div className="MyHome__infoRow">
-						<p>Name</p>
-						<p>{user.name}</p>
-						<img src="/Img/Arrow Right Variant.svg" height={14} />
-					</div>
-					<div className="MyHome__divider" />
-					<div className="MyHome__infoRow">
-						<p>Email</p>
-						<p>{user.email}</p>
-						<img src="/Img/Arrow Right Variant.svg" height={14} />
-					</div>
-					<div className="MyHome__divider" />
-					<div className="MyHome__infoRow">
-						<p>Password</p>
-						<p>********</p>
-						<img src="/Img/Arrow Right Variant.svg" height={14} />
-					</div>
-				</div>
+          <div className="MyHome__sectionTitle">Personal Information</div>
+          <div className="MyHome__divider" />
+          <div className="MyHome__infoRow">
+            <p>Name</p>
+            <p>{user.name}</p>
+            <img src="/Img/Arrow Right Variant.svg" height={14} />
+          </div>
+          <div className="MyHome__divider" />
+          <div className="MyHome__infoRow">
+            <p>Email</p>
+            <p>{user.email}</p>
+            <img src="/Img/Arrow Right Variant.svg" height={14} />
+          </div>
+          <div className="MyHome__divider" />
+          <div className="MyHome__infoRow">
+            <p>Password</p>
+            <p>********</p>
+            <img src="/Img/Arrow Right Variant.svg" height={14} />
+          </div>
+        </div>
         <DashTable title="Payment History">
           <DashHeader headerTitles={["Invoice ID", "Status", "Price"]} />
           {[...Array(5)].map((_, index) => (
@@ -129,79 +121,6 @@ export default function MyHome({ user }) {
           ))}
         </DashTable>
       </div>
-      {/* <main style={{ display: "flex", flexDirection: "column" }}>
-				{user !== null ? <p>Hello {user.email}</p> : <a href="#login">Login</a>}
-				{user !== null && <button onClick={logout}>Logout</button>}
-				<button
-					onClick={async () => {
-						await fetchInvitationsOps(user.email).then((res) => {
-							setReceivedInvitations(res.message.receivedInvitations);
-							setSentInvitations(res.message.sentInvitations);
-						});
-					}}
-				>
-					Refresh Invitations
-				</button>
-				<h3>Sent Invitations</h3>
-				{sentInvitations.map((invitation) => {
-					return (
-						<label key={invitation.id}>
-							{invitation.toUser.name} - {invitation.toUser.email} -{" "}
-							{invitation.status}&nbsp;
-							{invitation.status !== "REVOKED" && (
-								<button
-									onClick={async () => {
-										await updateInvitationOps({
-											id: invitation.id,
-											status: "REVOKED",
-										});
-									}}
-								>
-									Revoke Invitation
-								</button>
-							)}
-							&nbsp;
-						</label>
-					);
-				})}
-				<br />
-				<br />
-				<h3>Received Invitations</h3>
-				{receivedInvitations.map((invitation) => {
-					return (
-						<label key={invitation.id}>
-							{invitation.fromUser.name} - {invitation.fromUser.email} -{" "}
-							{invitation.status}&nbsp;
-							{invitation.status !== "REVOKED" && (
-								<>
-									<button
-										onClick={async () => {
-											await updateInvitationOps({
-												id: invitation.id,
-												status: "ACCEPTED",
-											});
-										}}
-									>
-										Accept
-									</button>
-									&nbsp;
-									<button
-										onClick={async () => {
-											await updateInvitationOps({
-												id: invitation.id,
-												status: "REJECTED",
-											});
-										}}
-									>
-										Decline
-									</button>
-								</>
-							)}
-							&nbsp;
-						</label>
-					);
-				})}
-			</main> */}
     </>
   );
 }

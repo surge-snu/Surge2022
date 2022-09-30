@@ -1,0 +1,45 @@
+.GInputWrapper {
+  @include box(100%, auto);
+  position: relative;
+
+  input {
+    @include box($height: 45px);
+    @include make-flex($just: flex-start);
+    border: none;
+    outline: none;
+    font-size: 17px;
+    color: #fff;
+    padding: 7px 10px;
+    background-color: #1d2b49;
+    border-radius: 5px;
+    border: 1.5px solid #8f8f8f;
+
+    &:focus ~ label {
+      top: 0%;
+      color: #cafa08;
+    }
+
+    &:focus {
+      border: 1.5px solid #cafa08;
+      color: #cafa08;
+    }
+
+    &:not(:placeholder-shown) ~ label {
+      top: 0%;
+      // color: #1d2b49;
+    }
+  }
+
+  & > label {
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 10px;
+    padding: 0 5px;
+    position: absolute;
+    color: #b5b5b5;
+    background-color: #1d2b49;
+    font-size: 17px;
+    transition: 0.2s;
+    pointer-events: none;
+  }
+}

@@ -82,6 +82,36 @@
     gap: 10px;
     @include box($height: auto);
 
+    &--title {
+      font-family: "Sequel100Black-55";
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @include respondAt(508px) {
+        flex-direction: column;
+      }
+
+      @include respondAt(800px) {
+        font-size: 15px;
+      }
+    }
+
+    &--cards {
+      @include box($height: auto);
+      display: grid;
+      gap: 24px;
+      grid-auto-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      @include respondAt(1236px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include respondAt(866px) {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 	
 	&__subTitle {
