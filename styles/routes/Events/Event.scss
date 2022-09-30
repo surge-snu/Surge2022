@@ -14,7 +14,7 @@
   &__header {
     @include make-flex($dir: row, $just: center, $align: center);
     @include box(100%, 50px);
-    background: #23376178;
+    background: #1d2b49;
     gap: 30px;
     a {
       text-decoration: underline;
