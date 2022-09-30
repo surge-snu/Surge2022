@@ -4,7 +4,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #0f1621;
-  padding-top: 140px;
+  padding-top: 123px;
   gap: 40px;
   // max-width: 1200px;
 
@@ -14,7 +14,7 @@
   &__header {
     @include make-flex($dir: row, $just: center, $align: center);
     @include box(100%, 50px);
-    background: #23376178;
+    background: #1d2b49;
     gap: 30px;
     a {
       text-decoration: underline;

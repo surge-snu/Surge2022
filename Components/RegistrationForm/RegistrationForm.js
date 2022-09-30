@@ -1,9 +1,10 @@
 import React from "react";
 import useTeamForm from "../../hooks/useTeamForm";
+import GInput from "../GInput/GInput";
 import "./RegistrationForm.scss";
 
 export default function RegistrationForm({ minPlayers, maxPlayers }) {
-  const [initialValues, setInitialValues] = React.useState(
+  const [initialValues] = React.useState(
     [...Array(minPlayers).keys()].map((item) => {
       const tempObj = {
         [`PlayerName${item + 1}`]: "",
@@ -37,48 +38,35 @@ export default function RegistrationForm({ minPlayers, maxPlayers }) {
     <div className="RegForm">
       <form method="POST" className="RegForm__form" onSubmit={handleSubmit}>
         {formData.map((val, i) => (
-          <div key={i} className="RegForm__player">
-            <div className="RegForm__row">
-              <div className="RegForm__field">
-                <label htmlFor={`PlayerName${i + 1}`}>
-                  Player {i + 1} Name
-                </label>
-                <input
-                  id={`PlayerName${i + 1}`}
-                  type="text"
-                  required
-                  value={val[`PlayerName${i + 1}`]}
-                  onChange={(e) => onChange(`PlayerName${i + 1}`, e, i)}
-                />
-              </div>
-              <div className="RegForm__field">
-                <label htmlFor={`PlayerEmail${i + 1}`}>
-                  Player {i + 1} Email
-                </label>
-                <input
-                  id={`PlayerEmail${i + 1}`}
-                  type="text"
-                  required
-                  value={val[`PlayerEmail${i + 1}`]}
-                  onChange={(e) => onChange(`PlayerEmail${i + 1}`, e, i)}
-                />
-              </div>
-              <div className="RegForm__field">
-                <label htmlFor={`PlayerPhone${i + 1}`}>
-                  Player {i + 1} phone
-                </label>
-                <input
-                  id={`PlayerPhone${i + 1}`}
-                  type="text"
-                  required
-                  value={val[`PlayerPhone${i + 1}`]}
-                  onChange={(e) => onChange(`PlayerPhone${i + 1}`, e, i)}
-                />
-              </div>
+          <div key={i} className="RegForm__form--player">
+            <span>
+              <h3>
+                Player {i + 1} {i + 1 === 1 ? "(Captain)" : ""}
+              </h3>
+              {i >= minPlayers && (
+                <button onClick={() => removePlayer(i)}>Remove Player</button>
+              )}
+            </span>
+            <div className="RegForm__form--fields">
+              <GInput
+                id={`PlayerName${i + 1}`}
+                label="Name"
+                type="text"
+                setValue={(e) => onChange(`PlayerName${i + 1}`, e, i)}
+              />
+              <GInput
+                id={`PlayerEmail${i + 1}`}
+                label="Email"
+                type="email"
+                setValue={(e) => onChange(`PlayerEmail${i + 1}`, e, i)}
+              />
+              <GInput
+                id={`PlayerPhone${i + 1}`}
+                label="Phone"
+                type="tel"
+                setValue={(e) => onChange(`PlayerPhone${i + 1}`, e, i)}
+              />
             </div>
-            {i >= minPlayers && (
-              <button onClick={() => removePlayer(i)}>Remove Player</button>
-            )}
 
             {errors[i] && <span className="RegForm--error">{errors[i]}</span>}
           </div>
