@@ -26,7 +26,17 @@
 
     &:not(:placeholder-shown) ~ label {
       top: 0%;
-      // color: #1d2b49;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill ~ label,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      box-shadow: 0 0 0 30px #1d2b49 inset;
+      color: #fff;
+      -webkit-box-shadow: 0 0 0 30px #1d2b49 inset;
+      -webkit-text-fill-color: #fff;
+      font-size: 17px;
     }
   }
 
