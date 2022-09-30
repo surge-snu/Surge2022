@@ -1,0 +1,224 @@
+.ContactPage {
+	@include make-flex($dir: column, $just: flex-start);
+  @include box($height: unset);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #0f1621;
+	
+	&__container {
+		@include box(100%, auto);
+		@include make-flex($dir: column, $just: flex-start);
+		gap: 50px;
+    max-width: 1500px;
+    position: relative;
+    margin-top: 123px;
+    padding: 0 55px 100px;
+
+		@include respondAt(950px) {
+			gap: 30px;
+		}
+    @include respondAt(480px) {
+      padding: 0px 17px 80px;
+    }
+		
+		&--top {
+			@include make-flex($dir: column, $just: center);
+			@include box(100%, auto);
+			text-align: center;
+		}
+	}
+	
+	&__title {
+		font-family: "Sequel100Black-105", "Helvetica", "Impact";
+		color: #ffffff;
+		font-size: 40px;
+		
+		span {
+			font-family: "Sequel100Black-86", "Helvetica", "Impact";
+			color: #cafa08;
+		}
+		
+		@include respondAt(950px) {
+			font-size: 30px;
+		}
+		@include respondAt(750px) {
+			font-size: 20px;
+		}
+		@include respondAt(550px) {
+			font-size: 15px;
+		}
+	}
+	
+	&__description {
+		font-family: Satoshi Variable, "Satoshi", sans-serif;
+		font-weight: 500;
+		font-size: 20px;
+		
+		@include respondAt(750px) {
+			font-size: 15px;
+		}
+		@include respondAt(550px) {
+			font-size: 12px;
+		}
+	}
+  
+  &__tabs {
+		@include box(100%, auto);
+    @include make-flex($dir: row, $just: center);
+		gap: 30px;
+		font-family: "Sequel100Black-65", "Helvetica", "Impact";
+  }
+	
+	&__tab {
+		cursor: pointer;
+		@include box(150px, auto);
+		@include make-flex();
+		padding: 7px 0;
+		background-color: #193559;
+		border-radius: 74px;
+		color: rgba(255, 255, 255, 0.5);
+		
+		@include respondAt(950px) {
+			@include box(120px, auto);
+			font-size: 12px;
+			padding: 3px 0;
+		}
+		@include respondAt(750px) {
+			@include box(100px, auto);
+			font-size: 10px;
+			padding: 2px 0;
+		}
+		
+		&--active {
+      background-color: #ff4f46;
+			border: 2px solid #ffffff;
+			color: #ffffff;
+    }
+	}
+	
+  &__contacts {
+		@include box(100%, auto);
+    @include make-flex($dir: row);
+		gap: 30px;
+    flex-wrap: wrap;
+		margin-top: 30px;
+		
+		@include respondAt(950px) {
+			gap: 20px;
+			margin-top: 0;
+		}
+	}
+	
+	&__card {
+		@include box(fit-content, auto);
+		@include make-flex($dir: column, $align: flex-start);
+		gap: 20px;
+		background-color: #151f34;
+		border: 1px solid #ffffff;
+		border-radius: 15px;
+		padding: 25px;
+		
+		@include respondAt(950px) {
+			gap: 15px;
+			padding: 15px;
+		}
+		
+		&--top {
+			@include make-flex($dir: row);
+			gap: 20px;
+			
+			img {
+				width: 90px;
+				height: 90px;
+				border-radius: 100px;
+				
+				@include respondAt(950px) {
+					width: 75px;
+					height: 75px;
+				}
+			}
+		}
+		
+		&--bottom {
+			@include box(100%, auto);
+			@include make-flex($dir: row);
+			gap: 20px;
+			
+			@include respondAt(950px) {
+				gap: 15px;
+			}
+			@include respondAt(450px) {
+				flex-direction: column;
+			}
+		}
+	}
+	
+	&__cardDetails {
+		// @include box(max-content, 100%);
+		@include make-flex($dir: column, $align: flex-start, $just: flex-start);
+		font-family: Satoshi Variable, "Satoshi", sans-serif;
+		
+		&--name {
+			color: #ffffff;
+			font-size: 32px;
+			font-weight: 800;
+			
+			@include respondAt(950px) {
+				font-size: 20px;
+			}
+		}
+		&--position {
+			font-weight: 500;
+			font-size: 20px;
+			color: rgba(255, 255, 255, 0.5);
+			
+			@include respondAt(950px) {
+				font-size: 12px;
+			}
+		}
+	}
+  
+	&__cardButton {
+		cursor: pointer;
+		@include box(200px, auto);
+		@include make-flex($dir: row, $just: center, $align: center);
+		gap: 10px;
+		padding: 7px;
+		border-radius: 11px;
+		background: #193559;
+		text-align: center;
+		
+		p {
+			font-family: Satoshi Variable, "Satoshi", sans-serif;
+			font-size: 17px;
+			color: #ffffff;
+			font-weight: 600;
+		}
+		
+		&--green {
+			background: #cafa08;
+			
+			p {
+				color: #000000;
+			}
+		}
+		
+		@include respondAt(950px) {
+			@include box(150px, auto);
+			padding: 3px;
+			
+			p {
+				font-size: 13px;
+			}
+		}
+		@include respondAt(450px) {
+			@include box(100%, auto);
+			padding: 0;
+			
+			p {
+				font-size: 10px;
+			}
+		}
+	}
+	
+}
