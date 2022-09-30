@@ -21,7 +21,7 @@
   padding: 30px;
   gap: 30px;
 
-  @include respondAt(916px){
+  @include respondAt(916px) {
     padding: 0 15px 15px;
   }
 
@@ -181,5 +181,16 @@
         color: #fe5349;
       }
     }
+  }
+}
+
+.MyEvents {
+  @include box($width: 100%, $height: 100%);
+  @include make-flex($dir: column, $align: flex-start, $just: flex-start);
+  padding: 30px;
+  gap: 30px;
+
+  @include respondAt(916px) {
+    padding: 0 15px 15px;
   }
 }

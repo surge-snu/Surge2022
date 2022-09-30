@@ -8,6 +8,31 @@ export async function fetchUser(email) {
   });
 }
 
+export async function fetchUserData(email) {
+  return db.user.findUnique({
+    where: {
+      email,
+    },
+    include: {
+      Team: {
+        include: {
+          TeamMembers: {
+            select: {
+              id: true,
+              teamId: true,
+              name: true,
+              email: true,
+              phone: true,
+              eventId: true,
+              playerType: true,
+            },
+          },
+        },
+      },
+    },
+  });
+}
+
 export async function createUser(data) {
   return db.user.create({
     data,
