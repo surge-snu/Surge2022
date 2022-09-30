@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import EventGist from "../../../Components/EventGist/EventGist";
 import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
@@ -42,12 +43,14 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function EventTabContent({ eventDetails, eventTab }) {
+export default function EventTabContent({ eventDetails, eventTab, user }) {
   const Cashify = (num) => {
     return `₹${new Intl.NumberFormat("en-IN", {
       maximumSignificantDigits: 3,
     }).format(num)}`;
   };
+  const [teamDetails, setTeamDetails] = React.useState({});
+
   function switchContent(route) {
     switch (route) {
       case "overview":
@@ -146,6 +149,9 @@ export default function EventTabContent({ eventDetails, eventTab }) {
               <RegistrationForm
                 minPlayers={eventDetails.minPlayers}
                 maxPlayers={eventDetails.maxPlayers}
+                eventId={eventDetails.eventId}
+                setTeamDetails={setTeamDetails}
+                user={user}
               />
             </div>
           </div>
