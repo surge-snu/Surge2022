@@ -21,6 +21,7 @@ export default function useTeamForm({
       [`PlayerName${formData.length + 1}`]: "",
       [`PlayerEmail${formData.length + 1}`]: "",
       [`PlayerPhone${formData.length + 1}`]: "",
+      playerType: "ADDITIONAL",
     };
     setFormData([...formData, newPlayer]);
   };
