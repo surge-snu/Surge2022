@@ -1,0 +1,6 @@
+.Grid {
+  @include make-flex($dir: row);
+  padding: 80px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
