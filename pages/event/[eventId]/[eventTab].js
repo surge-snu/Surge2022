@@ -8,6 +8,7 @@ import RegistrationForm from "../../../Components/RegistrationForm/RegistrationF
 import Schedule from "../../../Components/Schedule/Schedule";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
+import { Cashify } from "../../../utils/Cashify";
 
 export async function getServerSideProps(context) {
   const { eventId, eventTab } = context.query;
@@ -44,11 +45,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function EventTabContent({ eventDetails, eventTab, user }) {
-  const Cashify = (num) => {
-    return `₹${new Intl.NumberFormat("en-IN", {
-      maximumSignificantDigits: 3,
-    }).format(num)}`;
-  };
   const [teamDetails, setTeamDetails] = React.useState({});
 
   function switchContent(route) {
