@@ -80,8 +80,8 @@ export default function Events({ allEvents }) {
           />
         </div>
         <div className="EventsPage__bottom--cards">
-          {allFilteredEvents.map((event) => (
-            <EventCard event={event} />
+          {allFilteredEvents.map((event, index) => (
+            <EventCard event={event} key={index} />
           ))}
         </div>
       </div>
