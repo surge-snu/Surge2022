@@ -4,7 +4,7 @@
   &__top {
     @include box($height: auto);
     @include make-flex($dir: column, $align: flex-start);
-    padding: 30px 20px;
+    padding: 17px 20px;
 
     &--left {
       @include box($height: auto);
@@ -35,8 +35,9 @@
   &__item {
     @include box(100%, 50px);
     padding-left: 24px;
+    padding-right: 15px;
     position: relative;
-    @include make-flex($align: flex-start);
+    @include make-flex($dir: row, $just: space-between);
     font-family: "Sequel100Black-45";
     // border-bottom: 1px solid #878a90;
     &::after {
@@ -68,6 +69,13 @@
         border-bottom: 1px solid transparent;
       }
     }
+    &--count {
+      @include box(30px, 30px);
+      border-radius: 5px;
+      background-color: #c4f750;
+      @include make-flex();
+      color: #0f1621;
+    }
   }
 
   #NavBarInput,
@@ -89,6 +97,7 @@
     transform: translateX(-100%);
     border-right: 4px solid #cafa0a;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 1;
     &--open {
       transform: translateX(0%);
     }
