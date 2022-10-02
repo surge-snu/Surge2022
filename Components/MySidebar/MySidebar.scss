@@ -83,9 +83,7 @@
     height: 100vh;
     position: fixed;
     max-width: 265px;
-    position: fixed;
     flex-direction: column;
-    // padding: 123px 14px 0 24px;
     background-color: #0f1621;
     justify-content: flex-start;
     transform: translateX(-100%);
@@ -103,11 +101,11 @@
     }
 
     @include respondAt(915px) {
-      position: absolute;
+      position: fixed;
       height: 28px;
       width: 28px;
-      right: -45px;
-      top: 10px;
+      right: -55px;
+      top: 22px;
       z-index: 2;
     }
 
@@ -162,7 +160,7 @@
       transform: rotate(0deg) scale(0.2, 0.2);
     }
     #NavBarInput:checked ~ .hamButton > label > .span.HL3 {
-      transform: rotate(-45deg) translate(4px, 0px);
+      transform: rotate(-45deg) translate(3px, 0px);
     }
   }
 }
