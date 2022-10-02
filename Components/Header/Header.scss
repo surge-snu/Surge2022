@@ -1,6 +1,6 @@
 .HeaderWrapper {
   @include box(100vw, 123px);
-  @include make-flex($dir: row, $just: center !important);
+  @include make-flex($dir: row);
   background: #0f162173;
   backdrop-filter: blur(50px);
   z-index: 10;

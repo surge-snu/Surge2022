@@ -32,7 +32,11 @@ function Header({
   return (
     <div
       className="HeaderWrapper"
-      style={{ height: isSmall ? "70px" : "", ...style }}
+      style={{
+        height: isSmall ? "70px" : "",
+        ...style,
+        justifyContent: !isSidebar ? "right" : "",
+      }}
     >
       <div className="HeaderWrapper__logo">
         <a href="/">Surge</a>
