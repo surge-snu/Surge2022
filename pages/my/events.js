@@ -24,7 +24,6 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyEvents({ user }) {
-
   const [eventsDropdownIndex, setEventsDropdownIndex] = React.useState(null);
   return (
     <main className="MyEvents">
@@ -51,9 +50,10 @@ export default function MyEvents({ user }) {
               <span>{team.TeamMembers.length}</span>,
             ]}
           >
-            {team.TeamMembers.map((member) => (
-              <div className="MyHome__ListTileItems">
-                <p>{member.name}</p>{" - "}
+            {team.TeamMembers.map((member, index) => (
+              <div className="MyHome__ListTileItems" key={index}>
+                <p>{member.name}</p>
+                {" - "}
                 <p>{member.playerType}</p>
               </div>
             ))}
@@ -79,7 +79,8 @@ MyEvents.getLayout = function getLayout(page) {
         }}
         isSidebar={false}
       />
-      <MySidebar />
+
+      <MySidebar user={page.props.user} />
       <div className="MyLayout__page">{page}</div>
     </div>
   );
