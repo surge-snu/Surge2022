@@ -27,6 +27,14 @@ export async function fetchUserData(email) {
               playerType: true,
             },
           },
+          PaymentDetails: {
+            select: {
+              id: true,
+              teamId: true,
+              paymentId: true,
+              amount: true,
+            }
+          },
         },
       },
     },
