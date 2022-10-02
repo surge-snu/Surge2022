@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import "../../styles/routes/My/My.scss";
 import DashRow from "../../Components/Table/DashRow/DashRow";
 import DashHeader from "../../Components/Table/DashHeader/DashHeader";
+import Header from "../../Components/Header/Header";
 
 export function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
@@ -89,6 +90,7 @@ export default function MyHome({ user }) {
           />
           {[...Array(5)].map((_, index) => (
             <DashRow
+              key={index}
               setDropdownIndex={setEventDropdownIndex}
               dropdownIndex={eventDropdownIndex}
               index={index}
@@ -128,6 +130,16 @@ export default function MyHome({ user }) {
 MyHome.getLayout = function getLayout(page) {
   return (
     <div className="MyLayout">
+      <Header
+        isSmall={true}
+        currentPath="profile"
+        style={{
+          borderBottom: "1px solid #878a90",
+          zIndex: 0,
+          justifyContent: "right",
+        }}
+        isSidebar={false}
+      />
       <MySidebar />
       <div className="MyLayout__page">{page}</div>
     </div>

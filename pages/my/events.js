@@ -23,7 +23,6 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyEvents({ user }) {
-  // console.log(user.Team);
 
   const [eventsDropdownIndex, setEventsDropdownIndex] = React.useState(null);
   return (
@@ -69,6 +68,16 @@ export default function MyEvents({ user }) {
 MyEvents.getLayout = function getLayout(page) {
   return (
     <div className="MyLayout">
+      <Header
+        isSmall={true}
+        currentPath="profile"
+        style={{
+          borderBottom: "1px solid #878a90",
+          zIndex: 0,
+          justifyContent: "right",
+        }}
+        isSidebar={false}
+      />
       <MySidebar />
       <div className="MyLayout__page">{page}</div>
     </div>
