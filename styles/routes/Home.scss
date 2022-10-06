@@ -99,7 +99,8 @@
       &--text {
         padding-right: 10%;
         width: 50%;
-        font-family: "Fraunces", serif;
+        // font-family: "Fraunces", serif;
+				font-family: "Rische Demo", serif;
         font-size: 19px;
         @include respondAt(1070px) {
           width: 60%;
@@ -239,7 +240,8 @@
       }
 
       &--text {
-        font-family: "Fraunces", serif;
+        // font-family: "Fraunces", serif;
+				font-family: "Rische Demo", serif;
         font-size: 20px;
         width: 75%;
         @include respondAt(1200px) {
