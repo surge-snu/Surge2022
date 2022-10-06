@@ -29,7 +29,8 @@
     }
 
     &--text {
-      font-family: "Fraunces", serif;
+      // font-family: "Fraunces", serif;
+			font-family: "Rische Demo", serif;
       font-size: 20px;
       width: 50%;
       @include respondAt(1200px) {
@@ -157,7 +158,7 @@
       h3 {
         font-size: 55px;
         font-family: "Sequel100Black-96";
-        color: #193559;
+        color: #3d81d8;
       }
       span {
         position: absolute;

@@ -19,8 +19,9 @@
       margin-top: 70px;
     }
 
-    @include respondAt(510px) {
-      height: calc(80vh - 123px);
+    @include respondAt(610px) {
+      // height: calc(80vh - 123px);
+			height: calc(60vh - 123px);
     }
     &__left {
       @include box(65%);
@@ -127,6 +128,13 @@
       &--actionContainer {
         width: 35%;
         @include make-flex($align: flex-start);				
+				
+				p {
+					font-family: "BLACKHAWK";
+					font-size: 20px;
+					color: #cafa08;
+				}
+				
         @include respondAt(880px) {
           width: 100%;
           padding: 0 20px;
@@ -175,38 +183,41 @@
     @include box(100vw);
     max-width: 1500px;
     position: relative;
-    min-height: 700px;
-    @include make-flex($dir: row);
-		overflow: hidden;
+    min-height: 500px;
+		margin-bottom: 60px;
+    // @include make-flex($dir: row);
+		@include make-flex($dir: column-reverse);
+		// overflow: hidden;
 
     @include respondAt(1518px) {
       width: 90vw;
     }
-    @include respondAt(1385px) {
-      flex-direction: column-reverse;
-    }
+    // @include respondAt(1385px) {
+      // flex-direction: column-reverse;
+    // }
     @include respondAt(915px) {
       min-height: unset;
-      margin-top: 80px;
+      // margin-top: 80px;
+			margin-bottom: 30px;
     }
     &__above {
-      @include box();
+      @include box(100%, unset);
       @include make-flex($just: flex-start, $align: flex-start);
       z-index: 2;
-      padding-left: 80px;
-      padding-top: 80px;
+      // padding-left: 80px;
+      // padding-top: 80px;
       gap: 20px;
 
-      @include respondAt(1385px) {
+      // @include respondAt(1385px) {
         position: relative;
-        height: unset;
+        // height: unset;
         padding: 0;
-      }
+      // }
 
       &--title {
         font-family: "Sequel100Black-105";
-        font-size: 40px;
-				line-height: 45px;
+        font-size: 60px;
+				line-height: 100%;
 
         span {
           color: #cafa08;
@@ -215,7 +226,7 @@
         @include respondAt(1200px) {
           font-size: 50px;
         }
-        @include respondAt(975px) {
+        @include respondAt(1000px) {
           font-size: 40px;
         }
         @include respondAt(805px) {
@@ -266,20 +277,21 @@
     }
 
     &__below {
-      @include box();
-      @include make-flex($just: flex-end, $align: flex-end);
-      position: absolute;
+      @include box(100%, unset);
+			// @include make-flex($just: flex-end, $align: flex-end);
+			@include make-flex($just: flex-start, $align: flex-start);
+      // position: absolute;
       z-index: 1;
-      padding-right: 80px;
-      padding-bottom: 80px;
+      // padding-right: 80px;
+      // padding-bottom: 80px;
 
-      @include respondAt(1385px) {
+      // @include respondAt(1385px) {
         position: relative;
-        justify-content: flex-start;
-        align-items: flex-start;
+        // justify-content: flex-start;
+        // align-items: flex-start;
         padding: 0;
-        height: unset;
-      }
+				// height: unset;
+      // }
 
       &--title {
         font-family: "Sequel100Black-105";
@@ -291,10 +303,10 @@
         -webkit-text-stroke-color: #789fff;
         color: transparent;
         z-index: 1;
-        @include respondAt(975px) {
-          font-size: 60px;
+        @include respondAt(1000px) {
+          font-size: 80px;
         }
-        @include respondAt(401px) {
+        @include respondAt(550px) {
           font-size: 14vw;
         }
       }
@@ -305,7 +317,7 @@
         position: absolute;
         @include box(370px, 370px);
         @include respondAt(915px) {
-          top: -140px;
+          // top: -140px;
         }
 
         @include respondAt(660px) {

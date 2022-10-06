@@ -15,7 +15,10 @@ export default function Blogs() {
 			<h3>More than just a 3-day fest</h3>
 		</div>
 		<div className='Blogs__container'>
-			{articles.map((article, i) => (
+			{articles
+				// each article is shown 10 times
+				.concat(articles, articles, articles, articles, articles, articles, articles, articles, articles, articles)
+				.map((article, i) => (
 				<a
 					className='Blogs__blogCard'
 					href={article.link}
@@ -24,9 +27,6 @@ export default function Blogs() {
 					<img
 						src={article.image}
 						className='Blogs__blogCard__image'
-						fit='cover'
-						width={400}
-						height={200}
 					/>
 					<p>{article.title}</p>
 				</a>

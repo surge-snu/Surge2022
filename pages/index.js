@@ -50,7 +50,7 @@ export default function Home() {
           <div className="HeroSection__top--actionContainer">
             <div className="HeroSection__top--action">
               <img loading="lazy" src="/Img/DownArrow.svg" />
-              <p>Scroll to Learn More</p>
+              <p>11 12 13 November</p>
             </div>
           </div>
 					{/* <div className="HeroSection__top--date">
@@ -67,7 +67,7 @@ export default function Home() {
           <h1 className="AboutSection__above--title">
             THE{" "}
             <span>
-              ANUAL SPORTS <br />
+              ANNUAL SPORTS <br />
               FEST{" "}
             </span>
 						OF
