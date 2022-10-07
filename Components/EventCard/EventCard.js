@@ -1,4 +1,6 @@
+import Link from "next/link";
 import "./EventCard.scss";
+
 
 export default function EventCard({ event }) {
   return (
@@ -22,27 +24,26 @@ export default function EventCard({ event }) {
           </div>
         </div>
       </div>
-      <a
-        className="EventCard__bottom"
-        href={`/event/${event.eventId}/overview`}
-      >
-        <span className="EventCard__bottom--register">Register</span>
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5.86816 14.3217H21.5115M21.5115 14.3217L13.6898 6.5M21.5115 14.3217L13.6898 22.1433"
-            stroke="#CAFA08"
-            strokeWidth="3.35214"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
+      <Link href={`/event/${event.eventId}/overview`}>
+        <a className="EventCard__bottom">
+          <span className="EventCard__bottom--register">Register</span>
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.86816 14.3217H21.5115M21.5115 14.3217L13.6898 6.5M21.5115 14.3217L13.6898 22.1433"
+              stroke="#CAFA08"
+              strokeWidth="3.35214"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
+      </Link>
     </div>
   );
 }
