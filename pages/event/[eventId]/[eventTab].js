@@ -24,6 +24,15 @@ export async function getServerSideProps(context) {
   }
 
   if (context.req.session.user === undefined) {
+    if (eventTab === "register") {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "overview#login",
+        },
+      };
+    }
+
     return {
       props: {
         user: null,
