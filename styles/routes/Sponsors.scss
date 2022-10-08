@@ -17,4 +17,42 @@
       padding: 0px 17px 80px;
     }
   }
+
+  &__section {
+    @include box();
+    @include make-flex($align: flex-start);
+    gap: 20px;
+
+    h2 {
+      font-family: "Sequel100Black-65";
+      font-size: 30px;
+      line-height: 100%;
+      text-transform: capitalize;
+      text-align: center;
+      color: #cafa08;
+    }
+
+    &--sponsContainer {
+      @include box();
+      @include make-flex($dir: row);
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px;
+    }
+
+    &--spons {
+      @include box(250px, 125px);
+      @include make-flex();
+      background-color: aliceblue;
+      border-radius: 8px;
+      padding: 20px;
+      img {
+        height: 100%;
+      }
+
+      img.widthFill {
+        width: 100%;
+      }
+    }
+  }
 }
