@@ -24,6 +24,12 @@ function Header({ currentPath = "", isSidebar = true }) {
     };
   });
 
+  React.useEffect(() => {
+    if (currentPath === "") {
+      setPath(window.location.pathname.replace("/", ""));
+    }
+  }, []);
+
   return (
     <div className="HeaderWrapper">
       <div className="HeaderWrapper__logo">
