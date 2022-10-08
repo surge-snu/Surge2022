@@ -1,7 +1,6 @@
 import Link from "next/link";
 import "./EventCard.scss";
 
-
 export default function EventCard({ event }) {
   return (
     <div className="EventCard">
@@ -20,7 +19,7 @@ export default function EventCard({ event }) {
           </div>
           <div className="EventCard__details--calender">
             <img src="/Img/calendar.svg" />
-            <p>19 Aug 22, 12:00 AM IST - 23 Aug 22, 12:00 AM IST</p>
+            <p>{new Date(event.dateFrom).toUTCString()}</p>
           </div>
         </div>
       </div>
