@@ -71,6 +71,12 @@
         animation-timing-function: ease-out;
       }
 
+      &:last-child {
+        &::before {
+          right: -33px;
+        }
+      }
+
       span {
         opacity: 0.8;
       }

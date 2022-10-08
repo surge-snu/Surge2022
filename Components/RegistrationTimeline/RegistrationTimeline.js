@@ -2,12 +2,12 @@ import React from "react";
 import "./RegistrationTimeline.scss";
 
 function RegistrationTimeline({ tabs, currentTab }) {
-  console.log(currentTab);
   return (
     <div className="RegistrationTimelineWrapper">
       <div className="RegistrationTimelineWrapper__steps">
-        {tabs.map((step) => (
+        {tabs.map((step, index) => (
           <div
+            key={index}
             className={`RegistrationTimelineWrapper__steps--step 
               RegistrationTimelineWrapper__steps--${
                 currentTab === step ? "current" : ""
