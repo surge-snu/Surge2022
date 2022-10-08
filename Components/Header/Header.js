@@ -3,12 +3,7 @@ import "./Header.scss";
 import useAuth from "../../hooks/useAuth";
 import Link from "next/link";
 
-function Header({
-  currentPath = "",
-  isSmall = false,
-  style = {},
-  isSidebar = true,
-}) {
+function Header({ currentPath = "", isSidebar = true }) {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
 
@@ -30,14 +25,7 @@ function Header({
   });
 
   return (
-    <div
-      className="HeaderWrapper"
-      style={{
-        height: isSmall ? "70px" : "",
-        ...style,
-        justifyContent: !isSidebar ? "right" : "",
-      }}
-    >
+    <div className="HeaderWrapper">
       <div className="HeaderWrapper__logo">
         <a href="/">Surge</a>
       </div>
