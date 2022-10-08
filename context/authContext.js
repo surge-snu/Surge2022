@@ -15,6 +15,7 @@ export const getUserFromSession = withIronSessionSsr(async ({ req }) => {
 
 export function AuthProvider({ children, ssrUser, ...props }) {
   const [user, setUser] = React.useState(ssrUser);
+  const [tempTeamDetails, setTempTeamDetails] = React.useState(null);
 
   async function login(formData, setSetAuthError) {
     return fetch("/api/auth/login", {
@@ -53,6 +54,8 @@ export function AuthProvider({ children, ssrUser, ...props }) {
     user,
     login,
     logout,
+    tempTeamDetails,
+    setTempTeamDetails,
     ...props,
   };
 
