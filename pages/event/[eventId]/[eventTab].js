@@ -5,6 +5,7 @@ import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
 import Header from "../../../Components/Header/Header";
 import RegistrationForm from "../../../Components/RegistrationForm/RegistrationForm";
+import RegistrationTimeline from "../../../Components/RegistrationTimeline/RegistrationTimeline";
 import Schedule from "../../../Components/Schedule/Schedule";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
@@ -56,6 +57,8 @@ export async function getServerSideProps(context) {
 export default function EventTabContent({ eventDetails, eventTab, user }) {
   const [teamDetails, setTeamDetails] = React.useState({});
 
+  const [registerStage, setRegisterStage] = React.useState("Details");
+
   function switchContent(route) {
     switch (route) {
       case "overview":
@@ -73,12 +76,15 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                     className="markdownBody"
                     dangerouslySetInnerHTML={{ __html: eventDetails.rules }}
                   />
-                  {/* <pre>{JSON.stringify(eventDetails, null, 2)}</pre> */}
                 </div>
               </div>
               <EventGist
                 className="EventPage__container--right"
                 eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                eventId={eventDetails.eventId}
+                price={eventDetails.pricePerPlayer}
               />
             </div>
           </>
@@ -106,6 +112,10 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
               <EventGist
                 className="EventPage__container--right"
                 eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                eventId={eventDetails.eventId}
+                price={eventDetails.pricePerPlayer}
               />
             </div>
           </>
@@ -139,6 +149,10 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
               <EventGist
                 className="EventPage__container--right"
                 eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                eventId={eventDetails.eventId}
+                price={eventDetails.pricePerPlayer}
               />
             </div>
           </>
@@ -151,13 +165,24 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                 <h2>{eventTab}</h2>
                 <hr />
               </div>
-              <RegistrationForm
-                minPlayers={eventDetails.minPlayers}
-                maxPlayers={eventDetails.maxPlayers}
-                eventId={eventDetails.eventId}
-                setTeamDetails={setTeamDetails}
-                user={user}
-              />
+              <div className="EventPage__register">
+                <RegistrationTimeline
+                  tabs={["Details", "Summary"]}
+                  currentTab={registerStage}
+                />
+
+                {registerStage === "Details" && (
+                  <>
+                    <RegistrationForm
+                      minPlayers={eventDetails.minPlayers}
+                      maxPlayers={eventDetails.maxPlayers}
+                      eventId={eventDetails.eventId}
+                      setTeamDetails={setTeamDetails}
+                      user={user}
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         );
