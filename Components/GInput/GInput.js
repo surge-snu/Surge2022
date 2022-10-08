@@ -5,6 +5,7 @@ export default function GInput({
   label,
   type = "text",
   setValue,
+  value,
   pattern = "[A-Za-z0-9_ ]+",
 }) {
   return (
@@ -15,6 +16,7 @@ export default function GInput({
         onChange={(e) => setValue(e)}
         type={type}
         placeholder=" "
+        defaultValue={value}
         pattern={pattern}
         autoComplete="off"
       />
