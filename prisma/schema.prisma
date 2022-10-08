@@ -50,6 +50,7 @@ model TeamMember {
   name       String     @db.VarChar(100)
   email      String     @db.VarChar(100)
   phone      String     @db.VarChar(100)
+  rollNumber String     @db.VarChar(100)
   eventId    String
   Team       Team       @relation(fields: [teamId], references: [teamId])
   createdAt  DateTime   @default(now())

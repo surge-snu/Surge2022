@@ -21,17 +21,19 @@ export default function useTeamForm({
       [`PlayerName${formData.length + 1}`]: "",
       [`PlayerEmail${formData.length + 1}`]: "",
       [`PlayerPhone${formData.length + 1}`]: "",
+      [`PlayerID${formData.length + 1}`]: "",
       playerType: "ADDITIONAL",
     };
     setFormData([...formData, newPlayer]);
   };
 
   const removePlayer = (index) => {
-    const newFormData = formData.filter((item, i) => i !== index-1);
+    const newFormData = formData.filter((item, i) => i !== index - 1);
     setFormData(newFormData);
   };
 
-  const hasError = (err = errors) => Object.entries(err).some(([, val]) => val);
+  const hasError = (err = errors) =>
+    Object.values(err).some((item) => Object.keys(item).length !== 0);
 
   const onChange = async (fieldName, e, index) => {
     setErrors({});
