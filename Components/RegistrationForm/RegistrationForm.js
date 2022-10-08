@@ -1,4 +1,5 @@
 import React from "react";
+import useAuth from "../../hooks/useAuth";
 import useTeamForm from "../../hooks/useTeamForm";
 import { isEmail, isName, isPhone, isRollNumber } from "../../utils/validate";
 import GInput from "../GInput/GInput";
@@ -10,18 +11,21 @@ export default function RegistrationForm({
   eventId,
   onSubmitForm,
 }) {
+  const { tempTeamDetails } = useAuth();
   const [initialValues] = React.useState(
-    [...Array(minPlayers).keys()].map((item) => {
-      const tempObj = {
-        [`PlayerName${item + 1}`]: "",
-        [`PlayerEmail${item + 1}`]: "",
-        [`PlayerPhone${item + 1}`]: "",
-        [`PlayerID${item + 1}`]: "",
-        playerType: item + 1 === 1 ? "CAPTAIN" : "PLAYER",
-        eventId: eventId,
-      };
-      return tempObj;
-    })
+    tempTeamDetails
+      ? tempTeamDetails
+      : [...Array(minPlayers).keys()].map((item) => {
+          const tempObj = {
+            [`PlayerName${item + 1}`]: "",
+            [`PlayerEmail${item + 1}`]: "",
+            [`PlayerPhone${item + 1}`]: "",
+            [`PlayerID${item + 1}`]: "",
+            playerType: item + 1 === 1 ? "CAPTAIN" : "PLAYER",
+            eventId: eventId,
+          };
+          return tempObj;
+        })
   );
 
   async function validate(formValues) {
@@ -97,6 +101,7 @@ export default function RegistrationForm({
 
   const { formData, onChange, handleSubmit, errors, addPlayer, removePlayer } =
     useTeamForm({
+      eventId,
       validate,
       initialValues,
       onSubmit: async (formData) => {
@@ -104,27 +109,7 @@ export default function RegistrationForm({
           (item) => Object.keys(item).length !== 0
         );
         if (hasError) return;
-
-        const teamMembers = formData.map((member, index) => {
-          return {
-            name: member[`PlayerName${index + 1}`],
-            email: member[`PlayerEmail${index + 1}`],
-            phone: member[`PlayerPhone${index + 1}`],
-            rollNumber: member[`PlayerID${index + 1}`],
-            playerType: member.playerType,
-            eventId: member.eventId,
-          };
-        });
-        onSubmitForm(teamMembers);
-
-        // const team = await registerTeam({
-        //   teamDetails: {
-        //     registeredById: user.id,
-        //     eventId: eventId,
-        //     email: user.email,
-        //   },
-        //   teamMembers: teamMembers,
-        // });
+        onSubmitForm(formData);
       },
     });
 
@@ -148,6 +133,7 @@ export default function RegistrationForm({
                     id={`PlayerName${i + 1}`}
                     label="Name"
                     type="text"
+                    value={val[`PlayerName${i + 1}`]}
                     setValue={(e) => onChange(`PlayerName${i + 1}`, e, i)}
                   />
                   {errors[i] && errors[i][`PlayerName${i + 1}`] && (
@@ -161,6 +147,7 @@ export default function RegistrationForm({
                     id={`PlayerEmail${i + 1}`}
                     label="Email"
                     type="text"
+                    value={val[`PlayerEmail${i + 1}`]}
                     setValue={(e) => onChange(`PlayerEmail${i + 1}`, e, i)}
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
@@ -175,6 +162,7 @@ export default function RegistrationForm({
                     id={`PlayerPhone${i + 1}`}
                     label="Phone"
                     type="tel"
+                    value={val[`PlayerPhone${i + 1}`]}
                     setValue={(e) => onChange(`PlayerPhone${i + 1}`, e, i)}
                   />
                   {errors[i] && errors[i][`PlayerPhone${i + 1}`] && (
@@ -188,6 +176,7 @@ export default function RegistrationForm({
                     id={`PlayerID${i + 1}`}
                     label="Roll Number"
                     type="text"
+                    value={val[`PlayerID${i + 1}`]}
                     setValue={(e) => onChange(`PlayerID${i + 1}`, e, i)}
                   />
                   {errors[i] && errors[i][`PlayerID${i + 1}`] && (
