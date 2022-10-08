@@ -5,13 +5,14 @@ export default function useTeamForm({
   validate,
   onSubmit,
   onChangeError,
+  eventId,
 }) {
   const [fields] = React.useState(new Set(Object.keys(initialValues)));
   const [formData, setFormData] = React.useState(initialValues);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [errors, setErrors] = React.useState(
     Object.keys(initialValues).reduce(
-      (prev, val) => ({ ...prev, [val]: null }),
+      (prev, val) => ({ ...prev, [val]: {} }),
       {}
     )
   );
@@ -22,6 +23,7 @@ export default function useTeamForm({
       [`PlayerEmail${formData.length + 1}`]: "",
       [`PlayerPhone${formData.length + 1}`]: "",
       [`PlayerID${formData.length + 1}`]: "",
+      eventId: eventId,
       playerType: "ADDITIONAL",
     };
     setFormData([...formData, newPlayer]);
