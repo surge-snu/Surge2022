@@ -109,19 +109,13 @@
       @include make-flex($dir: column, $just: flex-start, $align: flex-start);
       gap: 30px;
       border-radius: 10px;
-      background: rgba(35, 55, 97, 0.3);
+      background: #222b48;
     }
-
-
 
     &--team {
       @include box(80%, 100%);
       min-height: 300px;
-      padding: 30px;
       @include make-flex($dir: column, $just: flex-start, $align: flex-start);
-      gap: 30px;
-      border-radius: 10px;
-      background: rgba(35, 55, 97, 0.3);
     }
 
     &--right {
