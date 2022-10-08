@@ -5,8 +5,11 @@ import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
 import Header from "../../../Components/Header/Header";
 import RegistrationForm from "../../../Components/RegistrationForm/RegistrationForm";
+import RegistrationSuccess from "../../../Components/RegistrationSuccess/RegistrationSuccess";
+import RegistrationSummary from "../../../Components/RegistrationSummary/RegistrationSummary";
 import RegistrationTimeline from "../../../Components/RegistrationTimeline/RegistrationTimeline";
 import Schedule from "../../../Components/Schedule/Schedule";
+import useAuth from "../../../hooks/useAuth";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
 import { Cashify } from "../../../utils/Cashify";
@@ -55,7 +58,9 @@ export async function getServerSideProps(context) {
 }
 
 export default function EventTabContent({ eventDetails, eventTab, user }) {
-  const [teamDetails, setTeamDetails] = React.useState({});
+  const { tempTeamDetails, setTempTeamDetails } = useAuth();
+  const [teamDetails, setTeamDetails] = React.useState(tempTeamDetails);
+  // console.log(tempTeamDetails);
 
   const [registerStage, setRegisterStage] = React.useState("Details");
 
@@ -172,16 +177,28 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                 />
 
                 {registerStage === "Details" && (
-                  <>
-                    <RegistrationForm
-                      minPlayers={eventDetails.minPlayers}
-                      maxPlayers={eventDetails.maxPlayers}
-                      eventId={eventDetails.eventId}
-                      setTeamDetails={setTeamDetails}
-                      user={user}
-                    />
-                  </>
+                  <RegistrationForm
+                    minPlayers={eventDetails.minPlayers}
+                    maxPlayers={eventDetails.maxPlayers}
+                    eventId={eventDetails.eventId}
+                    onSubmitForm={(formData) => {
+                      setTeamDetails(formData);
+                      setTempTeamDetails(formData);
+                      setRegisterStage("Summary");
+                    }}
+                    user={user}
+                  />
                 )}
+                {registerStage === "Summary" && (
+                  <RegistrationSummary
+                    user={user}
+                    formData={teamDetails}
+                    eventId={eventDetails.eventId}
+                    setRegisterStage={setRegisterStage}
+                  />
+                )}
+
+                {registerStage === "Success" && <RegistrationSuccess />}
               </div>
             </div>
           </div>
