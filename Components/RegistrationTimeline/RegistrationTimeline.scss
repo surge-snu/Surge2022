@@ -24,22 +24,28 @@
         content: " ";
         display: block;
         @include box(10px, 10px);
-        color: #8897ec;
-        background-color: #8897ec;
+        color: #5284ff;
+        background-color: #5284ff;
         border: 0.25em solid #0f1621;
         border-radius: 50%;
         position: absolute;
+        left: 50%;
+        translate: -50% 0;
         top: -28px;
         z-index: 1;
       }
       &:first-child {
         &::after {
           left: 0;
+          translate: unset;
+          right: unset;
         }
       }
       &:last-child {
         &::after {
           right: 0;
+          translate: unset;
+          left: unset;
         }
       }
 
@@ -61,7 +67,7 @@
         z-index: 2;
 
         padding: 1em;
-        background-color: #8897ec;
+        background-color: #5284ff;
         border-radius: 50%;
         opacity: 0;
 
@@ -89,7 +95,7 @@
 
     @include box(100%, 0.2em);
     border-radius: 5px;
-    background-color: #8897ec;
+    background-color: #5284ff;
   }
 }
 
