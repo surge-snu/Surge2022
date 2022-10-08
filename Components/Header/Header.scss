@@ -8,6 +8,12 @@
   position: fixed;
   top: 0;
   padding: 0 20px;
+
+  &--small {
+    height: 70px;
+    border-bottom: 1px solid gray;
+  }
+
   #NavBarInput,
   .hamButton {
     display: none;
