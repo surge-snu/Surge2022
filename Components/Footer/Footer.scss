@@ -3,6 +3,10 @@
   @include box(100%, 350px);
   background: #fefeff;
   padding: 20px;
+
+  @include respondAt(1145px) {
+    padding: 45px 20px 20px;
+  }
   @include respondAt(1165px) {
     height: auto;
     gap: 10px;
@@ -30,6 +34,7 @@
       font-weight: 600;
       font-size: 3.5rem;
       color: #000;
+      height: 45px;
     }
 
     &--Copyright {

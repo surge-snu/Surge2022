@@ -5,11 +5,11 @@ export default function Footer() {
     <div className="FooterWrapper" id="contact">
       <div className="FooterWrapper__container">
         <div className="FooterWrapper__left">
-          <p className="FooterWrapper__left--logo"> Surge</p>
-          {/* <img
+          {/* <p className="FooterWrapper__left--logo"> Surge</p> */}
+          <img
             className="FooterWrapper__left--logo"
-            src="/Img/SurgeLogo.jpeg"
-          /> */}
+            src="/Img/Surge_Logo.png"
+          />
           <p className="FooterWrapper__left--copyrightUnderLogo">
             © 2022 Surge. Alll Rights Reserved
           </p>
