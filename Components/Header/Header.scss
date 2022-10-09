@@ -46,7 +46,7 @@
   }
 
   &__Menu {
-    gap: 20px;
+    gap: 10px;
     max-width: 1500px;
     @include box();
     @include make-flex($dir: row, $just: space-around);
@@ -100,6 +100,8 @@
         @include make-flex();
         img {
           height: 35px;
+        width: 227px;
+
 
           @include respondAt(1030px) {
             height: 27px;
@@ -136,30 +138,50 @@
         padding: 11px 13px;
         position: relative;
         max-height: 39px;
+        border: 1px solid transparent;
 
         @include respondAt(915px) {
           width: 100%;
         }
+
+        &:before {
+          transition: transform 0.2s ease-in-out;
+          z-index: -1;
+          @include box();
+          content: "";
+          position: absolute;
+          border: 1px solid transparent;
+          top: 0;
+          left: 0;
+          transform: translate(0px, 0px);
+        }
+
         &:hover {
-          background-color: #cafa0a;
-          color: #0f1621;
+          background-color: #0f1621;
+          border: 1px dashed #cafa0a;
 
           &:before {
-            z-index: -1;
-            @include box();
-            max-height: 39px;
-            content: "";
-            position: absolute;
-            background-color: #ffffff;
-            bottom: -5px;
-            right: -5px;
+            border: 1px dashed #ffffff;
+            transform: translate(3px, 3px);
           }
+
+          // &:before {
+          //   z-index: -1;
+          //   @include box();
+          //   max-height: 39px;
+          //   content: "";
+          //   position: absolute;
+          //   background-color: #ffffff;
+          //   bottom: -5px;
+          //   right: -5px;
+          // }
         }
       }
 
       .route--active {
         background-color: #cafa0a;
         color: #0f1621;
+        border: 1px solid transparent;
 
         &:before {
           z-index: -1;
@@ -167,8 +189,22 @@
           content: "";
           position: absolute;
           background-color: #ffffff;
-          bottom: -5px;
-          right: -5px;
+          transform: translate(3px, 3px);
+        }
+        &:hover {
+          border: 1px solid transparent;
+
+          background-color: #cafa0a;
+          color: #0f1621;
+
+          &:before {
+            z-index: -1;
+            @include box();
+            content: "";
+            position: absolute;
+            background-color: #ffffff;
+            transform: translate(3px, 3px);
+          }
         }
       }
     }
