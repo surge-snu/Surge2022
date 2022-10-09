@@ -97,11 +97,11 @@ export default function Home() {
       {/* <section className="RenegadeSection" id="events">
         <Renegade />
       </section> */}
-      <section className="BlogsSection" id="stats">
-        <Blogs />
-      </section>
       <section className="StatsSection">
         <Stats />
+      </section>
+      <section className="BlogsSection" id="stats">
+        <Blogs />
       </section>
       <Newsletter />
     </>
@@ -111,7 +111,7 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   return (
     <div className="LandingPage">
-      <Header currentPath={page.props.currentPath} />
+      <Header currentPath="/" />
       {page}
       <Footer />
     </div>

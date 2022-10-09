@@ -3,7 +3,7 @@ import React from "react";
 import { Cashify } from "../../utils/Cashify";
 import "./EventGist.scss";
 
-export default function EventGist({ className, from, venue, price, eventId }) {
+export default function EventGist({ className, from, venue, price, event }) {
   // create a countdown timer using From pram to today
   const [countdown, setCountdown] = React.useState(0);
 
@@ -37,17 +37,19 @@ export default function EventGist({ className, from, venue, price, eventId }) {
       <div className="eventGist__bottom">
         <div className="eventGist__bottom__price">
           <div className="eventGist__bottom__price__rs">
-            <p className="eventGist__bottom__price__rs--title">Price Per Player</p>
+            <p className="eventGist__bottom__price__rs--title">
+              Price Per Player
+            </p>
             <p className="eventGist__bottom__price__rs--cost">
               {Cashify(price)}
             </p>
           </div>
         </div>
-        <p className="eventGist__bottom__payment--description">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.Lorem
-          ipsum dolor sit amet consectetur adipiscing elit Ut et.
-        </p>
-        <Link href={`/event/${eventId}/register`}>
+        <div className="eventGist__bottom__payment--description">
+          <p>Min. {event.minPlayers} players per team.</p>
+          <p>Max. {event.maxPlayers} players per team.</p>
+        </div>
+        <Link href={`/event/${event.eventId}/register`}>
           <a className="eventGist__bottom__payment__cta--cta">
             Register Now!
             <img

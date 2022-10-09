@@ -21,7 +21,7 @@ export default function Gallery() {
 Gallery.getLayout = function getLayout(page) {
   return (
     <div className="GalleryPage">
-      <Header currentPath={page.props.currentPath} />
+      <Header currentPath="gallery" />
       {page}
       <Footer />
     </div>

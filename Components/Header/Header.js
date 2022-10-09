@@ -7,7 +7,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
 
-  const [path, setPath] = React.useState(currentPath.replace("/", ""));
+  const [path, setPath] = React.useState(currentPath.trim());
   const { user } = useAuth();
 
   React.useEffect(() => {
@@ -19,23 +19,14 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
       }
     });
 
+    window.addEventListener("hashchange", () => {
+      setHash(window.location.hash);
+    });
+
     return () => {
       window.removeEventListener("scroll", () => {});
+      window.removeEventListener("hashchange", () => {});
     };
-  });
-
-  React.useEffect(() => {
-    const pathName = window.location.pathname;
-
-    if (currentPath === "") {
-      if (pathName === "/") {
-        setPath("/");
-      } else {
-        setPath(pathName.replace("/", ""));
-      }
-    } else {
-      setPath(currentPath);
-    }
   });
 
   return (
