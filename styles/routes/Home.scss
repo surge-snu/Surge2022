@@ -8,7 +8,7 @@
     @include box(100vw, 700px);
     max-width: 1500px;
     position: relative;
-    margin-top: 123px;
+    margin-top: 101px;
     @include make-flex($dir: row);
 
     @include respondAt(1518px) {
@@ -20,7 +20,7 @@
     }
 
     @include respondAt(510px) {
-      height: calc(80vh - 123px);
+      height: calc(80vh - 101px);
     }
     &__left {
       @include box(65%);

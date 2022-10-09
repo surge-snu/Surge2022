@@ -1,5 +1,5 @@
 .HeaderWrapper {
-  @include box(100vw, 123px);
+  @include box(100vw, 101px);
   @include make-flex($dir: row);
   background: #0f162173;
   backdrop-filter: blur(50px);
@@ -59,7 +59,7 @@
       position: fixed;
       max-width: 290px;
       flex-direction: column;
-      padding: 123px 28px 0 24px;
+      padding: 101px 28px 0 24px;
       background-color: #0f1621;
       justify-content: flex-start;
       transform: translateX(100%);
@@ -72,9 +72,9 @@
         display: none;
       }
     }
-    @include respondAt(1030px) {
-      gap: 3px;
-    }
+    // @include respondAt(995px) {
+    //   gap: 3px;
+    // }
   }
 
   &__MenuList {
@@ -100,8 +100,7 @@
         @include make-flex();
         img {
           height: 35px;
-        width: 227px;
-
+          width: 227px;
 
           @include respondAt(1030px) {
             height: 27px;
@@ -116,7 +115,7 @@
 
     &--left,
     &--right {
-      gap: 20px;
+      gap: 4px;
       font-size: 19px;
       @include box(35%);
       font-family: "Sequel100Black-55";
@@ -139,6 +138,7 @@
         position: relative;
         max-height: 39px;
         border: 1px solid transparent;
+        font-size: 17px;
 
         @include respondAt(915px) {
           width: 100%;
