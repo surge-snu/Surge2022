@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../../Components/Header/Header";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import DashHeader from "../../Components/Table/DashHeader/DashHeader";
 import DashRow from "../../Components/Table/DashRow/DashRow";
@@ -23,8 +24,6 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyEvents({ user }) {
-  // console.log(user.Team);
-
   const [eventsDropdownIndex, setEventsDropdownIndex] = React.useState(null);
   return (
     <main className="MyEvents">
@@ -51,9 +50,10 @@ export default function MyEvents({ user }) {
               <span>{team.TeamMembers.length}</span>,
             ]}
           >
-            {team.TeamMembers.map((member) => (
-              <div className="MyHome__ListTileItems">
-                <p>{member.name}</p>{" - "}
+            {team.TeamMembers.map((member, index) => (
+              <div className="MyHome__ListTileItems" key={index}>
+                <p>{member.name}</p>
+                {" - "}
                 <p>{member.playerType}</p>
               </div>
             ))}
@@ -69,7 +69,18 @@ export default function MyEvents({ user }) {
 MyEvents.getLayout = function getLayout(page) {
   return (
     <div className="MyLayout">
-      <MySidebar />
+      <Header
+        isSmall={true}
+        currentPath="profile"
+        style={{
+          borderBottom: "1px solid #878a90",
+          zIndex: 0,
+          justifyContent: "right",
+        }}
+        isSidebar={false}
+      />
+
+      <MySidebar user={page.props.user} />
       <div className="MyLayout__page">{page}</div>
     </div>
   );

@@ -1,5 +1,3 @@
-import Renegade from "../Components/Renegade/Renegade";
-
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Newsletter from "../Components/Newsletter/Newsletter";
@@ -53,7 +51,7 @@ export default function Home() {
               <p>Scroll to Learn More</p>
             </div>
           </div>
-					{/* <div className="HeroSection__top--date">
+          {/* <div className="HeroSection__top--date">
 						<p>
 							11 12 13<br />
 							November
@@ -67,13 +65,12 @@ export default function Home() {
           <h1 className="AboutSection__above--title">
             THE{" "}
             <span>
-              ANUAL SPORTS <br />
+              ANNUAL SPORTS <br />
               FEST{" "}
             </span>
-						OF
-						<br />
-						SHIV NADAR 
-            IOE
+            OF
+            <br />
+            SHIV NADAR IOE
           </h1>
 
           <p className="AboutSection__above--text">
@@ -84,7 +81,7 @@ export default function Home() {
             zest for sports by bringing about a new era for sports, showcasing
             legendary clashes between the best and the brightest.
           </p>
-          <a className="AboutSection__above--fancyLink" href="/team">
+          <a className="AboutSection__above--fancyLink" href="/contact">
             MEET THE TEAM
           </a>
         </div>
@@ -100,9 +97,9 @@ export default function Home() {
       {/* <section className="RenegadeSection" id="events">
         <Renegade />
       </section> */}
-			<section className="BlogsSection" id="stats">
-				<Blogs />
-			</section>
+      <section className="BlogsSection" id="stats">
+        <Blogs />
+      </section>
       <section className="StatsSection">
         <Stats />
       </section>

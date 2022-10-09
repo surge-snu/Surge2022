@@ -8,6 +8,12 @@
   position: fixed;
   top: 0;
   padding: 0 20px;
+
+  &--small {
+    height: 70px;
+    border-bottom: 1px solid gray;
+  }
+
   #NavBarInput,
   .hamButton {
     display: none;
@@ -57,6 +63,9 @@
       transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
       &--open {
         transform: translateX(0%);
+      }
+      &--hide {
+        display: none;
       }
     }
   }

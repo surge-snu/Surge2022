@@ -26,6 +26,7 @@
 
     &:not(:placeholder-shown) ~ label {
       top: 0%;
+      color: #fff;
     }
     &:-webkit-autofill,
     &:-webkit-autofill ~ label,
@@ -37,6 +38,7 @@
       -webkit-box-shadow: 0 0 0 30px #1d2b49 inset;
       -webkit-text-fill-color: #fff;
       font-size: 17px;
+      caret-color: #fff;
     }
   }
 
@@ -45,6 +47,7 @@
     transform: translate(0, -50%);
     left: 10px;
     padding: 0 5px;
+    border-radius: 6px;
     position: absolute;
     color: #b5b5b5;
     background-color: #1d2b49;

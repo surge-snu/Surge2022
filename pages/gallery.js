@@ -11,7 +11,11 @@ export async function getServerSideProps(context) {
 }
 
 export default function Gallery() {
-  return <div className="GalleryPage__container">Gallery</div>;
+  return (
+    <div className="GalleryPage__container">
+      <h3>Pictures coming soon!</h3>
+    </div>
+  );
 }
 
 Gallery.getLayout = function getLayout(page) {

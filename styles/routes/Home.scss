@@ -98,7 +98,7 @@
       &--text {
         padding-right: 10%;
         width: 50%;
-        font-family: "Fraunces", serif;
+        font-family: "Ubuntu", sans-serif;
         font-size: 19px;
         @include respondAt(1070px) {
           width: 60%;
@@ -112,21 +112,21 @@
           font-size: 15px;
         }
       }
-			
-			&--date {
-				padding-right: 10%;
-				font-family: "BLACKHAWK";
-				font-size: 60px;
-				text-align: center;
-				
-				p {
-					color: #cafa08;
-				}
-			}
+
+      &--date {
+        padding-right: 10%;
+        font-family: "BLACKHAWK";
+        font-size: 60px;
+        text-align: center;
+
+        p {
+          color: #cafa08;
+        }
+      }
 
       &--actionContainer {
         width: 35%;
-        @include make-flex($align: flex-start);				
+        @include make-flex($align: flex-start);
         @include respondAt(880px) {
           width: 100%;
           padding: 0 20px;
@@ -162,14 +162,14 @@
       }
     }
   }
-	
-	.BlogsSection {
-		@include box(100vw);
+
+  .BlogsSection {
+    @include box(100vw);
     max-width: 1500px;
     position: relative;
     @include make-flex($dir: row);
-		overflow: hidden;
-	}
+    overflow: hidden;
+  }
 
   .AboutSection {
     @include box(100vw);
@@ -177,7 +177,7 @@
     position: relative;
     min-height: 700px;
     @include make-flex($dir: row);
-		overflow: hidden;
+    overflow: hidden;
 
     @include respondAt(1518px) {
       width: 90vw;
@@ -187,7 +187,7 @@
     }
     @include respondAt(915px) {
       min-height: unset;
-      margin-top: 80px;
+      // margin-top: 80px;
     }
     &__above {
       @include box();
@@ -206,7 +206,7 @@
       &--title {
         font-family: "Sequel100Black-105";
         font-size: 40px;
-				line-height: 45px;
+        line-height: 45px;
 
         span {
           color: #cafa08;
@@ -223,12 +223,12 @@
         }
         @include respondAt(600px) {
           font-size: 5vw;
-					line-height: 135%;
+          line-height: 135%;
         }
       }
 
       &--text {
-        font-family: "Fraunces", serif;
+        font-family: "Ubuntu", sans-serif;
         font-size: 20px;
         width: 75%;
         @include respondAt(1200px) {
@@ -346,7 +346,7 @@
     }
     @include respondAt(915px) {
       min-height: unset;
-      margin-top: 80px;
+      // margin-top: 80px;
     }
   }
 }

@@ -20,7 +20,7 @@
     &--middle {
       @include box(calc(100% - 60px));
       // background-color: rgb(182, 182, 182);
-			// background-color: #fff;
+      // background-color: #fff;
     }
 
     &--right {
@@ -33,7 +33,7 @@
         white-space: nowrap;
         @include make-flex();
         transform: rotate(-90deg);
-        font-family: "Fraunces", serif;
+        font-family: "Ubuntu", sans-serif;
       }
     }
   }
@@ -41,7 +41,7 @@
   &__bottom {
     @include box(100%, 43%);
     @include make-flex($just: space-between);
-	padding-bottom: 20px;
+    padding-bottom: 20px;
     gap: 5px;
     &--teams {
       padding: 0 30px;
@@ -73,18 +73,18 @@
       font-size: 20px;
       color: white;
     }
-		
-		&--info {
-			@include make-flex($dir: column, $just: center);
-			gap: 10px;
-			width: 100%;
-		}
-		
-		&--eventInfo {
-			text-align: center;
-			padding: 0 10px;
-			font-family: "BlacKHawk";
-		}
+
+    &--info {
+      @include make-flex($dir: column, $just: center);
+      gap: 10px;
+      width: 100%;
+    }
+
+    &--eventInfo {
+      text-align: center;
+      padding: 0 10px;
+      font-family: "BlacKHawk";
+    }
 
     &--timeline {
       font-size: 9px;

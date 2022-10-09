@@ -1,3 +1,4 @@
+import { PaymentStatus } from "@prisma/client";
 import db from "../lib/prisma";
 
 export async function fetchAllEvents() {
@@ -21,4 +22,21 @@ export async function createTeam(data) {
       data: data.teamMembers,
     }),
   };
+}
+
+export async function payForCart(data) {
+  return db.paymentDetails.createMany({
+    data,
+  });
+}
+
+export async function updatePaymentStatus(data) {
+  return db.team.updateMany({
+    data: {
+      paymentStatus: PaymentStatus.PAID,
+    },
+    where: {
+      teamId: { in: data },
+    },
+  });
 }

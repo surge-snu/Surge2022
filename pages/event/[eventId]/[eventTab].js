@@ -5,9 +5,14 @@ import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
 import Header from "../../../Components/Header/Header";
 import RegistrationForm from "../../../Components/RegistrationForm/RegistrationForm";
+import RegistrationSuccess from "../../../Components/RegistrationSuccess/RegistrationSuccess";
+import RegistrationSummary from "../../../Components/RegistrationSummary/RegistrationSummary";
+import RegistrationTimeline from "../../../Components/RegistrationTimeline/RegistrationTimeline";
 import Schedule from "../../../Components/Schedule/Schedule";
+import useAuth from "../../../hooks/useAuth";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
+import { Cashify } from "../../../utils/Cashify";
 
 export async function getServerSideProps(context) {
   const { eventId, eventTab } = context.query;
@@ -23,6 +28,15 @@ export async function getServerSideProps(context) {
   }
 
   if (context.req.session.user === undefined) {
+    if (eventTab === "register") {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "overview#login",
+        },
+      };
+    }
+
     return {
       props: {
         user: null,
@@ -44,12 +58,11 @@ export async function getServerSideProps(context) {
 }
 
 export default function EventTabContent({ eventDetails, eventTab, user }) {
-  const Cashify = (num) => {
-    return `₹${new Intl.NumberFormat("en-IN", {
-      maximumSignificantDigits: 3,
-    }).format(num)}`;
-  };
-  const [teamDetails, setTeamDetails] = React.useState({});
+  const { tempTeamDetails, setTempTeamDetails } = useAuth();
+  const [teamDetails, setTeamDetails] = React.useState(tempTeamDetails);
+  // console.log(tempTeamDetails);
+
+  const [registerStage, setRegisterStage] = React.useState("Details");
 
   function switchContent(route) {
     switch (route) {
@@ -68,12 +81,15 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                     className="markdownBody"
                     dangerouslySetInnerHTML={{ __html: eventDetails.rules }}
                   />
-                  {/* <pre>{JSON.stringify(eventDetails, null, 2)}</pre> */}
                 </div>
               </div>
               <EventGist
                 className="EventPage__container--right"
                 eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                eventId={eventDetails.eventId}
+                price={eventDetails.pricePerPlayer}
               />
             </div>
           </>
@@ -101,6 +117,10 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
               <EventGist
                 className="EventPage__container--right"
                 eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                eventId={eventDetails.eventId}
+                price={eventDetails.pricePerPlayer}
               />
             </div>
           </>
@@ -134,6 +154,10 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
               <EventGist
                 className="EventPage__container--right"
                 eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                eventId={eventDetails.eventId}
+                price={eventDetails.pricePerPlayer}
               />
             </div>
           </>
@@ -146,13 +170,36 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                 <h2>{eventTab}</h2>
                 <hr />
               </div>
-              <RegistrationForm
-                minPlayers={eventDetails.minPlayers}
-                maxPlayers={eventDetails.maxPlayers}
-                eventId={eventDetails.eventId}
-                setTeamDetails={setTeamDetails}
-                user={user}
-              />
+              <div className="EventPage__register">
+                <RegistrationTimeline
+                  tabs={["Details", "Summary"]}
+                  currentTab={registerStage}
+                />
+
+                {registerStage === "Details" && (
+                  <RegistrationForm
+                    minPlayers={eventDetails.minPlayers}
+                    maxPlayers={eventDetails.maxPlayers}
+                    eventId={eventDetails.eventId}
+                    onSubmitForm={(formData) => {
+                      setTeamDetails(formData);
+                      setTempTeamDetails(formData);
+                      setRegisterStage("Summary");
+                    }}
+                    user={user}
+                  />
+                )}
+                {registerStage === "Summary" && (
+                  <RegistrationSummary
+                    user={user}
+                    formData={teamDetails}
+                    eventId={eventDetails.eventId}
+                    setRegisterStage={setRegisterStage}
+                  />
+                )}
+
+                {registerStage === "Success" && <RegistrationSuccess />}
+              </div>
             </div>
           </div>
         );

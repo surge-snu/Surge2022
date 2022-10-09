@@ -1,11 +1,15 @@
 import Link from "next/link";
 import React from "react";
+import useAuth from "../../hooks/useAuth";
 import "./EventTabs.scss";
 
 function EventTabs({ eventId, currentTab }) {
   const [activeTab, setActiveTab] = React.useState(currentTab);
   const [hoverTab, setHoverTab] = React.useState(null);
   const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
+
+  const { user } = useAuth();
+  const redirectRegister = user === null;
 
   React.useEffect(() => {
     const activeTabElem = document.getElementById(activeTab);
@@ -99,10 +103,20 @@ function EventTabs({ eventId, currentTab }) {
             activeTab === "register" ? "EventTabs--activeItem" : ""
           }`}
         >
-          <Link href={`/event/${eventId}/register`}>
+          <Link
+            href={
+              redirectRegister
+                ? `/event/${eventId}/${currentTab}#login`
+                : `/event/${eventId}/register`
+            }
+          >
             <a
               id="register"
-              onClick={() => setActiveTab("register")}
+              onClick={() => {
+                if (!redirectRegister) {
+                  setActiveTab("register");
+                }
+              }}
               onMouseEnter={() => setHoverTab("register")}
               onMouseLeave={() => setHoverTab(null)}
             >

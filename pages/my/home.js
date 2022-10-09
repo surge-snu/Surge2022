@@ -1,12 +1,13 @@
 import React from "react";
 import DashTable from "../../Components/Table/DashTable/DashTable";
 import MySidebar from "../../Components/MySidebar/MySidebar";
-import useAuth from "../../hooks/useAuth";
 import "../../styles/routes/My/My.scss";
 import DashRow from "../../Components/Table/DashRow/DashRow";
-import DashHeader from "../../Components/Table/DashHeader/DashHeader";
+import Header from "../../Components/Header/Header";
+import GInput from "../../Components/GInput/GInput";
+import { fetchUserData } from "../../services/user.server";
 
-export function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
     return {
       redirect: {
@@ -15,120 +16,127 @@ export function getServerSideProps(context) {
       },
     };
   }
+
+  const userData = await fetchUserData(context.req.session.user.email);
   return {
     props: { user: context.req.session.user },
   };
 }
 export default function MyHome({ user }) {
-  const { logout } = useAuth();
-  const [paymentDropdownIndex, setPaymentDropdownIndex] = React.useState(null);
-  const [eventDropdownIndex, setEventDropdownIndex] = React.useState(null);
+  const [personalIndex, setPersonalIndex] = React.useState(null);
+  const [accountIndex, setAccountIndex] = React.useState(null);
 
   return (
-    <>
-      <div className="MyHome">
-        <h3 className="MyHome__title">Account Information</h3>
-        <div className="MyHome__info">
-          <div className="MyHome__sectionTitle">Personal Information</div>
-          <div className="MyHome__divider" />
-          <div className="MyHome__infoRow">
-            <p>Name</p>
-            <p>{user.name}</p>
-            <img src="/Img/Arrow Right Variant.svg" height={14} />
+    <div className="MyHome">
+      <DashTable title="Personal information">
+        <DashRow
+          isDropDown={false}
+          contentCols={[<span>Name</span>, <span>{user.name}</span>]}
+        />
+        <DashRow
+          isDropDown={user.college === ""}
+          dropdownIndex={personalIndex}
+          setDropdownIndex={setPersonalIndex}
+          index={0}
+          contentCols={[
+            <span>College</span>,
+            <span>
+              {user.college === "" ? (
+                <>
+                  <img src="/Img/Red Exclamation.svg" height={14} /> Data Needed
+                </>
+              ) : (
+                user.college
+              )}
+            </span>,
+          ]}
+        >
+          <div className="MyHome__collegeDropdownContent">
+            <GInput
+              id="college"
+              label=""
+              setValue={(e) => console.log(e.target.value)}
+            />
           </div>
-          <div className="MyHome__divider" />
-          <div className="MyHome__infoRow">
-            <p>Email</p>
-            <p>{user.email}</p>
-            <img src="/Img/Arrow Right Variant.svg" height={14} />
-          </div>
-          <div className="MyHome__divider" />
-          <div className="MyHome__infoRow">
-            <p>Password</p>
-            <p>********</p>
-            <img src="/Img/Arrow Right Variant.svg" height={14} />
-          </div>
-        </div>
-        <DashTable title="Payment History">
-          <DashHeader headerTitles={["Invoice ID", "Status", "Price"]} />
-          {[...Array(5)].map((_, index) => (
-            <DashRow
-              setDropdownIndex={setPaymentDropdownIndex}
-              dropdownIndex={paymentDropdownIndex}
-              index={index}
-              contentCols={[
-                <span>INV-0001</span>,
-                <span>
-                  <img src="/Img/Green Tick.svg" height={14} />
-                  {/* <img src="/Img/Red Exclamation.svg" height={14} /> */}
-                  <p>Paid</p>
-                </span>,
-                <span>Rs. 100</span>,
-              ]}
-            >
-              <div className="MyHome__ListTileItems">
-                <p>Subtotal</p>
-                <p>Rs. 100</p>
-              </div>
-              <div className="MyHome__ListTileItems">
-                <p>Discount</p>
-                <p>Rs. 100</p>
-              </div>
-              <div className="MyHome__ListTileItems">
-                <p>Taxes & Fees</p>
-                <p>Rs. 100</p>
-              </div>
-              <button className="MyHome__greenButton">Download Invoice</button>
-            </DashRow>
-          ))}
-        </DashTable>
+        </DashRow>
 
-        <DashTable title="Registered Events">
-          <DashHeader
-            headerTitles={["Event Name", "Category", "Price", "Total"]}
-          />
-          {[...Array(5)].map((_, index) => (
-            <DashRow
-              setDropdownIndex={setEventDropdownIndex}
-              dropdownIndex={eventDropdownIndex}
-              index={index}
-              contentCols={[
-                <span>INV-0001</span>,
-                <span>
-                  {/* <img src="/Img/Green Tick.svg" height={14} /> */}
-                  {/* <img src="/Img/Red Exclamation.svg" height={14} /> */}
-                  {/* <p>Paid</p> */}
-                  <p>Male</p>
-                </span>,
-                <span>Rs. 100</span>,
-                <span>Rs. 1500</span>,
-              ]}
-            >
-              <span className="MyHome__ListTileItems">
-                <p>Subtotal</p>
-                <p>Rs. 100</p>
-              </span>
-              <span className="MyHome__ListTileItems">
-                <p>Discount</p>
-                <p>Rs. 100</p>
-              </span>
-              <span className="MyHome__ListTileItems">
-                <p>Taxes & Fees</p>
-                <p>Rs. 100</p>
-              </span>
-              <button className="MyHome__greenButton">Download Invoice</button>
-            </DashRow>
-          ))}
-        </DashTable>
-      </div>
-    </>
+        <DashRow
+          isDropDown={user.college === ""}
+          dropdownIndex={personalIndex}
+          setDropdownIndex={setPersonalIndex}
+          index={1}
+          contentCols={[
+            <span>Phone</span>,
+            <span>
+              {user.college === "" ? (
+                <>
+                  <img src="/Img/Red Exclamation.svg" height={14} /> Data Needed
+                </>
+              ) : (
+                user.college
+              )}
+            </span>,
+          ]}
+        >
+          <div className="MyHome__collegeDropdownContent">
+            <GInput
+              id="mobile"
+              label=""
+              setValue={(e) => console.log(e.target.value)}
+            />
+          </div>
+        </DashRow>
+      </DashTable>
+
+      <DashTable title="Account Settings">
+        <DashRow
+          isDropDown={false}
+          contentCols={[<span>Email</span>, <span>{user.email}</span>]}
+        />
+        <DashRow
+          dropdownIndex={accountIndex}
+          setDropdownIndex={setAccountIndex}
+          index={0}
+          contentCols={[
+            <span>Change Password</span>,
+            <span>************</span>,
+          ]}
+        >
+          <div className="MyHome__collegeDropdownContent">
+            <GInput
+              id="college"
+              label=""
+              setValue={(e) => console.log(e.target.value)}
+            />
+          </div>
+        </DashRow>
+
+        <DashRow
+          isDropDown={false}
+          contentCols={[
+            <span>Member Since</span>,
+            <span>2017-06-07 07:18</span>,
+          ]}
+        />
+      </DashTable>
+    </div>
   );
 }
 
 MyHome.getLayout = function getLayout(page) {
   return (
     <div className="MyLayout">
-      <MySidebar />
+      <Header
+        isSmall={true}
+        currentPath="profile"
+        style={{
+          borderBottom: "1px solid #878a90",
+          zIndex: 0,
+          justifyContent: "right",
+        }}
+        isSidebar={false}
+      />
+      <MySidebar user={page.props.user} />
       <div className="MyLayout__page">{page}</div>
     </div>
   );

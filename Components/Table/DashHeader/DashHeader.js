@@ -2,7 +2,7 @@ import React from "react";
 
 import "./DashHeader.scss";
 
-function DashHeader({ headerTitles = [] }, isGreen = true) {
+function DashHeader({ headerTitles = [], isGreen = true, style }) {
   return (
     <div
       className={`DashHeaderWrapper ${
@@ -10,6 +10,7 @@ function DashHeader({ headerTitles = [] }, isGreen = true) {
       }`}
       style={{
         gridTemplateColumns: `repeat(${headerTitles.length}, 1fr)`,
+        ...style,
       }}
     >
       {headerTitles.map((title, index) => (

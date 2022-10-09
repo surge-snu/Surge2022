@@ -3,14 +3,21 @@ import useAuth from "../../hooks/useAuth";
 import "./MySidebar.scss";
 import Link from "next/link";
 
-function MySidebar() {
-  const { user } = useAuth();
+function MySidebar({ user }) {
   const [activeTab, setActiveTab] = React.useState("home");
   const [navState, setNavState] = React.useState(false);
-
+  const cartCount = user.Team
+    ? user.Team.reduce((acc, team) => {
+        if (team.paymentStatus === "NOT_PAID") {
+          return acc + 1;
+        }
+        return acc;
+      }, 0)
+    : 0;
   React.useEffect(() => {
     setActiveTab(window.location.pathname.split("/my")[1].replace("/", ""));
   });
+
   return (
     <aside
       className={`MySidebarWrapper ${navState ? "MySidebarWrapper--open" : ""}`}
@@ -58,6 +65,19 @@ function MySidebar() {
             }`}
           >
             Events
+          </a>
+        </Link>
+
+        <Link href="/my/cart">
+          <a
+            className={`MySidebarWrapper__item ${
+              activeTab === "cart" && "MySidebarWrapper__item--active"
+            }`}
+          >
+            Cart
+            {cartCount > 0 && (
+              <span className="MySidebarWrapper__item--count">{cartCount}</span>
+            )}
           </a>
         </Link>
       </div>

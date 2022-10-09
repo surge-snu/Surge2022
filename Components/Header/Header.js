@@ -3,7 +3,7 @@ import "./Header.scss";
 import useAuth from "../../hooks/useAuth";
 import Link from "next/link";
 
-function Header({ currentPath = "" }) {
+function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
 
@@ -24,15 +24,22 @@ function Header({ currentPath = "" }) {
     };
   });
 
+  React.useEffect(() => {
+    console.log("path", currentPath);
+    if (currentPath === "") {
+      setPath(window.location.pathname.replace("/", ""));
+    }
+  });
+
   return (
-    <div className="HeaderWrapper">
-      <span className="HeaderWrapper__logo">
-        <a href="#">Surge</a>
-      </span>
+    <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
+      <div className="HeaderWrapper__logo">
+        <a href="/">Surge</a>
+      </div>
       <div
         className={`HeaderWrapper__Menu ${
           navState ? "HeaderWrapper__Menu--open" : ""
-        }`}
+        } ${!isSidebar ? "HeaderWrapper__Menu--hide" : ""}`}
       >
         <ul className="HeaderWrapper__MenuList--left">
           <li className="HeaderWrapper__MenuList--item">
@@ -120,28 +127,37 @@ function Header({ currentPath = "" }) {
               </a>
             ) : (
               <Link href="/my">
-                <a>Profile</a>
+                <a
+                  className={`${path === "profile" ? "route--active" : ""} `}
+                  onClick={() => {
+                    setPath("profile");
+                  }}
+                >
+                  Profile
+                </a>
               </Link>
             )}
           </li>
         </ul>
       </div>
-      <div className="HeaderWrapper__Hamburger">
-        <input
-          type="checkbox"
-          id="NavBarInput"
-          onChange={() => {
-            setNavState(!navState);
-          }}
-        />
-        <div className="hamButton">
-          <label className="HamMenu" htmlFor="NavBarInput">
-            <span className="span HL1" />
-            <span className="span HL2" />
-            <span className="span HL3" />
-          </label>
+      {isSidebar && (
+        <div className="HeaderWrapper__Hamburger">
+          <input
+            type="checkbox"
+            id="NavBarInput"
+            onChange={() => {
+              setNavState(!navState);
+            }}
+          />
+          <div className="hamButton">
+            <label className="HamMenu" htmlFor="NavBarInput">
+              <span className="span HL1" />
+              <span className="span HL2" />
+              <span className="span HL3" />
+            </label>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

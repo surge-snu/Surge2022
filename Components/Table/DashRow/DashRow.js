@@ -8,33 +8,66 @@ function DashRow({
   index,
   children,
   contentCols = [],
+  isColumn = true,
+  isDropDown = true,
+  colWidth = "1fr",
+  style,
 }) {
   return (
     <div className="DashRowWrapper">
-      <button
-        className="DashRowWrapper__button"
-        onClick={() => {
-          setDropdownIndex(dropdownIndex === index ? null : index);
-        }}
-      >
-        <div
-          className="DashRowWrapper__button--content"
-          style={{
-            gridTemplateColumns: `repeat(${contentCols.length}, 1fr)`,
+      {isDropDown ? (
+        <button
+          className="DashRowWrapper__button"
+          onClick={() => {
+            setDropdownIndex(dropdownIndex === index ? null : index);
           }}
         >
-          {contentCols.map((col, i) => col)}
+          <div
+            className="DashRowWrapper__button--content"
+            style={{
+              gridTemplateColumns: isColumn
+                ? `repeat(${contentCols.length}, ${colWidth})`
+                : "",
+              gridTemplateRows: isColumn
+                ? ""
+                : `repeat(${contentCols.length}, auto)`,
+              ...style,
+            }}
+          >
+            {contentCols.map((col, i) => (
+              <span key={i}>{col}</span>
+            ))}
+          </div>
+          <img
+            src="/Img/Arrow Right Variant.svg"
+            className="DashRowWrapper__button--arrow"
+            style={{
+              transform:
+                dropdownIndex === index ? "rotate(90deg)" : "rotate(0deg)",
+              transition: "transform 0.3s ease-in-out",
+            }}
+          />
+        </button>
+      ) : (
+        <div className="DashRowWrapper__button">
+          <div
+            className="DashRowWrapper__button--content"
+            style={{
+              gridTemplateColumns: isColumn
+                ? `repeat(${contentCols.length}, ${colWidth})`
+                : "",
+              gridTemplateRows: isColumn
+                ? ""
+                : `repeat(${contentCols.length}, auto)`,
+              ...style,
+            }}
+          >
+            {contentCols.map((col, i) => (
+              <span key={i}>{col}</span>
+            ))}
+          </div>
         </div>
-        <img
-          src="/Img/Arrow Right Variant.svg"
-          className="DashRowWrapper__button--arrow"
-          style={{
-            transform:
-              dropdownIndex === index ? "rotate(90deg)" : "rotate(0deg)",
-            transition: "transform 0.3s ease-in-out",
-          }}
-        />
-      </button>
+      )}
       <div
         className={`DashRowWrapper__content ${
           dropdownIndex === index ? "DashRowWrapper__content--active" : ""

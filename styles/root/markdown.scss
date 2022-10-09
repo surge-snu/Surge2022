@@ -90,16 +90,6 @@
   --color-danger-fg: #f85149;
 }
 
-.markdownBody {
-  padding: 40px 0;
-}
-
-@media only screen and (max-width: 915px) {
-  .markdownBody {
-    width: 100%;
-    padding: 40px 30px;
-  }
-}
 
 .markdownBody {
   -ms-text-size-adjust: 100%;
