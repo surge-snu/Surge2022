@@ -66,7 +66,7 @@ function EventTabs({ eventId, currentTab }) {
             </a>
           </Link>
         </li>
-        <li
+        {/* <li
           className={`EventTabs--item ${
             activeTab === "schedule" ? "EventTabs--activeItem" : ""
           }`}
@@ -81,7 +81,7 @@ function EventTabs({ eventId, currentTab }) {
               SCHEDULE
             </a>
           </Link>
-        </li>
+        </li> */}
         <li
           className={`EventTabs--item ${
             activeTab === "prizes" ? "EventTabs--activeItem" : ""
