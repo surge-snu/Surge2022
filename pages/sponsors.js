@@ -63,7 +63,7 @@ export default function Sponsors() {
 Sponsors.getLayout = function getLayout(page) {
   return (
     <div className="SponsorsPage">
-      <Header currentPath={page.props.currentPath} />
+      <Header currentPath="sponsors" />
       {page}
       <Footer />
     </div>

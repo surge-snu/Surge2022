@@ -69,7 +69,7 @@ export default function Contact() {
 Contact.getLayout = function getLayout(page) {
   return (
     <div className="ContactPage">
-      <Header currentPath={page.props.currentPath} />
+      <Header currentPath="contact" />
       {page}
       <Footer />
     </div>
