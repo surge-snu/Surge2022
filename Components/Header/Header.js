@@ -25,10 +25,11 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   });
 
   React.useEffect(() => {
+    console.log("path", currentPath);
     if (currentPath === "") {
       setPath(window.location.pathname.replace("/", ""));
     }
-  }, []);
+  });
 
   return (
     <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>

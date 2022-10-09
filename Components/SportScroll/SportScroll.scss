@@ -49,7 +49,7 @@ $animationSpeed: 20s;
       color: #5284ff;
 
       @include respondAt(580px) {
-        font-size: 30px;
+        font-size: 50px;
       }
     }
     &--type2 {
@@ -57,7 +57,7 @@ $animationSpeed: 20s;
       font-family: "BLACKHAWK";
       color: #cafa08;
       @include respondAt(580px) {
-        font-size: 30px;
+        font-size: 50px;
       }
     }
   }

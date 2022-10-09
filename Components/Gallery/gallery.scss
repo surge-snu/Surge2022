@@ -8,33 +8,33 @@
         font-size: 1.04vw;
       }
       &__content {
-        font-family: "Fraunces", serif;
+        font-family: "Ubuntu", sans-serif;
         color: #ffffff;
         font-size: 0.902vw;
       }
     }
-    &--images{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        &__img {
-            margin: 1vw;
-            width: 45vw;
-        }
+    &--images {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      &__img {
+        margin: 1vw;
+        width: 45vw;
+      }
     }
-    &--bottom{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        &__explore{
-            margin-right: 1vw;
-            font-family: 'BLACKHAWK';
-            color: #FE5349;
-            font-size: 3vw;
-        }
-        &__arrow{
-            width: 7vw;
-        }
+    &--bottom {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      &__explore {
+        margin-right: 1vw;
+        font-family: "BLACKHAWK";
+        color: #fe5349;
+        font-size: 3vw;
+      }
+      &__arrow {
+        width: 7vw;
+      }
     }
   }
 }
