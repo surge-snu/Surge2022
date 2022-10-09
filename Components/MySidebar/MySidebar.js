@@ -43,6 +43,12 @@ function MySidebar({ user }) {
         </div>
       </div>
       <div className="MySidebarWrapper__top">
+        <Link href="/">
+          <a className="MySidebarWrapper__top--right">
+            <img src="/Img/Arrow Right Variant.svg" />
+            <h2>Home</h2>
+          </a>
+        </Link>
         <div className="MySidebarWrapper__top--left">
           <h2>{user.name}</h2>
           <span>{user.email}</span>
