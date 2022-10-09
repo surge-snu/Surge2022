@@ -3,6 +3,7 @@ import "../styles/root/globals.scss";
 import { AuthProvider, getUserFromSession } from "../context/authContext";
 import App from "next/app";
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps, user }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps, user }) {
         <link rel="icon" href="/Img/Sports icon.png" />
       </Head>
       <AuthModal />
+      <NextNProgress color="#ff4f46" height={5} />
       {getLayout(<Component {...pageProps} />)}
     </AuthProvider>
   );
