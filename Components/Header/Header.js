@@ -25,16 +25,25 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   });
 
   React.useEffect(() => {
-    console.log("path", currentPath);
+    const pathName = window.location.pathname;
+
     if (currentPath === "") {
-      setPath(window.location.pathname.replace("/", ""));
+      if (pathName === "/") {
+        setPath("/");
+      } else {
+        setPath(pathName.replace("/", ""));
+      }
+    } else {
+      setPath(currentPath);
     }
   });
 
   return (
     <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
       <div className="HeaderWrapper__logo">
-        <a href="/">Surge</a>
+        <a href="/">
+          <img src="/Img/Surge_W_logo.png" />
+        </a>
       </div>
       <div
         className={`HeaderWrapper__Menu ${
@@ -86,7 +95,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
                 setPath("");
               }}
             >
-              Surge
+              <img src="/Img/Surge_W_logo.png" />
             </a>
           </Link>
         </span>

@@ -34,7 +34,11 @@
     font-family: "Sequel100Black-55";
     font-size: 28px;
     a {
-      padding: 8px 10px 5px 10px;
+      padding: 13px;
+      @include make-flex();
+      img {
+        height: 25px;
+      }
     }
     @include respondAt(915px) {
       display: block;
@@ -68,6 +72,9 @@
         display: none;
       }
     }
+    @include respondAt(1030px) {
+      gap: 3px;
+    }
   }
 
   &__MenuList {
@@ -88,6 +95,17 @@
     &--center {
       font-family: "Sequel100Black-55";
       font-size: 28px;
+      a {
+        padding: 13px 0;
+        @include make-flex();
+        img {
+          height: 35px;
+
+          @include respondAt(1030px) {
+            height: 27px;
+          }
+        }
+      }
 
       @include respondAt(915px) {
         display: none;
