@@ -67,8 +67,11 @@
       @include make-flex();
 
       &--description {
-        font-size: 13px;
+        font-size: 15px;
+        font-family: "Ubuntu", sans-serif;
         font-weight: 500;
+        width: 100%;
+        @include make-flex($align: flex-start);
       }
 
       &__cta {
