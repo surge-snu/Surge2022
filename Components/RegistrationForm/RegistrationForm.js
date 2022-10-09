@@ -46,22 +46,6 @@ export default function RegistrationForm({
         !isEmail(item[`PlayerEmail${index + 1}`])
       ) {
         tempErrors[`PlayerEmail${index + 1}`] = "Invalid Email";
-      } else {
-        const email = item[`PlayerEmail${index + 1}`];
-        let emailCount = 0;
-
-        formValues.forEach((item, i) => {
-          if (
-            item[`PlayerEmail${i + 1}`] !== "" &&
-            item[`PlayerEmail${i + 1}`] === email
-          ) {
-            emailCount++;
-          }
-        });
-
-        if (emailCount > 1) {
-          tempErrors[`PlayerEmail${index + 1}`] = "Email should be unique";
-        }
       }
 
       if (
@@ -69,6 +53,23 @@ export default function RegistrationForm({
         !isPhone(item[`PlayerPhone${index + 1}`])
       ) {
         tempErrors[`PlayerPhone${index + 1}`] = "Invalid Phone number";
+      } else {
+        const phone = item[`PlayerPhone${index + 1}`];
+        let phoneCount = 0;
+
+        formValues.forEach((item, i) => {
+          if (
+            item[`PlayerPhone${i + 1}`] !== "" &&
+            item[`PlayerPhone${i + 1}`] === phone
+          ) {
+            phoneCount++;
+          }
+        });
+
+        if (phoneCount > 1) {
+          tempErrors[`PlayerPhone${index + 1}`] =
+            "Phone Number should be unique";
+        }
       }
 
       if (
@@ -108,6 +109,7 @@ export default function RegistrationForm({
         const hasError = Object.values(errors).some(
           (item) => Object.keys(item).length !== 0
         );
+        console.log(errors);
         if (hasError) return;
         onSubmitForm(formData);
       },
@@ -124,7 +126,9 @@ export default function RegistrationForm({
                   Player {i + 1} {i + 1 === 1 ? "(Captain)" : ""}
                 </h3>
                 {i >= minPlayers && (
-                  <button onClick={() => removePlayer(i)}>Remove Player</button>
+                  <button type="button" onClick={() => removePlayer(i)}>
+                    Remove Player
+                  </button>
                 )}
               </span>
               <div className="RegForm__form--fields">
