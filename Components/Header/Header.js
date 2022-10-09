@@ -29,6 +29,10 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
     };
   });
 
+  React.useEffect(() => {
+    setNavState(false);
+  }, [path]);
+
   return (
     <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
       <div className="HeaderWrapper__logo">
@@ -145,6 +149,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
           <input
             type="checkbox"
             id="NavBarInput"
+            checked={navState}
             onChange={() => {
               setNavState(!navState);
             }}

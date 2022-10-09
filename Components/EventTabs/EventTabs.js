@@ -127,7 +127,7 @@ function EventTabs({ eventId, currentTab }) {
       </ul>
 
       <ul className="EventTabs--mobile" style={{ height: "50.5px" }}>
-        {["overview", "schedule", "prizes", "register"]
+        {["overview", "prizes", "register"]
           .filter((x) => x !== activeTab)
           .concat([activeTab])
           .reverse()
