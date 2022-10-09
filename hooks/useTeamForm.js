@@ -30,7 +30,13 @@ export default function useTeamForm({
   };
 
   const removePlayer = (index) => {
-    const newFormData = formData.filter((item, i) => i !== index - 1);
+    const newFormData = formData.filter((item, i) =>
+      Object.keys(item).includes(`PlayerName${index + 1}`) ? false : true
+    );
+
+    // delete errors[index];
+
+    // setErrors(errors);
     setFormData(newFormData);
   };
 

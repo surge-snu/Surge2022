@@ -109,6 +109,7 @@ export default function RegistrationForm({
         const hasError = Object.values(errors).some(
           (item) => Object.keys(item).length !== 0
         );
+        console.log(errors);
         if (hasError) return;
         onSubmitForm(formData);
       },
@@ -125,7 +126,9 @@ export default function RegistrationForm({
                   Player {i + 1} {i + 1 === 1 ? "(Captain)" : ""}
                 </h3>
                 {i >= minPlayers && (
-                  <button onClick={() => removePlayer(i)}>Remove Player</button>
+                  <button type="button" onClick={() => removePlayer(i)}>
+                    Remove Player
+                  </button>
                 )}
               </span>
               <div className="RegForm__form--fields">
