@@ -176,7 +176,7 @@
     max-width: 1500px;
     position: relative;
     min-height: 700px;
-    @include make-flex($dir: row);
+    @include make-flex($dir: row, $align: flex-start);
     overflow: hidden;
 
     @include respondAt(1518px) {

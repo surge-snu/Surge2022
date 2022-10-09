@@ -79,7 +79,12 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                   <h3>Rules and Guidelines</h3>
                   <span
                     className="markdownBody"
-                    dangerouslySetInnerHTML={{ __html: eventDetails.rules }}
+                    dangerouslySetInnerHTML={{
+                      __html: eventDetails.rules
+                        .replaceAll("breeze", "Surge")
+                        .replaceAll("Breeze", "Surge")
+                        .replaceAll("BREEZE", "Surge"),
+                    }}
                   />
                 </div>
               </div>
@@ -88,7 +93,7 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                 eventDetails={eventDetails}
                 from={eventDetails.dateFrom}
                 venue={eventDetails.venue}
-                eventId={eventDetails.eventId}
+                event={eventDetails}
                 price={eventDetails.pricePerPlayer}
               />
             </div>
@@ -119,7 +124,7 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                 eventDetails={eventDetails}
                 from={eventDetails.dateFrom}
                 venue={eventDetails.venue}
-                eventId={eventDetails.eventId}
+                event={eventDetails}
                 price={eventDetails.pricePerPlayer}
               />
             </div>
@@ -156,7 +161,7 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                 eventDetails={eventDetails}
                 from={eventDetails.dateFrom}
                 venue={eventDetails.venue}
-                eventId={eventDetails.eventId}
+                event={eventDetails}
                 price={eventDetails.pricePerPlayer}
               />
             </div>
