@@ -21,7 +21,8 @@ model User {
   role     Role   @default(USER)
   email    String @unique @db.VarChar(100)
   college  String @db.VarChar(100)
-  password String @default("")
+  password String
+  Team     Team[]
 }
 
 model Event {
@@ -40,10 +41,52 @@ model Event {
   venue             String
   location          Locations  @default(INDOOR)
   eventName         String     @db.VarChar(100)
+  Team              Team[]
+}
+
+model TeamMember {
+  id         Int        @id @default(autoincrement())
+  teamId     String
+  name       String     @db.VarChar(100)
+  email      String     @db.VarChar(100)
+  phone      String     @db.VarChar(100)
+  rollNumber String     @db.VarChar(100)
+  eventId    String
+  Team       Team       @relation(fields: [teamId], references: [teamId])
+  createdAt  DateTime   @default(now())
+  playerType PlayerType @default(PLAYER)
 }
 
 model Team {
-  teamId String @id @default(uuid())
+  teamId         String        @id
+  registeredById String
+  registeredBy   User          @relation(fields: [registeredById], references: [id])
+  eventId        String
+  Event          Event         @relation(fields: [eventId], references: [eventId])
+  paymentStatus  PaymentStatus @default(NOT_PAID)
+  TeamMembers    TeamMember[]
+  PaymentDetails PaymentDetails[]
+}
+
+model PaymentDetails {
+  id        Int      @id @default(autoincrement())
+  teamId    String
+  paymentId String
+  amount    Int
+  Team      Team     @relation(fields: [teamId], references: [teamId])
+  createdAt DateTime @default(now())
+}
+
+enum PaymentStatus {
+  PAID
+  NOT_PAID
+  MANUAL
+}
+
+enum PlayerType {
+  CAPTAIN
+  PLAYER
+  ADDITIONAL
 }
 
 enum Role {

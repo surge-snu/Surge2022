@@ -6,6 +6,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  position: relative;
   font-family: "Sequel100Black-45";
   border-top: rgba(244, 244, 244, 0.6) 1px solid;
   font-size: 12px;
@@ -40,13 +41,15 @@
     }
 
     &--arrow {
+      position: absolute;
+      right: 0px;
       @include box(50px, 14px);
     }
   }
 
   &__content {
     @include box($width: 100%, $height: fit-content);
-    @include make-flex($dir: column, $align: flex-end, $just: flex-start);
+    @include make-flex($dir: column, $align: flex-start, $just: flex-start);
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     max-height: 0;

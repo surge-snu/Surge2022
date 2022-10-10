@@ -1,9 +1,13 @@
 import React from "react";
+import Header from "../../Components/Header/Header";
 import MySidebar from "../../Components/MySidebar/MySidebar";
-import useAuth from "../../hooks/useAuth";
+import DashHeader from "../../Components/Table/DashHeader/DashHeader";
+import DashRow from "../../Components/Table/DashRow/DashRow";
+import DashTable from "../../Components/Table/DashTable/DashTable";
+import { fetchUserData } from "../../services/user.server";
 import "../../styles/routes/My/My.scss";
 
-export function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
     return {
       redirect: {
@@ -12,18 +16,71 @@ export function getServerSideProps(context) {
       },
     };
   }
+
+  const userData = await fetchUserData(context.req.session.user.email);
+
   return {
-    props: { user: context.req.session.user },
+    props: { user: userData },
   };
 }
-export default function MyEvents() {
-  return <main>Your registered events</main>;
+export default function MyEvents({ user }) {
+  const [eventsDropdownIndex, setEventsDropdownIndex] = React.useState(null);
+  return (
+    <main className="MyEvents">
+      <DashTable title="Payment History">
+        <DashHeader
+          headerTitles={["Team ID", "Payment Status", "Player Count"]}
+        />
+        {user.Team.map((team, index) => (
+          <DashRow
+            key={team.teamId}
+            setDropdownIndex={setEventsDropdownIndex}
+            dropdownIndex={eventsDropdownIndex}
+            index={index}
+            contentCols={[
+              <span>{team.eventId}</span>,
+              <span>
+                {team.paymentStatus === "PAID" ? (
+                  <img src="/Img/Green Tick.svg" height={14} />
+                ) : (
+                  <img src="/Img/Red Exclamation.svg" height={14} />
+                )}
+                <p>{team.paymentStatus === "PAID" ? "Paid" : "Not Paid"}</p>
+              </span>,
+              <span>{team.TeamMembers.length}</span>,
+            ]}
+          >
+            {team.TeamMembers.map((member, index) => (
+              <div className="MyHome__ListTileItems" key={index}>
+                <p>{member.name}</p>
+                {" - "}
+                <p>{member.playerType}</p>
+              </div>
+            ))}
+
+            <button className="MyHome__greenButton">Download Invoice</button>
+          </DashRow>
+        ))}
+      </DashTable>
+    </main>
+  );
 }
 
 MyEvents.getLayout = function getLayout(page) {
   return (
     <div className="MyLayout">
-      <MySidebar />
+      <Header
+        isSmall={true}
+        currentPath="profile"
+        style={{
+          borderBottom: "1px solid #878a90",
+          zIndex: 0,
+          justifyContent: "right",
+        }}
+        isSidebar={false}
+      />
+
+      <MySidebar user={page.props.user} />
       <div className="MyLayout__page">{page}</div>
     </div>
   );

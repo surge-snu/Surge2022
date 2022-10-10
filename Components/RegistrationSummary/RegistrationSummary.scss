@@ -1,0 +1,49 @@
+.RegistrationSummaryWrapper {
+  @include box();
+  background-color: #222b48;
+  padding: 20px;
+  border-radius: 10px;
+  @include make-flex($align: flex-start);
+  gap: 20px;
+  position: relative;
+
+  h3 {
+    font-family: "Sequel100Black-65";
+    font-size: 25px;
+    line-height: 100%;
+    text-transform: capitalize;
+    color: #cafa08;
+  }
+
+  &__note {
+    @include make-flex($align: flex-start);
+    gap: 5px;
+    h2 {
+      font-family: "Sequel100Black-65";
+      font-size: 23px;
+      line-height: 100%;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  }
+
+  &__actions {
+    @include make-flex($dir: row, $just: space-between);
+    @include box();
+    button {
+      cursor: pointer;
+      border: 0px;
+      background-color: white;
+      color: black;
+      font-family: "Sequel100Black-65";
+      font-size: 18px;
+      padding: 0px 16px;
+
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+  }
+}

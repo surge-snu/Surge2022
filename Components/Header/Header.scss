@@ -1,5 +1,5 @@
 .HeaderWrapper {
-  @include box(100vw, 123px);
+  @include box(100vw, 101px);
   @include make-flex($dir: row);
   background: #0f162173;
   backdrop-filter: blur(50px);
@@ -8,6 +8,14 @@
   position: fixed;
   top: 0;
   padding: 0 20px;
+
+  &--small {
+    height: 70px;
+    border-bottom: 1px solid #878a90;
+    z-index: 0;
+    justify-content: right !important;
+  }
+
   #NavBarInput,
   .hamButton {
     display: none;
@@ -28,7 +36,11 @@
     font-family: "Sequel100Black-55";
     font-size: 28px;
     a {
-      padding: 8px 10px 5px 10px;
+      padding: 13px;
+      @include make-flex();
+      img {
+        height: 25px;
+      }
     }
     @include respondAt(915px) {
       display: block;
@@ -36,7 +48,7 @@
   }
 
   &__Menu {
-    gap: 20px;
+    gap: 10px;
     max-width: 1500px;
     @include box();
     @include make-flex($dir: row, $just: space-around);
@@ -49,7 +61,7 @@
       position: fixed;
       max-width: 290px;
       flex-direction: column;
-      padding: 123px 28px 0 24px;
+      padding: 101px 28px 0 24px;
       background-color: #0f1621;
       justify-content: flex-start;
       transform: translateX(100%);
@@ -58,7 +70,13 @@
       &--open {
         transform: translateX(0%);
       }
+      &--hide {
+        display: none;
+      }
     }
+    // @include respondAt(995px) {
+    //   gap: 3px;
+    // }
   }
 
   &__MenuList {
@@ -79,6 +97,18 @@
     &--center {
       font-family: "Sequel100Black-55";
       font-size: 28px;
+      a {
+        padding: 13px 0;
+        @include make-flex();
+        img {
+          height: 35px;
+          width: 227px;
+
+          @include respondAt(1030px) {
+            height: 27px;
+          }
+        }
+      }
 
       @include respondAt(915px) {
         display: none;
@@ -87,7 +117,7 @@
 
     &--left,
     &--right {
-      gap: 20px;
+      gap: 4px;
       font-size: 19px;
       @include box(35%);
       font-family: "Sequel100Black-55";
@@ -109,23 +139,34 @@
         padding: 11px 13px;
         position: relative;
         max-height: 39px;
+        border: 1px solid transparent;
+        font-size: 17px;
 
         @include respondAt(915px) {
           width: 100%;
         }
-        &:hover {
-          background-color: #cafa0a;
-          color: #0f1621;
+
+        &:before {
+          transition: transform 0.2s ease-in-out;
+          z-index: -1;
+          @include box();
+          content: "";
+          position: absolute;
+          border: 1px solid transparent;
+          top: 0;
+          left: 0;
+          transform: translate(0px, 0px);
+        }
+
+        &:hover,
+        &:focus {
+          outline: none;
+          background-color: #0f1621;
+          border: 1px dashed #cafa0a;
 
           &:before {
-            z-index: -1;
-            @include box();
-            max-height: 39px;
-            content: "";
-            position: absolute;
-            background-color: #ffffff;
-            bottom: -5px;
-            right: -5px;
+            border: 1px dashed #ffffff;
+            transform: translate(3px, 3px);
           }
         }
       }
@@ -133,6 +174,7 @@
       .route--active {
         background-color: #cafa0a;
         color: #0f1621;
+        border: 1px solid transparent;
 
         &:before {
           z-index: -1;
@@ -140,8 +182,24 @@
           content: "";
           position: absolute;
           background-color: #ffffff;
-          bottom: -5px;
-          right: -5px;
+          transform: translate(3px, 3px);
+        }
+        &:hover,
+        &:focus {
+          outline: none;
+          border: 1px solid transparent;
+
+          background-color: #cafa0a;
+          color: #0f1621;
+
+          &:before {
+            z-index: -1;
+            @include box();
+            content: "";
+            position: absolute;
+            background-color: #ffffff;
+            transform: translate(3px, 3px);
+          }
         }
       }
     }

@@ -7,9 +7,9 @@ export default function Stats() {
 				<h1 className="StatsSection__top--title">
 					SCENE IN THE <span>GAME</span>
 				</h1>
-				<p className="StatsSection__top--text">
+				{/* <p className="StatsSection__top--text">
 					Lorem Epsime rafdrw e kdsd fdosm Lorem Epsime rafdrw e kdsd fdosm
-				</p>
+				</p> */}
 			</div>
 			<div className="StatsSection__bottom--desktop">
 				<div className="StatsSection__bottom--left">
