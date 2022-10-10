@@ -27,7 +27,7 @@ export default function Team() {
 	
 	
   return (
-    <>
+    <div className="TeamPage__container">
       <div className="TeamPage__content">
         <p className="TeamPage__heading">
           MEET THE{" "}
@@ -60,7 +60,7 @@ export default function Team() {
 					))
 				}
 			</div>
-    </>
+    </div>
   );
 }
 
