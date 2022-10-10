@@ -29,7 +29,8 @@ export default function Contact() {
 		<div className="ContactPage__container">
 			<div className="ContactPage__container--top">
 				<h1 className="ContactPage__title">
-					GET IN <span>TOUCH</span> WITH US<br /> FOR <span>MORE</span> INFORMATION
+					GET IN <span>TOUCH</span> WITH US
+          <br /> FOR <span>MORE</span> INFORMATION
 				</h1>
 				<p className="ContactPage__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
@@ -55,7 +56,12 @@ export default function Contact() {
 						</div>
 						<div className="ContactPage__card--bottom">
 							<div className="ContactPage__cardButton ContactPage__cardButton--green">
-								<p>{item['phone']}</p>
+								<a
+									href={`tel:${item["phone"]}`}
+									className="ContactPage__cardButton ContactPage__cardButton--green"
+								>
+									<p>{item['phone']}</p>
+								</a>
 								{/* <p>Place a call</p>
 								<img
 									src="/Img/arrow-right black.svg"
@@ -63,27 +69,29 @@ export default function Contact() {
 									height={20}
 								/> */}
 							</div>
-							<div className="ContactPage__cardButton">
+							<a
+                href={`mailto:${item["email"]}`}
+                className="ContactPage__cardButton"
+              >
 								<p>Mail</p>
 								<img
 									src="/Img/arrow-right.svg"
 									width={20}
 									height={20}
 								/>
-							</div>
+							</a>
 						</div>
 					</div>
 				))}
 			</div>
-
 		</div>
-	);
+  );
 }
 
 Contact.getLayout = function getLayout(page) {
   return (
     <div className="ContactPage">
-      <Header currentPath={page.props.currentPath} />
+      <Header currentPath="contact" />
       {page}
       <Footer />
     </div>

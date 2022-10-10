@@ -26,6 +26,7 @@
 
     &:not(:placeholder-shown) ~ label {
       top: 0%;
+      color: #fff;
     }
     &:-webkit-autofill,
     &:-webkit-autofill ~ label,
@@ -37,6 +38,7 @@
       -webkit-box-shadow: 0 0 0 30px #1d2b49 inset;
       -webkit-text-fill-color: #fff;
       font-size: 17px;
+      caret-color: #fff;
     }
   }
 

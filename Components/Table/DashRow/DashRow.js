@@ -8,7 +8,10 @@ function DashRow({
   index,
   children,
   contentCols = [],
+  isColumn = true,
   isDropDown = true,
+  colWidth = "1fr",
+  style,
 }) {
   return (
     <div className="DashRowWrapper">
@@ -22,7 +25,13 @@ function DashRow({
           <div
             className="DashRowWrapper__button--content"
             style={{
-              gridTemplateColumns: `repeat(${contentCols.length}, 1fr)`,
+              gridTemplateColumns: isColumn
+                ? `repeat(${contentCols.length}, ${colWidth})`
+                : "",
+              gridTemplateRows: isColumn
+                ? ""
+                : `repeat(${contentCols.length}, auto)`,
+              ...style,
             }}
           >
             {contentCols.map((col, i) => (
@@ -44,10 +53,18 @@ function DashRow({
           <div
             className="DashRowWrapper__button--content"
             style={{
-              gridTemplateColumns: `repeat(${contentCols.length}, 1fr)`,
+              gridTemplateColumns: isColumn
+                ? `repeat(${contentCols.length}, ${colWidth})`
+                : "",
+              gridTemplateRows: isColumn
+                ? ""
+                : `repeat(${contentCols.length}, auto)`,
+              ...style,
             }}
           >
-            {contentCols.map((col, i) => col)}
+            {contentCols.map((col, i) => (
+              <span key={i}>{col}</span>
+            ))}
           </div>
         </div>
       )}

@@ -22,7 +22,6 @@ export async function getServerSideProps(context) {
     props: {
       user: context.req.session.user,
       allEvents: allEvents.sort((a, b) => (a.eventName > b.eventName ? 1 : -1)),
-      currentPath: context.req.url,
     },
   };
 }
@@ -32,7 +31,7 @@ export default function Events({ allEvents }) {
 
   return (
     <div className="EventsPage__container">
-      <div className="EventsPage__top">
+      {/* <div className="EventsPage__top">
         <h1 className="EventsPage__top--title">
           LOREM <span>IPSUM</span>
           <br />
@@ -52,7 +51,7 @@ export default function Events({ allEvents }) {
             placeholder="Try Searching Football"
           />
         </div>
-      </div>
+      </div> */}
       <div className="EventsPage__bottom">
         <div className="EventsPage__bottom--title">
           <h3>Upcoming Events</h3>
@@ -92,7 +91,7 @@ export default function Events({ allEvents }) {
 Events.getLayout = function getLayout(page) {
   return (
     <div className="EventsPage">
-      <Header currentPath={page.props.currentPath} />
+      <Header currentPath="events" />
       {page}
       <Footer />
     </div>

@@ -8,7 +8,7 @@
     @include box(100vw, 700px);
     max-width: 1500px;
     position: relative;
-    margin-top: 123px;
+    margin-top: 101px;
     @include make-flex($dir: row);
 
     @include respondAt(1518px) {
@@ -104,8 +104,7 @@
       &--text {
         padding-right: 10%;
         width: 50%;
-        // font-family: "Fraunces", serif;
-				font-family: "Rische Demo", serif;
+        font-family: "Ubuntu", sans-serif;
         font-size: 19px;
         @include respondAt(1070px) {
           width: 60%;
@@ -119,17 +118,17 @@
           font-size: 15px;
         }
       }
-			
-			&--date {
-				padding-right: 10%;
-				font-family: "BLACKHAWK";
-				font-size: 60px;
-				text-align: center;
-				
-				p {
-					color: #cafa08;
-				}
-			}
+
+      &--date {
+        padding-right: 10%;
+        font-family: "BLACKHAWK";
+        font-size: 60px;
+        text-align: center;
+
+        p {
+          color: #cafa08;
+        }
+      }
 
       &--actionContainer {
         width: 100%;
@@ -182,14 +181,15 @@
       }
     }
   }
-	
-	.BlogsSection {
-		@include box(100vw);
+
+  .BlogsSection {
+    @include box(100vw);
     max-width: 1500px;
     position: relative;
     @include make-flex($dir: row);
-		overflow: hidden;
-	}
+    overflow: hidden;
+		margin-top: 
+  }
 
   .AboutSection {
     @include box(100vw);
@@ -246,13 +246,12 @@
         }
         @include respondAt(600px) {
           font-size: 5vw;
-					line-height: 135%;
+          line-height: 135%;
         }
       }
 
       &--text {
-        // font-family: "Fraunces", serif;
-				font-family: "Rische Demo", serif;
+        font-family: "Ubuntu", sans-serif;
         font-size: 20px;
         width: 75%;
         @include respondAt(1200px) {
@@ -371,7 +370,7 @@
     }
     @include respondAt(915px) {
       min-height: unset;
-      margin-top: 80px;
+      // margin-top: 80px;
     }
   }
 }

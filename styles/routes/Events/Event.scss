@@ -4,7 +4,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #0f1621;
-  padding-top: 123px;
+  padding-top: 101px;
   gap: 40px;
   // max-width: 1200px;
 
@@ -41,10 +41,12 @@
       h2 {
         font-family: "Sequel100Black-65";
         font-size: 30px;
-        line-height: 59px;
+        line-height: 100%;
         text-transform: capitalize;
         color: #cafa08;
+        gap: 6px;
       }
+
       hr {
         flex-grow: 1;
         border: 0.5px solid rgba(255, 255, 255, 0.4);
@@ -101,40 +103,36 @@
 
     &--prizes,
     &--schedule,
-		&--team
-		 {
+    &--team {
       @include box();
       padding: 30px;
       @include make-flex($dir: column, $just: flex-start, $align: flex-start);
       gap: 30px;
       border-radius: 10px;
-      background: rgba(35, 55, 97, 0.3);
-    }
-
-    &--schedule {
-      @include respondAt(700px) {
-        width: fit-content;
-      }
+      background: #222b48;
     }
 
     &--team {
       @include box(80%, 100%);
       min-height: 300px;
-      padding: 30px;
       @include make-flex($dir: column, $just: flex-start, $align: flex-start);
-      gap: 30px;
-      border-radius: 10px;
-      background: rgba(35, 55, 97, 0.3);
     }
 
     &--right {
       @include box(30%, 100%);
       @include respondAt(1113px) {
-        width: 100%;
+        display: none;
       }
     }
     &--middle {
       @include box(100%, 100%);
+      @include make-flex();
+      gap: 20px;
     }
+  }
+
+  &__register {
+    @include make-flex();
+    @include box();
   }
 }

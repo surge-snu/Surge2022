@@ -4,11 +4,22 @@
   gap: 20px;
 
   &__form {
-    gap: 15px;
-    padding: 10px 30px 20px;
     @include box($height: auto);
-    @include make-flex($just: flex-start, $align: stretch);
-    overflow-y: auto;
+    &--fieldsList {
+      gap: 15px;
+      padding: 10px 30px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow-y: auto;
+
+      @include respondAt(785px) {
+        grid-template-columns: 1fr;
+      }
+
+      @include respondAt(485px) {
+        padding: 10px 0px 20px;
+      }
+    }
 
     &--player {
       @include box($height: auto);
@@ -54,55 +65,22 @@
     &--fields {
       // @include make-flex($dir: row);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1;
       @include box();
       gap: 24px;
       flex-wrap: wrap;
-
-      @include respondAt(840px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @include respondAt(660px) {
-        grid-template-columns: repeat(1, 1fr);
-      }
     }
   }
 
   &__row {
     @include box();
-    @include make-flex($dir: row, $align: flex-start);
+    @include make-flex($align: flex-start);
     gap: 7px;
-
     &--error {
       color: #fe5349;
       font-family: Roboto;
       width: 100%;
     }
-    // label {
-    //   width: 100%;
-    //   line-height: 19px;
-    //   font-size: 19px;
-    //   font-family: "Sequel100Black-65";
-
-    //   @include respondAt(500px) {
-    //     font-size: 15px;
-    //   }
-    // }
-    // input {
-    //   font-size: 19px;
-    //   font-family: "Sequel100Black-55";
-    //   width: 100%;
-    //   height: 45px;
-    //   border-radius: 4.77px;
-    //   background-color: transparent;
-    //   border: 1px solid white;
-    //   padding: 7px 10px;
-
-    //   @include respondAt(500px) {
-    //     font-size: 16px;
-    //   }
-    // }
   }
 
   &__button {

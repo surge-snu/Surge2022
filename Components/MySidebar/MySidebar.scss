@@ -5,23 +5,43 @@
     @include box($height: auto);
     @include make-flex($dir: column, $align: flex-start);
     padding: 17px 20px;
+    gap: 20px;
 
-    &--left {
+    &--left,
+    &--right {
       @include box($height: auto);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      @include make-flex();
+      gap: 10px;
+
+      img {
+        height: 20px;
+        rotate: 180deg;
+      }
       h2 {
         width: 100%;
         font-family: "Sequel100Black-55";
         font-size: 25px;
+        line-height: 100%;
         color: white;
       }
       span {
         width: 100%;
+        line-height: 100%;
         font-family: "Sequel100Black-45";
         font-size: 15px;
         color: #878a90;
+      }
+    }
+    &--right {
+      @include make-flex($dir: row);
+      display: none;
+
+      @include respondAt(917px) {
+        display: flex;
+        height: 37px;
       }
     }
   }

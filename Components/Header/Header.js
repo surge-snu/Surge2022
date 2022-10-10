@@ -3,16 +3,11 @@ import "./Header.scss";
 import useAuth from "../../hooks/useAuth";
 import Link from "next/link";
 
-function Header({
-  currentPath = "",
-  isSmall = false,
-  style = {},
-  isSidebar = true,
-}) {
+function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   const [navState, setNavState] = React.useState(false);
   const [hash, setHash] = React.useState("");
 
-  const [path, setPath] = React.useState(currentPath.replace("/", ""));
+  const [path, setPath] = React.useState(currentPath.trim());
   const { user } = useAuth();
 
   React.useEffect(() => {
@@ -24,22 +19,26 @@ function Header({
       }
     });
 
+    window.addEventListener("hashchange", () => {
+      setHash(window.location.hash);
+    });
+
     return () => {
       window.removeEventListener("scroll", () => {});
+      window.removeEventListener("hashchange", () => {});
     };
   });
 
+  React.useEffect(() => {
+    setNavState(false);
+  }, [path]);
+
   return (
-    <div
-      className="HeaderWrapper"
-      style={{
-        height: isSmall ? "70px" : "",
-        ...style,
-        justifyContent: !isSidebar ? "right" : "",
-      }}
-    >
+    <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
       <div className="HeaderWrapper__logo">
-        <a href="/">Surge</a>
+        <a href="/">
+          <img src="/Img/Surge_W_logo.png" />
+        </a>
       </div>
       <div
         className={`HeaderWrapper__Menu ${
@@ -91,7 +90,7 @@ function Header({
                 setPath("");
               }}
             >
-              Surge
+              <img src="/Img/Surge_W_logo.png" />
             </a>
           </Link>
         </span>
@@ -124,7 +123,9 @@ function Header({
             {!user ? (
               <a
                 href="#login"
-                className={`${
+                className={`
+                route--highlight
+                ${
                   hash === "#login" || hash === "#signup" ? "route--active" : ""
                 } `}
               >
@@ -150,6 +151,7 @@ function Header({
           <input
             type="checkbox"
             id="NavBarInput"
+            checked={navState}
             onChange={() => {
               setNavState(!navState);
             }}

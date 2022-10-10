@@ -20,16 +20,17 @@
     @include make-flex($dir: row, $align: center, $just: space-between);
     background-color: rgba(15, 22, 33, 1);
     border: 1px solid #ffffff;
-    box-shadow: 9px 9px 0px #c4f750;
-    border-radius: 7px;
+    border-radius: 4px;
     padding: 15px 10px;
+    transition: all 0.2s ease-in-out;
+    gap: 10px;
 
-    @include respondAt(700px) {
-      width: fit-content;
+    &:hover {
+      box-shadow: 7px 7px 0px #c4f750;
+    }
+    @include respondAt(540px) {
       flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 15px 20px;
+      // align-items: flex-start;
     }
 
     &--title {
