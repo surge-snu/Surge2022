@@ -77,6 +77,8 @@
 		background-color: #193559;
 		border-radius: 74px;
 		color: rgba(255, 255, 255, 0.5);
+		font-family: "Sequel100Black-65", "Helvetica", "Impact";
+		font-size: 17px;
 		
 		@include respondAt(950px) {
 			@include box(120px, auto);
