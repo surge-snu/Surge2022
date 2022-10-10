@@ -1,11 +1,11 @@
 .TeamPage {
-  @include make-flex($dir: column);
-  background-color: #0f1621;
   @include box(100%, auto);
+  @include make-flex($dir: column, $align: center);
+  background-color: #0f1621;
   max-width: 1500px;
   position: relative;
   margin-top: 123px;
-  @include make-flex($align: center);
+	
   @include respondAt(480px) {
     padding: 0px 17px 80px;
   }
@@ -17,6 +17,9 @@
 		
 		@include respondAt(850px) {
 			margin-top: 40px;
+		}
+		@include respondAt(600px) {
+			margin-top: 0;
 		}
   }
 	
@@ -35,6 +38,9 @@
 		@include respondAt(850px) {
 			font-size: 35px;
 		}
+		@include respondAt(600px) {
+			font-size: 25px;
+		}
 	}
 	
 	&__desc {
@@ -47,6 +53,10 @@
 			font-size: 20px;
 			margin-bottom: 40px;
 		}
+		@include respondAt(600px) {
+			font-size: 17px;
+			margin-bottom: 20px;
+		}
 	}
 
 	&__categories {
@@ -57,6 +67,7 @@
 		border-radius: 40px;
 		border: 1px solid #fff;
 		padding: 10px 40px;
+		flex-wrap: wrap;
 		
 		@include respondAt(1425px) {
 			gap: 30px;
