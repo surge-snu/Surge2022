@@ -73,6 +73,9 @@
 			gap: 30px;
 			padding: 10px;
 		}		
+		@include respondAt(1250px){
+			gap: 15px;
+		}
 	}
 	
 	&__category {
