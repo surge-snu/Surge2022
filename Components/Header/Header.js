@@ -123,7 +123,9 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
             {!user ? (
               <a
                 href="#login"
-                className={`${
+                className={`
+                route--highlight
+                ${
                   hash === "#login" || hash === "#signup" ? "route--active" : ""
                 } `}
               >
