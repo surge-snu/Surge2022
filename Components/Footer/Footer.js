@@ -56,7 +56,7 @@ export default function Footer() {
                 surge@snu.edu.in
               </a>
             </li>
-            <li className="FooterWrapper__right--RowIcon">
+            {/* <li className="FooterWrapper__right--RowIcon">
               <img
                 loading="lazy"
                 className="FooterWrapper__right--rowImage"
@@ -70,7 +70,7 @@ export default function Footer() {
               >
                 7078765510
               </a>
-            </li>
+            </li> */}
             <li className="FooterWrapper__right--RowIcon">
               <img
                 loading="lazy"
