@@ -13,7 +13,7 @@ export async function getServerSideProps(context) {
 
 export default function Team() {
 	
-	const teams = ["all", "content", "marketing", "design", "pr", "webdev"];
+	const teams = ["All", "Content", "Marketing", "Design", "PR & Sponsorship", "Web Development"];
 	const [team, setTeam] = React.useState(teams[0]);
 	
 	let members = [...Array(20).keys()]
@@ -39,31 +39,13 @@ export default function Team() {
         <p className="TeamPage__desc">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
-        <div className="TeamPage__categories">
-					<button
-						className={`TeamPage__category ${team === teams[0] ? "TeamPage__category--active" : ""}`}
-						onClick={() => setTeam(teams[0])}
-					>All</button>
-					<button
-						className={`TeamPage__category ${team === teams[1] ? "TeamPage__category--active" : ""}`}
-						onClick={() => setTeam(teams[1])}
-					>Content</button>
-					<button
-						className={`TeamPage__category ${team === teams[2] ? "TeamPage__category--active" : ""}`}
-						onClick={() => setTeam(teams[2])}
-					>Marketing</button>
-					<button
-						className={`TeamPage__category ${team === teams[3] ? "TeamPage__category--active" : ""}`}
-						onClick={() => setTeam(teams[3])}
-					>Design</button>
-					<button
-						className={`TeamPage__category ${team === teams[4] ? "TeamPage__category--active" : ""}`}
-						onClick={() => setTeam(teams[4])}
-					>PR & Sponsorship</button>
-					<button
-						className={`TeamPage__category ${team === teams[5] ? "TeamPage__category--active" : ""}`}
-						onClick={() => setTeam(teams[5])}
-					>Web Development</button>
+				<div className="TeamPage__categories">
+					{teams.map((t, i) => (
+						<button
+							className={`TeamPage__category ${team === t ? "TeamPage__category--active" : ""}`}
+							onClick={() => setTeam(t)}
+						>{t}</button>
+					))}
         </div>
       </div>
       <div className="TeamPage__grid">

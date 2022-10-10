@@ -61,20 +61,27 @@
 
 	&__categories {
 		@include box(85%);
-		@include make-flex($dir: row);
+		@include make-flex($dir: row, $just: center);
 		background-color: #363c45;
 		gap: 60px;
 		border-radius: 40px;
 		border: 1px solid #fff;
 		padding: 10px 40px;
-		flex-wrap: wrap;
+		overflow-x: auto;
+		
+		&::-webkit-scrollbar {
+			display: none;
+		}
 		
 		@include respondAt(1425px) {
 			gap: 30px;
-			padding: 10px;
+			// padding: 10px;
 		}		
 		@include respondAt(1250px){
-			gap: 15px;
+			// gap: 15px;
+		}
+		@include respondAt(1000px) {
+			justify-content: flex-start;
 		}
 	}
 	
