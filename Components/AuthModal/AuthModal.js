@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./AuthModal.scss";
 import { useRouter } from "next/router";
 import Login from "./Login/Login";
@@ -61,7 +61,8 @@ export default function AuthModal() {
             >
               &#10799;
             </span>
-            <h2>SURGE</h2>
+            {/* <h2>SURGE</h2> */}
+            <img className="AuthModal__logo" src="/Img/Surge_W_logo.png" />
             <div className="AuthModal__tabs">
               <a
                 href="#login"

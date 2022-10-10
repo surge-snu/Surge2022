@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 export default function useTeamForm({
   initialValues,
@@ -7,10 +7,10 @@ export default function useTeamForm({
   onChangeError,
   eventId,
 }) {
-  const [fields] = React.useState(new Set(Object.keys(initialValues)));
-  const [formData, setFormData] = React.useState(initialValues);
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [errors, setErrors] = React.useState(
+  const [fields] = useState(new Set(Object.keys(initialValues)));
+  const [formData, setFormData] = useState(initialValues);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState(
     Object.keys(initialValues).reduce(
       (prev, val) => ({ ...prev, [val]: {} }),
       {}
