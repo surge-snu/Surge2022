@@ -17,7 +17,7 @@
       font-size: 12px;
       font-family: Sequel100Black-45;
       line-height: 100%;
-      padding: 4px 6px 2px ;
+      padding: 4px 6px 2px;
       border-radius: 5px;
       background-color: #ffffff;
       color: #000000;
@@ -49,14 +49,17 @@
     @include make-flex($dir: column, $just: flex-start, $align: flex-start);
     gap: 10px;
     &--price,
-    &--calender {      
+    &--calender {
       @include make-flex($dir: row, $just: flex-start);
-      font-size: 13px;
-      font-family: Satoshi Variable, "Satoshi", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      // font-family: Satoshi Variable, "Satoshi", sans-serif;
+      font-family: "Ubuntu", sans-serif;
       gap: 5px;
-
+      
       p {
         @include box();
+        padding-top: 3px;
         @include make-flex();
       }
 
