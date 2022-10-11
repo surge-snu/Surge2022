@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
 
   const userData = await fetchUserData(context.req.session.user.email);
   return {
-    props: { user: context.req.session.user },
+    props: { user: userData },
   };
 }
 export default function MyHome({ user }) {
