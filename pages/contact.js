@@ -10,8 +10,8 @@ export default function Contact() {
         "https://images.unsplash.com/photo-1664261910581-ac3334994d32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       name: "Santhosh",
       position: "Web Development Lead",
-      phone: "1234567890",
-      email: "test",
+      phone: "+91 1234567890",
+      email: "test@gmail.com",
     },
     0,
     6
@@ -23,8 +23,8 @@ export default function Contact() {
         "https://images.unsplash.com/photo-1664261910581-ac3334994d32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       name: "Santhosh",
       position: "Web Development Lead",
-      phone: "1234567890",
-      email: "test",
+      phone: "+91 1234567890",
+      email: "test@gmail.com",
     },
     0,
     9
@@ -39,9 +39,9 @@ export default function Contact() {
           GET IN <span>TOUCH</span> WITH US
           <br /> FOR <span>MORE</span> INFORMATION
         </h1>
-        <p className="ContactPage__description">
+        {/* <p className="ContactPage__description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
+        </p> */}
       </div>
       <div className="ContactPage__tabs">
         <button
@@ -86,8 +86,7 @@ export default function Contact() {
 								/> */}
               </div>
               <div className="ContactPage__cardButton">
-                <p>Mail</p>
-                <img src="/Img/arrow-right.svg" width={20} height={20} />
+                <p>{item["email"]}</p>
               </div>
             </div>
           </div>
