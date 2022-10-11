@@ -89,7 +89,7 @@ export default function AuthModal() {
                   setHash("#reset-password");
                 }}
               >
-                <p>Reset pass</p>
+                <p>Reset password</p>
               </a>
             </div>
             {hash === "#login" && (
