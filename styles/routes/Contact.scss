@@ -20,48 +20,128 @@
     @include respondAt(480px) {
       padding: 0px 17px 80px;
     }
-		
-		&--top {
-			@include make-flex($dir: column, $just: center);
-			@include box(100%, auto);
-			text-align: center;
-		}
-	}
-	
-	&__title {
-		font-family: "Sequel100Black-105", "Helvetica", "Impact";
-		color: #ffffff;
-		font-size: 40px;
-		
-		span {
-			font-family: "Sequel100Black-86", "Helvetica", "Impact";
-			color: #cafa08;
-		}
-		
-		@include respondAt(950px) {
-			font-size: 30px;
-		}
-		@include respondAt(750px) {
-			font-size: 20px;
-		}
-		@include respondAt(550px) {
-			font-size: 15px;
-		}
-	}
-	
-	&__description {
-		font-family: Satoshi Variable, "Satoshi", sans-serif;
-		font-weight: 500;
-		font-size: 20px;
-		
-		@include respondAt(750px) {
-			font-size: 15px;
-		}
-		@include respondAt(550px) {
-			font-size: 12px;
-		}
-	}
-  
+
+    &--top {
+      @include make-flex($dir: column, $just: center);
+      @include box(100%, auto);
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-family: "Sequel100Black-105", "Helvetica", "Impact";
+    color: #ffffff;
+    font-size: 40px;
+
+    span {
+      font-family: "Sequel100Black-86", "Helvetica", "Impact";
+      color: #cafa08;
+    }
+
+    @include respondAt(950px) {
+      font-size: 30px;
+    }
+    @include respondAt(750px) {
+      font-size: 20px;
+    }
+    @include respondAt(550px) {
+      font-size: 15px;
+    }
+  }
+
+  &__description {
+    font-family: Satoshi Variable, "Satoshi", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+
+    @include respondAt(750px) {
+      font-size: 15px;
+    }
+    @include respondAt(550px) {
+      font-size: 12px;
+    }
+  }
+
+  &__tabs {
+    @include box(100%, auto);
+    @include make-flex($dir: row, $just: center);
+    gap: 30px;
+    font-family: "Sequel100Black-65", "Helvetica", "Impact";
+  }
+
+  &__tab {
+    cursor: pointer;
+    @include box(150px, auto);
+    @include make-flex();
+    padding: 7px 0;
+    background-color: #193559;
+    border-radius: 74px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Sequel100Black-65", "Helvetica", "Impact";
+    font-size: 17px;
+
+    @include respondAt(950px) {
+      @include box(120px, auto);
+      font-size: 12px;
+      padding: 3px 0;
+    }
+    @include respondAt(750px) {
+      @include box(100px, auto);
+      font-size: 10px;
+      padding: 2px 0;
+    }
+
+    &--active {
+      background-color: #ff4f46;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+
+    h4 {
+      font-family: "Sequel100Black-65";
+      font-size: 25px;
+      line-height: 100%;
+      text-transform: capitalize;
+      font-style: italic;
+      text-align: center;
+      color: #cafa08;
+    }
+  }
+
+  &__title {
+    font-family: "Sequel100Black-105", "Helvetica", "Impact";
+    color: #ffffff;
+    font-size: 40px;
+
+    span {
+      font-family: "Sequel100Black-86", "Helvetica", "Impact";
+      color: #cafa08;
+    }
+
+    @include respondAt(950px) {
+      font-size: 30px;
+    }
+    @include respondAt(750px) {
+      font-size: 20px;
+    }
+    @include respondAt(550px) {
+      font-size: 15px;
+    }
+  }
+
+  &__description {
+    font-family: Satoshi Variable, "Satoshi", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+
+    @include respondAt(750px) {
+      font-size: 15px;
+    }
+    @include respondAt(550px) {
+      font-size: 12px;
+    }
+  }
+
   &__tabs {
 		@include box(100%, auto);
     @include make-flex($dir: row, $just: center);
