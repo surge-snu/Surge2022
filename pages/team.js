@@ -2,29 +2,21 @@ import React from "react";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import "../styles/routes/Team.scss";
+import details from "../public/json/Surge_team_details.json";
 
 export async function getServerSideProps(context) {
   return {
     props: {
-      currentPath: context.req.url,
+			currentPath: context.req.url,
     },
   };
 }
 
 export default function Team() {
 	
-	const teams = ["All", "Content", "Marketing", "Design", "PR & Sponsorship", "Web Development"];
+	const teams = ["All", "Core", "Marketing", "Design", "Content", "Videography", "Public Relations", "Sponsorship", "Web Dev"];
 	const [team, setTeam] = React.useState(teams[0]);
-	
-	let members = [...Array(20).keys()]
-		.map((v) => (
-			{
-				"name": "Dark Lord " + v,
-				"position": "Web Development Lead",
-				"team": teams[(v % 5) + 1],
-			}
-		));
-	
+	const members = details;
 	
   return (
     <div className="TeamPage__container">
@@ -48,14 +40,15 @@ export default function Team() {
 					))}
         </div>
       </div>
-      <div className="TeamPage__grid">
+			<div className="TeamPage__grid">
 				{members
-					.filter((member) => team === teams[0] || member.team === team)
+					.filter((member) => team === teams[0] || member["team"] === team)
+					.sort((a, b) => (a["role"] == "Lead" ? -1 : 1))
 					.map((member) => (
 						<div className="TeamPage__card">
 							<img src="/Img/team.svg" className="TeamPage__cardImg" />
 							<p className="TeamPage__cardName"> {member["name"]}</p>
-							<p className="TeamPage__cardDesc">{member["position"]}</p>
+							<p className="TeamPage__cardDesc">{member["role"]}</p>
 						</div>
 					))
 				}

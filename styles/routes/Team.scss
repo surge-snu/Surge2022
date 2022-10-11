@@ -84,8 +84,8 @@
 		@include respondAt(1250px){
 			// gap: 15px;
 		}
+		justify-content: flex-start;
 		@include respondAt(1000px) {
-			justify-content: flex-start;
 		}
 	}
 	
