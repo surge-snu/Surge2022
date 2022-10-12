@@ -46,7 +46,7 @@ function MySidebar({ user }) {
       <div className="MySidebarWrapper__top">
         <Link href="/">
           <a className="MySidebarWrapper__top--right">
-            <img src="/Img/Arrow Right Variant.svg" />
+            <img alt="left arrow" src="/Img/Arrow Right Variant.svg" />
             <h2>Home</h2>
           </a>
         </Link>

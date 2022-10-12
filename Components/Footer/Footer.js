@@ -8,6 +8,7 @@ export default function Footer() {
         <div className="FooterWrapper__left">
           {/* <p className="FooterWrapper__left--logo"> Surge</p> */}
           <img
+            alt="Black Surge Logo"
             className="FooterWrapper__left--logo"
             src="/Img/Surge_Logo.png"
           />
@@ -44,6 +45,7 @@ export default function Footer() {
             <li className="FooterWrapper__right--rowHeading">Contacts</li>
             <li className="FooterWrapper__right--RowIcon">
               <img
+                alt="Mail"
                 loading="lazy"
                 className="FooterWrapper__right--rowImage"
                 src="/Img/mail.svg"
@@ -60,6 +62,7 @@ export default function Footer() {
             </li>
             <li className="FooterWrapper__right--RowIcon">
               <img
+                alt="Map"
                 loading="lazy"
                 className="FooterWrapper__right--rowImage"
                 src="/Img/map.svg"
@@ -80,6 +83,7 @@ export default function Footer() {
             <li className="FooterWrapper__right--rowHeading">Social Media</li>
             <li className="FooterWrapper__right--RowIcon">
               <img
+                alt="Instagram"
                 loading="lazy"
                 className="FooterWrapper__right--RowIcon"
                 src="/Img/instagram.svg"
@@ -95,6 +99,7 @@ export default function Footer() {
             </li>
             <li className="FooterWrapper__right--RowIcon">
               <img
+                alt="Youtube"
                 loading="lazy"
                 className="FooterWrapper__right--RowIcon"
                 src="/Img/youtube.svg"
@@ -112,6 +117,7 @@ export default function Footer() {
             </li>
             <li className="FooterWrapper__right--RowIcon">
               <img
+                alt="LinkedIn"
                 loading="lazy"
                 className="FooterWrapper__right--RowIcon"
                 src="/Img/linkedin.svg"
@@ -128,6 +134,7 @@ export default function Footer() {
             </li>
             <li className="FooterWrapper__right--RowIcon">
               <img
+                alt="Facebook"
                 loading="lazy"
                 className="FooterWrapper__right--RowIcon"
                 src="/Img/facebook.svg"

@@ -60,7 +60,11 @@ export default function Team() {
           .sort((a, b) => (a["role"] == "Lead" ? -1 : 1))
           .map((member) => (
             <div className="TeamPage__card">
-              <img src="/Img/team.svg" className="TeamPage__cardImg" />
+              <img
+                alt={member["name"]}
+                src="/Img/team.svg"
+                className="TeamPage__cardImg"
+              />
               <p className="TeamPage__cardName"> {member["name"]}</p>
               <p className="TeamPage__cardDesc">{member["role"]}</p>
             </div>

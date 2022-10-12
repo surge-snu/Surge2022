@@ -40,6 +40,7 @@ function DashRow({
             ))}
           </div>
           <img
+            alt="right arrow"
             src="/Img/Arrow Right Variant.svg"
             className="DashRowWrapper__button--arrow"
             style={{

@@ -228,6 +228,7 @@ EventTabContent.getLayout = function getLayout(page) {
           <a>EVENTS</a>
         </Link>
         <img
+          alt="arrow right"
           loading="lazy"
           width={20}
           className="Renegade__bottom--arrow"

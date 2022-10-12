@@ -16,11 +16,11 @@ export default function EventCard({ event }) {
         </div>
         <div className="EventCard__details">
           <div className="EventCard__details--price">
-            <img src="/Img/eye.svg" />
+            <img src="/Img/eye.svg" alt="eye image" />
             <p>₹{event.pricePerPlayer} / person</p>
           </div>
           <div className="EventCard__details--calender">
-            <img src="/Img/calendar.svg" />
+            <img src="/Img/calendar.svg" alt="Calender"/>
             <p>{`${date[0]}, ${date[2]} November ${date[3]}`}</p>
           </div>
         </div>

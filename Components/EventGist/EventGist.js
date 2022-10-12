@@ -53,6 +53,7 @@ export default function EventGist({ className, from, venue, price, event }) {
           <a className="eventGist__bottom__payment__cta--cta">
             Register Now!
             <img
+              alt="Right arrow"
               className="eventGist__bottom__payment__cta--cta--img"
               src="/Img/Arrow 9.svg"
             />

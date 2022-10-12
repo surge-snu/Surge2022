@@ -63,7 +63,7 @@ export default function Contact() {
         {(showCore ? core : poc).map((item, index) => (
           <div className="ContactPage__card" key={item["name"] + index}>
             <div className="ContactPage__card--top">
-              <img src={item["image"]} />
+              <img alt={item["name"]} src={item["image"]} />
               <div className="ContactPage__cardDetails">
                 <h3 className="ContactPage__cardDetails--name">
                   {item["name"]}
@@ -78,6 +78,7 @@ export default function Contact() {
                 <p>{item["phone"]}</p>
                 {/* <p>Place a call</p>
 								<img
+                  alt="Arrow right"
 									src="/Img/arrow-right black.svg"
 									width={20}
 									height={20}

@@ -43,7 +43,8 @@ export default function MyHome({ user }) {
             <span>
               {user.college === "" ? (
                 <>
-                  <img src="/Img/Red Exclamation.svg" height={14} /> Data Needed
+                  <img alt="Error" src="/Img/Red Exclamation.svg" height={14} />{" "}
+                  Data Needed
                 </>
               ) : (
                 user.college
@@ -70,7 +71,8 @@ export default function MyHome({ user }) {
             <span>
               {user.college === "" ? (
                 <>
-                  <img src="/Img/Red Exclamation.svg" height={14} /> Data Needed
+                  <img alt="Error" src="/Img/Red Exclamation.svg" height={14} />{" "}
+                  Data Needed
                 </>
               ) : (
                 user.college

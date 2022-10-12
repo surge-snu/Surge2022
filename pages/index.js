@@ -27,6 +27,7 @@ export default function Home() {
           }}
         />
         <img
+          alt="background image"
           loading="lazy"
           className="HeroSection__right"
           src="/Img/HeroImgRight.svg"
@@ -47,10 +48,10 @@ export default function Home() {
           </p>
           <div className="HeroSection__top--actionContainer">
             {/* <div className="HeroSection__top--action">
-              <img loading="lazy" src="/Img/DownArrow.svg" />
+              <img alt="down arrow" loading="lazy" src="/Img/DownArrow.svg" />
               <p>11 12 13 November</p>
             </div> */}
-						<p>11 12 13 November</p>
+            <p>11 12 13 November</p>
           </div>
           {/* <div className="HeroSection__top--date">
 						<p>
@@ -88,6 +89,7 @@ export default function Home() {
         </div>
         <div className="AboutSection__below">
           <img
+            alt="Football image"
             loading="lazy"
             className="AboutSection__below--image"
             src="/Img/football.svg"

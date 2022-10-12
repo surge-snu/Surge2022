@@ -79,7 +79,7 @@ export default function Renegade() {
 			</div>
 			{/* <div className="Renegade__bottom">
 				<p>EXPLORE GALLERY</p>
-				<img loading="lazy" className="Renegade__bottom--arrow" src="/Img/RightArrow.svg" />
+				<img alt="right arrow" loading="lazy" className="Renegade__bottom--arrow" src="/Img/RightArrow.svg" />
 			</div> */}
 		</div>
 	);

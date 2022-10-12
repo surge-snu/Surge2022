@@ -45,9 +45,13 @@ export default function MyEvents({ user }) {
                 <span>{team.Event.eventName}</span>,
                 <span>
                   {team.paymentStatus === "PAID" ? (
-                    <img src="/Img/Green Tick.svg" height={14} />
+                    <img alt="Success" src="/Img/Green Tick.svg" height={14} />
                   ) : (
-                    <img src="/Img/Red Exclamation.svg" height={14} />
+                    <img
+                      alt="Error"
+                      src="/Img/Red Exclamation.svg"
+                      height={14}
+                    />
                   )}
                   <p>{team.paymentStatus === "PAID" ? "Paid" : "Not Paid"}</p>
                 </span>,
@@ -93,9 +97,13 @@ export default function MyEvents({ user }) {
                 <span>{team.Event.eventName}</span>,
                 <span>
                   {team.paymentStatus === "PAID" ? (
-                    <img src="/Img/Green Tick.svg" height={14} />
+                    <img alt="Success" src="/Img/Green Tick.svg" height={14} />
                   ) : (
-                    <img src="/Img/Red Exclamation.svg" height={14} />
+                    <img
+                      alt="Error"
+                      src="/Img/Red Exclamation.svg"
+                      height={14}
+                    />
                   )}
                   <p>{team.paymentStatus === "PAID" ? "Paid" : "Not Paid"}</p>
                 </span>,

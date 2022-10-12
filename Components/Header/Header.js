@@ -49,7 +49,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
     <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
       <div className="HeaderWrapper__logo">
         <a href="/">
-          <img src="/Img/Surge_W_logo.png" />
+          <img alt="Surge white logo" src="/Img/Surge_W_logo.png" />
         </a>
       </div>
       <div
@@ -102,7 +102,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
                 setPath("");
               }}
             >
-              <img src="/Img/Surge_W_logo.png" />
+              <img alt="Surge White logo" src="/Img/Surge_W_logo.png" />
             </a>
           </Link>
         </span>

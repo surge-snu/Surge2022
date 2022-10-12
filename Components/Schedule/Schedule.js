@@ -10,11 +10,11 @@ export default function Schedule({ data }) {
             <h3 className="SchedulePage__slot--title">{item}</h3>
             <div className="SchedulePage__slot--content">
               <div className="SchedulePage__slot--date">
-                <img src="/Img/calender2.svg" />
+                <img alt="Calender" src="/Img/calender2.svg" />
                 <p>{data[item]}</p>
               </div>
               {/* <div className="SchedulePage__slot--time">
-                <img src="/Img/clock2.svg" />
+                <img alt="Clock" src="/Img/clock2.svg" />
                 <p>12:00 AM</p>
               </div> */}
             </div>

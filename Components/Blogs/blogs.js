@@ -24,6 +24,7 @@ export default function Blogs() {
             key={i}
           >
             <img
+              alt={article.title}
               src={article.image}
               className="Blogs__blogCard__image"
               fit="cover"

@@ -6,7 +6,7 @@ function RegistrationSuccess() {
   return (
     <div className="RegistrationSuccessWrapper">
       <h3>Your team has been added to Cart!</h3>
-      <img src="/Img/success.png" />
+      <img alt="Success" src="/Img/success.png" />
       <p>
         You can add more events to your cart or make payments for teams in your
         cart!
