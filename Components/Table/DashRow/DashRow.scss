@@ -37,6 +37,12 @@
         @include box(auto);
         @include make-flex($dir: row, $just: flex-start);
         gap: 10px;
+
+        h3 {
+          font-size: 18px;
+          font-family: "Sequel100Black-45";
+          text-align: center;
+        }
       }
     }
 
@@ -54,8 +60,25 @@
     overflow: hidden;
     max-height: 0;
 
+    h4 {
+      font-size: 16px;
+      font-family: "Sequel100Black-45";
+      text-align: center;
+      color: #cafa08;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    hr {
+      width: 100%;
+      border: none;
+      background-color: gray;
+      height: 1px;
+      margin-bottom: 10px;
+    }
     &--active {
-      max-height: 300px;
+      padding: 0 20px 20px;
+      max-height: 340px;
     }
   }
 }
