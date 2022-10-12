@@ -1,10 +1,10 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./ButtonGroup.scss";
 
 function ButtonGroup({ onFilterChange = () => {} }) {
-  const [activeFilter, setActiveFilter] = React.useState("all");
+  const [activeFilter, setActiveFilter] = useState("all");
 
-  React.useEffect(() => {
+  useEffect(() => {
     onFilterChange(activeFilter);
   }, [activeFilter]);
 

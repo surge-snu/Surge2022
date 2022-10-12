@@ -1,5 +1,5 @@
 import "./SignUp.scss";
-import React from "react";
+import { useEffect, useState } from "react";
 const bcrypt = require("bcryptjs");
 import PinInput from "react-pin-input";
 import useForm from "../../../hooks/useForm";
@@ -14,14 +14,14 @@ export default function SignUp({ onSignUp }) {
     password: "",
     confirmPassword: "",
   };
-  const [showOtp, setShowOtp] = React.useState(false);
-  const [cryptOtp, setCryptOtp] = React.useState("");
-  const [showLoader, setShowLoader] = React.useState(false);
-  const [otpError, setOtpError] = React.useState("");
-  const [duplicateError, setDuplicateError] = React.useState({});
+  const [showOtp, setShowOtp] = useState(false);
+  const [cryptOtp, setCryptOtp] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
+  const [otpError, setOtpError] = useState("");
+  const [duplicateError, setDuplicateError] = useState({});
 
-  const [isMobile, setIsMobile] = React.useState(false);
-  React.useEffect(() => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
     if (window.innerWidth < 500) {
       setIsMobile(true);
     } else {

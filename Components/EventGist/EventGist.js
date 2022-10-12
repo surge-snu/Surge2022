@@ -1,13 +1,13 @@
 import Link from "next/link";
-import React from "react";
+import { useEffect, useState } from "react";
 import { Cashify } from "../../utils/Cashify";
 import "./EventGist.scss";
 
 export default function EventGist({ className, from, venue, price, event }) {
   // create a countdown timer using From pram to today
-  const [countdown, setCountdown] = React.useState(0);
+  const [countdown, setCountdown] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       const today = new Date();
       const eventDate = new Date(from);

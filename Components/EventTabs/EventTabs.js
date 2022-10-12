@@ -1,17 +1,17 @@
 import Link from "next/link";
-import React from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./EventTabs.scss";
 
 function EventTabs({ eventId, currentTab }) {
-  const [activeTab, setActiveTab] = React.useState(currentTab);
-  const [hoverTab, setHoverTab] = React.useState(null);
-  const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
+  const [activeTab, setActiveTab] = useState(currentTab);
+  const [hoverTab, setHoverTab] = useState(null);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const { user } = useAuth();
   const redirectRegister = user === null;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const activeTabElem = document.getElementById(activeTab);
     const ghostTab = document.getElementById("ghost-tab");
     ghostTab.style.width = `${
@@ -20,7 +20,7 @@ function EventTabs({ eventId, currentTab }) {
     ghostTab.style.left = `${activeTabElem.parentElement.offsetLeft}px`;
   }, [activeTab]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (hoverTab) {
       const hoverTabElem = document.getElementById(hoverTab);
       const ghostTab = document.getElementById("hover-ghost-tab");
@@ -36,7 +36,7 @@ function EventTabs({ eventId, currentTab }) {
     }
   }, [hoverTab]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const mobileDropDown = document.querySelector(".EventTabs--mobile");
     if (!isDropDownOpen) {
       mobileDropDown.style.height = "50.5px";

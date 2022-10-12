@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
 import Header from "../../Components/Header/Header";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import DashHeader from "../../Components/Table/DashHeader/DashHeader";
@@ -26,8 +26,8 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyEvents({ user }) {
-  const [paidDropdownIndex, setPaidDropdownIndex] = React.useState(null);
-  const [unpaidDropdownIndex, setUnpaidDropdownIndex] = React.useState(null);
+  const [paidDropdownIndex, setPaidDropdownIndex] = useState(null);
+  const [unpaidDropdownIndex, setUnpaidDropdownIndex] = useState(null);
 
   return (
     <main className="MyEvents">

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import "../styles/routes/Contact.scss";
@@ -30,7 +30,7 @@ export default function Contact() {
     9
   );
 
-  const [showCore, setShowCore] = React.useState(true);
+  const [showCore, setShowCore] = useState(true);
 
   return (
     <div className="ContactPage__container">

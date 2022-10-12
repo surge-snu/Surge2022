@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
 import EventGist from "../../../Components/EventGist/EventGist";
 import EventTabs from "../../../Components/EventTabs/EventTabs";
 import Footer from "../../../Components/Footer/Footer";
@@ -59,9 +59,9 @@ export async function getServerSideProps(context) {
 
 export default function EventTabContent({ eventDetails, eventTab, user }) {
   const { tempTeamDetails, setTempTeamDetails } = useAuth();
-  const [teamDetails, setTeamDetails] = React.useState(tempTeamDetails);
+  const [teamDetails, setTeamDetails] = useState(tempTeamDetails);
 
-  const [registerStage, setRegisterStage] = React.useState("Details");
+  const [registerStage, setRegisterStage] = useState("Details");
 
   function switchContent(route) {
     switch (route) {

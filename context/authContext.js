@@ -1,8 +1,8 @@
 import { withIronSessionSsr } from "iron-session/next";
-import React from "react";
+import { createContext, useState } from "react";
 import { ironOptions } from "../lib/ironOptions";
 
-export const AuthContext = React.createContext({});
+export const AuthContext = createContext({});
 
 export const getUserFromSession = withIronSessionSsr(async ({ req }) => {
   if (req.session.user === undefined) {
@@ -14,8 +14,8 @@ export const getUserFromSession = withIronSessionSsr(async ({ req }) => {
 }, ironOptions);
 
 export function AuthProvider({ children, ssrUser, ...props }) {
-  const [user, setUser] = React.useState(ssrUser);
-  const [tempTeamDetails, setTempTeamDetails] = React.useState(null);
+  const [user, setUser] = useState(ssrUser);
+  const [tempTeamDetails, setTempTeamDetails] = useState(null);
 
   async function login(formData, setSetAuthError) {
     return fetch("/api/auth/login", {

@@ -1,8 +1,8 @@
-import React from "react";
+import { useState } from "react";
 import "./Newsletter.scss";
 
 export default function Newsletter() {
-  const [email, setEmail] = React.useState("");
+  const [email, setEmail] = useState("");
   const handler = async () => {
     const data = await fetch(`/api/notify-list?email=${email}`);
 

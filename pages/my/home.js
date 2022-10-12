@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import DashTable from "../../Components/Table/DashTable/DashTable";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import "../../styles/routes/My/My.scss";
@@ -23,8 +23,8 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyHome({ user }) {
-  const [personalIndex, setPersonalIndex] = React.useState(null);
-  const [accountIndex, setAccountIndex] = React.useState(null);
+  const [personalIndex, setPersonalIndex] = useState(null);
+  const [accountIndex, setAccountIndex] = useState(null);
 
   return (
     <div className="MyHome">

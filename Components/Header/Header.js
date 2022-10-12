@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Header.scss";
 import useAuth from "../../hooks/useAuth";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
-  const [navState, setNavState] = React.useState(false);
-  const [hash, setHash] = React.useState("");
+  const [navState, setNavState] = useState(false);
+  const [hash, setHash] = useState("");
 
-  const [path, setPath] = React.useState(currentPath.trim());
+  const [path, setPath] = useState(currentPath.trim());
   const { user } = useAuth();
 
   const router = useRouter();
@@ -22,7 +22,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
     }
   }, [pathNow]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 1) {
         document.querySelector(".HeaderWrapper").style.height = "70px";
@@ -41,7 +41,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
     };
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     setNavState(false);
   }, [path]);
 

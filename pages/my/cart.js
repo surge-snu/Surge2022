@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import "../../styles/routes/My/My.scss";
 import Header from "../../Components/Header/Header";
@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyCart({ user, allEvents }) {
-  const [localTeams, setLocalTeams] = React.useState(
+  const [localTeams, setLocalTeams] = useState(
     user.Team.filter((team) => team.paymentStatus === "NOT_PAID").map(
       (event) => {
         return { ...event, isSelected: false };
@@ -55,13 +55,13 @@ export default function MyCart({ user, allEvents }) {
     )
   );
 
-  const [selectedCount, setSelectedCount] = React.useState(0);
+  const [selectedCount, setSelectedCount] = useState(0);
 
   useEffect(() => {
     setSelectedCount(localTeams.filter((team) => team.isSelected).length);
   }, [localTeams]);
 
-  const [cartDropdown, setCartDropdown] = React.useState(false);
+  const [cartDropdown, setCartDropdown] = useState(false);
 
   return (
     <div className="MyCart">

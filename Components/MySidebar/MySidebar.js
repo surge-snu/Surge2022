@@ -1,11 +1,11 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./MySidebar.scss";
 import Link from "next/link";
 
 function MySidebar({ user }) {
-  const [activeTab, setActiveTab] = React.useState("home");
-  const [navState, setNavState] = React.useState(false);
+  const [activeTab, setActiveTab] = useState("home");
+  const [navState, setNavState] = useState(false);
   const cartCount = user.Team
     ? user.Team.reduce((acc, team) => {
         if (team.paymentStatus === "NOT_PAID") {
@@ -14,7 +14,8 @@ function MySidebar({ user }) {
         return acc;
       }, 0)
     : 0;
-  React.useEffect(() => {
+
+  useEffect(() => {
     setActiveTab(window.location.pathname.split("/my")[1].replace("/", ""));
   });
 

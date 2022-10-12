@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { registerTeam } from "../../operations/event.fetch";
 import BlurredSpinner from "../BlurredSpinner/BlurredSpinner";
@@ -9,7 +9,7 @@ import "./RegistrationSummary.scss";
 
 function RegistrationSummary({ setRegisterStage, user, eventId }) {
   const { tempTeamDetails, setTempTeamDetails } = useAuth();
-  const [showBlurredSpinner, setShowBlurredSpinner] = React.useState(false);
+  const [showBlurredSpinner, setShowBlurredSpinner] = useState(false);
   return (
     <div className="RegistrationSummaryWrapper">
       {showBlurredSpinner && (

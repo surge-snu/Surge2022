@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./ResetPassword.scss";
 const bcrypt = require("bcryptjs");
 import useForm from "../../../hooks/useForm";
@@ -14,15 +14,15 @@ function ResetPassword({ onPasswordReset }) {
     confirmPassword: "",
   };
 
-  const [showLoader, setShowLoader] = React.useState(false);
-  const [showOtp, setShowOtp] = React.useState(false);
-  const [otpError, setOtpError] = React.useState("");
-  const [cryptOtp, setCryptOtp] = React.useState("");
-  const [duplicateError, setDuplicateError] = React.useState({});
-  const [showPassFields, setShowPassFields] = React.useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+  const [showOtp, setShowOtp] = useState(false);
+  const [otpError, setOtpError] = useState("");
+  const [cryptOtp, setCryptOtp] = useState("");
+  const [duplicateError, setDuplicateError] = useState({});
+  const [showPassFields, setShowPassFields] = useState(false);
 
-  const [isMobile, setIsMobile] = React.useState(false);
-  React.useEffect(() => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
     if (window.innerWidth < 500) {
       setIsMobile(true);
     } else {

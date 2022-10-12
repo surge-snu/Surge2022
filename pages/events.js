@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 import { fetchAllEvents } from "../services/events.server";
 import "../styles/routes/Events/Events.scss";
 import ButtonGroup from "../Components/ButtonGroup/ButtonGroup";
-import React from "react";
+import { useState } from "react";
 
 export async function getServerSideProps(context) {
   let allEvents = await fetchAllEvents();
@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Events({ allEvents }) {
-  const [allFilteredEvents, setAllFilteredEvents] = React.useState(allEvents);
+  const [allFilteredEvents, setAllFilteredEvents] = useState(allEvents);
 
   return (
     <div className="EventsPage__container">

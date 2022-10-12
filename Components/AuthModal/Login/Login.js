@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useForm from "../../../hooks/useForm";
 import { isEmail, isPassword } from "../../../utils/validate";
@@ -12,8 +12,8 @@ export default function Login({ onLogin }) {
     password: "",
   };
 
-  const [authError, setSetAuthError] = React.useState({});
-  const [showLoader, setShowLoader] = React.useState(false);
+  const [authError, setSetAuthError] = useState({});
+  const [showLoader, setShowLoader] = useState(false);
 
   function validate(formValues) {
     const errs = {};

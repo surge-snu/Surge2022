@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./AuthModal.scss";
 import { useRouter } from "next/router";
 import Login from "./Login/Login";
@@ -6,11 +6,11 @@ import SignUp from "./SignUp/SignUp";
 import ResetPassword from "./ResetPassword/ResetPassword";
 
 export default function AuthModal() {
-  const [hash, setHash] = React.useState("");
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [hash, setHash] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setHash(window.location.hash);
 
     if (
@@ -37,7 +37,7 @@ export default function AuthModal() {
     });
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.getElementsByTagName("body")[0].style.overflow = "hidden";
     } else {

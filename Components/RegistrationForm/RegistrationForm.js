@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useTeamForm from "../../hooks/useTeamForm";
 import { isEmail, isName, isPhone, isRollNumber } from "../../utils/validate";
@@ -12,7 +12,7 @@ export default function RegistrationForm({
   onSubmitForm,
 }) {
   const { tempTeamDetails } = useAuth();
-  const [initialValues] = React.useState(
+  const [initialValues] = useState(
     tempTeamDetails
       ? tempTeamDetails
       : [...Array(minPlayers).keys()].map((item) => {
