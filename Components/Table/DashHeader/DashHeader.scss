@@ -15,4 +15,30 @@
       color: #cafa08;
     }
   }
+
+  &--cart {
+    padding: 10px 20px 10px 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    @include respondAt(610px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      & > span:nth-child(2) {
+        display: none;
+      }
+    }
+    @include respondAt(510px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      & > span:nth-child(2),
+      & > span:nth-child(3) {
+        display: none;
+      }
+    }
+    @include respondAt(420px) {
+      grid-template-columns: 1fr 1fr;
+      & > span:nth-child(2),
+      & > span:nth-child(3),
+      & > span:nth-child(5) {
+        display: none;
+      }
+    }
+  }
 }
