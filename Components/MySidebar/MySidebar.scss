@@ -39,9 +39,10 @@
       @include make-flex($dir: row);
       display: none;
 
-      @include respondAt(917px) {
+      @include respondAt(915px) {
         display: flex;
         height: 37px;
+        width: fit-content;
       }
     }
   }
