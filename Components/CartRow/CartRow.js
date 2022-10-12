@@ -2,15 +2,8 @@ import React from "react";
 import "./CartRow.scss";
 
 function CartRow({
-  dropdownIndex,
-  setDropdownIndex,
-  index,
   children,
   contentCols = [],
-  isColumn = true,
-  isDropDown = true,
-  colWidth = "1fr",
-  style,
 }) {
   return (
     <div className="CartRowWrapper">
