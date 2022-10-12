@@ -8,12 +8,14 @@ function DashHeader({
   style,
   useClass = false,
   className,
+  isTitle = true,
 }) {
   return (
     <div
-      className={`DashHeaderWrapper ${className} ${
-        isGreen ? "DashHeaderWrapper--green" : ""
-      }`}
+      className={`DashHeaderWrapper ${className} 
+      ${isGreen ? "DashHeaderWrapper--green" : ""}
+      ${isTitle ? "DashHeaderWrapper--title" : ""}
+      `}
       style={{
         gridTemplateColumns: !useClass && `repeat(${headerTitles.length}, 1fr)`,
         ...style,
