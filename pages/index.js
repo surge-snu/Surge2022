@@ -30,7 +30,7 @@ export default function Home() {
           alt="background image"
           loading="lazy"
           className="HeroSection__right"
-          src="/Img/HeroImgRight.svg"
+          src="/Img/HeroImgRight.png"
         />
         <div className="HeroSection__top">
           <h1 className="HeroSection__top--heading">
@@ -92,7 +92,7 @@ export default function Home() {
             alt="Football image"
             loading="lazy"
             className="AboutSection__below--image"
-            src="/Img/football.svg"
+            src="/Img/football.png"
           />
           <h1 className="AboutSection__below--title">ABOUT</h1>
         </div>

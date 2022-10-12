@@ -115,7 +115,7 @@
         font-size: 33px;
       }
       img {
-        height: 50px;
+        @include box(50px, 50px);
       }
     }
   }
