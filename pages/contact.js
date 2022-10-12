@@ -4,18 +4,15 @@ import Header from "../Components/Header/Header";
 import "../styles/routes/Contact.scss";
 
 export default function Contact() {
-  const core = [...Array(6).keys()].fill(
+  const core = [
     {
-      image:
-        "https://images.unsplash.com/photo-1664261910581-ac3334994d32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      name: "Santhosh",
-      position: "Web Development Lead",
-      phone: "+91 1234567890",
-      email: "test@gmail.com",
+      image: "/Img/Team/OC/Tejaswini.jpg",
+      name: "Tejaswini Satish",
+      position: "Core",
+      phone: "+91 8754017474",
+      email: "ts658@snu.edu.in",
     },
-    0,
-    6
-  );
+  ];
 
   const poc = [...Array(9).keys()].fill(
     {
@@ -53,17 +50,18 @@ export default function Contact() {
           CORE
         </button>
         <button
-          className={`ContactPage__tab ${
+          className={`ContactPage__tab ContactPage__tab--inactive ${
             showCore ? "" : "ContactPage__tab--active"
           }`}
+          disabled
           onClick={() => setShowCore(false)}
         >
           POC
         </button>
       </div>
       <div className="ContactPage__contacts">
-        {(showCore ? core : poc).map((item) => (
-          <div className="ContactPage__card" key={item["name"]}>
+        {(showCore ? core : poc).map((item, index) => (
+          <div className="ContactPage__card" key={item["name"] + index}>
             <div className="ContactPage__card--top">
               <img src={item["image"]} />
               <div className="ContactPage__cardDetails">
@@ -92,6 +90,8 @@ export default function Contact() {
           </div>
         ))}
       </div>
+
+      <h4>Other members coming soon!</h4>
     </div>
   );
 }
