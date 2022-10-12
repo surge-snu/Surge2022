@@ -50,7 +50,10 @@ export default function EventGist({ className, from, venue, price, event }) {
           <p>Max. {event.maxPlayers} players per team.</p>
         </div>
         <Link href={`/event/${event.eventId}/register`}>
-          <a className="eventGist__bottom__payment__cta--cta">
+          <a
+            className="eventGist__bottom__payment__cta--cta"
+            aria-label="Register for this event"
+          >
             Register Now!
             <img
               alt="Right arrow"

@@ -16,6 +16,7 @@ export default function Newsletter() {
   return (
     <div className="Newsletter">
       <iframe
+        title="Google maps to Shiv Nadar Institute of Eminence"
         width="100%"
         height="100%"
         className="Newsletter__container"

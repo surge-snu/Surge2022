@@ -225,7 +225,7 @@ EventTabContent.getLayout = function getLayout(page) {
       />
       <div className="EventPage__header">
         <Link href="/events">
-          <a>EVENTS</a>
+          <a aria-label="Go to events page">EVENTS</a>
         </Link>
         <img
           alt="arrow right"

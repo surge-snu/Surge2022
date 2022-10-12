@@ -22,6 +22,7 @@ export default function Blogs() {
             href={article.link}
             target="_blank"
             key={i}
+            aria-label={article.title}
           >
             <img
               alt={article.title}

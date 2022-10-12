@@ -48,7 +48,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   return (
     <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
       <div className="HeaderWrapper__logo">
-        <a href="/">
+        <a href="/" aria-label="Go to home page">
           <img alt="Surge white logo" src="/Img/Surge_W_logo.png" />
         </a>
       </div>
@@ -101,6 +101,7 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
               onClick={() => {
                 setPath("");
               }}
+              aria-label="Go to home page"
             >
               <img alt="Surge White logo" src="/Img/Surge_W_logo.png" />
             </a>

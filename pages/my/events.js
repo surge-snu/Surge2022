@@ -131,7 +131,7 @@ export default function MyEvents({ user }) {
                 )}
               </h3>
               <Link href="/my/cart">
-                <a className="MyHome__greenButton">Pay now</a>
+                <a className="MyHome__greenButton" aria-label="Go to cart and Pay now">Pay now</a>
               </Link>
             </DashRow>
           )

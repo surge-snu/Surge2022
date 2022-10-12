@@ -20,13 +20,16 @@ export default function EventCard({ event }) {
             <p>₹{event.pricePerPlayer} / person</p>
           </div>
           <div className="EventCard__details--calender">
-            <img src="/Img/calendar.svg" alt="Calender"/>
+            <img src="/Img/calendar.svg" alt="Calender" />
             <p>{`${date[0]}, ${date[2]} November ${date[3]}`}</p>
           </div>
         </div>
       </div>
       <Link href={`/event/${event.eventId}/overview`}>
-        <a className="EventCard__bottom">
+        <a
+          className="EventCard__bottom"
+          aria-label={`Register for ${event.eventName} (${event.category})`}
+        >
           <span className="EventCard__bottom--register">Register</span>
           <svg
             width="15"

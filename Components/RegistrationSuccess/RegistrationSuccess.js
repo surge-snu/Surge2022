@@ -13,10 +13,10 @@ function RegistrationSuccess() {
       </p>
       <div className="RegistrationSuccessWrapper__actions">
         <Link href="/events">
-          <a>Events</a>
+          <a aria-label="Go to all events">Events</a>
         </Link>
         <Link href="/my/cart">
-          <a>Cart</a>
+          <a aria-label="Go to your cart">Cart</a>
         </Link>
       </div>
     </div>
