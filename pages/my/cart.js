@@ -12,6 +12,7 @@ import { payForCart } from "../../operations/event.fetch";
 import DashTable from "../../Components/Table/DashTable/DashTable";
 import DashHeader from "../../Components/Table/DashHeader/DashHeader";
 import CartRow from "../../Components/CartRow/CartRow";
+import DashRow from "../../Components/Table/DashRow/DashRow";
 
 export async function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
@@ -71,8 +72,26 @@ export default function MyCart({ user, allEvents }) {
             headerTitles={["Game", "Payment", "Cost", "Total", "Action"]}
             className="DashHeaderWrapper--cart"
             useClass={true}
+            isTitle={false}
           />
-
+          {selectedCount === 0 && (
+            <DashRow
+              isDropDown={false}
+              index={0}
+              style={{
+                gridTemplateColumns: "auto",
+                justifyContent: "center",
+                height: "fit-content",
+                padding: "0 20px",
+              }}
+              parentStyle={{
+                height: "fit-content",
+              }}
+              contentCols={[
+                <h3>Select Teams from the Registered Teams to make payment</h3>,
+              ]}
+            />
+          )}
           {localTeams
             .filter((team) => team.isSelected)
             .map((team, index) => {
@@ -163,12 +182,13 @@ export default function MyCart({ user, allEvents }) {
         </DashTable>
       </div>
       <div className="MyCart__cartSection">
-        <h2>Cart Content</h2>
+        <h2>Registered Teams</h2>
         <DashTable>
           <DashHeader
             headerTitles={["Game", "Payment", "Cost", "Total", "Action"]}
             className="DashHeaderWrapper--cart"
             useClass={true}
+            isTitle={false}
           />
 
           {localTeams
@@ -280,8 +300,7 @@ export default function MyCart({ user, allEvents }) {
                       }, 0)
                     );
                   }, 0)
-              )}{" "}
-              /-
+              ) + "/-"}
             </span>
           </div>
           <button
