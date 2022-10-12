@@ -16,6 +16,21 @@ export async function fetchUserData(email) {
     include: {
       Team: {
         include: {
+          Event: {
+            select: {
+              category: true,
+              winnerPrize: true,
+              winningTeamPrize: true,
+              runnerUpTeamPrize: true,
+              runnerUpPrize: true,
+              minPlayers: true,
+              maxPlayers: true,
+              pricePerPlayer: true,
+              venue: true,
+              location: true,
+              eventName: true,
+            },
+          },
           TeamMembers: {
             select: {
               id: true,
@@ -33,7 +48,7 @@ export async function fetchUserData(email) {
               teamId: true,
               paymentId: true,
               amount: true,
-            }
+            },
           },
         },
       },
