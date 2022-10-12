@@ -1,12 +1,5 @@
 import React from "react";
-
-// import "../styles/routes/Home.scss";
-import EventCard from "../Components/EventCard/EventCard";
-import SubDetails from "../Components/SubDetails/SubDetails";
-import EventGist from "../Components/EventGist/EventGist";
-import TeamMember from "../Components/TeamMember/TeamMember";
-import TeamGrid from "../Components/TeamGrid/TeamGrid";
-import ScrollMenu from "../Components/ScrollMenu/ScrollableMenu";
+import SportScroll from "../Components/SportScroll/SportScroll";
 
 export default function Demo() {
   return (
@@ -17,7 +10,7 @@ export default function Demo() {
         alignItems: "center",
       }}
     >
-      <ScrollMenu />
+      <SportScroll />
     </div>
   );
 }
