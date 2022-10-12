@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MySidebar from "../../Components/MySidebar/MySidebar";
 import "../../styles/routes/My/My.scss";
 import Header from "../../Components/Header/Header";
@@ -9,6 +9,9 @@ import {
 } from "../../services/events.server";
 import { Cashify } from "../../utils/Cashify";
 import { payForCart } from "../../operations/event.fetch";
+import DashTable from "../../Components/Table/DashTable/DashTable";
+import DashHeader from "../../Components/Table/DashHeader/DashHeader";
+import CartRow from "../../Components/CartRow/CartRow";
 
 export async function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
@@ -51,96 +54,237 @@ export default function MyCart({ user, allEvents }) {
     )
   );
 
+  const [selectedCount, setSelectedCount] = React.useState(0);
+
+  useEffect(() => {
+    setSelectedCount(localTeams.filter((team) => team.isSelected).length);
+  }, [localTeams]);
+
+  const [cartDropdown, setCartDropdown] = React.useState(false);
+  console.log(localTeams);
   return (
     <div className="MyCart">
       <div className="MyCart__cartSection">
         <h2>Selected for payment</h2>
-        {localTeams
-          .filter((team) => team.isSelected)
-          .map((team) => {
-            const event = allEvents.find(
-              (event) => event.eventId === team.eventId
-            );
-            return (
-              <div
-                className="MyCart__team"
-                key={team.teamId}
-                style={{
-                  width: "100%",
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-                  gap: "1rem",
-                  gridTemplateRows: `repeat(${team.length}, 1fr)`,
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={team.isSelected}
-                  onChange={() => {
-                    setLocalTeams(
-                      localTeams.map((localTeam) => {
-                        if (localTeam.teamId === team.teamId) {
-                          return {
-                            ...localTeam,
-                            isSelected: !localTeam.isSelected,
-                          };
-                        }
-                        return localTeam;
-                      })
-                    );
-                  }}
-                />
-                <span>{team.teamId}</span>
-                <span>{event.eventName}</span>
-                <span>
-                  {team.paymentStatus === "NOT_PAID" ? "Not Paid" : "Paid"}
-                </span>
-                <span>
-                  {team.TeamMembers.length}/{event.maxPlayers}
-                </span>
-                <span>{Cashify(event.pricePerPlayer)}</span>
-                <span>
-                  {Cashify(
-                    team.TeamMembers.reduce((acc, _) => {
-                      return acc + event.pricePerPlayer;
-                    }, 0)
-                  )}
-                </span>
-              </div>
-            );
-          })}
+        <DashTable>
+          <DashHeader
+            headerTitles={["Game", "Payment", "Cost", "Total", "Action"]}
+            className="DashHeaderWrapper--cart"
+            useClass={true}
+          />
 
-        <div>
-          <h2>Total</h2>
-          <span>
-            {Cashify(
-              localTeams
-                .filter((team) => team.isSelected)
-                .reduce((acc, team) => {
-                  const event = allEvents.find(
-                    (event) => event.eventId === team.eventId
-                  );
-                  return (
-                    acc +
-                    team.TeamMembers.reduce((acc, _) => {
-                      return acc + event.pricePerPlayer;
-                    }, 0)
-                  );
-                }, 0)
-            )}
-          </span>
+          {localTeams
+            .filter((team) => team.isSelected)
+            .map((team, index) => {
+              const event = allEvents.find(
+                (event) => event.eventId === team.eventId
+              );
+              return (
+                <CartRow
+                  className="MyCart__team"
+                  key={team.teamId}
+                  index={index}
+                  dropdownIndex={cartDropdown}
+                  style={{ padding: "0 20px" }}
+                  setDropdownIndex={setCartDropdown}
+                  isDropDown={true}
+                  contentCols={[
+                    <span>{event.eventName}</span>,
+                    <span>
+                      {team.paymentStatus === "NOT_PAID" ? "Not Paid" : "Paid"}
+                    </span>,
+                    <span>
+                      {team.TeamMembers.length} x{" "}
+                      {Cashify(event.pricePerPlayer)}
+                    </span>,
+                    <span>
+                      {Cashify(
+                        team.TeamMembers.reduce((acc, _) => {
+                          return acc + event.pricePerPlayer;
+                        }, 0)
+                      )}
+                    </span>,
+                    <button
+                      className="MyCart__team--removeButton"
+                      onClick={() => {
+                        setLocalTeams(
+                          localTeams.map((localTeam) => {
+                            if (localTeam.teamId === team.teamId) {
+                              return {
+                                ...localTeam,
+                                isSelected: !localTeam.isSelected,
+                              };
+                            }
+                            return localTeam;
+                          })
+                        );
+                      }}
+                    >
+                      {team.isSelected ? "Remove" : "Add to cart"}
+                    </button>,
+                  ]}
+                >
+                  <span>Team ID: {team.teamId}</span>
+                  <span>
+                    Number of players: {team.TeamMembers.length}/
+                    {event.maxPlayers}
+                  </span>
+                  <h4>Team Members</h4>
+                  <ul>
+                    {team.TeamMembers.map((member, index) => (
+                      <li key={index}>
+                        {member.name} ({member.playerType})
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="MyCart__team--action">
+                    <button
+                      className="MyCart__team--removeButton"
+                      onClick={() => {
+                        setLocalTeams(
+                          localTeams.map((localTeam) => {
+                            if (localTeam.teamId === team.teamId) {
+                              return {
+                                ...localTeam,
+                                isSelected: !localTeam.isSelected,
+                              };
+                            }
+                            return localTeam;
+                          })
+                        );
+                      }}
+                    >
+                      {team.isSelected ? "Remove" : "Add to cart"}
+                    </button>
+                  </div>
+                </CartRow>
+              );
+            })}
+        </DashTable>
+      </div>
+      <div className="MyCart__cartSection">
+        <h2>Cart Content</h2>
+        <DashTable>
+          <DashHeader
+            headerTitles={["Game", "Payment", "Cost", "Total", "Action"]}
+            className="DashHeaderWrapper--cart"
+            useClass={true}
+          />
+
+          {localTeams
+            .filter((team) => !team.isSelected)
+            .map((team, index) => {
+              const event = allEvents.find(
+                (event) => event.eventId === team.eventId
+              );
+              return (
+                <CartRow
+                  className="MyCart__team"
+                  key={team.teamId}
+                  index={index}
+                  dropdownIndex={cartDropdown}
+                  style={{ padding: "0 20px" }}
+                  setDropdownIndex={setCartDropdown}
+                  isDropDown={true}
+                  contentCols={[
+                    <span>{event.eventName}</span>,
+                    <span>
+                      {team.paymentStatus === "NOT_PAID" ? "Not Paid" : "Paid"}
+                    </span>,
+                    <span>
+                      {team.TeamMembers.length} x{" "}
+                      {Cashify(event.pricePerPlayer)}
+                    </span>,
+                    <span>
+                      {Cashify(
+                        team.TeamMembers.reduce((acc, _) => {
+                          return acc + event.pricePerPlayer;
+                        }, 0)
+                      )}
+                    </span>,
+                    <button
+                      className="MyCart__team--addButton"
+                      onClick={() => {
+                        setLocalTeams(
+                          localTeams.map((localTeam) => {
+                            if (localTeam.teamId === team.teamId) {
+                              return {
+                                ...localTeam,
+                                isSelected: !localTeam.isSelected,
+                              };
+                            }
+                            return localTeam;
+                          })
+                        );
+                      }}
+                    >
+                      {team.isSelected ? "Remove from cart" : "Add to cart"}
+                    </button>,
+                  ]}
+                >
+                  <span>Team ID: {team.teamId}</span>
+                  <span>
+                    Number of players: {team.TeamMembers.length}/
+                    {event.maxPlayers}
+                  </span>
+                  <h4>Team Members</h4>
+                  <ul>
+                    {team.TeamMembers.map((member, index) => (
+                      <li key={index}>
+                        {member.name} ({member.playerType})
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="MyCart__team--action">
+                    <button
+                      className="MyCart__team--addButton"
+                      onClick={() => {
+                        setLocalTeams(
+                          localTeams.map((localTeam) => {
+                            if (localTeam.teamId === team.teamId) {
+                              return {
+                                ...localTeam,
+                                isSelected: !localTeam.isSelected,
+                              };
+                            }
+                            return localTeam;
+                          })
+                        );
+                      }}
+                    >
+                      {team.isSelected ? "Remove from cart" : "Add to cart"}
+                    </button>
+                  </div>
+                </CartRow>
+              );
+            })}
+        </DashTable>
+      </div>
+
+      {selectedCount > 0 && (
+        <div className="MyCart__CheckoutBox">
+          <div className="MyCart__CheckoutBox--left">
+            <h2>Grand Total: </h2>
+            <span>
+              {Cashify(
+                localTeams
+                  .filter((team) => team.isSelected)
+                  .reduce((acc, team) => {
+                    const event = allEvents.find(
+                      (event) => event.eventId === team.eventId
+                    );
+                    return (
+                      acc +
+                      team.TeamMembers.reduce((acc, _) => {
+                        return acc + event.pricePerPlayer;
+                      }, 0)
+                    );
+                  }, 0)
+              )}{" "}
+              /-
+            </span>
+          </div>
           <button
-            style={{
-              width: "100%",
-              height: "30px",
-              backgroundColor: "#f9a826",
-              color: "white",
-              border: "none",
-              borderRadius: "7px",
-              fontSize: "18px",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
             onClick={() => {
               const paySplit = localTeams
                 .filter((team) => team.isSelected)
@@ -165,64 +309,7 @@ export default function MyCart({ user, allEvents }) {
             Pay Now
           </button>
         </div>
-      </div>
-      <div className="MyCart__cartSection">
-        <h2>Cart Content</h2>
-        {localTeams
-          .filter((team) => !team.isSelected)
-          .map((team) => {
-            const event = allEvents.find(
-              (event) => event.eventId === team.eventId
-            );
-            return (
-              <div
-                className="MyCart__team"
-                key={team.teamId}
-                style={{
-                  width: "100%",
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-                  gap: "1rem",
-                  gridTemplateRows: `repeat(${team.length}, 1fr)`,
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={team.isSelected}
-                  onChange={() => {
-                    setLocalTeams(
-                      localTeams.map((localTeam) => {
-                        if (localTeam.teamId === team.teamId) {
-                          return {
-                            ...localTeam,
-                            isSelected: !localTeam.isSelected,
-                          };
-                        }
-                        return localTeam;
-                      })
-                    );
-                  }}
-                />
-                <span>{team.teamId}</span>
-                <span>{event.eventName}</span>
-                <span>
-                  {team.paymentStatus === "NOT_PAID" ? "Not Paid" : "Paid"}
-                </span>
-                <span>
-                  {team.TeamMembers.length}/{event.maxPlayers}
-                </span>
-                <span>{Cashify(event.pricePerPlayer)}</span>
-                <span>
-                  {Cashify(
-                    team.TeamMembers.reduce((acc, _) => {
-                      return acc + event.pricePerPlayer;
-                    }, 0)
-                  )}
-                </span>
-              </div>
-            );
-          })}
-      </div>
+      )}
     </div>
   );
 }
