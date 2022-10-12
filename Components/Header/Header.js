@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Header.scss";
 import useAuth from "../../hooks/useAuth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
   const [navState, setNavState] = React.useState(false);
@@ -9,6 +10,17 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
 
   const [path, setPath] = React.useState(currentPath.trim());
   const { user } = useAuth();
+
+  const router = useRouter();
+  const pathNow = router.route;
+
+  useEffect(() => {
+    if (pathNow !== "/") {
+      setPath(pathNow.replace("/", "").trim());
+    } else {
+      setPath(pathNow);
+    }
+  }, [pathNow]);
 
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -123,7 +135,9 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
             {!user ? (
               <a
                 href="#login"
-                className={`${
+                className={`
+                route--highlight
+                ${
                   hash === "#login" || hash === "#signup" ? "route--active" : ""
                 } `}
               >

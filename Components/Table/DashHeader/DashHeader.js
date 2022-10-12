@@ -2,14 +2,22 @@ import React from "react";
 
 import "./DashHeader.scss";
 
-function DashHeader({ headerTitles = [], isGreen = true, style }) {
+function DashHeader({
+  headerTitles = [],
+  isGreen = true,
+  style,
+  useClass = false,
+  className,
+  isTitle = true,
+}) {
   return (
     <div
-      className={`DashHeaderWrapper ${
-        isGreen ? "DashHeaderWrapper--green" : ""
-      }`}
+      className={`DashHeaderWrapper ${className} 
+      ${isGreen ? "DashHeaderWrapper--green" : ""}
+      ${isTitle ? "DashHeaderWrapper--title" : ""}
+      `}
       style={{
-        gridTemplateColumns: `repeat(${headerTitles.length}, 1fr)`,
+        gridTemplateColumns: !useClass && `repeat(${headerTitles.length}, 1fr)`,
         ...style,
       }}
     >

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./Footer.scss";
 
 export default function Footer() {
@@ -19,24 +20,24 @@ export default function Footer() {
           <ul className="FooterWrapper__right--Service">
             <li className="FooterWrapper__right--rowHeading">Pages</li>
             <li>
-              <a className="FooterWrapper__right--rowItem" href="/">
-                Home
-              </a>
+              <Link href="/">
+                <a className="FooterWrapper__right--rowItem">Home</a>
+              </Link>
             </li>
             <li>
-              <a className="FooterWrapper__right--rowItem" href="/team">
-                Team
-              </a>
+              <Link href="/team">
+                <a className="FooterWrapper__right--rowItem">Team</a>
+              </Link>
             </li>
             <li>
-              <a className="FooterWrapper__right--rowItem" href="/gallery">
-                Gallery
-              </a>
+              <Link href="/gallery">
+                <a className="FooterWrapper__right--rowItem">Gallery</a>
+              </Link>
             </li>
             <li>
-              <a className="FooterWrapper__right--rowItem" href="/events">
-                Events
-              </a>
+              <Link href="/events">
+                <a className="FooterWrapper__right--rowItem">Events</a>
+              </Link>
             </li>
           </ul>
           <ul className="FooterWrapper__right--Service">
@@ -47,11 +48,12 @@ export default function Footer() {
                 className="FooterWrapper__right--rowImage"
                 src="/Img/mail.svg"
               />
+
               <a
                 target="_blank"
                 referrerPolicy="no-referrer"
                 className="FooterWrapper__right--rowItem"
-                href="mailto:"
+                href="mailto:surge@snu.edu.in"
               >
                 surge@snu.edu.in
               </a>
@@ -60,23 +62,9 @@ export default function Footer() {
               <img
                 loading="lazy"
                 className="FooterWrapper__right--rowImage"
-                src="/Img/phone.svg"
-              />
-              <a
-                target="_blank"
-                referrerPolicy="no-referrer"
-                className="FooterWrapper__right--rowItem"
-                href="tel:"
-              >
-                7078765510
-              </a>
-            </li>
-            <li className="FooterWrapper__right--RowIcon">
-              <img
-                loading="lazy"
-                className="FooterWrapper__right--rowImage"
                 src="/Img/map.svg"
               />
+
               <a
                 target="_blank"
                 referrerPolicy="no-referrer"
@@ -112,11 +100,12 @@ export default function Footer() {
                 src="/Img/youtube.svg"
                 width={20}
               />
+
               <a
                 target="_blank"
                 referrerPolicy="no-referrer"
                 className="FooterWrapper__right--rowItem"
-                href="#"
+                href="https://youtube.com/channel/UCH3NnboPus4MEmfqU5oPdqA"
               >
                 Surge
               </a>
@@ -127,6 +116,7 @@ export default function Footer() {
                 className="FooterWrapper__right--RowIcon"
                 src="/Img/linkedin.svg"
               />
+
               <a
                 target="_blank"
                 referrerPolicy="no-referrer"
@@ -142,6 +132,7 @@ export default function Footer() {
                 className="FooterWrapper__right--RowIcon"
                 src="/Img/facebook.svg"
               />
+
               <a
                 target="_blank"
                 referrerPolicy="no-referrer"

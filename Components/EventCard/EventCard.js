@@ -2,10 +2,12 @@ import Link from "next/link";
 import "./EventCard.scss";
 
 export default function EventCard({ event }) {
+  const date = new Date(event.dateFrom).toString().split(" ");
+
   return (
     <div className="EventCard">
       <div className="EventCard__top">
-        <div className="EventCard__top--indoor">Indoor</div>
+        <div className="EventCard__top--indoor">{event.location}</div>
         <div className="EventCard__top--title">
           <h2>
             {event.eventName} ({event.category})
@@ -19,7 +21,7 @@ export default function EventCard({ event }) {
           </div>
           <div className="EventCard__details--calender">
             <img src="/Img/calendar.svg" />
-            <p>{new Date(event.dateFrom).toUTCString()}</p>
+            <p>{`${date[0]}, ${date[2]} November ${date[3]}`}</p>
           </div>
         </div>
       </div>

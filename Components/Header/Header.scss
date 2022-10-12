@@ -171,26 +171,33 @@
         }
       }
 
-      .route--active {
-        background-color: #cafa0a;
-        color: #0f1621;
-        border: 1px solid transparent;
+      .route {
+        &--highlight {
+          
+          &:before {
+            transition: transform 0.2s ease-in-out;
+            z-index: -1;
+            @include box();
+            content: "";
+            position: absolute;
+            border: 1px solid transparent;
+            top: 0;
+            left: 0;
+            border: 1px dashed #ffffff;
+            transform: translate(3px, 3px);
 
-        &:before {
-          z-index: -1;
-          @include box();
-          content: "";
-          position: absolute;
-          background-color: #ffffff;
-          transform: translate(3px, 3px);
-        }
-        &:hover,
-        &:focus {
+            // animation: HoverEffect 1s ease-in-out infinite;
+          }
+
           outline: none;
-          border: 1px solid transparent;
+          background-color: #0f1621;
+          border: 1px dashed #cafa0a;
+        }
 
+        &--active {
           background-color: #cafa0a;
           color: #0f1621;
+          border: 1px solid transparent;
 
           &:before {
             z-index: -1;
@@ -199,6 +206,23 @@
             position: absolute;
             background-color: #ffffff;
             transform: translate(3px, 3px);
+          }
+          &:hover,
+          &:focus {
+            outline: none;
+            border: 1px solid transparent;
+
+            background-color: #cafa0a;
+            color: #0f1621;
+
+            &:before {
+              z-index: -1;
+              @include box();
+              content: "";
+              position: absolute;
+              background-color: #ffffff;
+              transform: translate(3px, 3px);
+            }
           }
         }
       }
@@ -261,5 +285,18 @@
   }
   #NavBarInput:checked ~ .hamButton > label > .span.HL3 {
     transform: rotate(-45deg) translate(4px, 0px);
+  }
+}
+
+@keyframes HoverEffect {
+  // make hover effect
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(3px, 3px);
+  }
+  100% {
+    transform: translate(0px, 0px);
   }
 }

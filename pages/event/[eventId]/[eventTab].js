@@ -60,7 +60,6 @@ export async function getServerSideProps(context) {
 export default function EventTabContent({ eventDetails, eventTab, user }) {
   const { tempTeamDetails, setTempTeamDetails } = useAuth();
   const [teamDetails, setTeamDetails] = React.useState(tempTeamDetails);
-  // console.log(tempTeamDetails);
 
   const [registerStage, setRegisterStage] = React.useState("Details");
 

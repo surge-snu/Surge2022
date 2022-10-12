@@ -12,6 +12,7 @@ function DashRow({
   isDropDown = true,
   colWidth = "1fr",
   style,
+  parentStyle = {},
 }) {
   return (
     <div className="DashRowWrapper">
@@ -49,7 +50,7 @@ function DashRow({
           />
         </button>
       ) : (
-        <div className="DashRowWrapper__button">
+        <div className="DashRowWrapper__button" style={{ ...parentStyle }}>
           <div
             className="DashRowWrapper__button--content"
             style={{

@@ -1,17 +1,23 @@
-.DashRowWrapper {
+.CartRowWrapper {
   @include box($height: auto);
   min-height: 45px;
   @include make-flex($dir: column);
   background: none;
   border: none;
   outline: none;
-  cursor: pointer;
   position: relative;
   font-family: "Sequel100Black-45";
   border-top: rgba(244, 244, 244, 0.6) 1px solid;
   font-size: 12px;
   p {
     text-align: left;
+  }
+
+  hr {
+    width: 90%;
+    background-color: rgba(244, 244, 244, 0.6);
+    height: 1px;
+    border: none;
   }
 
   &__button {
@@ -28,20 +34,36 @@
       @include box();
       // @include make-flex($dir: row, $just: flex-start);
       display: grid;
-      // grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       gap: 10px;
-      padding-left: 20px;
+      padding: 0 20px;
 
       span {
         // flex-grow: 1;
         @include box(auto);
         @include make-flex($dir: row, $just: flex-start);
         gap: 10px;
+      }
 
-        h3 {
-          font-size: 18px;
-          font-family: "Sequel100Black-45";
-          text-align: center;
+      @include respondAt(610px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        & > span:nth-child(2) {
+          display: none;
+        }
+      }
+      @include respondAt(510px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        & > span:nth-child(2),
+        & > span:nth-child(3) {
+          display: none;
+        }
+      }
+      @include respondAt(420px) {
+        grid-template-columns: 1fr 1fr;
+        & > span:nth-child(2),
+        & > span:nth-child(3),
+        & > span:nth-child(5) {
+          display: none;
         }
       }
     }
@@ -58,7 +80,8 @@
     @include make-flex($dir: column, $align: flex-start, $just: flex-start);
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-    max-height: 0;
+    // max-height: 0;
+    padding: 20px;
 
     h4 {
       font-size: 16px;
@@ -68,17 +91,6 @@
     }
     ul {
       padding-left: 20px;
-    }
-    hr {
-      width: 100%;
-      border: none;
-      background-color: gray;
-      height: 1px;
-      margin-bottom: 10px;
-    }
-    &--active {
-      padding: 0 20px 20px;
-      max-height: 340px;
     }
   }
 }

@@ -46,10 +46,11 @@ export default function Home() {
             both physical and mental, as records are formed and broken.
           </p>
           <div className="HeroSection__top--actionContainer">
-            <div className="HeroSection__top--action">
+            {/* <div className="HeroSection__top--action">
               <img loading="lazy" src="/Img/DownArrow.svg" />
-              <p>Scroll to Learn More</p>
-            </div>
+              <p>11 12 13 November</p>
+            </div> */}
+						<p>11 12 13 November</p>
           </div>
           {/* <div className="HeroSection__top--date">
 						<p>

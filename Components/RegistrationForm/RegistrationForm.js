@@ -109,7 +109,6 @@ export default function RegistrationForm({
         const hasError = Object.values(errors).some(
           (item) => Object.keys(item).length !== 0
         );
-        console.log(errors);
         if (hasError) return;
         onSubmitForm(formData);
       },
@@ -194,11 +193,10 @@ export default function RegistrationForm({
           ))}
         </div>
         <div className="SignUp__button">
-          <button type="submit">Next</button>
-          {/* TODO: Fix delete player */}
           {formData.length < maxPlayers && (
             <button onClick={() => addPlayer()}>Add player</button>
           )}
+          <button type="submit">Next</button>
         </div>
       </form>
     </div>
