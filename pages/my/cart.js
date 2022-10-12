@@ -62,7 +62,7 @@ export default function MyCart({ user, allEvents }) {
   }, [localTeams]);
 
   const [cartDropdown, setCartDropdown] = React.useState(false);
-  console.log(localTeams);
+
   return (
     <div className="MyCart">
       <div className="MyCart__cartSection">

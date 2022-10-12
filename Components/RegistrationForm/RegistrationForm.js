@@ -109,7 +109,6 @@ export default function RegistrationForm({
         const hasError = Object.values(errors).some(
           (item) => Object.keys(item).length !== 0
         );
-        console.log(errors);
         if (hasError) return;
         onSubmitForm(formData);
       },

@@ -2,7 +2,6 @@ import React from "react";
 import "./Schedule.scss";
 
 export default function Schedule({ data }) {
-  console.log(data);
   return (
     <div className="SchedulePage">
       <div className="SchedulePage__slotList">
