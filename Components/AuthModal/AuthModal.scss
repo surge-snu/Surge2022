@@ -51,7 +51,18 @@
     @include box(auto, 45px);
     margin: 20px 0;
   }
+  h2 {
+    font-family: "Sequel100Black-65";
+    font-size: 54px;
+    text-align: center;
+    width: 100%;
+    line-height: 90px;
 
+    @include respondAt(400px) {
+      font-size: 40px;
+      line-height: 70px;
+    }
+  }
   &__tabs {
     font-size: 15px;
     font-family: "Sequel100Black-65";

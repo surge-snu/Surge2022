@@ -51,7 +51,7 @@ export default function Home() {
               <img alt="down arrow" loading="lazy" src="/Img/DownArrow.svg" />
               <p>11 12 13 November</p>
             </div> */}
-            <p>11 12 13 November</p>
+            {/* <p>11 12 13 November</p> */}
           </div>
           {/* <div className="HeroSection__top--date">
 						<p>

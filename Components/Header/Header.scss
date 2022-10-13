@@ -96,8 +96,8 @@
 
     &--center {
       font-family: "Sequel100Black-55";
-      font-size: 28px;
       a {
+        font-size: 30px;
         padding: 13px 0;
         @include make-flex();
         img {

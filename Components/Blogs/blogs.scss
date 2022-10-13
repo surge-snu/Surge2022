@@ -1,82 +1,82 @@
 .Blogs {
   @include make-flex($dir: column, $just: space-between, $align: flex-start);
   @include box(100%, auto);
-	max-width: 1500px;
-	gap: 20px;
-	
-	@include respondAt(1518px) {
-		width: 90vw;
-	}
-	
-	&__title {
-		// padding-left: 40px;
-		
-		h1 {
-			font-family: "Sequel100Black-105", "Helvetica", "Impact";
-			font-size: 60px;
-			line-height: 110%;
-			
-			@include respondAt(600px) {
-				font-size: 8vw;
-			}
-		}
-		
-		h3 {
-			font-family: "Sequel100Black-55", "Helvetica", "Impact";
-			font-size: 30px;
-			
-			@include respondAt(600px) {
-				font-size: 4vw;
-			}
-		}
-	}
-	
-	&__container {
-		// @include box(100%, auto);
-		// @include make-flex($dir: row, $align: flex-start);
-		// gap: 40px;
-		@include make-flex($dir: row, $just: flex-start, $align: flex-start);
+  max-width: 1500px;
+  gap: 20px;
+
+  @include respondAt(1518px) {
+    width: 90vw;
+  }
+
+  &__title {
+    // padding-left: 40px;
+
+    h1 {
+      font-family: "Sequel100Black-105", "Helvetica", "Impact";
+      font-size: 60px;
+      line-height: 110%;
+
+      @include respondAt(600px) {
+        font-size: 8vw;
+      }
+    }
+
+    h3 {
+      font-family: "Sequel100Black-55", "Helvetica", "Impact";
+      font-size: 30px;
+
+      @include respondAt(600px) {
+        font-size: 4vw;
+      }
+    }
+  }
+
+  &__container {
+    // @include box(100%, auto);
+    // @include make-flex($dir: row, $align: flex-start);
+    // gap: 40px;
+    @include make-flex($dir: row, $just: flex-start, $align: flex-start);
     overflow-x: auto;
-    padding: 0 30px 30px;
+    // padding: 0 30px 30px;
     @include box();
-	}
-	
-	&__blogCard {
-		@include box(440px, auto);
-		@include make-flex($dir: column, $align: center);
-		background-color: rgba(35, 55, 97, 0.4705882353);
-		border-radius: 20px;
-		border: 1px solid rgba($color: #fff, $alpha: 0.5);
-		flex-shrink: 0;
-		padding: 20px;
-		margin: 10px 20px 10px 0;
-		gap: 20px;
-		
-		@include respondAt(625px) {
-			width: 200px;
-		}
-		
-		img {
-			width: 400px;
-			height: 200px;
-			object-fit: cover;
-			border-radius: 20px;
-			
-			@include respondAt(625px) {
-				width: 180px;
-				height: 90px;
-			}
-		}
-		
-		p {
-			font-family: "Sequel100Black-55", "Helvetica", "Impact";
-			font-size: 20px;
-			line-height: 110%;
-			text-align: center;
-			
-			@include respondAt(625px) {
-				font-size: 10px;
-			}
-		}
-	}
+  }
+
+  &__blogCard {
+    @include box(440px, auto);
+    @include make-flex($dir: column, $align: center);
+    background-color: rgba(35, 55, 97, 0.4705882353);
+    border-radius: 20px;
+    border: 1px solid rgba($color: #fff, $alpha: 0.5);
+    flex-shrink: 0;
+    padding: 20px;
+    // margin: 10px 20px 10px 0;
+    gap: 20px;
+
+    @include respondAt(625px) {
+      width: 90vw;
+      height: auto;
+    }
+
+    img {
+      @include box(100%, auto);
+      object-fit: cover;
+      border-radius: 10px;
+
+      // @include respondAt(625px) {
+      // 	width: 180px;
+      // 	height: 90px;
+      // }
+    }
+
+    p {
+      font-family: "Sequel100Black-55", "Helvetica", "Impact";
+      font-size: 20px;
+      line-height: 110%;
+      text-align: center;
+
+      // @include respondAt(625px) {
+      // 	font-size: 10px;
+      // }
+    }
+  }
 }
