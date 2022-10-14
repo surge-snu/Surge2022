@@ -51,7 +51,7 @@ export default function MyCart({ user, allEvents }) {
   const [localTeams, setLocalTeams] = useState(
     user.Team.filter((team) => team.paymentStatus === "NOT_PAID").map(
       (event) => {
-        return { ...event, isSelected: false };
+        return { ...event, isSelected: true };
       }
     )
   );
