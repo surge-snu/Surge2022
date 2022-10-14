@@ -213,8 +213,10 @@
   }
 
   &__button {
-    @include make-flex($dir: row, $just: center);
+    @include make-flex($dir: row, $just: space-between);
     gap: 15px;
+    flex-wrap: wrap;
+    padding: 0 30px;
 
     button {
       cursor: pointer;
