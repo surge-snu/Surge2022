@@ -215,6 +215,17 @@
     @include box($width: 100%, $height: auto);
     @include make-flex($dir: column, $align: flex-start, $just: flex-start);
     gap: 20px;
+
+    &--link {
+      cursor: pointer;
+      border: 0px;
+      background-color: white;
+      color: black;
+      font-family: "Sequel100Black-65";
+      font-size: 14px;
+      padding: 0px 16px;
+      white-space: nowrap;
+    }
   }
 
   &__team {

@@ -72,7 +72,9 @@ function DashRow({
       )}
       <div
         className={`DashRowWrapper__content ${
-          dropdownIndex === index ? "DashRowWrapper__content--active" : ""
+          isDropDown && dropdownIndex === index
+            ? "DashRowWrapper__content--active"
+            : ""
         }`}
       >
         {children}

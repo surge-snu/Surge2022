@@ -13,6 +13,7 @@ import DashTable from "../../Components/Table/DashTable/DashTable";
 import DashHeader from "../../Components/Table/DashHeader/DashHeader";
 import CartRow from "../../Components/CartRow/CartRow";
 import DashRow from "../../Components/Table/DashRow/DashRow";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
@@ -190,7 +191,30 @@ export default function MyCart({ user, allEvents }) {
             useClass={true}
             isTitle={false}
           />
-
+          {localTeams.filter((team) => !team.isSelected).length === 0 && (
+            <DashRow
+              isDropDown={false}
+              index={0}
+              style={{
+                gridTemplateColumns: "auto",
+                justifyContent: "center",
+                height: "fit-content",
+                padding: "10px 20px 20px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+              parentStyle={{
+                height: "fit-content",
+              }}
+              contentCols={[
+                <h3>Register Teams in the Events page</h3>,
+                <Link href="/events">
+                  <a className="MyCart__cartSection--link">Events</a>
+                </Link>,
+              ]}
+            />
+          )}
           {localTeams
             .filter((team) => !team.isSelected)
             .map((team, index) => {
