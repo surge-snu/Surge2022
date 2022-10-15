@@ -5,7 +5,7 @@ import PinInput from "react-pin-input";
 import useForm from "../../../hooks/useForm";
 import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 import { register, sendOtp } from "../../../operations/auth.fetch";
-import { isEmail, isPassword, isUsername } from "../../../utils/validate";
+import { isEmail, isPassword, isName } from "../../../utils/validate";
 
 export default function SignUp({ onSignUp }) {
   const initialValues = {
@@ -32,7 +32,7 @@ export default function SignUp({ onSignUp }) {
   async function validate(formValues) {
     const errs = {};
     setDuplicateError({});
-    if (formValues.friendlyName && !isUsername(formValues.friendlyName)) {
+    if (formValues.friendlyName && !isName(formValues.friendlyName)) {
       errs.friendlyName = "Invalid friendly name";
     }
 

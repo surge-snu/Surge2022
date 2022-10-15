@@ -15,7 +15,7 @@ export default function RegistrationForm({
   const [initialValues] = useState(
     tempTeamDetails
       ? tempTeamDetails
-      : [...Array(minPlayers).keys()].map((item) => {
+      : [...Array(maxPlayers).keys()].map((item) => {
           const tempObj = {
             [`PlayerName${item + 1}`]: "",
             [`PlayerEmail${item + 1}`]: "",
@@ -119,7 +119,7 @@ export default function RegistrationForm({
       <form method="POST" className="RegForm__form" onSubmit={handleSubmit}>
         <div className="RegForm__form--fieldsList">
           {formData.map((val, i) => (
-            <div key={i} className="RegForm__form--player">
+						<div key={i} className="RegForm__form--player">
               <span>
                 <h3>
                   Player {i + 1} {i + 1 === 1 ? "(Captain)" : ""}
@@ -134,7 +134,7 @@ export default function RegistrationForm({
                 <div className="RegForm__row">
                   <GInput
                     id={`PlayerName${i + 1}`}
-                    label="Name"
+                    label="Name*"
                     type="text"
                     value={val[`PlayerName${i + 1}`]}
                     setValue={(e) => onChange(`PlayerName${i + 1}`, e, i)}
@@ -148,7 +148,7 @@ export default function RegistrationForm({
                 <div className="RegForm__row">
                   <GInput
                     id={`PlayerEmail${i + 1}`}
-                    label="Email"
+                    label="Email*"
                     type="text"
                     value={val[`PlayerEmail${i + 1}`]}
                     setValue={(e) => onChange(`PlayerEmail${i + 1}`, e, i)}
@@ -163,7 +163,7 @@ export default function RegistrationForm({
                 <div className="RegForm__row">
                   <GInput
                     id={`PlayerPhone${i + 1}`}
-                    label="Phone"
+                    label="Phone*"
                     type="tel"
                     value={val[`PlayerPhone${i + 1}`]}
                     setValue={(e) => onChange(`PlayerPhone${i + 1}`, e, i)}
@@ -177,7 +177,7 @@ export default function RegistrationForm({
                 <div className="RegForm__row">
                   <GInput
                     id={`PlayerID${i + 1}`}
-                    label="Roll Number"
+                    label="Roll Number*"
                     type="text"
                     value={val[`PlayerID${i + 1}`]}
                     setValue={(e) => onChange(`PlayerID${i + 1}`, e, i)}
@@ -196,7 +196,12 @@ export default function RegistrationForm({
           {formData.length < maxPlayers && (
             <button onClick={() => addPlayer()}>Add player</button>
           )}
-          <button type="submit">Next</button>
+					<button
+						type="submit"
+						disabled={Object.keys(errors).length !== 0}
+					>
+						Next
+					</button>
         </div>
       </form>
     </div>
