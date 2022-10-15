@@ -233,7 +233,10 @@ export default function SignUp({ onSignUp }) {
               required
             />
             <label htmlFor="tandc">
-              I agree to the Terms and Privacy Policy
+							I agree to the{" "}
+							<a href="/terms">
+								Terms and Privacy Policy
+							</a>
             </label>
           </div>
         </div>
