@@ -42,10 +42,10 @@ function RegistrationSummary({ setRegisterStage, user, eventId }) {
               cursor: "default",
             }}
             contentCols={[
-              member[`PlayerName${index + 1}`],
-              member[`PlayerEmail${index + 1}`],
-              member[`PlayerPhone${index + 1}`],
-              member[`PlayerID${index + 1}`],
+              member[`PlayerName`],
+              member[`PlayerEmail`],
+              member[`PlayerPhone`],
+              member[`PlayerID`],
               member[`playerType`],
             ]}
           />
@@ -71,10 +71,10 @@ function RegistrationSummary({ setRegisterStage, user, eventId }) {
           onClick={async () => {
             const teamMembers = tempTeamDetails.map((member, index) => {
               return {
-                name: member[`PlayerName${index + 1}`],
-                email: member[`PlayerEmail${index + 1}`],
-                phone: member[`PlayerPhone${index + 1}`],
-                rollNumber: member[`PlayerID${index + 1}`],
+                name: member[`PlayerName`],
+                email: member[`PlayerEmail`],
+                phone: member[`PlayerPhone`],
+                rollNumber: member[`PlayerID`],
                 playerType: member.playerType,
                 eventId: member.eventId,
               };

@@ -18,11 +18,12 @@ export default function useTeamForm({
   );
 
   const addPlayer = () => {
-    const newPlayer = {
-      [`PlayerName${formData.length + 1}`]: "",
-      [`PlayerEmail${formData.length + 1}`]: "",
-      [`PlayerPhone${formData.length + 1}`]: "",
-      [`PlayerID${formData.length + 1}`]: "",
+		const newPlayer = {
+			"id": formData[formData.length - 1]["id"] + 1,
+      [`PlayerName`]: "",
+      [`PlayerEmail`]: "",
+      [`PlayerPhone`]: "",
+      [`PlayerID`]: "",
       eventId: eventId,
       playerType: "ADDITIONAL",
     };
@@ -30,10 +31,8 @@ export default function useTeamForm({
   };
 
   const removePlayer = (index) => {
-    const newFormData = formData.filter((item, i) =>
-      Object.keys(item).includes(`PlayerName${index + 1}`) ? false : true
-    );
-
+    const newFormData = formData.filter((item, i) => i !== index);
+		// console.log(newFormData);
     // delete errors[index];
 
     // setErrors(errors);
