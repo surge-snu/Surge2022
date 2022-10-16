@@ -58,29 +58,31 @@ model TeamMember {
 }
 
 model Team {
-  teamId         String        @id
+  teamId         String           @id
   registeredById String
-  registeredBy   User          @relation(fields: [registeredById], references: [id])
+  registeredBy   User             @relation(fields: [registeredById], references: [id])
   eventId        String
-  Event          Event         @relation(fields: [eventId], references: [eventId])
-  paymentStatus  PaymentStatus @default(NOT_PAID)
+  Event          Event            @relation(fields: [eventId], references: [eventId])
+  paymentStatus  PaymentStatus    @default(PENDING)
   TeamMembers    TeamMember[]
   PaymentDetails PaymentDetails[]
 }
 
 model PaymentDetails {
-  id        Int      @id @default(autoincrement())
-  teamId    String
-  paymentId String
-  amount    Int
-  Team      Team     @relation(fields: [teamId], references: [teamId])
-  createdAt DateTime @default(now())
+  id            Int      @id @default(autoincrement())
+  teamId        String
+  paymentId     String
+  playerOrderId String
+  amount        Int
+  Team          Team     @relation(fields: [teamId], references: [teamId])
+  createdAt  DateTime   @default(now())
 }
 
 enum PaymentStatus {
   PAID
   NOT_PAID
   MANUAL
+  PENDING
 }
 
 enum PlayerType {
