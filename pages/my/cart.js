@@ -39,6 +39,7 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyCart({ user, allEvents }) {
+  console.log(user.Team);
   const [localTeams, setLocalTeams] = useState(
     user.Team.filter((team) => team.paymentStatus === "NOT_PAID").map(
       (event) => {
@@ -49,7 +50,7 @@ export default function MyCart({ user, allEvents }) {
 
   const nanoid = customAlphabet("1234567890abcdef");
   const paymentId = nanoid(10);
-  const router = useRouter()
+  const router = useRouter();
 
   const [selectedCount, setSelectedCount] = useState(0);
   const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
@@ -60,8 +61,9 @@ export default function MyCart({ user, allEvents }) {
 
   useEffect(() => {
     setSelectedCount(localTeams.filter((team) => team.isSelected).length);
-  }, [localTeams]);
+  });
 
+  console.log(selectedCount)
   return (
     <div className="MyCart">
       <div className="MyCart__cartSection">
@@ -114,9 +116,7 @@ export default function MyCart({ user, allEvents }) {
                   isDropDown={true}
                   contentCols={[
                     <span>{event.eventName}</span>,
-                    <span>
-                      {team.paymentStatus === "NOT_PAID" ? "Not Paid" : "Paid"}
-                    </span>,
+                    <span>{team.paymentStatus}</span>,
                     <span>
                       {team.TeamMembers.length} x{" "}
                       {Cashify(event.pricePerPlayer)}
@@ -215,11 +215,7 @@ export default function MyCart({ user, allEvents }) {
                     isDropDown={true}
                     contentCols={[
                       <span>{event.eventName}</span>,
-                      <span>
-                        {team.paymentStatus === "NOT_PAID"
-                          ? "Not Paid"
-                          : "Paid"}
-                      </span>,
+                      <span>{team.paymentStatus}</span>,
                       <span>
                         {team.TeamMembers.length} x{" "}
                         {Cashify(event.pricePerPlayer)}
@@ -412,7 +408,7 @@ export default function MyCart({ user, allEvents }) {
                     if (res.status === 200) {
                       setShowLoader(false);
                       setShowPaymentPrompt(false);
-                      router.replace("/my/events")
+                      router.replace("/my/events");
                     }
                   }}
                 >
