@@ -30,15 +30,15 @@ export default function EventGist({ className, from, venue, price, event }) {
     <div className={`eventGist ${className}`}>
       <div className="eventGist__top">
         <p className="eventGist__top--title">RUNS FROM</p>
-        <p className="eventGist__top--desc">{from}</p>
-        <p className="eventGist__top--title">HAPPENING</p>
+        <p className="eventGist__top--desc">11-13 November 2022</p>
+        <p className="eventGist__top--title">VENUE</p>
         <p className="eventGist__top--desc">{venue}</p>
       </div>
       <div className="eventGist__bottom">
         <div className="eventGist__bottom__price">
           <div className="eventGist__bottom__price__rs">
             <p className="eventGist__bottom__price__rs--title">
-              Price Per Player
+              Fee Per Player
             </p>
             <p className="eventGist__bottom__price__rs--cost">
               {Cashify(price)}

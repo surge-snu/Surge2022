@@ -31,27 +31,14 @@ export default function Events({ allEvents }) {
 
   return (
     <div className="EventsPage__container">
-      {/* <div className="EventsPage__top">
+      <div className="EventsPage__top">
         <h1 className="EventsPage__top--title">
-          LOREM <span>IPSUM</span>
-          <br />
-          DOLOR SIT AMET
+          The Surge Championship 
         </h1>
         <p className="EventsPage__top--desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud
+          This title is awarded to the Champion of Champions. The university with the maximum points accumulated across all sports will be crowned the Champions of Surge.
         </p>
       </div>
-      <div className="EventsPage__mid">
-        <div className="EventsPage__mid--searchbox">
-          <input
-            type="text"
-            className="EventsPage__mid--input"
-            placeholder="Try Searching Football"
-          />
-        </div>
-      </div> */}
       <div className="EventsPage__bottom">
         <div className="EventsPage__bottom--title">
           <h3>Upcoming Events</h3>

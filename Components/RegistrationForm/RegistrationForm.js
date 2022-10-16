@@ -15,12 +15,13 @@ export default function RegistrationForm({
   const [initialValues] = useState(
     tempTeamDetails
       ? tempTeamDetails
-      : [...Array(minPlayers).keys()].map((item) => {
-          const tempObj = {
-            [`PlayerName${item + 1}`]: "",
-            [`PlayerEmail${item + 1}`]: "",
-            [`PlayerPhone${item + 1}`]: "",
-            [`PlayerID${item + 1}`]: "",
+      : [...Array(maxPlayers).keys()].map((item) => {
+					const tempObj = {
+						"id": item,
+            [`PlayerName`]: "",
+            [`PlayerEmail`]: "",
+            [`PlayerPhone`]: "",
+            [`PlayerID`]: "",
             playerType: item + 1 === 1 ? "CAPTAIN" : "PLAYER",
             eventId: eventId,
           };
@@ -35,62 +36,62 @@ export default function RegistrationForm({
       const tempErrors = {};
 
       if (
-        item[`PlayerName${index + 1}`] !== "" &&
-        !isName(item[`PlayerName${index + 1}`])
+        item[`PlayerName`] !== "" &&
+        !isName(item[`PlayerName`])
       ) {
-        tempErrors[`PlayerName${index + 1}`] = "Invalid Name";
+        tempErrors[`PlayerName`] = "Invalid Name";
       }
 
       if (
-        item[`PlayerEmail${index + 1}`] !== "" &&
-        !isEmail(item[`PlayerEmail${index + 1}`])
+        item[`PlayerEmail`] !== "" &&
+        !isEmail(item[`PlayerEmail`])
       ) {
-        tempErrors[`PlayerEmail${index + 1}`] = "Invalid Email";
+        tempErrors[`PlayerEmail`] = "Invalid Email";
       }
 
       if (
-        item[`PlayerPhone${index + 1}`] !== "" &&
-        !isPhone(item[`PlayerPhone${index + 1}`])
+        item[`PlayerPhone`] !== "" &&
+        !isPhone(item[`PlayerPhone`])
       ) {
-        tempErrors[`PlayerPhone${index + 1}`] = "Invalid Phone number";
+        tempErrors[`PlayerPhone`] = "Invalid Phone number";
       } else {
-        const phone = item[`PlayerPhone${index + 1}`];
+        const phone = item[`PlayerPhone`];
         let phoneCount = 0;
 
         formValues.forEach((item, i) => {
           if (
-            item[`PlayerPhone${i + 1}`] !== "" &&
-            item[`PlayerPhone${i + 1}`] === phone
+            item[`PlayerPhone`] !== "" &&
+            item[`PlayerPhone`] === phone
           ) {
             phoneCount++;
           }
         });
 
         if (phoneCount > 1) {
-          tempErrors[`PlayerPhone${index + 1}`] =
+          tempErrors[`PlayerPhone`] =
             "Phone Number should be unique";
         }
       }
 
       if (
-        item[`PlayerID${index + 1}`] !== "" &&
-        !isRollNumber(item[`PlayerID${index + 1}`])
+        item[`PlayerID`] !== "" &&
+        !isRollNumber(item[`PlayerID`])
       ) {
-        tempErrors[`PlayerID${index + 1}`] = "Invalid Roll Number";
+        tempErrors[`PlayerID`] = "Invalid Roll Number";
       } else {
-        const rollNumber = item[`PlayerID${index + 1}`];
+        const rollNumber = item[`PlayerID`];
         let rollNumberCount = 0;
         formValues.forEach((item, i) => {
           if (
-            item[`PlayerID${i + 1}`] !== "" &&
-            item[`PlayerID${i + 1}`] === rollNumber
+            item[`PlayerID`] !== "" &&
+            item[`PlayerID`] === rollNumber
           ) {
             rollNumberCount++;
           }
         });
 
         if (rollNumberCount > 1) {
-          tempErrors[`PlayerID${index + 1}`] = "Roll Number should be unique";
+          tempErrors[`PlayerID`] = "Roll Number should be unique";
         }
       }
 
@@ -119,7 +120,7 @@ export default function RegistrationForm({
       <form method="POST" className="RegForm__form" onSubmit={handleSubmit}>
         <div className="RegForm__form--fieldsList">
           {formData.map((val, i) => (
-            <div key={i} className="RegForm__form--player">
+						<div key={val["id"]} className="RegForm__form--player">
               <span>
                 <h3>
                   Player {i + 1} {i + 1 === 1 ? "(Captain)" : ""}
@@ -133,58 +134,58 @@ export default function RegistrationForm({
               <div className="RegForm__form--fields">
                 <div className="RegForm__row">
                   <GInput
-                    id={`PlayerName${i + 1}`}
-                    label="Name"
+                    id={`PlayerName`}
+                    label="Name*"
                     type="text"
-                    value={val[`PlayerName${i + 1}`]}
-                    setValue={(e) => onChange(`PlayerName${i + 1}`, e, i)}
+                    value={val[`PlayerName`]}
+                    setValue={(e) => onChange(`PlayerName`, e, i)}
                   />
-                  {errors[i] && errors[i][`PlayerName${i + 1}`] && (
+                  {errors[i] && errors[i][`PlayerName`] && (
                     <span className="RegForm__row--error">
-                      {errors[i][`PlayerName${i + 1}`]}
+                      {errors[i][`PlayerName`]}
                     </span>
                   )}
                 </div>
                 <div className="RegForm__row">
                   <GInput
-                    id={`PlayerEmail${i + 1}`}
-                    label="Email"
+                    id={`PlayerEmail`}
+                    label="Email*"
                     type="text"
-                    value={val[`PlayerEmail${i + 1}`]}
-                    setValue={(e) => onChange(`PlayerEmail${i + 1}`, e, i)}
+                    value={val[`PlayerEmail`]}
+                    setValue={(e) => onChange(`PlayerEmail`, e, i)}
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
-                  {errors[i] && errors[i][`PlayerEmail${i + 1}`] && (
+                  {errors[i] && errors[i][`PlayerEmail`] && (
                     <span className="RegForm__row--error">
-                      {errors[i][`PlayerEmail${i + 1}`]}
+                      {errors[i][`PlayerEmail`]}
                     </span>
                   )}
                 </div>
                 <div className="RegForm__row">
                   <GInput
-                    id={`PlayerPhone${i + 1}`}
-                    label="Phone"
+                    id={`PlayerPhone`}
+                    label="Phone*"
                     type="tel"
-                    value={val[`PlayerPhone${i + 1}`]}
-                    setValue={(e) => onChange(`PlayerPhone${i + 1}`, e, i)}
+                    value={val[`PlayerPhone`]}
+                    setValue={(e) => onChange(`PlayerPhone`, e, i)}
                   />
-                  {errors[i] && errors[i][`PlayerPhone${i + 1}`] && (
+                  {errors[i] && errors[i][`PlayerPhone`] && (
                     <span className="RegForm__row--error">
-                      {errors[i][`PlayerPhone${i + 1}`]}
+                      {errors[i][`PlayerPhone`]}
                     </span>
                   )}
                 </div>
                 <div className="RegForm__row">
                   <GInput
-                    id={`PlayerID${i + 1}`}
-                    label="Roll Number"
+                    id={`PlayerID`}
+                    label="Roll Number*"
                     type="text"
-                    value={val[`PlayerID${i + 1}`]}
-                    setValue={(e) => onChange(`PlayerID${i + 1}`, e, i)}
+                    value={val[`PlayerID`]}
+                    setValue={(e) => onChange(`PlayerID`, e, i)}
                   />
-                  {errors[i] && errors[i][`PlayerID${i + 1}`] && (
+                  {errors[i] && errors[i][`PlayerID`] && (
                     <span className="RegForm__row--error">
-                      {errors[i][`PlayerID${i + 1}`]}
+                      {errors[i][`PlayerID`]}
                     </span>
                   )}
                 </div>
@@ -196,7 +197,12 @@ export default function RegistrationForm({
           {formData.length < maxPlayers && (
             <button onClick={() => addPlayer()}>Add player</button>
           )}
-          <button type="submit">Next</button>
+					<button
+						type="submit"
+						disabled={Object.keys(errors).length !== 0}
+					>
+						Next
+					</button>
         </div>
       </form>
     </div>

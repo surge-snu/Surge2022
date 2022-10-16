@@ -1,0 +1,55 @@
+.TermsPage {
+  @include make-flex($dir: column, $just: space-between);
+  @include box($height: unset);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #0f1621;
+  min-height: 100vh;
+
+  &__container {
+    @include box(100%, 100%);
+    max-width: 1500px;
+    position: relative;
+    margin-top: 50px;
+    padding: 100px 55px 100px;
+    @include make-flex();
+		gap: 20px;
+
+    @include respondAt(480px) {
+      padding: 0px 17px 80px;
+    }
+  }
+	
+	&__Heading {
+		@include box(100%, 100%);
+		@include make-flex($dir: row,);
+		gap: 25px;
+		
+		hr {
+			flex-grow: 1;
+			border: 0.5px solid rgba(255, 255, 255, 0.4);
+		}
+		
+		h2 {
+			font-family: "Sequel100Black-65";
+			font-size: 25px;
+			line-height: 100%;
+			text-transform: capitalize;
+			font-style: italic;
+			text-align: center;
+			color: #cafa08;
+		}
+	}
+	
+	&__Content {
+		@include box(100%, 100%);
+		@include make-flex($dir: column, $align: flex-start);
+		gap: 15px;
+		
+		p, pre {
+			white-space: pre-line;
+			// word-wrap: break-word;
+			font-size: 15px;
+		}
+	}
+}
