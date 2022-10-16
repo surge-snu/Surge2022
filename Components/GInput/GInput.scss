@@ -10,13 +10,18 @@
     font-size: 17px;
     color: #fff;
     padding: 7px 10px;
-    background-color: #1d2b49;
+    background-color: var(--GInput-BG);
     border-radius: 5px;
     border: 1.5px solid #8f8f8f;
 
     &:focus ~ label {
       top: 0%;
       color: #cafa08;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: #8f8f8f;
     }
 
     &:focus {
@@ -33,9 +38,9 @@
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      box-shadow: 0 0 0 30px #1d2b49 inset;
+      box-shadow: 0 0 0 30px var(--GInput-BG) inset;
       color: #fff;
-      -webkit-box-shadow: 0 0 0 30px #1d2b49 inset;
+      -webkit-box-shadow: 0 0 0 30px var(--GInput-BG) inset;
       -webkit-text-fill-color: #fff;
       font-size: 17px;
       caret-color: #fff;
@@ -50,7 +55,7 @@
     border-radius: 6px;
     position: absolute;
     color: #b5b5b5;
-    background-color: #1d2b49;
+    background-color: var(--GInput-BG);
     font-size: 17px;
     transition: 0.2s;
     pointer-events: none;
