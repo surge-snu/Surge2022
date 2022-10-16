@@ -237,7 +237,7 @@ export default function SignUp({ onSignUp }) {
             </label>
           </div>
         </div>
-        <div className="SignUp__button">
+        <div className="SignUp__buttonRow">
           <button type="submit">Sign Up</button>
         </div>
         <div className="SignUp__login">

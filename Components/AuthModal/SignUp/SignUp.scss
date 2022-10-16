@@ -232,6 +232,26 @@
       }
     }
   }
+  &__buttonRow {
+    @include make-flex($dir: row);
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 0 30px;
+
+    button {
+      cursor: pointer;
+      border: 0px;
+      background-color: white;
+      color: black;
+      font-family: "Sequel100Black-65";
+      font-size: 18px;
+      padding: 0px 16px;
+
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+  }
 
   &__login {
     @include make-flex($dir: row, $just: center);
