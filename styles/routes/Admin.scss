@@ -1,0 +1,25 @@
+.MyLayout {
+  @include box($height: 100vh);
+  @include make-flex($dir: column, $align: flex-start, $just: flex-start);
+  overflow-x: auto;
+  padding-top: 69px;
+	
+  &__page {
+    @include make-flex($dir: column, $align: flex-start, $just: flex-start);
+    background-color: #193559;
+    overflow-y: auto;
+    // @include box(calc(100% - 265px));
+		@include box(100%);
+		
+    @include respondAt(915px) {
+      width: 100%;
+      padding-top: 20px;
+    }
+  }
+}
+
+.AdminPage {
+	@include box(100%, 100%);
+	@include make-flex($dir: column, $align: flex-start, $just: flex-start);
+	padding: 20px;
+}
