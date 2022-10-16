@@ -8,8 +8,8 @@ export async function registerTeam(formData) {
   });
 }
 
-export async function payForCart(formData) {
-  return fetch("/api/event/pay", {
+export async function createPendingOrder(formData) {
+  return fetch("/api/payment/create-pending-order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
