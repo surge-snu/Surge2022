@@ -45,7 +45,10 @@ function MySidebar({ user }) {
       </div>
       <div className="MySidebarWrapper__top">
         <Link href="/">
-          <a className="MySidebarWrapper__top--right" aria-label="Go to home page">
+          <a
+            className="MySidebarWrapper__top--right"
+            aria-label="Go to home page"
+          >
             <img alt="left arrow" src="/Img/Arrow Right Variant.svg" />
             <h2>Home</h2>
           </a>
@@ -63,6 +66,10 @@ function MySidebar({ user }) {
             }`}
           >
             Home
+            {user.college === "" ||
+              (user.phone === "" && (
+                <img alt="Error" src="/Img/Red Exclamation.svg" height={20} />
+              ))}
           </a>
         </Link>
         <Link href="/my/events">
