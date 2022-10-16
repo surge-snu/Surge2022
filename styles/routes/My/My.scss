@@ -204,7 +204,7 @@
   @include box($width: 100%, $height: auto);
   @include make-flex($dir: column, $align: flex-start, $just: flex-start);
   padding: 30px;
-  gap: 30px;
+  gap: 10px;
   position: relative;
 
   @include respondAt(915px) {
@@ -271,9 +271,9 @@
   }
 
   &__CheckoutBox {
-    @include box(calc(100% - 265px), fit-content);
+    @include box(calc(100% + 60px), fit-content);
     @include make-flex($dir: row, $just: space-between);
-    position: fixed;
+    position: sticky;
     min-height: 80px;
     background-color: #222b48;
     border-top: 1px solid lightgray;
@@ -285,9 +285,9 @@
     flex-wrap: wrap;
     gap: 20px;
     @include respondAt(915px) {
-      width: 100%;
+      width: calc(100% + 45px);
       transform: translate(-30px, 15px);
-      padding: 15px;
+      padding: 15px 30px;
       bottom: 15px;
     }
 
@@ -316,6 +316,120 @@
       font-size: 14px;
       padding: 0px 16px;
       white-space: nowrap;
+    }
+  }
+
+  &__alert {
+    @include make-flex();
+    @include box();
+    gap: 18px;
+
+    @include respondAt(620px) {
+      justify-content: flex-start;
+      height: auto;
+    }
+
+    &--left,
+    &--right {
+      @include box(50%, 100%);
+      @include respondAt(620px) {
+        width: 100%;
+      }
+    }
+
+    &--top {
+      @include box(100%, calc(100% - 60px));
+      @include make-flex($dir: row);
+
+      @include respondAt(620px) {
+        flex-direction: column;
+      }
+    }
+
+    &--middle {
+      background-color: #193559;
+      @include box(100%, auto);
+      border-radius: 5px;
+      padding: 10px 10px 10px 30px;
+
+      font-family: "Sequel100Black-65";
+      font-size: 18px;
+      text-align: center;
+      font-style: italic;
+      h3 {
+        span {
+          color: #cafa08;
+        }
+      }
+    }
+
+    &--right {
+      @include make-flex();
+      img {
+        @include box(250px, 250px);
+      }
+    }
+
+    &--left {
+      @include make-flex($just: flex-start);
+      gap: 17px;
+      h3,
+      h4 {
+        font-family: "Sequel100Black-65";
+        font-size: 30px;
+        width: 100%;
+        line-height: 100%;
+        text-transform: capitalize;
+        font-style: italic;
+        color: #cafa08;
+        gap: 6px;
+      }
+
+      h4 {
+        font-size: 20px;
+        width: fit-content;
+      }
+
+      span {
+        @include box();
+        @include make-flex($dir: row, $just: space-between);
+      }
+    }
+
+    &--bottom {
+      @include make-flex($dir: row, $just: space-between);
+      @include box();
+      gap: 15px;
+
+      button {
+        cursor: pointer;
+        border: 0px;
+        background-color: white;
+        color: black;
+        font-family: "Sequel100Black-65";
+        font-size: 18px;
+        padding: 0px 16px;
+        white-space: nowrap;
+        height: 100%;
+
+        @include respondAt(500px) {
+          font-size: 15px;
+        }
+      }
+    }
+
+    &--bottom2 {
+      color: #cafa08;
+      text-decoration: underline;
+      font-style: italic;
+      cursor: pointer;
+    }
+    &--bottom2Alert {
+      @include make-flex();
+      @include box();
+      img {
+        height: 380px;
+      }
     }
   }
 }
