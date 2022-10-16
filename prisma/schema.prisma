@@ -21,6 +21,7 @@ model User {
   role     Role   @default(USER)
   email    String @unique @db.VarChar(100)
   college  String @db.VarChar(100)
+  phone    String @db.VarChar(10) @default("")
   password String
   Team     Team[]
 }
@@ -70,12 +71,12 @@ model Team {
 
 model PaymentDetails {
   id            Int      @id @default(autoincrement())
-  teamId        String
+  teamId        String   @unique
   paymentId     String
   playerOrderId String
   amount        Int
   Team          Team     @relation(fields: [teamId], references: [teamId])
-  createdAt  DateTime   @default(now())
+  createdAt     DateTime @default(now())
 }
 
 enum PaymentStatus {

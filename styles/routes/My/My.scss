@@ -29,6 +29,27 @@
     padding: 10px;
     @include make-flex($just: flex-start);
     @include box();
+
+    &--update {
+      margin-top: 20px;
+      cursor: pointer;
+      border: 0px;
+      background-color: white;
+      color: black;
+      font-family: "Sequel100Black-65";
+      font-size: 18px;
+      padding: 0px 16px;
+
+      @include respondAt(500px) {
+        font-size: 15px;
+      }
+    }
+
+    &--error {
+      color: #fe5349;
+      font-size: 15px;
+      width: 100%;
+    }
   }
   &__title {
     font-family: "Sequel100Black-45";
@@ -429,6 +450,33 @@
       @include box();
       img {
         height: 380px;
+      }
+    }
+  }
+  &__emptyCollege {
+    @include box();
+    @include make-flex();
+    gap: 10px;
+    img {
+      height: 60px;
+    }
+
+    h2,
+    p {
+      text-align: center;
+    }
+    a {
+      margin-top: 20px;
+      cursor: pointer;
+      border: 0px;
+      background-color: white;
+      color: black;
+      font-family: "Sequel100Black-65";
+      font-size: 18px;
+      padding: 0px 16px;
+
+      @include respondAt(500px) {
+        font-size: 15px;
       }
     }
   }

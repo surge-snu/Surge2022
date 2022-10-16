@@ -15,6 +15,7 @@ import Alert from "../../Components/Alert/Alert";
 import GInput from "../../Components/GInput/GInput";
 import BlurredSpinner from "../../Components/BlurredSpinner/BlurredSpinner";
 import { customAlphabet } from "nanoid";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps(context) {
   if (context.req.session.user === undefined) {
@@ -48,9 +49,10 @@ export default function MyCart({ user, allEvents }) {
 
   const nanoid = customAlphabet("1234567890abcdef");
   const paymentId = nanoid(10);
+  const router = useRouter()
 
   const [selectedCount, setSelectedCount] = useState(0);
-  const [showPaymentPrompt, setShowPaymentPrompt] = useState(true);
+  const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
   const [cartDropdown, setCartDropdown] = useState(false);
   const [orderId, setOrderId] = useState("");
   const [showHelpPrompt, setShowHelpPrompt] = useState(false);
@@ -320,120 +322,160 @@ export default function MyCart({ user, allEvents }) {
         </div>
       )}
       {showPaymentPrompt && (
-        <Alert height="auto" width="700px" setIsOpen={setShowPaymentPrompt}>
-          {showLoader && <BlurredSpinner style={{ borderRadius: "7px" }} />}
+        <>
+          {user.college !== "" && user.phone !== "" ? (
+            <Alert height="auto" width="700px" setIsOpen={setShowPaymentPrompt}>
+              {showLoader && <BlurredSpinner style={{ borderRadius: "7px" }} />}
 
-          <div className="MyCart__alert">
-            <div className="MyCart__alert--top">
-              <div className="MyCart__alert--left">
-                <h3>Details to fill</h3>
-                <GInput
-                  value={user.name}
-                  label="Name"
-                  disabled
-                  bgColor="#0f1621"
-                />
-                <GInput
-                  value={user.email}
-                  label="Email"
-                  disabled
-                  bgColor="#0f1621"
-                />
-                <GInput
-                  value={user.college}
-                  label="College"
-                  disabled
-                  bgColor="#0f1621"
-                />
-                <GInput
-                  value={user.phone}
-                  label="Phone"
-                  disabled
-                  bgColor="#0f1621"
-                />
-                <span>
-                  <h4>Amount:</h4>
-                  <h4>
-                    {Cashify(
-                      localTeams
-                        .filter((team) => team.isSelected)
-                        .reduce((acc, team) => {
-                          const event = allEvents.find(
-                            (event) => event.eventId === team.eventId
-                          );
-                          return (
-                            acc +
-                            team.TeamMembers.reduce((acc, _) => {
-                              return acc + event.pricePerPlayer;
+              <div className="MyCart__alert">
+                <div className="MyCart__alert--top">
+                  <div className="MyCart__alert--left">
+                    <h3>Details to fill</h3>
+                    <GInput
+                      value={user.name}
+                      label="Name"
+                      disabled
+                      bgColor="#0f1621"
+                    />
+                    <GInput
+                      value={user.email}
+                      label="Email"
+                      disabled
+                      bgColor="#0f1621"
+                    />
+                    <GInput
+                      value={user.college}
+                      label="College"
+                      disabled
+                      bgColor="#0f1621"
+                    />
+                    <GInput
+                      value={paymentId}
+                      label="Team Id"
+                      disabled
+                      bgColor="#0f1621"
+                    />
+                    <span>
+                      <h4>Amount:</h4>
+                      <h4>
+                        {Cashify(
+                          localTeams
+                            .filter((team) => team.isSelected)
+                            .reduce((acc, team) => {
+                              const event = allEvents.find(
+                                (event) => event.eventId === team.eventId
+                              );
+                              return (
+                                acc +
+                                team.TeamMembers.reduce((acc, _) => {
+                                  return acc + event.pricePerPlayer;
+                                }, 0)
+                              );
                             }, 0)
-                          );
-                        }, 0)
-                    ) + "/-"}
-                  </h4>
-                </span>
-              </div>
-              <div className="MyCart__alert--right">
-                <img src="/Img/Paytm.png" alt="https://paytm.me/T-d1kU8" />
-              </div>
-            </div>
-            <h3 className="MyCart__alert--middle">
-              Scan this QR code <span>&gt;</span> Fill in details given above{" "}
-              <span>&gt;</span> Type in the 18 digit Order Id
-            </h3>
-            <form
-              className="MyCart__alert--bottom"
-              onSubmit={(e) => {
-                e.preventDefault();
-                // setShowLoader(true);
-                const paySplit = localTeams
-                  .filter((team) => team.isSelected)
-                  .map((team) => {
-                    const event = allEvents.find(
-                      (event) => event.eventId === team.eventId
-                    );
-                    return {
-                      teamId: team.teamId,
-                      amount: team.TeamMembers.reduce((acc, _) => {
-                        return acc + event.pricePerPlayer;
-                      }, 0),
-                    };
-                  });
+                        ) + "/-"}
+                      </h4>
+                    </span>
+                  </div>
+                  <div className="MyCart__alert--right">
+                    <img src="/Img/Paytm.png" alt="https://paytm.me/T-d1kU8" />
+                  </div>
+                </div>
+                <h3 className="MyCart__alert--middle">
+                  Scan this QR code <span>&gt;</span> Fill in details given
+                  above <span>&gt;</span> Type in the 18 digit Order Id
+                </h3>
+                <form
+                  className="MyCart__alert--bottom"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setShowLoader(true);
+                    const paySplit = localTeams
+                      .filter((team) => team.isSelected)
+                      .map((team) => {
+                        const event = allEvents.find(
+                          (event) => event.eventId === team.eventId
+                        );
+                        return {
+                          teamId: team.teamId,
+                          amount: team.TeamMembers.reduce((acc, _) => {
+                            return acc + event.pricePerPlayer;
+                          }, 0),
+                        };
+                      });
 
-                const res = createPendingOrder({
-                  paySplit,
-                  playerOrderId: orderId,
-                  paymentId,
-                });
+                    const res = await createPendingOrder({
+                      paySplit,
+                      playerOrderId: orderId,
+                      paymentId,
+                    });
 
-                if (res.status === 200) {
-                  setShowLoader(false);
-                }
-              }}
-            >
-              <GInput
-                setValue={(e) => setOrderId(e.target.value)}
-                label="Order ID"
-                bgColor="#0f1621"
-              />
-              <button type="submit">Finish Payment</button>
-            </form>
-            <div
-              className="MyCart__alert--bottom2"
-              onClick={() => setShowHelpPrompt(true)}
-            >
-              Where do I get the order Id?
-            </div>
-            {showHelpPrompt && (
-              <Alert setIsOpen={setShowHelpPrompt} height="auto" width="700px">
-                <span className="MyCart__alert--bottom2Alert">
-                  <img src="/Img/GuideImage.jpeg" />
-                  Eg: 20221016 0309020085
-                </span>
-              </Alert>
-            )}
-          </div>
-        </Alert>
+                    if (res.status === 200) {
+                      setShowLoader(false);
+                      setShowPaymentPrompt(false);
+                      router.replace("/my/events")
+                    }
+                  }}
+                >
+                  <GInput
+                    setValue={(e) => setOrderId(e.target.value)}
+                    label="Order ID"
+                    bgColor="#0f1621"
+                  />
+                  <button type="submit">Finish Payment</button>
+                </form>
+                <div
+                  className="MyCart__alert--bottom2"
+                  onClick={() => setShowHelpPrompt(true)}
+                >
+                  Where do I get the order Id?
+                </div>
+                {showHelpPrompt && (
+                  <Alert
+                    setIsOpen={setShowHelpPrompt}
+                    height="auto"
+                    width="700px"
+                  >
+                    <span className="MyCart__alert--bottom2Alert">
+                      <img src="/Img/GuideImage.jpeg" />
+                      Eg: 20221016 0309020085
+                    </span>
+                  </Alert>
+                )}
+              </div>
+            </Alert>
+          ) : (
+            <Alert height="300px" width="500px">
+              <div className="MyCart__emptyCollege">
+                <img alt="Error" src="/Img/Red Exclamation.svg" height={14} />
+                <h2>
+                  College name and phone number needs to be updated before
+                  paying!
+                </h2>
+                <p>Go to you dashboard and update now</p>
+                <Link href="/my/home">
+                  <a>Dashboard</a>
+                </Link>
+              </div>
+            </Alert>
+          )}
+        </>
       )}
+
+      {user.college === "" ||
+        (user.phone === "" && (
+          <Alert height="300px" width="500px" showClose={false}>
+            <div className="MyCart__emptyCollege">
+              <img alt="Error" src="/Img/Red Exclamation.svg" height={14} />
+              <h2>
+                College name and phone number needs to be updated before paying!
+              </h2>
+              <p>Go to you dashboard and update now</p>
+              <Link href="/my/home">
+                <a>Dashboard</a>
+              </Link>
+            </div>
+          </Alert>
+        ))}
     </div>
   );
 }
