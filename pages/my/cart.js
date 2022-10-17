@@ -39,7 +39,6 @@ export async function getServerSideProps(context) {
   };
 }
 export default function MyCart({ user, allEvents }) {
-  console.log(user.Team);
   const [localTeams, setLocalTeams] = useState(
     user.Team.filter((team) => team.paymentStatus === "NOT_PAID").map(
       (event) => {
