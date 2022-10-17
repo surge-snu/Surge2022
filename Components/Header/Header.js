@@ -16,7 +16,12 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
 
   useEffect(() => {
     if (pathNow !== "/") {
-      setPath(pathNow.replace("/", "").trim());
+      const t = pathNow.split("/");
+      if (t.includes("my")) {
+        setPath("profile");
+      } else {
+        setPath(t[1]);
+      }
     } else {
       setPath(pathNow);
     }

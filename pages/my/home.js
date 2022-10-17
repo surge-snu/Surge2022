@@ -142,7 +142,7 @@ export default function MyHome({ user }) {
           isDropDown={user.phone === ""}
           dropdownIndex={personalIndex}
           setDropdownIndex={setPersonalIndex}
-          index={0}
+          index={1}
           contentCols={[
             <span>Phone</span>,
             <span>
@@ -203,7 +203,7 @@ export default function MyHome({ user }) {
         >
           <Link href="#reset-password">
             <a className="MyHome__collegeDropdownContent--update" type="submit">
-              Update
+              Change Password
             </a>
           </Link>
         </DashRow>

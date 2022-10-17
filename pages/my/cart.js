@@ -62,7 +62,6 @@ export default function MyCart({ user, allEvents }) {
     setSelectedCount(localTeams.filter((team) => team.isSelected).length);
   });
 
-  console.log(selectedCount)
   return (
     <div className="MyCart">
       <div className="MyCart__cartSection">
@@ -456,21 +455,20 @@ export default function MyCart({ user, allEvents }) {
         </>
       )}
 
-      {user.college === "" ||
-        (user.phone === "" && (
-          <Alert height="300px" width="500px" showClose={false}>
-            <div className="MyCart__emptyCollege">
-              <img alt="Error" src="/Img/Red Exclamation.svg" height={14} />
-              <h2>
-                College name and phone number needs to be updated before paying!
-              </h2>
-              <p>Go to you dashboard and update now</p>
-              <Link href="/my/home">
-                <a>Dashboard</a>
-              </Link>
-            </div>
-          </Alert>
-        ))}
+      {(user.college === "" || user.phone === "") && (
+        <Alert height="300px" width="500px" showClose={false}>
+          <div className="MyCart__emptyCollege">
+            <img alt="Error" src="/Img/Red Exclamation.svg" height={14} />
+            <h2>
+              College name and phone number needs to be updated before paying!
+            </h2>
+            <p>Go to you dashboard and update now</p>
+            <Link href="/my/home">
+              <a>Dashboard</a>
+            </Link>
+          </div>
+        </Alert>
+      )}
     </div>
   );
 }
