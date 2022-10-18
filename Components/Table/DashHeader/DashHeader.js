@@ -10,6 +10,14 @@ function DashHeader({
   className,
   isTitle = true,
 }) {
+  const compStyle = {
+    gridTemplateColumns: `repeat(${headerTitles.length}, 1fr)`,
+  };
+
+  // if (useClass) {
+  //   delete compStyle.gridTemplateColumns;
+  // }
+
   return (
     <div
       className={`DashHeaderWrapper ${className} 
@@ -17,7 +25,7 @@ function DashHeader({
       ${isTitle ? "DashHeaderWrapper--title" : ""}
       `}
       style={{
-        gridTemplateColumns: !useClass && `repeat(${headerTitles.length}, 1fr)`,
+        ...compStyle,
         ...style,
       }}
     >

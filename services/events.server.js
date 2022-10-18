@@ -24,7 +24,7 @@ export async function createTeam(data) {
   };
 }
 
-export async function payForCart(data) {
+export async function CreatePendingOrderDB(data) {
   return db.paymentDetails.createMany({
     data,
   });
@@ -33,7 +33,7 @@ export async function payForCart(data) {
 export async function updatePaymentStatus(data) {
   return db.team.updateMany({
     data: {
-      paymentStatus: PaymentStatus.PAID,
+      paymentStatus: PaymentStatus.PENDING,
     },
     where: {
       teamId: { in: data },

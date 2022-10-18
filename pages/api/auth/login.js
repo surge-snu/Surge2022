@@ -7,10 +7,7 @@ export default withIronSessionApiRoute(loginRoute, ironOptions);
 
 async function loginRoute(req, res) {
   const { email, password } = await req.body;
-  // const user = {
-  //   password: "$2b$09$LN3F0oodRRZNTwzLAIWvUulsUpNJRr/j2F/JlNdji7iEVyzP3bKQG",
-  //   email: email,
-  // };
+
   const user = await fetchUser(email);
   if (user === null) {
     return res.status(400).json({

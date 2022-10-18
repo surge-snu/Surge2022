@@ -40,7 +40,7 @@
 
     &--desc {
       @include box($width: 65%);
-      font-family: "Fraunces";
+      font-family: "Satoshi";
       font-size: 20px;
 
       @include respondAt(800px) {

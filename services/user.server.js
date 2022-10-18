@@ -90,3 +90,24 @@ export async function fetchAllUsers() {
     },
   });
 }
+
+export async function updateCollegeDB(data) {
+  return db.user.update({
+    where: {
+      email: data.email,
+    },
+    data: {
+      college: data.college,
+    },
+  });
+}
+export async function updatePhoneDB(data) {
+  return db.user.update({
+    where: {
+      email: data.email,
+    },
+    data: {
+      phone: data.phone,
+    },
+  });
+}

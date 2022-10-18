@@ -233,14 +233,14 @@ export default function SignUp({ onSignUp }) {
               required
             />
             <label htmlFor="tandc">
-							I agree to the{" "}
-							<a href="/terms">
-								Terms and Privacy Policy
-							</a>
+              I agree to the{" "}
+              <a href="/terms" target="_blank" referrerPolicy="no-referrer">
+                Terms and Privacy Policy
+              </a>
             </label>
           </div>
         </div>
-        <div className="SignUp__button">
+        <div className="SignUp__buttonRow">
           <button type="submit">Sign Up</button>
         </div>
         <div className="SignUp__login">

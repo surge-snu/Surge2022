@@ -7,6 +7,8 @@ export default function GInput({
   setValue,
   value,
   pattern = "[A-Za-z0-9_ ]+",
+  bgColor = "#1d2b49",
+  ...props
 }) {
   return (
     <div className="GInputWrapper">
@@ -19,8 +21,19 @@ export default function GInput({
         defaultValue={value}
         pattern={pattern}
         autoComplete="off"
+        style={{
+          "--GInput-BG": bgColor,
+        }}
+        {...props}
       />
-      <label htmlFor={id}>{label}</label>
+      <label
+        htmlFor={id}
+        style={{
+          "--GInput-BG": bgColor,
+        }}
+      >
+        {label}
+      </label>
     </div>
   );
 }
