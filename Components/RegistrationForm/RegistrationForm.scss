@@ -24,7 +24,7 @@
     &--player {
       @include box($height: auto);
       min-height: 130px;
-      @include make-flex($just: space-between, $align: flex-start);
+      @include make-flex($just: flex-start, $align: flex-start);
       border-radius: 5px;
       padding: 20px;
       gap: 20px;
@@ -32,7 +32,7 @@
       // border-top: 8px solid #fe5349;
 
       span {
-        @include box();
+        @include box(100%, fit-content);
         @include make-flex($dir: row, $just: space-between);
         gap: 15px;
         @include respondAt(535px) {
@@ -66,7 +66,8 @@
       // @include make-flex($dir: row);
       display: grid;
       grid-template-columns: 1;
-      @include box();
+      @include box(100%, fit-content);
+			// @include box();
       gap: 24px;
       flex-wrap: wrap;
     }
