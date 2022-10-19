@@ -94,7 +94,7 @@ function EventTabs({ eventId, currentTab }) {
               onMouseEnter={() => setHoverTab("general")}
               onMouseLeave={() => setHoverTab(null)}
             >
-              GENERAL
+              GENERAL RULES
             </a>
           </Link>
         </li>
@@ -143,7 +143,7 @@ function EventTabs({ eventId, currentTab }) {
       </ul>
 
       <ul className="EventTabs--mobile" style={{ height: "50.5px" }}>
-        {["overview", "prizes", "register"]
+        {["overview", "general", "prizes", "register"]
           .filter((x) => x !== activeTab)
           .concat([activeTab])
           .reverse()
@@ -162,7 +162,7 @@ function EventTabs({ eventId, currentTab }) {
                     setIsDropDownOpen(!isDropDownOpen);
                   }}
                 >
-                  {tab.toUpperCase()}
+                  {(tab == "general") ? "GENERAL RULES" : tab.toUpperCase()}
                 </a>
               </Link>
             </li>
