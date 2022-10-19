@@ -5,6 +5,7 @@ import SportScroll from "../Components/SportScroll/SportScroll";
 import Stats from "../Components/Stats/stats";
 import "../styles/routes/Home.scss";
 import Blogs from "../Components/Blogs/blogs";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   return {
@@ -83,9 +84,9 @@ export default function Home() {
             zest for sports by bringing about a new era for sports, showcasing
             legendary clashes between the best and the brightest.
           </p>
-          <a className="AboutSection__above--fancyLink" href="/contact">
-            MEET THE TEAM
-          </a>
+          <Link href="/team">
+            <a className="AboutSection__above--fancyLink">MEET THE TEAM</a>
+          </Link>
         </div>
         <div className="AboutSection__below">
           <img

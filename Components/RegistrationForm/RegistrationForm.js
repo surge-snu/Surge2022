@@ -106,7 +106,7 @@ export default function RegistrationForm({
       eventId,
       validate,
       initialValues,
-      onSubmit: async (formData) => {
+			onSubmit: async (formData) => {
         const hasError = Object.values(errors).some(
           (item) => Object.keys(item).length !== 0
         );
@@ -196,10 +196,26 @@ export default function RegistrationForm({
         <div className="SignUp__button">
           {formData.length < maxPlayers && (
             <button onClick={() => addPlayer()}>Add player</button>
-          )}
+					)}
+					<button
+						type=""
+						onClick={(e) => {
+							console.log(errors);
+							const hasError = Object.values(errors)
+								.splice(0, formData.length)
+								.some(
+								(item) => Object.keys(item).length !== 0
+							);
+							console.log(hasError);
+						}}
+					>
+						Print
+					</button>
 					<button
 						type="submit"
-						disabled={Object.keys(errors).length !== 0}
+						disabled={Object.values(errors).some(
+							(item) => Object.keys(item).length !== 0
+						)}
 					>
 						Next
 					</button>
