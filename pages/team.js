@@ -62,7 +62,7 @@ export default function Team() {
             <div className="TeamPage__card">
               <img
                 alt={member["name"]}
-                src="/Img/team.svg"
+                src={member["file"]}
                 className="TeamPage__cardImg"
               />
               <p className="TeamPage__cardName"> {member["name"]}</p>
