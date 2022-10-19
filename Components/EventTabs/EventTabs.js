@@ -82,6 +82,22 @@ function EventTabs({ eventId, currentTab }) {
             </a>
           </Link>
         </li> */}
+				<li
+          className={`EventTabs--item ${
+            activeTab === "general" ? "EventTabs--activeItem" : ""
+          }`}
+        >
+          <Link href={`/event/${eventId}/general`}>
+            <a
+              id="general"
+              onClick={() => setActiveTab("general")}
+              onMouseEnter={() => setHoverTab("general")}
+              onMouseLeave={() => setHoverTab(null)}
+            >
+              GENERAL
+            </a>
+          </Link>
+        </li>
         <li
           className={`EventTabs--item ${
             activeTab === "prizes" ? "EventTabs--activeItem" : ""
