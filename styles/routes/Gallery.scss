@@ -1,5 +1,5 @@
 .GalleryPage {
-  @include make-flex($dir: column, $just: space-between);
+  @include make-flex($dir: column, $just: flex-end);
   @include box($height: unset);
   overflow-y: auto;
   overflow-x: hidden;
@@ -27,8 +27,8 @@
       padding: 50px 17px 80px;
     }
   }
-	
-	&__heading {
+
+  &__heading {
     @include box();
     text-align: center;
     font-family: Sequel100Black-105;
@@ -47,46 +47,46 @@
       font-size: 25px;
     }
   }
-	
-	&__grid {
-		@include box(100%, 100%);
-		// @include make-flex($dir: column, $just: space-between);
-		margin-top: 50px;
-		padding: 0 20px;
-		// flex-wrap: wrap;
-		column-count: 3;
 
-		@include respondAt(850px) {
-			column-count: 2;
-		}
-		@include respondAt(600px) {
-			column-count: 1;
-		}
-		@include respondAt(480px) {
-			padding: 0;
-		}
-	}
-	
-	&__imageContainer {
-		@include box();
-		@include make-flex($dir: column, $just: space-between, $align: flex-start);
-		background-color: #fff;
-		margin-bottom: 20px;
-		
-		p {
-			font-family: Sequel100Black-85;
-			font-size: 15px;
-			line-height: 100%;
-			padding: 10px;
-			color: #000;
-		}
-	}
-	
-	&__image {
-		display: block;
-		max-width: 100%;
-		width: auto;
-		height: auto;
-		margin: 0 auto;
-	}
+  &__grid {
+    @include box(100%, 100%);
+    // @include make-flex($dir: column, $just: space-between);
+    margin-top: 50px;
+    padding: 0 20px;
+    // flex-wrap: wrap;
+    column-count: 3;
+
+    @include respondAt(850px) {
+      column-count: 2;
+    }
+    @include respondAt(600px) {
+      column-count: 1;
+    }
+    @include respondAt(480px) {
+      padding: 0;
+    }
+  }
+
+  &__imageContainer {
+    @include box();
+    @include make-flex($dir: column, $just: space-between, $align: flex-start);
+    background-color: #fff;
+    margin-bottom: 20px;
+
+    p {
+      font-family: Sequel100Black-85;
+      font-size: 15px;
+      line-height: 100%;
+      padding: 10px;
+      color: #000;
+    }
+  }
+
+  &__image {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+  }
 }
