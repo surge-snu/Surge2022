@@ -10,6 +10,7 @@ async function Register(req, res) {
   const response = await createUser({
     name: body.friendlyName,
     email: body.email,
+    phone: body.phone,
     college: "",
     password: hashSync(body.password, 10),
   });

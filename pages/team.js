@@ -39,11 +39,12 @@ export default function Team() {
           THE MAGIC
         </p>
         <p className="TeamPage__desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. */}
         </p>
         <div className="TeamPage__categories">
           {teams.map((t, i) => (
             <button
+              key={i}
               className={`TeamPage__category ${
                 team === t ? "TeamPage__category--active" : ""
               }`}
@@ -58,12 +59,13 @@ export default function Team() {
         {members
           .filter((member) => team === teams[0] || member["team"] === team)
           .sort((a, b) => (a["role"] == "Lead" ? -1 : 1))
-          .map((member) => (
-            <div className="TeamPage__card">
+          .map((member, index) => (
+            <div className="TeamPage__card" key={index}>
               <img
                 alt={member["name"]}
                 src={member["file"]}
                 className="TeamPage__cardImg"
+                loading="lazy"
               />
               <p className="TeamPage__cardName"> {member["name"]}</p>
               <p className="TeamPage__cardDesc">{member["role"]}</p>
