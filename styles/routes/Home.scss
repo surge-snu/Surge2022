@@ -197,7 +197,7 @@
     position: relative;
     min-height: 500px;
     margin-bottom: 60px;
-    @include make-flex($dir: column-reverse);
+    @include make-flex($dir: column-reverse, $align: flex-start);
 
     @include respondAt(1518px) {
       width: 90vw;
@@ -206,112 +206,191 @@
       min-height: unset;
       margin-bottom: 30px;
     }
+		
     &__above {
-      @include box(100%, unset);
+      @include box(80%, unset);
       @include make-flex($just: flex-start, $align: flex-start);
       z-index: 2;
       gap: 20px;
       position: relative;
       padding: 0;
-
-      &--title {
-        font-family: "Sequel100Black-105";
-        font-size: 60px;
-        line-height: 100%;
-
-        span {
-          color: #cafa08;
-          font-family: "Sequel100Black-96";
-        }
-        @include respondAt(1200px) {
-          font-size: 50px;
-        }
-        @include respondAt(1000px) {
-          font-size: 40px;
-        }
-        @include respondAt(805px) {
-          font-size: 30px;
-        }
-        @include respondAt(600px) {
-          font-size: 5vw;
-          line-height: 135%;
-        }
-      }
-
-      &--text {
-        font-family: "Satoshi", sans-serif;
-        font-size: 20px;
-        width: 75%;
-        @include respondAt(1200px) {
-          width: 60%;
-        }
-        @include respondAt(730px) {
-          width: 80%;
-        }
-        @include respondAt(630px) {
-          width: 100%;
-        }
-        @include respondAt(500px) {
-          font-size: 15px;
-          font-weight: 600;
-        }
-      }
-      &--fancyLink {
-        @include box(360px, 65px);
-        @include make-flex();
-        text-decoration: none;
-        border: 2px solid #fff;
-        border-radius: 100px;
-        font-family: "Sequel100Black-55";
-        margin-top: 15px;
-
-        &:hover {
-          background-color: #5284ff;
-          color: #fff;
-        }
-        @include respondAt(401px) {
-          width: 100%;
-          height: 50px;
-        }
-      }
     }
+		
+		&__title {
+			font-family: "Sequel100Black-105";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 80px;
+			line-height: 138.8%;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: #789fff;
+			color: transparent;
+			z-index: 1;
+			@include respondAt(1000px) {
+				font-size: 60px;
+			}
+			@include respondAt(550px) {
+				font-size: 12vw;
+			}
+		}
+		
+		&__subtitle {
+			font-family: "Sequel100Black-105";
+			font-size: 40px;
+			line-height: 120%;
 
+			span {
+				color: #cafa08;
+				font-family: "Sequel100Black-96";
+			}
+			@include respondAt(1200px) {
+				font-size: 30px;
+			}
+			@include respondAt(1000px) {
+				font-size: 20px;
+			}
+			@include respondAt(805px) {
+				font-size: 15px;
+			}
+			@include respondAt(600px) {
+				font-size: 5vw;
+				line-height: 135%;
+			}
+		}
+		
+		&__text {
+			font-family: "Satoshi", sans-serif;
+			font-size: 20px;
+			width: 75%;
+			@include respondAt(1200px) {
+				width: 60%;
+			}
+			@include respondAt(730px) {
+				width: 80%;
+			}
+			@include respondAt(630px) {
+				width: 100%;
+			}
+			@include respondAt(500px) {
+				font-size: 15px;
+				font-weight: 600;
+			}
+		}
+		&__fancyLink {
+			@include box(360px, 65px);
+			@include make-flex();
+			text-decoration: none;
+			border: 2px solid #fff;
+			border-radius: 100px;
+			font-family: "Sequel100Black-55";
+			margin-top: 15px;
+
+			&:hover {
+				background-color: #5284ff;
+				color: #fff;
+			}
+			@include respondAt(401px) {
+				width: 100%;
+				height: 50px;
+			}
+		}
+		
     &__below {
-      @include box(100%, unset);
-      @include make-flex($just: flex-start, $align: flex-start);
-      z-index: 1;
-      position: relative;
-      padding: 0;
-
-      &--title {
-        font-family: "Sequel100Black-105";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 120px;
-        line-height: 138.8%;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #789fff;
-        color: transparent;
-        z-index: 1;
-        @include respondAt(1000px) {
-          font-size: 80px;
-        }
-        @include respondAt(550px) {
-          font-size: 14vw;
-        }
-      }
-
-      &--image {
-        top: 0;
-        right: -270px;
-        position: absolute;
-        @include box(370px, 370px);
-
-        @include respondAt(660px) {
-          display: none;
-        }
-      }
+      @include box(100%, 100%);
+      @include make-flex($dir: column, $just: center, $align: flex-end);
+      z-index: 2;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 0;
+			transition: all 0.5s ease-in-out;
+			
+			&--showVideo {
+				backdrop-filter: blur(10px);
+			}
+			&--active {
+				position: fixed;
+			}
+			
+			@include respondAt(850px) {
+				position: relative;
+				top: unset;
+				right: unset;
+			}
     }
+		
+		&__belowContainer {
+			@include box(100%, 100%);
+			position: relative;
+		}
+		
+		&__playButton {
+			@include box(14%, auto);
+			z-index: 6;
+			position: absolute;
+			top: -3%;
+			left: 58%;
+			background-color: transparent;
+			border: none;
+			
+			&:before {
+        content: "";
+        position: absolute;
+        @include box(30%, 30%);
+        top: 48%;
+				left: 48%;	
+        z-index: -1;
+
+        padding: 2em;
+        background-color: #5284ff;
+        border-radius: 50%;
+        opacity: 0;
+
+        animation-name: animation-timeline-current;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+      }
+		}
+		
+		&__closeButton {
+			@include box(50px, 50px);
+			z-index: 6;
+			position: absolute;
+			top: 100px;
+			right: 2%;
+			background-color: transparent;
+			border: none;
+			transform: scale(2);
+		}
+		
+		&__image {
+			@include box();
+			z-index: 5;
+			object-fit: cover;
+		}
+		
+		&__vidContainer {
+			width: 65%;
+			// max-width: 65%;
+			aspect-ratio: 6 / 3.4;
+			border-radius: 55px;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			right: -30%;
+			
+			transition: all 0.8s cubic-bezier(.71,.56,.32,1.26);
+			&--showVideo {
+				width: 65%;
+				top: 25%;
+				right: 17%;
+			}
+		}
+		
+		&__vid {
+			@include box();
+		}
   }
 
   .RenegadeSection {
@@ -351,4 +430,15 @@
   @include box();
   @include make-flex();
   padding: 40px;
+}
+
+@keyframes animation-timeline-current {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
 }

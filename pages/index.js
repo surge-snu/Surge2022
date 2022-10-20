@@ -1,3 +1,4 @@
+import React from "react";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Newsletter from "../Components/Newsletter/Newsletter";
@@ -15,6 +16,34 @@ export async function getServerSideProps(context) {
   };
 }
 export default function Home() {
+	
+	const [showVideo, setShowVideo] = React.useState(false);
+	React.useEffect(() => {
+		if (showVideo) {
+			setTimeout(() => {
+				document.querySelector(".AboutSection__below").style.position = "fixed";
+				document.querySelector(".AboutSection__below").style.top = "0";
+				document.querySelector(".AboutSection__below").style.left = "0";
+				// document.querySelector(".AboutSection__below").classList.add("AboutSection__below--active");
+				document.querySelector(".AboutSection__vid").play();
+			}, 800);
+		} else {
+			// remove the position style
+			document.querySelector(".AboutSection__below").style.position = "";
+			document.querySelector(".AboutSection__below").style.top = "";
+			document.querySelector(".AboutSection__below").style.left = "";
+			// document.querySelector(".AboutSection__below").style.position = "relative";
+			// document.querySelector(".AboutSection__below").classList.remove("AboutSection__below--active");
+			document.querySelector(".AboutSection__vid").pause();
+		}
+		return () => {
+			document.querySelector(".AboutSection__below").style.position = "";
+			document.querySelector(".AboutSection__below").style.top = "";
+			document.querySelector(".AboutSection__below").style.left = "";
+			document.querySelector(".AboutSection__vid").pause();
+		};
+	}, [showVideo]);
+	
   return (
     <>
       <section className="HeroSection">
@@ -64,8 +93,9 @@ export default function Home() {
       </section>
       <SportScroll />
       <section className="AboutSection" id="about">
-        <div className="AboutSection__above">
-          <h1 className="AboutSection__above--title">
+				<div className="AboutSection__above">
+					<h1 className="AboutSection__title">ABOUT</h1>
+          <h1 className="AboutSection__subtitle">
             THE{" "}
             <span>
               ANNUAL SPORTS <br />
@@ -76,7 +106,7 @@ export default function Home() {
             SHIV NADAR IOE
           </h1>
 
-          <p className="AboutSection__above--text">
+          <p className="AboutSection__text">
             Surge brings to all a platform to promote visibility, interaction,
             and dedication to sports. Our sports clubs get to not only increase
             their audience, but also nurture in everyone the spirit of
@@ -85,17 +115,48 @@ export default function Home() {
             legendary clashes between the best and the brightest.
           </p>
           <Link href="/team">
-            <a className="AboutSection__above--fancyLink">MEET THE TEAM</a>
+            <a className="AboutSection__fancyLink">MEET THE TEAM</a>
           </Link>
         </div>
-        <div className="AboutSection__below">
-          <img
-            alt="Football image"
-            loading="lazy"
-            className="AboutSection__below--image"
-            src="/Img/football.png"
-          />
-          <h1 className="AboutSection__below--title">ABOUT</h1>
+				<div className={`AboutSection__below
+					${showVideo ? "AboutSection__below--showVideo" : ""}
+				`}>
+					<div className="AboutSection__belowContainer">
+						<button
+							className="AboutSection__playButton"
+							onClick={() => setShowVideo(showVideo => !showVideo)}
+						>
+							<img
+								alt="Play button"
+								loading="lazy"
+								className="AboutSection__image"
+								src="/Img/Play button.svg"
+								hidden={showVideo}
+							/>
+						</button>
+						<button
+							className="AboutSection__closeButton"
+							onClick={() => setShowVideo(showVideo => !showVideo)}
+							hidden={!showVideo}
+						>X</button>
+						<div className={`AboutSection__vidContainer
+							${showVideo ? "AboutSection__vidContainer--showVideo" : ""}
+						`}>
+							<img
+								alt="About image"
+								loading="lazy"
+								className="AboutSection__image AboutSection__image--video"
+								src="/Img/About.svg"
+								hidden={showVideo}
+							/>
+							<video
+								loading="lazy"
+								className="AboutSection__vid"
+								controls controlsList="nodownload">
+								<source src="/Vids/LaunchVid.MP4" type="video/mp4" />
+							</video>
+						</div>
+					</div>
         </div>
       </section>
       {/* <section className="RenegadeSection" id="events">
