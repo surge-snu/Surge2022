@@ -345,7 +345,7 @@ export default function MyCart({ user, allEvents }) {
                     />
                     <GInput
                       value={paymentId}
-                      label="Team Id"
+                      label="Payment Id"
                       disabled
                       bgColor="#0f1621"
                     />

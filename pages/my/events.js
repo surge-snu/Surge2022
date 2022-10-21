@@ -83,9 +83,9 @@ export default function MyEvents({ user }) {
                     }, 0)
                   )}
                 </h3>
-                <button className="MyHome__greenButton">
+                {/* <button className="MyHome__greenButton">
                   Download Invoice
-                </button>
+                </button> */}
               </DashRow>
             )
           )}
