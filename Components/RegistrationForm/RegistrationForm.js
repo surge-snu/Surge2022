@@ -16,8 +16,8 @@ export default function RegistrationForm({
     tempTeamDetails
       ? tempTeamDetails
       : [...Array(maxPlayers).keys()].map((item) => {
-					const tempObj = {
-						"id": item,
+          const tempObj = {
+            id: item,
             [`PlayerName`]: "",
             [`PlayerEmail`]: "",
             [`PlayerPhone`]: "",
@@ -35,57 +35,38 @@ export default function RegistrationForm({
     formValues.forEach((item, index) => {
       const tempErrors = {};
 
-      if (
-        item[`PlayerName`] !== "" &&
-        !isName(item[`PlayerName`])
-      ) {
+      if (item[`PlayerName`] !== "" && !isName(item[`PlayerName`])) {
         tempErrors[`PlayerName`] = "Invalid Name";
       }
 
-      if (
-        item[`PlayerEmail`] !== "" &&
-        !isEmail(item[`PlayerEmail`])
-      ) {
+      if (item[`PlayerEmail`] !== "" && !isEmail(item[`PlayerEmail`])) {
         tempErrors[`PlayerEmail`] = "Invalid Email";
       }
 
-      if (
-        item[`PlayerPhone`] !== "" &&
-        !isPhone(item[`PlayerPhone`])
-      ) {
+      if (item[`PlayerPhone`] !== "" && !isPhone(item[`PlayerPhone`])) {
         tempErrors[`PlayerPhone`] = "Invalid Phone number";
       } else {
         const phone = item[`PlayerPhone`];
         let phoneCount = 0;
 
         formValues.forEach((item, i) => {
-          if (
-            item[`PlayerPhone`] !== "" &&
-            item[`PlayerPhone`] === phone
-          ) {
+          if (item[`PlayerPhone`] !== "" && item[`PlayerPhone`] === phone) {
             phoneCount++;
           }
         });
 
         if (phoneCount > 1) {
-          tempErrors[`PlayerPhone`] =
-            "Phone Number should be unique";
+          tempErrors[`PlayerPhone`] = "Phone Number should be unique";
         }
       }
 
-      if (
-        item[`PlayerID`] !== "" &&
-        !isRollNumber(item[`PlayerID`])
-      ) {
+      if (item[`PlayerID`] !== "" && !isRollNumber(item[`PlayerID`])) {
         tempErrors[`PlayerID`] = "Invalid Roll Number";
       } else {
         const rollNumber = item[`PlayerID`];
         let rollNumberCount = 0;
         formValues.forEach((item, i) => {
-          if (
-            item[`PlayerID`] !== "" &&
-            item[`PlayerID`] === rollNumber
-          ) {
+          if (item[`PlayerID`] !== "" && item[`PlayerID`] === rollNumber) {
             rollNumberCount++;
           }
         });
@@ -106,7 +87,7 @@ export default function RegistrationForm({
       eventId,
       validate,
       initialValues,
-			onSubmit: async (formData) => {
+      onSubmit: async (formData) => {
         const hasError = Object.values(errors).some(
           (item) => Object.keys(item).length !== 0
         );
@@ -120,7 +101,7 @@ export default function RegistrationForm({
       <form method="POST" className="RegForm__form" onSubmit={handleSubmit}>
         <div className="RegForm__form--fieldsList">
           {formData.map((val, i) => (
-						<div key={val["id"]} className="RegForm__form--player">
+            <div key={val["id"]} className="RegForm__form--player">
               <span>
                 <h3>
                   Player {i + 1} {i + 1 === 1 ? "(Captain)" : ""}
@@ -151,6 +132,7 @@ export default function RegistrationForm({
                     id={`PlayerEmail`}
                     label="Email*"
                     type="text"
+                    pattern={/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/}
                     value={val[`PlayerEmail`]}
                     setValue={(e) => onChange(`PlayerEmail`, e, i)}
                   />
@@ -195,15 +177,15 @@ export default function RegistrationForm({
         <div className="SignUp__button">
           {formData.length < maxPlayers && (
             <button onClick={() => addPlayer()}>Add player</button>
-					)}
-					<button
-						type="submit"
-						disabled={Object.values(errors).some(
-							(item) => Object.keys(item).length !== 0
-						)}
-					>
-						Next
-					</button>
+          )}
+          <button
+            type="submit"
+            disabled={Object.values(errors).some(
+              (item) => Object.keys(item).length !== 0
+            )}
+          >
+            Next
+          </button>
         </div>
       </form>
     </div>
