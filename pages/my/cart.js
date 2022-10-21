@@ -372,6 +372,12 @@ export default function MyCart({ user, allEvents }) {
                   </div>
                   <div className="MyCart__alert--right">
                     <img src="/Img/Paytm.png" alt="https://paytm.me/T-d1kU8" />
+                    <span>(or)</span>
+                    <Link href="https://paytm.me/T-d1kU8">
+                      <a className="MyCart__alert--bottom2" target="_blank" referrerPolicy="no-referrer">
+                        https://paytm.me/T-d1kU8 &#129109;
+                      </a>
+                    </Link>
                   </div>
                 </div>
                 <h3 className="MyCart__alert--middle">
