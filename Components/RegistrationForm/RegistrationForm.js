@@ -153,7 +153,6 @@ export default function RegistrationForm({
                     type="text"
                     value={val[`PlayerEmail`]}
                     setValue={(e) => onChange(`PlayerEmail`, e, i)}
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
                   {errors[i] && errors[i][`PlayerEmail`] && (
                     <span className="RegForm__row--error">
@@ -197,20 +196,6 @@ export default function RegistrationForm({
           {formData.length < maxPlayers && (
             <button onClick={() => addPlayer()}>Add player</button>
 					)}
-					<button
-						type=""
-						onClick={(e) => {
-							console.log(errors);
-							const hasError = Object.values(errors)
-								.splice(0, formData.length)
-								.some(
-								(item) => Object.keys(item).length !== 0
-							);
-							console.log(hasError);
-						}}
-					>
-						Print
-					</button>
 					<button
 						type="submit"
 						disabled={Object.values(errors).some(
