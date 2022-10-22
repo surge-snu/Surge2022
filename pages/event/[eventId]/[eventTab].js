@@ -13,10 +13,12 @@ import useAuth from "../../../hooks/useAuth";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
 import { Cashify } from "../../../utils/Cashify";
+import rules from "../../../public/json/rules.json"
 
 export async function getServerSideProps(context) {
   const { eventId, eventTab } = context.query;
-  let eventDetails = await fetchEvent(eventId);
+	let eventDetails = await fetchEvent(eventId);
+	let generalRules = rules["general"];
 
   if (eventDetails === null) {
     return {
@@ -42,7 +44,8 @@ export async function getServerSideProps(context) {
         user: null,
         eventDetails: eventDetails,
         eventTab: eventTab,
-        currentPath: context.req.url,
+				currentPath: context.req.url,
+				generalRules: generalRules,
       },
     };
   }
@@ -52,12 +55,13 @@ export async function getServerSideProps(context) {
       user: context.req.session.user,
       eventDetails: eventDetails,
       eventTab: eventTab,
-      currentPath: context.req.url,
+			currentPath: context.req.url,
+			generalRules: generalRules,
     },
   };
 }
 
-export default function EventTabContent({ eventDetails, eventTab, user }) {
+export default function EventTabContent({ eventDetails, eventTab, user, generalRules }) {
   const { tempTeamDetails, setTempTeamDetails } = useAuth();
   const [teamDetails, setTeamDetails] = useState(tempTeamDetails);
 
@@ -84,6 +88,35 @@ export default function EventTabContent({ eventDetails, eventTab, user }) {
                         .replaceAll("Breeze", "Surge")
                         .replaceAll("BREEZE", "Surge"),
                     }}
+                  />
+                </div>
+              </div>
+              <EventGist
+                className="EventPage__container--right"
+                eventDetails={eventDetails}
+                from={eventDetails.dateFrom}
+                venue={eventDetails.venue}
+                event={eventDetails}
+                price={eventDetails.pricePerPlayer}
+              />
+            </div>
+          </>
+				);
+			case "general":
+				return (
+          <>
+            <div className="EventPage__container--content">
+              <div className="EventPage__container--left">
+                <div className="EventPage__container--header">
+                  <h2>General Rules</h2>
+                  <hr />
+                </div>
+                <div className="EventPage__container--overview">
+                  <span
+                    className="markdownBody"
+                    dangerouslySetInnerHTML={{
+                      __html: generalRules
+											}}
                   />
                 </div>
               </div>

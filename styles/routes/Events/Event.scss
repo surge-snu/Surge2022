@@ -99,6 +99,16 @@
         font-weight: 500;
         font-size: 15px;
       }
+			
+			li{
+				@include respondAt(425px) {
+					font-size: 13px;
+				}
+			}
+			
+			@include respondAt(500px) {
+				padding: 15px;
+			}
     }
 
     &--prizes,

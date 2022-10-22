@@ -5,11 +5,12 @@ import PinInput from "react-pin-input";
 import useForm from "../../../hooks/useForm";
 import BlurredSpinner from "../../BlurredSpinner/BlurredSpinner";
 import { register, sendOtp } from "../../../operations/auth.fetch";
-import { isEmail, isPassword, isName } from "../../../utils/validate";
+import { isEmail, isPassword, isName, isPhone } from "../../../utils/validate";
 
 export default function SignUp({ onSignUp }) {
   const initialValues = {
     friendlyName: "",
+    phone: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -33,7 +34,11 @@ export default function SignUp({ onSignUp }) {
     const errs = {};
     setDuplicateError({});
     if (formValues.friendlyName && !isName(formValues.friendlyName)) {
-      errs.friendlyName = "Invalid friendly name";
+      errs.friendlyName = "Invalid Name";
+    }
+
+    if (formValues.phone && !isPhone(formValues.phone)) {
+      errs.phone = "Invalid Phone number";
     }
 
     if (formValues.email && !isEmail(formValues.email)) {
@@ -177,6 +182,21 @@ export default function SignUp({ onSignUp }) {
           )}
           {duplicateError.name && (
             <span className="SignUp__row--error">{duplicateError.name}</span>
+          )}
+        </div>
+        <div className="SignUp__row">
+          <label htmlFor="phone">Phone</label>
+          <input
+            id="phone"
+            type="number"
+            required
+            onChange={(e) => onChange("phone", e)}
+          />
+          {errors.phone && (
+            <span className="SignUp__row--error">{errors.phone}</span>
+          )}
+          {duplicateError.phone && (
+            <span className="SignUp__row--error">{duplicateError.phone}</span>
           )}
         </div>
         <div className="SignUp__row">
