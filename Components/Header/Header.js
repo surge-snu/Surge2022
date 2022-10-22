@@ -54,8 +54,8 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
     <div className={`HeaderWrapper ${isSmall ? "HeaderWrapper--small" : ""}`}>
       <div className="HeaderWrapper__logo">
         <a href="/" aria-label="Go to home page">
-          {/* <img alt="Surge white logo" src="/Img/Surge_W_logo.png" /> */}
-          Surge
+          <img alt="Surge white logo" src="/Img/Surge_W_logo.png" />
+          {/* Surge */}
         </a>
       </div>
       <div
@@ -109,8 +109,8 @@ function Header({ currentPath = "", isSidebar = true, isSmall = false }) {
               }}
               aria-label="Go to home page"
             >
-              {/* <img alt="Surge White logo" src="/Img/Surge_W_logo.png" /> */}
-              Surge
+              <img alt="Surge White logo" src="/Img/Surge_W_logo.png" />
+              {/* Surge */}
             </a>
           </Link>
         </span>

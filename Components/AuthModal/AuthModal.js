@@ -61,12 +61,12 @@ export default function AuthModal() {
             >
               &#10799;
             </span>
-            <h2>SURGE</h2>
-            {/* <img
+            {/* <h2>SURGE</h2> */}
+            <img
               className="AuthModal__logo"
               src="/Img/Surge_W_logo.png"
               alt="surge logo"
-            /> */}
+            />
             <div className="AuthModal__tabs">
               <a
                 href="#login"
