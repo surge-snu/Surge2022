@@ -60,7 +60,7 @@ export default function RegistrationForm({
         }
       }
 
-      if (item[`PlayerID`] !== "" && !isRollNumber(item[`PlayerID`])) {
+      if (item[`PlayerID`] !== "") {
         tempErrors[`PlayerID`] = "Invalid Roll Number";
       } else {
         const rollNumber = item[`PlayerID`];

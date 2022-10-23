@@ -2,7 +2,7 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const usernameRegex = /^[a-zA-Z_]\w{3,11}$/;
 
-const nameRegex = /^[a-zA-Z ]{3,20}$/;
+const nameRegex = /^[a-zA-Z ]{3,40}$/;
 
 const passwordRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*).*$/;
 
