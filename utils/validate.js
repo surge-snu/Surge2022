@@ -8,7 +8,7 @@ const passwordRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*).*$/;
 
 const phoneRegex = /^\d{10}$/;
 
-const rollNumberRegex = /^[a-zA-Z0-9]{3,20}$/;
+const rollNumberRegex = /^[a-zA-Z0-9 -\/:-@\[-\`{-~]{3,20}$/;
 
 function createValidator(re) {
   return (candidate) => re.test(candidate);
