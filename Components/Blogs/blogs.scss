@@ -39,6 +39,7 @@
     overflow-x: auto;
     // padding: 0 30px 30px;
     @include box();
+    gap: 15px;
   }
 
   &__blogCard {
@@ -58,7 +59,8 @@
     }
 
     img {
-      @include box(100%, auto);
+      // @include box(100%, auto);
+      width: auto;
       object-fit: cover;
       border-radius: 10px;
 
