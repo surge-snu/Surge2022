@@ -43,16 +43,17 @@ export default function Home() {
           </h1>
           <p className="HeroSection__top--text">
             Whole-heartedly focused on the growing sports ambition on campus,
-            everyone from legends to noobs will be a part of a week of fulfilled
-            dreams in the form of tournaments, one-on-one battles, and exertion
-            both physical and mental, as records are formed and broken.
+            everyone from athletes to fans will be a part of this 3-day fiesta
+            of fulfilled dreams in the form of tournaments, one-on-one battles,
+            and exertion both physical and mental, as records are formed and
+            broken.
           </p>
           <div className="HeroSection__top--actionContainer">
             {/* <div className="HeroSection__top--action">
               <img alt="down arrow" loading="lazy" src="/Img/DownArrow.svg" />
               <p>11 12 13 November</p>
             </div> */}
-            {/* <p>11 12 13 November</p> */}
+            <p>11 12 13 November</p>
           </div>
           {/* <div className="HeroSection__top--date">
 						<p>

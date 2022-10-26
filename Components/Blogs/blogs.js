@@ -7,6 +7,11 @@ export default function Blogs() {
       link: "https://chesspulse.com/the-chess-brain-do-chess-grandmasters-go-crazy/",
       image: "https://chesspulse.com/wp-content/uploads/2020/11/24.jpg",
     },
+    {
+      title: "Examining Kobe Bryant’s Legacy",
+      link: "https://medium.com/sportsraid/examining-kobe-bryants-legacy-c57d7d84cfbd",
+      image: "https://miro.medium.com/max/1400/1*zW5zfJigXLm_Ojn_6xG-tQ.png"
+    }
   ];
 
   return (
