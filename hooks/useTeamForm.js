@@ -46,7 +46,7 @@ export default function useTeamForm({
     // const newData = { ...formData, [fieldName]: e.target.value };
     const newData = formData.map((item, i) => {
       if (i === index) {
-        return { ...item, [fieldName]: e.target.value };
+        return { ...item, [fieldName]: e.target.value.trim() };
       }
       return item;
     });

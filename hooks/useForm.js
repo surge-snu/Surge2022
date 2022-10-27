@@ -20,7 +20,7 @@ export default function useForm({
 
   const onChange = async (fieldName, e) => {
     setErrors({});
-    const newData = { ...formData, [fieldName]: e.target.value };
+    const newData = { ...formData, [fieldName]: e.target.value.trim() };
     if (typeof validate === "function") {
       const validationErrors = await validate(newData);
       if (hasError(validationErrors)) setErrors(validationErrors);
