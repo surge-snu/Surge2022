@@ -63,6 +63,7 @@
       padding: 7px 20px;
       @include make-flex();
       @include box();
+			white-space: nowrap;
     }
 
     button {
@@ -92,7 +93,7 @@
 
   &--mobile {
     display: none;
-    @include box($width: 190px, $height: 150px);
+    @include box($width: 240px, $height: 150px);
     padding: 5px 48px 5px 5px;
     overflow: hidden;
     border-radius: 8px;

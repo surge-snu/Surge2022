@@ -82,6 +82,22 @@ function EventTabs({ eventId, currentTab }) {
             </a>
           </Link>
         </li> */}
+				<li
+          className={`EventTabs--item ${
+            activeTab === "general" ? "EventTabs--activeItem" : ""
+          }`}
+        >
+          <Link href={`/event/${eventId}/general`}>
+            <a
+              id="general"
+              onClick={() => setActiveTab("general")}
+              onMouseEnter={() => setHoverTab("general")}
+              onMouseLeave={() => setHoverTab(null)}
+            >
+              GENERAL RULES
+            </a>
+          </Link>
+        </li>
         <li
           className={`EventTabs--item ${
             activeTab === "prizes" ? "EventTabs--activeItem" : ""
@@ -127,7 +143,7 @@ function EventTabs({ eventId, currentTab }) {
       </ul>
 
       <ul className="EventTabs--mobile" style={{ height: "50.5px" }}>
-        {["overview", "prizes", "register"]
+        {["overview", "general", "prizes", "register"]
           .filter((x) => x !== activeTab)
           .concat([activeTab])
           .reverse()
@@ -146,7 +162,7 @@ function EventTabs({ eventId, currentTab }) {
                     setIsDropDownOpen(!isDropDownOpen);
                   }}
                 >
-                  {tab.toUpperCase()}
+                  {(tab == "general") ? "GENERAL RULES" : tab.toUpperCase()}
                 </a>
               </Link>
             </li>
