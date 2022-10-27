@@ -11,8 +11,11 @@ function MyApp({ Component, pageProps, user }) {
     <AuthProvider ssrUser={user}>
       <Head>
         <title>Surge 2022</title>
-        <meta name="description" content="Awesome website for Surge" />
-        <link rel="icon" href="/Img/Sports icon.png" />
+        <meta
+          name="description"
+          content="Shiv Nadar IOE's annual Sports Fest"
+        />
+        <link rel="icon" href="/Img/SurgeCircleSmall.png" />
       </Head>
       <AuthModal />
       <NextNProgress color="#ff4f46" height={5} />
