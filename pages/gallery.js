@@ -13,7 +13,13 @@ export async function getServerSideProps(context) {
 export default function Gallery() {
   return (
     <div className="GalleryPage__container">
-      <h3>Pictures coming soon!</h3>
+      {[...Array(26).keys()].map((item, index) => (
+        <span
+          key={index}
+          // src={`Img/Gallery/${item + 1}.JPG`}
+          alt={`gallery ${index}`}
+        />
+      ))}
     </div>
   );
 }

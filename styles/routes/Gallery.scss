@@ -17,14 +17,201 @@
   }
 
   &__container {
-    @include box(100%, 100%);
-    max-width: 1500px;
-    position: relative;
-    @include make-flex();
-    padding: 100px 55px 100px;
-
     @include respondAt(480px) {
       padding: 0px 17px 80px;
+    }
+
+    @include box(100vw, auto);
+    max-width: 1500px;
+    position: relative;
+    margin-top: 101px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(35, 150px);
+    grid-gap: 15px;
+
+    grid-template-areas:
+      "img-1 img-1 img-14 img-2"
+      "img-1 img-1 img-14 img-2"
+      "img-4 img-5 img-14 img-3"
+      "img-4 img-5 img-14 img-3"
+      "img-7 img-6 img-6 img-6"
+      "img-7 img-6 img-6 img-6"
+      "img-7 img-6 img-6 img-6"
+      "img-8 img-8 img-9 img-9"
+      "img-8 img-8 img-9 img-9"
+      "img-11 img-11 img-12 img-13"
+      "img-11 img-11 img-12 img-13"
+      "img-15 img-15 img-16 img-16"
+      "img-15 img-15 img-16 img-16"
+      "img-17 img-18 img-16 img-16"
+      "img-17 img-18 img-16 img-16"
+      "img-22 img-22 img-22 img-22"
+      "img-22 img-22 img-22 img-22"
+      "img-22 img-22 img-22 img-22"
+      "img-22 img-22 img-22 img-22"
+      "img-22 img-22 img-22 img-22"
+      "img-22 img-22 img-22 img-22"
+      "img-21 img-21 img-23 img-23"
+      "img-21 img-21 img-23 img-23"
+      "img-21 img-21 img-23 img-23"
+      "img-24 img-24 img-20 img-20"
+      "img-24 img-24 img-20 img-20"
+      "img-24 img-24 img-19 img-19"
+      "img-24 img-24 img-19 img-19"
+      "img-24 img-24 img-19 img-19"
+      "img-25 img-25 img-26 img-26"
+      "img-25 img-25 img-26 img-26"
+      "img-25 img-25 img-26 img-26"
+      "img-10 img-10 . ."
+      "img-10 img-10 . .";
+    @for $img from 1 to 27 {
+      span {
+        &:nth-child(#{$img}) {
+          background-image: url("../../public/Img/Gallery/#{$img}.JPG");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          // height: 100px;
+          // width: 100%;
+          display: block;
+          position: relative;
+          cursor: pointer;
+
+          grid-area: img-#{$img};
+        }
+      }
+    }
+
+    @include respondAt(1518px) {
+      width: 90vw;
+    }
+
+    @include respondAt(915px) {
+      margin-top: 70px;
+      grid-template-rows: repeat(35, 150px);
+
+      grid-template-areas:
+        "img-1 img-1 img-1 img-14"
+        "img-1 img-1 img-1 img-14"
+        "img-4 img-4 img-2 img-2"
+        "img-4 img-4 img-2 img-2"
+        "img-5 img-5 img-5 img-3"
+        "img-5 img-5 img-5 img-3"
+        "img-7 img-6 img-6 img-6"
+        "img-7 img-6 img-6 img-6"
+        "img-8 img-8 img-9 img-9"
+        "img-8 img-8 img-9 img-9"
+        "img-12 img-12 img-12 img-12"
+        "img-12 img-12 img-12 img-12"
+        "img-11 img-11 img-13 img-13"
+        "img-11 img-11 img-13 img-13"
+        "img-15 img-15 img-16 img-16"
+        "img-15 img-15 img-16 img-16"
+        "img-17 img-17 img-16 img-16"
+        "img-17 img-17 img-16 img-16"
+        "img-18 img-18 img-18 img-18"
+        "img-18 img-18 img-18 img-18"
+        "img-21 img-21 img-23 img-23"
+        "img-21 img-21 img-23 img-23"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-24 img-24 img-20 img-20"
+        "img-24 img-24 img-20 img-20"
+        "img-24 img-24 img-19 img-19"
+        "img-24 img-24 img-19 img-19"
+        "img-25 img-25 img-26 img-26"
+        "img-25 img-25 img-26 img-26"
+        "img-10 img-10 . ."
+        "img-10 img-10 . .";
+    }
+
+    @include respondAt(600px) {
+      grid-template-rows: repeat(37, 150px);
+
+      grid-template-areas:
+        "img-1 img-1 img-1 img-14"
+        "img-1 img-1 img-1 img-14"
+        "img-4 img-4 img-2 img-2"
+        "img-4 img-4 img-2 img-2"
+        "img-5 img-5 img-5 img-5"
+        "img-5 img-5 img-5 img-5"
+        "img-7 img-7 img-3 img-3"
+        "img-7 img-7 img-3 img-3"
+        "img-6 img-6 img-6 img-6"
+        "img-6 img-6 img-6 img-6"
+        "img-8 img-8 img-9 img-9"
+        "img-8 img-8 img-9 img-9"
+        "img-12 img-12 img-12 img-12"
+        "img-12 img-12 img-12 img-12"
+        "img-11 img-11 img-13 img-13"
+        "img-11 img-11 img-13 img-13"
+        "img-15 img-15 img-16 img-16"
+        "img-15 img-15 img-16 img-16"
+        "img-17 img-17 img-16 img-16"
+        "img-17 img-17 img-16 img-16"
+        "img-18 img-18 img-18 img-18"
+        "img-18 img-18 img-18 img-18"
+        "img-21 img-21 img-23 img-23"
+        "img-21 img-21 img-23 img-23"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-24 img-24 img-20 img-20"
+        "img-24 img-24 img-20 img-20"
+        "img-24 img-24 img-19 img-19"
+        "img-24 img-24 img-19 img-19"
+        "img-25 img-25 img-26 img-26"
+        "img-25 img-25 img-26 img-26"
+        "img-10 img-10 . ."
+        "img-10 img-10 . .";
+    }
+
+    @include respondAt(445px) {
+      margin-top: 90px;
+      grid-template-rows: repeat(35, 150px);
+
+      grid-template-areas:
+        "img-1 img-1 img-1 img-1"
+        "img-14 img-14 img-14 img-14"
+        "img-14 img-14 img-14 img-14"
+        "img-14 img-14 img-14 img-14"
+        "img-4 img-4 img-2 img-2"
+        "img-4 img-4 img-2 img-2"
+        "img-5 img-5 img-5 img-5"
+        "img-5 img-5 img-5 img-5"
+        "img-7 img-7 img-3 img-3"
+        "img-7 img-7 img-3 img-3"
+        "img-6 img-6 img-6 img-6"
+        "img-6 img-6 img-6 img-6"
+        "img-9 img-9 img-9 img-9"
+        "img-9 img-9 img-9 img-9"
+        "img-8 img-8 img-8 img-8"
+        "img-12 img-12 img-12 img-12"
+        "img-12 img-12 img-12 img-12"
+        "img-11 img-11 img-13 img-13"
+        "img-11 img-11 img-13 img-13"
+        "img-15 img-15 img-16 img-16"
+        "img-15 img-15 img-16 img-16"
+        "img-17 img-17 img-16 img-16"
+        "img-17 img-17 img-16 img-16"
+        "img-18 img-18 img-18 img-18"
+        "img-18 img-18 img-18 img-18"
+        "img-21 img-21 img-23 img-23"
+        "img-21 img-21 img-23 img-23"
+        "img-22 img-22 img-22 img-22"
+        "img-22 img-22 img-22 img-22"
+        "img-24 img-24 img-20 img-20"
+        "img-24 img-24 img-20 img-20"
+        "img-19 img-19 img-19 img-19"
+        "img-19 img-19 img-19 img-19"
+        "img-25 img-25 img-25 img-25"
+        "img-26 img-26 img-26 img-26"
+        "img-10 img-10 img-10 img-10";
     }
   }
 }
