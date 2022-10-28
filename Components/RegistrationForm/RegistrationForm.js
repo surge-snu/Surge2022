@@ -160,6 +160,7 @@ export default function RegistrationForm({
                   <GInput
                     id={`PlayerID`}
                     label="Roll Number*"
+                    pattern={null}
                     type="text"
                     value={val[`PlayerID`]}
                     setValue={(e) => onChange(`PlayerID`, e, i)}
