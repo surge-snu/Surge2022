@@ -99,17 +99,6 @@
     "file": "./Team/Riya_Ralhan.jpeg"
   },
   {
-    "Timestamp": "2022/10/09 1:51:29 AM GMT+5:30",
-    "Username": "cg487@snu.edu.in",
-    "name": "Chaheti Goyal",
-    "email": "cg487@snu.edu.in",
-    "Phone number": 7089996355,
-    "image": "https://drive.google.com/u/0/open?usp=forms_web&id=1s7kolejcSvoGmSfIdJTuh-otLyNNYt9G",
-    "team": "Marketing",
-    "role": "Member",
-    "file": "./Team/Chaheti.JPG"
-  },
-  {
     "Timestamp": "2022/10/09 1:57:06 AM GMT+5:30",
     "Username": "ss946@snu.edu.in",
     "name": "Subani Sethi",
@@ -317,5 +306,235 @@
     "team": "Marketing",
     "role": "Member",
     "file": "./Team/Chaheti.JPG"
+  },
+  {
+    "Timestamp": "10/12/2022 12:20:18",
+    "Username": "kr217@snu.edu.in",
+    "name": "Kartikeya Rawat",
+    "email": "kr217@snu.edu.in",
+    "Phone number": 8810639788,
+    "image": "https://drive.google.com/open?id=1lfhKYwM0G3hHmVdXTqSQCNBeAig1tFJC",
+    "team": "Videography",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/17/2022 15:06:29",
+    "Username": "ks367@snu.edu.in",
+    "name": "Karan Bellak Sudhakar",
+    "email": "ks367@snu.edu.in",
+    "Phone number": 8925194896,
+    "image": "https://drive.google.com/open?id=1SB3kst3jPBRZ5fXUM6BFSxew3_J29enb",
+    "team": "Design",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/19/2022 20:34:59",
+    "Username": "dp622@snu.edu.in",
+    "name": "DEEPAK PADMANABHAN",
+    "email": "dp622@snu.edu.in",
+    "Phone number": 9550820302,
+    "image": "https://drive.google.com/open?id=1Tb4Zf_N_iGhSfZ27Ofkvu4JhvdhtDkhA",
+    "team": "Core",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 2:50:33",
+    "Username": "an494@snu.edu.in",
+    "name": "Ajendra Kumar Neeraj",
+    "email": "an494@snu.edu.in",
+    "Phone number": "+917078765510",
+    "image": "https://drive.google.com/open?id=1f-G5vzEo1VLRbz4ejlQKhGaFdkqY7rL_",
+    "team": "Core",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/26/2022 3:21:16",
+    "Username": "is212@snu.edu.in",
+    "name": "Ishita Satyam",
+    "email": "is212@snu.edu.in",
+    "Phone number": 7678277660,
+    "image": "https://drive.google.com/open?id=1yD5ScGplizClVqyn_MVdLc_JpiTtkgT_",
+    "team": "Public Relations",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/26/2022 3:22:21",
+    "Username": "py276@snu.edu.in",
+    "name": "P Y Sharan",
+    "email": "py276@snu.edu.in",
+    "Phone number": 9136121122,
+    "image": "https://drive.google.com/open?id=1qUDYM4Gn50HXOrCmxMVMGrCahnZq663b",
+    "team": "Public Relations",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 5:17:33",
+    "Username": "am218@snu.edu.in",
+    "name": "Aryan Madan",
+    "email": "am218@snu.edu.in",
+    "Phone number": 8310307687,
+    "image": "https://drive.google.com/open?id=1lxOadceC5WqMhSsOWHxBZbcIvpoa1dpc",
+    "team": "Content",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/26/2022 5:24:56",
+    "Username": "ad739@snu.edu.in",
+    "name": "Adhindra VS",
+    "email": "ad739@snu.edu.in",
+    "Phone number": 7338700818,
+    "image": "https://drive.google.com/open?id=1U1RHZmQnpNZEL5IIMR75iILrTtq4_1WM",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 8:27:58",
+    "Username": "rb987@snu.edu.in",
+    "name": "Ratul Bandyopadhyay",
+    "email": "rb987@snu.edu.in",
+    "Phone number": 9869321000,
+    "image": "https://drive.google.com/open?id=19L0ET5OMs8zr_-Tpm4Q0bjEA_P8BKYp6",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 9:09:55",
+    "Username": "sm594@snu.edu.in",
+    "name": "Sai Sanjeeth Muralikrishna",
+    "email": "sm594@snu.edu.in",
+    "Phone number": 9741576840,
+    "image": "https://drive.google.com/open?id=19uU-seFf-bSrDJJUzR7AORQ3zXBvM4ql",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 9:24:35",
+    "Username": "js824@snu.edu.in",
+    "name": "Jeyanth Sanker SR",
+    "email": "js824@snu.edu.in",
+    "Phone number": 9500089096,
+    "image": "https://drive.google.com/open?id=1mUENhKANkZaHIFPKiyZ2h7rkybJkKS3D",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 9:54:16",
+    "Username": "nb932@snu.edu.in",
+    "name": "Nandini Bhusri",
+    "email": "nb932@snu.edu.in",
+    "Phone number": 9911596623,
+    "image": "https://drive.google.com/open?id=16JUolU69H1x-sOaFK8Z-fmu6eu_1NInD",
+    "team": "Sponsorship",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/26/2022 10:54:59",
+    "Username": "hp976@snu.edu.in",
+    "name": "Haradeep Pidaka",
+    "email": "hp976@snu.edu.in",
+    "Phone number": 8019548048,
+    "image": "https://drive.google.com/open?id=1Spu4mCHXO46vwbtaZugKJbQguTGe715E",
+    "team": "Marketing",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 11:09:20",
+    "Username": "ar257@snu.edu.in",
+    "name": "Ashwin Ravi",
+    "email": "ar257@snu.edu.in",
+    "Phone number": "09566742732",
+    "image": "https://drive.google.com/open?id=1pB7q2wbLPv0pisp89DYJ4EGew9-8Ab_D",
+    "team": "Marketing",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 11:23:53",
+    "Username": "ab575@snu.edu.in",
+    "name": "Anubha Bhardwaj",
+    "email": "ab575@snu.edu.in",
+    "Phone number": 9877301161,
+    "image": "https://drive.google.com/open?id=1I7QoJ0bP-nU-TS67sJcnyedCBaU9fjI-",
+    "team": "Marketing",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 12:33:26",
+    "Username": "st582@snu.edu.in",
+    "name": "Shashvat Tiwari",
+    "email": "st582",
+    "Phone number": 9310250699,
+    "image": "https://drive.google.com/open?id=1h3aqEjWax2P4iT9jVYetvtuXLBHiPNcT",
+    "team": "Public Relations",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/26/2022 12:37:04",
+    "Username": "sa692@snu.edu.in",
+    "name": "Sanskar Agarwal",
+    "email": "sa692@snu.edu.in",
+    "Phone number": 7579644945,
+    "image": "https://drive.google.com/open?id=1C5Cxt1ksN_fv8Q5x6g1YKhcUr67625FD",
+    "team": "Core",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/26/2022 15:27:51",
+    "Username": "vd658@snu.edu.in",
+    "name": "Vaishnavi Dimri",
+    "email": "vd658@snu.edu.in",
+    "Phone number": "+917455066104",
+    "image": "https://drive.google.com/open?id=111PGOvbv-bMGtLevdFzR4QxwGwGsCAUY",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 17:14:10",
+    "Username": "sm511@snu.edu.in",
+    "name": "Shreeya Mittal",
+    "email": "A-1/3 Police Computers B-16 Vasundhara Enclave Delhi, India",
+    "Phone number": 8527175193,
+    "image": "https://drive.google.com/open?id=1s9ltO7MDbkGTxmz8Y4fKRXV0AzW98Pw8",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 17:23:04",
+    "Username": "ag739@snu.edu.in",
+    "name": "Aadrita Ghosh",
+    "email": "ag739@snu.edu.in",
+    "Phone number": 7980648320,
+    "image": "https://drive.google.com/open?id=1TzjE5GvjyUDHmlS4Vx-GK-Ak53_U_lsa",
+    "team": "Marketing",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/26/2022 20:03:34",
+    "Username": "ka789@snu.edu.in",
+    "name": "Kushi Athreya",
+    "email": "ka789@gmail.com",
+    "Phone number": "08660576775",
+    "image": "https://drive.google.com/open?id=1PFjmfdl6Yt_NdUKhKD0drINZG7DzWf-r",
+    "team": "Content",
+    "role": "Member"
+  },
+  {
+    "Timestamp": "10/27/2022 7:07:35",
+    "Username": "at461@snu.edu.in",
+    "name": "Agrima Taneja",
+    "email": "at461@snu.edu.in",
+    "Phone number": 9871197503,
+    "image": "https://drive.google.com/open?id=1mC0zHxm_SuAKyT0kBvih0LxTY1wPyh2T",
+    "team": "Sponsorship",
+    "role": "Lead"
+  },
+  {
+    "Timestamp": "10/27/2022 9:54:51",
+    "Username": "ar142@snu.edu.in",
+    "name": "Aanchal Rathor",
+    "email": "ar142@snu.edu.in",
+    "Phone number": 8788471349,
+    "image": "https://drive.google.com/open?id=16gZy7eMdKQu0Z7-TiODcg49oyzT-OmiQ",
+    "team": "Public Relations",
+    "role": "Member"
   }
 ]
