@@ -60,9 +60,7 @@ export default function RegistrationForm({
         }
       }
 
-      if (item[`PlayerID`] === "" ) {
-        tempErrors[`PlayerID`] = "Invalid Roll Number";
-      } else {
+      if (item[`PlayerID`] !== "" ) {
         const rollNumber = item[`PlayerID`];
         let rollNumberCount = 0;
         formValues.forEach((item, i) => {

@@ -13,36 +13,36 @@ export default function Stats() {
       </div>
       <div className="StatsSection__bottom--desktop">
         <div className="StatsSection__bottom--left">
-          <div className="StatsSection__left--row">
+          {/* <div className="StatsSection__left--row">
             <img alt="Circle" loading="lazy" src="/Img/circle.png" />
             <h2>EVENTS</h2>
-          </div>
-          <div className="StatsSection__left--row">
-            <img alt="Circle" loading="lazy" src="/Img/circle.png" />
-            <h2>FACULTY</h2>
-          </div>
+          </div> */}
           <div className="StatsSection__left--row">
             <img alt="Circle" loading="lazy" src="/Img/circle.png" />
             <h2>SPORTS</h2>
+          </div>
+          <div className="StatsSection__left--row">
+            <img alt="Circle" loading="lazy" src="/Img/circle.png" />
+            <h2>OTHERS</h2>
           </div>
         </div>
         <div className="StatsSection__bottom--middle" />
         <div className="StatsSection__bottom--right">
           <div className="StatsSection__right--row">
             <div className="StatsSection__right--item">
-              <h3>100+</h3>
+              <h3>17</h3>
               <span>EVENTS</span>
             </div>
             <div className="StatsSection__right--item">
-              <h3>60+</h3>
-              <span>HOSTED</span>
+              <h3>109+</h3>
+              <span>teams</span>
             </div>
             <div className="StatsSection__right--item">
-              <h3>70+</h3>
-              <span>WON</span>
+              <h3>1500</h3>
+              <span>players</span>
             </div>
           </div>
-          <div className="StatsSection__right--row">
+          {/* <div className="StatsSection__right--row">
             <div className="StatsSection__right--item">
               <h3>20+</h3>
               <span>MEMBERS</span>
@@ -55,11 +55,11 @@ export default function Stats() {
               <h3>20+</h3>
               <span>TRAINERS</span>
             </div>
-          </div>
+          </div> */}
           <div className="StatsSection__right--row">
             <div className="StatsSection__right--item">
-              <h3>100+</h3>
-              <span>SPORTS</span>
+              <h3>15k+</h3>
+              <span>Footfall</span>
             </div>
             <div className="StatsSection__right--item">
               <h3>&nbsp; &nbsp; &nbsp; ∞&nbsp; &nbsp; </h3>
@@ -74,16 +74,16 @@ export default function Stats() {
       </div>
       <div className="StatsSection__bottom--mobile">
         <div className="StatsSection__mobile--item">
-          <h3>130+</h3>
+          <h3>17</h3>
           <span>EVENTS</span>
         </div>
         <div className="StatsSection__mobile--item">
-          <h3>20+</h3>
-          <span>FACULTY</span>
+          <h3>109+</h3>
+          <span>teams</span>
         </div>
         <div className="StatsSection__mobile--item">
-          <h3>100+</h3>
-          <span>SPORTS</span>
+          <h3>15k+</h3>
+          <span>Footfall</span>
         </div>
       </div>
     </>
