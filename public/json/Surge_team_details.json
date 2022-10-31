@@ -315,7 +315,8 @@
     "Phone number": 8810639788,
     "image": "https://drive.google.com/open?id=1lfhKYwM0G3hHmVdXTqSQCNBeAig1tFJC",
     "team": "Videography",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Kartikeya.png"
   },
   {
     "Timestamp": "10/17/2022 15:06:29",
@@ -325,7 +326,8 @@
     "Phone number": 8925194896,
     "image": "https://drive.google.com/open?id=1SB3kst3jPBRZ5fXUM6BFSxew3_J29enb",
     "team": "Design",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Karan.jpg" 
   },
   {
     "Timestamp": "10/19/2022 20:34:59",
@@ -335,7 +337,8 @@
     "Phone number": 9550820302,
     "image": "https://drive.google.com/open?id=1Tb4Zf_N_iGhSfZ27Ofkvu4JhvdhtDkhA",
     "team": "Core",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/deepak.jpg"
   },
   {
     "Timestamp": "10/26/2022 2:50:33",
@@ -345,7 +348,8 @@
     "Phone number": "+917078765510",
     "image": "https://drive.google.com/open?id=1f-G5vzEo1VLRbz4ejlQKhGaFdkqY7rL_",
     "team": "Core",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Ajendra.jpg"
   },
   {
     "Timestamp": "10/26/2022 3:21:16",
@@ -355,7 +359,8 @@
     "Phone number": 7678277660,
     "image": "https://drive.google.com/open?id=1yD5ScGplizClVqyn_MVdLc_JpiTtkgT_",
     "team": "Public Relations",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Ishita.jpeg"
   },
   {
     "Timestamp": "10/26/2022 3:22:21",
@@ -365,7 +370,8 @@
     "Phone number": 9136121122,
     "image": "https://drive.google.com/open?id=1qUDYM4Gn50HXOrCmxMVMGrCahnZq663b",
     "team": "Public Relations",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Sharan.jpg"
   },
   {
     "Timestamp": "10/26/2022 5:17:33",
@@ -375,7 +381,8 @@
     "Phone number": 8310307687,
     "image": "https://drive.google.com/open?id=1lxOadceC5WqMhSsOWHxBZbcIvpoa1dpc",
     "team": "Content",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Aryan_Madnan.jpg"
   },
   {
     "Timestamp": "10/26/2022 5:24:56",
@@ -385,7 +392,8 @@
     "Phone number": 7338700818,
     "image": "https://drive.google.com/open?id=1U1RHZmQnpNZEL5IIMR75iILrTtq4_1WM",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Adhindhra.jpg"
   },
   {
     "Timestamp": "10/26/2022 8:27:58",
@@ -395,7 +403,8 @@
     "Phone number": 9869321000,
     "image": "https://drive.google.com/open?id=19L0ET5OMs8zr_-Tpm4Q0bjEA_P8BKYp6",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Ratul.jpg"
   },
   {
     "Timestamp": "10/26/2022 9:09:55",
@@ -405,7 +414,8 @@
     "Phone number": 9741576840,
     "image": "https://drive.google.com/open?id=19uU-seFf-bSrDJJUzR7AORQ3zXBvM4ql",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Sai.JPG"
   },
   {
     "Timestamp": "10/26/2022 9:24:35",
@@ -415,7 +425,8 @@
     "Phone number": 9500089096,
     "image": "https://drive.google.com/open?id=1mUENhKANkZaHIFPKiyZ2h7rkybJkKS3D",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Jeyanth.jpg"
   },
   {
     "Timestamp": "10/26/2022 9:54:16",
@@ -425,7 +436,8 @@
     "Phone number": 9911596623,
     "image": "https://drive.google.com/open?id=16JUolU69H1x-sOaFK8Z-fmu6eu_1NInD",
     "team": "Sponsorship",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Nandini.png"
   },
   {
     "Timestamp": "10/26/2022 10:54:59",
@@ -435,7 +447,8 @@
     "Phone number": 8019548048,
     "image": "https://drive.google.com/open?id=1Spu4mCHXO46vwbtaZugKJbQguTGe715E",
     "team": "Marketing",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Haradeep.jpg"
   },
   {
     "Timestamp": "10/26/2022 11:09:20",
@@ -445,7 +458,8 @@
     "Phone number": "09566742732",
     "image": "https://drive.google.com/open?id=1pB7q2wbLPv0pisp89DYJ4EGew9-8Ab_D",
     "team": "Marketing",
-    "role": "Member"
+    "role": "Member",
+    "file": "./Team/Ashwin.jpg"
   },
   {
     "Timestamp": "10/26/2022 11:23:53",
@@ -455,7 +469,8 @@
     "Phone number": 9877301161,
     "image": "https://drive.google.com/open?id=1I7QoJ0bP-nU-TS67sJcnyedCBaU9fjI-",
     "team": "Marketing",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Anubha.jpg"
   },
   {
     "Timestamp": "10/26/2022 12:33:26",
@@ -465,7 +480,8 @@
     "Phone number": 9310250699,
     "image": "https://drive.google.com/open?id=1h3aqEjWax2P4iT9jVYetvtuXLBHiPNcT",
     "team": "Public Relations",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Shashvat.jpg"
   },
   {
     "Timestamp": "10/26/2022 12:37:04",
@@ -475,7 +491,8 @@
     "Phone number": 7579644945,
     "image": "https://drive.google.com/open?id=1C5Cxt1ksN_fv8Q5x6g1YKhcUr67625FD",
     "team": "Core",
-    "role": "Lead"
+    "role": "Lead",
+    "file" : "./Team/Sanskar.jpg"
   },
   {
     "Timestamp": "10/26/2022 15:27:51",
@@ -485,7 +502,8 @@
     "Phone number": "+917455066104",
     "image": "https://drive.google.com/open?id=111PGOvbv-bMGtLevdFzR4QxwGwGsCAUY",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Vaishnavi.jpeg"
   },
   {
     "Timestamp": "10/26/2022 17:14:10",
@@ -495,7 +513,8 @@
     "Phone number": 8527175193,
     "image": "https://drive.google.com/open?id=1s9ltO7MDbkGTxmz8Y4fKRXV0AzW98Pw8",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Shreeya.jpeg"
   },
   {
     "Timestamp": "10/26/2022 17:23:04",
@@ -505,7 +524,8 @@
     "Phone number": 7980648320,
     "image": "https://drive.google.com/open?id=1TzjE5GvjyUDHmlS4Vx-GK-Ak53_U_lsa",
     "team": "Marketing",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Aadrita.jpeg"
   },
   {
     "Timestamp": "10/26/2022 20:03:34",
@@ -515,7 +535,8 @@
     "Phone number": "08660576775",
     "image": "https://drive.google.com/open?id=1PFjmfdl6Yt_NdUKhKD0drINZG7DzWf-r",
     "team": "Content",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Kushi.jpeg"
   },
   {
     "Timestamp": "10/27/2022 7:07:35",
@@ -525,7 +546,8 @@
     "Phone number": 9871197503,
     "image": "https://drive.google.com/open?id=1mC0zHxm_SuAKyT0kBvih0LxTY1wPyh2T",
     "team": "Sponsorship",
-    "role": "Lead"
+    "role": "Lead",
+    "file": "./Team/Agrima.jpeg"
   },
   {
     "Timestamp": "10/27/2022 9:54:51",
@@ -535,6 +557,7 @@
     "Phone number": 8788471349,
     "image": "https://drive.google.com/open?id=16gZy7eMdKQu0Z7-TiODcg49oyzT-OmiQ",
     "team": "Public Relations",
-    "role": "Member"
+    "role": "Member",
+    "file" : "./Team/Aanchal.jpg"
   }
 ]
