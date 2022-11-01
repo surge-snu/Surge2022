@@ -226,6 +226,7 @@
   @include make-flex($dir: column, $align: flex-start, $just: flex-start);
   padding: 30px;
   gap: 10px;
+  margin-bottom: 74px;
   position: relative;
 
   @include respondAt(915px) {
