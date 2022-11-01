@@ -10,7 +10,7 @@ export default function EventGist({ className, from, venue, price, event }) {
   useEffect(() => {
     const interval = setInterval(() => {
       const today = new Date();
-      const eventDate = new Date("1 nov 2022");
+      const eventDate = new Date("3 nov 2022");
       const diff = eventDate.getTime() - today.getTime();
 
       // format diff to days, hours, minutes, seconds
