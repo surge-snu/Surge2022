@@ -2,31 +2,10 @@ import { useState } from "react";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import "../styles/routes/Contact.scss";
+import details from "../public/json/Surge_team_details.json";
 
 export default function Contact() {
-  const core = [
-    {
-      image: "/Img/Team/OC/Tejaswini.jpg",
-      name: "Tejaswini Satish",
-      position: "Core",
-      phone: "+91 8754017474",
-      email: "ts658@snu.edu.in",
-    },
-  ];
-
-  const poc = [...Array(9).keys()].fill(
-    {
-      image:
-        "https://images.unsplash.com/photo-1664261910581-ac3334994d32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      name: "Santhosh",
-      position: "Web Development Lead",
-      phone: "+91 1234567890",
-      email: "test@gmail.com",
-    },
-    0,
-    9
-  );
-
+	const core = details.filter((member) => member["team"] === "Core");
   const [showCore, setShowCore] = useState(true);
 
   return (
@@ -60,22 +39,22 @@ export default function Contact() {
         </button>
       </div>
       <div className="ContactPage__contacts">
-        {(showCore ? core : poc).map((item, index) => (
+        {core.map((item, index) => (
           <div className="ContactPage__card" key={item["name"] + index}>
             <div className="ContactPage__card--top">
-              <img alt={item["name"]} src={item["image"]} />
+              <img alt={item["name"]} src={item["file"]} />
               <div className="ContactPage__cardDetails">
                 <h3 className="ContactPage__cardDetails--name">
                   {item["name"]}
                 </h3>
                 <p className="ContactPage__cardDetails--position">
-                  {item["position"]}
+                  {item["team"]}
                 </p>
               </div>
             </div>
             <div className="ContactPage__card--bottom">
               <div className="ContactPage__cardButton ContactPage__cardButton--green">
-                <p>{item["phone"]}</p>
+                <p>{item["Phone number"]}</p>
                 {/* <p>Place a call</p>
 								<img
                   alt="Arrow right"
@@ -92,7 +71,7 @@ export default function Contact() {
         ))}
       </div>
 
-      <h4>Other members coming soon!</h4>
+      {/* <h4>Other members coming soon!</h4> */}
     </div>
   );
 }
