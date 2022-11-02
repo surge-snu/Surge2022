@@ -559,5 +559,56 @@
     "team": "Public Relations",
     "role": "Member",
     "file" : "./Team/Aanchal.jpg"
+  },
+	{
+    "Timestamp": "11/1/2022 23:28:15",
+    "Username": "kd479@snu.edu.in",
+    "name": "Keshav Dubey",
+    "email": "kd479@snu.edu.in",
+    "Phone number": 9266466987,
+    "image": "https://drive.google.com/open?id=1IOHQb3yk7ZLF3ZKHXywybRS9d498AFuv",
+    "team": "Web Dev, Design",
+    "role": "Member",
+    "file" : "./Team/Keshav.jpg"
+  },
+	{
+    "Timestamp": "10/27/2022 9:54:51",
+    "Username": "as188@snu.edu.in",
+    "name": "Aryan Sethia",
+    "email": "as188@snu.edu.in",
+    "Phone number": 7738180710,
+    "image": "https://drive.google.com/open?id=1JVqJGvg4u5Lbdx2464ef8fvgzfnc1vx-",
+    "team": "Web Dev",
+    "role": "Member",
+    "file" : "./Team/Aryan Sethia.jpg"
+  },
+	{
+    "Timestamp": "10/27/2022 9:54:51",
+    "Username": "ys560@snu.edu.in",
+    "name": "Yathansh Raj Sharma",
+    "email": "ar142@snu.edu.in",
+    "Phone number": 8368131392,
+    "image": "https://drive.google.com/open?id=1GGCYlQZXymW1DGSbaeDbElXewb7dF5sY",
+    "team": "Web Dev",
+    "role": "Member",
+    "file" : "./Team/Yathansh.jpeg"
+  },
+	{
+    "Timestamp": "10/27/2022 9:54:51",
+    "Username": "sb875@snu.edu.in",
+    "name": "A B Santhosh",
+    "email": "sb875@snu.edu.in",
+    "team": "Web Dev",
+    "role": "Lead",
+    "file" : "./Team/Santhosh.jpg"
+  },
+	{
+    "Timestamp": "10/27/2022 9:54:51",
+    "Username": "rb618@snu.edu.in",
+    "name": "Rishi Balamurugan",
+    "email": "rb618@snu.edu.in",
+    "team": "Web Dev",
+    "role": "Lead",
+    "file" : "./Team/Rishi.png"
   }
 ]
