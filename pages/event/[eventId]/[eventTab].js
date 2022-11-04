@@ -17,7 +17,6 @@ import rules from "../../../public/json/rules.json"
 
 export async function getServerSideProps(context) {
   const { eventId, eventTab } = context.query;
-  console.log(eventTab)
   const closedEvents = ["feca5ee"]
   if(closedEvents.includes(eventId) && eventTab==="register"){
     return {
