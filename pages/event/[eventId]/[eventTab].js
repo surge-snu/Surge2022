@@ -17,6 +17,17 @@ import rules from "../../../public/json/rules.json"
 
 export async function getServerSideProps(context) {
   const { eventId, eventTab } = context.query;
+  console.log(eventTab)
+  const closedEvents = ["feca5ee"]
+  if(closedEvents.includes(eventId) && eventTab==="register"){
+    return {
+      redirect: {
+        permanent: false,
+        destination: `/event/${eventId}/overview`,
+      },
+    };
+  }
+
 	let eventDetails = await fetchEvent(eventId);
 	let generalRules = rules["general"];
 
@@ -64,6 +75,7 @@ export async function getServerSideProps(context) {
 export default function EventTabContent({ eventDetails, eventTab, user, generalRules }) {
   const { tempTeamDetails, setTempTeamDetails } = useAuth();
   const [teamDetails, setTeamDetails] = useState(tempTeamDetails);
+  
 
   const [registerStage, setRegisterStage] = useState("Details");
 
