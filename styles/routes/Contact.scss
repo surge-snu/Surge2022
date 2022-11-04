@@ -317,7 +317,7 @@
     }
     @include respondAt(450px) {
       @include box(100%, auto);
-      padding: 0;
+      // padding: 0;
 
       p {
         font-size: 10px;
