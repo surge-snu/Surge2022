@@ -63,12 +63,12 @@ export default function EventGist({ className, from, venue, price, event }) {
           </a>
         </Link>
         <div className="eventGist__bottom--divider" />
-        <div className="eventGist__bottom__register">
+        {/* <div className="eventGist__bottom__register">
           <p className="eventGist__bottom__register__closes">
             REGISTRATION CLOSING IN
           </p>
           <p className="eventGist__bottom__register__time">{countdown}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
