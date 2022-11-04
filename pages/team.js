@@ -16,13 +16,13 @@ export default function Team() {
   const teams = [
     "All",
     "Core",
+    "Web Dev",
     "Marketing",
     "Design",
     "Content",
     "Videography",
     "Public Relations",
     "Sponsorship",
-    "Web Dev",
   ];
   const [team, setTeam] = useState(teams[0]);
   const members = details;
@@ -57,8 +57,9 @@ export default function Team() {
       </div>
       <div className="TeamPage__grid">
         {members
-          .filter((member) => team === teams[0] || member["team"] === team)
+					.filter((member) => team === teams[0] || member["team"].includes(team))
           .sort((a, b) => (a["role"] == "Lead" ? -1 : 1))
+					.sort((a, b) => (a["team"] == "Core" ? -1 : 1))
           .map((member, index) => (
             <div className="TeamPage__card" key={index}>
               <img
