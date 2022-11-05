@@ -4,6 +4,7 @@ import { AuthProvider, getUserFromSession } from "../context/authContext";
 import App from "next/app";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps, user }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps, user }) {
         <link rel="icon" href="/Img/SurgeCircleSmall.png" />
       </Head>
       <AuthModal />
+      <Analytics />
       <NextNProgress color="#ff4f46" height={5} />
       {getLayout(<Component {...pageProps} />)}
     </AuthProvider>
