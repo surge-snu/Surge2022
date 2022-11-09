@@ -81,7 +81,6 @@ export default function EventTabContent({
   const [teamDetails, setTeamDetails] = useState(tempTeamDetails);
 
   const [registerStage, setRegisterStage] = useState("Details");
-  console.log(eventDetails);
   function switchContent(route) {
     switch (route) {
       case "overview":
