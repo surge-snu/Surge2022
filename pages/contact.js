@@ -3,9 +3,10 @@ import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import "../styles/routes/Contact.scss";
 import details from "../public/json/Surge_team_details.json";
+import Link from "next/link";
 
 export default function Contact() {
-	const core = details.filter((member) => member["team"] === "Core");
+  const core = details.filter((member) => member["team"] === "Core");
   const [showCore, setShowCore] = useState(true);
 
   return (
@@ -37,6 +38,14 @@ export default function Contact() {
         >
           POC
         </button>
+        <Link href="/team">
+          <a
+            className={`ContactPage__tab ContactPage__tab--link`}
+            onClick={() => setShowCore(false)}
+          >
+            Team
+          </a>
+        </Link>
       </div>
       <div className="ContactPage__contacts">
         {core.map((item, index) => (
@@ -48,7 +57,7 @@ export default function Contact() {
                   {item["name"]}
                 </h3>
                 <p className="ContactPage__cardDetails--position">
-                  {item["team"]}
+                  {item["role"]}
                 </p>
               </div>
             </div>

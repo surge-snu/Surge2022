@@ -128,16 +128,19 @@
   }
 
   &__cardName {
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
+    font-family: Satoshi Variable, "Satoshi", sans-serif;
+    font-size: 18px;
     padding-top: 10px;
     padding-bottom: 2px;
   }
 
   &__cardDesc {
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    font-weight: 300;
+    // font-family: "Poppins", sans-serif;
+    // font-size: 12px;
+    // font-weight: 300;
+    // color: #cafa08;
+    font-family: "BLACKHAWK";
+    font-size: 20px;
     color: #cafa08;
   }
 }

@@ -101,6 +101,15 @@
       padding: 2px 0;
     }
 
+    &--link {
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: #ff4f46;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+      }
+    }
+
     &--active {
       background-color: #ff4f46;
       border: 2px solid #ffffff;
@@ -203,9 +212,9 @@
       gap: 20px;
       margin-top: 0;
     }
-		@include respondAt(450px) {
-			width: min-content;
-		}
+    @include respondAt(450px) {
+      width: min-content;
+    }
   }
 
   &__card {
@@ -216,16 +225,16 @@
     border: 1px solid #ffffff;
     border-radius: 15px;
     padding: 25px;
-		min-width: 490px;
+    min-width: 490px;
 
     @include respondAt(950px) {
       gap: 15px;
       padding: 15px;
-			min-width: 0;
+      min-width: 0;
     }
-		@include respondAt(450px) {
-			width: 100%;
-		}
+    @include respondAt(450px) {
+      width: 100%;
+    }
 
     &--top {
       @include make-flex($dir: row);
