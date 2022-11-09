@@ -62,7 +62,7 @@
     "Phone number": 8754017474,
     "image": "https://drive.google.com/u/0/open?usp=forms_web&id=1RBjLxSJyL3JLA155y-VRFCBz21u15nu4",
     "team": "Core",
-    "role": "Lead",
+    "role": "Co-Chairperson",
     "file": "./Team/Tejaswini.jpg"
   },
   {
@@ -337,7 +337,7 @@
     "Phone number": 9550820302,
     "image": "https://drive.google.com/open?id=1Tb4Zf_N_iGhSfZ27Ofkvu4JhvdhtDkhA",
     "team": "Core",
-    "role": "Member",
+    "role": "Administrator",
     "file" : "./Team/deepak.jpg"
   },
   {
@@ -348,9 +348,18 @@
     "Phone number": "+917078765510",
     "image": "https://drive.google.com/open?id=1f-G5vzEo1VLRbz4ejlQKhGaFdkqY7rL_",
     "team": "Core",
-    "role": "Lead",
+    "role": "Administrator",
     "file" : "./Team/Ajendra.jpg"
   },
+	{
+		"Username": "am408@snu.edu.in",
+		"name": "Arpit Mishra",
+		"email": "am408@snu.edu.in",
+		"Phone number": "+918827217975",
+		"team": "Core",
+		"role": "Chairperson",
+		"file": "./Team/Arpit.jpg"
+	},
   {
     "Timestamp": "10/26/2022 3:21:16",
     "Username": "is212@snu.edu.in",
@@ -491,7 +500,7 @@
     "Phone number": 7579644945,
     "image": "https://drive.google.com/open?id=1C5Cxt1ksN_fv8Q5x6g1YKhcUr67625FD",
     "team": "Core",
-    "role": "Lead",
+    "role": "Advisor",
     "file" : "./Team/Sanskar.jpg"
   },
   {
