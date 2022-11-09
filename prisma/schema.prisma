@@ -79,11 +79,25 @@ model PaymentDetails {
   createdAt     DateTime @default(now())
 }
 
+model PlayerLog {
+  id           Int         @id @default(autoincrement())
+  userId       String
+  teamId       String
+  teamMemberId Int
+  PlayerState  PlayerState @default(OUT_CAMPUS)
+  timeStamp    DateTime    @default(now())
+}
+
 enum PaymentStatus {
   PAID
   NOT_PAID
   MANUAL
   PENDING
+}
+
+enum PlayerState {
+  IN_CAMPUS
+  OUT_CAMPUS
 }
 
 enum PlayerType {
