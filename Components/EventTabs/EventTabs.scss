@@ -77,11 +77,11 @@
       @include box();
     }
 
-    &:last-child {
-      color: #cafa0a;
-      font-family: "BLACKHAWK";
-      font-size: 25px;
-    }
+    // &:last-child {
+    //   color: #cafa0a;
+    //   font-family: "BLACKHAWK";
+    //   font-size: 25px;
+    // }
   }
 
   &--activeItem {

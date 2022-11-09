@@ -13,12 +13,12 @@ import useAuth from "../../../hooks/useAuth";
 import { fetchEvent } from "../../../services/events.server";
 import "../../../styles/routes/Events/Event.scss";
 import { Cashify } from "../../../utils/Cashify";
-import rules from "../../../public/json/rules.json"
+import rules from "../../../public/json/rules.json";
 
 export async function getServerSideProps(context) {
   const { eventId, eventTab } = context.query;
-  const closedEvents = ["feca5ee"]
-  if(closedEvents.includes(eventId) && eventTab==="register"){
+  const closedEvents = ["`"];
+  if (eventTab === "register") {
     return {
       redirect: {
         permanent: false,
@@ -27,8 +27,8 @@ export async function getServerSideProps(context) {
     };
   }
 
-	let eventDetails = await fetchEvent(eventId);
-	let generalRules = rules["general"];
+  let eventDetails = await fetchEvent(eventId);
+  let generalRules = rules["general"];
 
   if (eventDetails === null) {
     return {
@@ -54,8 +54,8 @@ export async function getServerSideProps(context) {
         user: null,
         eventDetails: eventDetails,
         eventTab: eventTab,
-				currentPath: context.req.url,
-				generalRules: generalRules,
+        currentPath: context.req.url,
+        generalRules: generalRules,
       },
     };
   }
@@ -65,19 +65,23 @@ export async function getServerSideProps(context) {
       user: context.req.session.user,
       eventDetails: eventDetails,
       eventTab: eventTab,
-			currentPath: context.req.url,
-			generalRules: generalRules,
+      currentPath: context.req.url,
+      generalRules: generalRules,
     },
   };
 }
 
-export default function EventTabContent({ eventDetails, eventTab, user, generalRules }) {
+export default function EventTabContent({
+  eventDetails,
+  eventTab,
+  user,
+  generalRules,
+}) {
   const { tempTeamDetails, setTempTeamDetails } = useAuth();
   const [teamDetails, setTeamDetails] = useState(tempTeamDetails);
-  
 
   const [registerStage, setRegisterStage] = useState("Details");
-
+  console.log(eventDetails);
   function switchContent(route) {
     switch (route) {
       case "overview":
@@ -89,6 +93,8 @@ export default function EventTabContent({ eventDetails, eventTab, user, generalR
                   <h2>{eventTab}</h2>
                   <hr />
                 </div>
+                <h2>Registrations have been closed!!</h2>
+
                 <div className="EventPage__container--overview">
                   <h3>Rules and Guidelines</h3>
                   <span
@@ -112,9 +118,9 @@ export default function EventTabContent({ eventDetails, eventTab, user, generalR
               />
             </div>
           </>
-				);
-			case "general":
-				return (
+        );
+      case "general":
+        return (
           <>
             <div className="EventPage__container--content">
               <div className="EventPage__container--left">
@@ -122,12 +128,14 @@ export default function EventTabContent({ eventDetails, eventTab, user, generalR
                   <h2>General Rules</h2>
                   <hr />
                 </div>
+
+                <h2>Registrations have been closed!!</h2>
                 <div className="EventPage__container--overview">
                   <span
                     className="markdownBody"
                     dangerouslySetInnerHTML={{
-                      __html: generalRules
-											}}
+                      __html: generalRules,
+                    }}
                   />
                 </div>
               </div>
@@ -151,6 +159,8 @@ export default function EventTabContent({ eventDetails, eventTab, user, generalR
                   <h2>{eventTab}</h2>
                   <hr />
                 </div>
+
+                <h2>Registrations have been closed!!</h2>
                 <div className="EventPage__container--schedule">
                   <Schedule
                     data={{
@@ -182,6 +192,8 @@ export default function EventTabContent({ eventDetails, eventTab, user, generalR
                   <h2>{eventTab}</h2>
                   <hr />
                 </div>
+
+                <h2>Registrations have been closed!!</h2>
                 <div className="EventPage__container--prizes">
                   <p>
                     Winner Prize per athlete:{" "}
@@ -210,47 +222,48 @@ export default function EventTabContent({ eventDetails, eventTab, user, generalR
             </div>
           </>
         );
-      case "register":
-        return (
-          <div className="EventPage__container--content">
-            <div className="EventPage__container--middle">
-              <div className="EventPage__container--header">
-                <h2>{eventTab}</h2>
-                <hr />
-              </div>
-              <div className="EventPage__register">
-                <RegistrationTimeline
-                  tabs={["Details", "Summary"]}
-                  currentTab={registerStage}
-                />
+      // case "register":
+      //   return (
+      //     <div className="EventPage__container--content">
 
-                {registerStage === "Details" && (
-                  <RegistrationForm
-                    minPlayers={eventDetails.minPlayers}
-                    maxPlayers={eventDetails.maxPlayers}
-                    eventId={eventDetails.eventId}
-                    onSubmitForm={(formData) => {
-                      setTeamDetails(formData);
-                      setTempTeamDetails(formData);
-                      setRegisterStage("Summary");
-                    }}
-                    user={user}
-                  />
-                )}
-                {registerStage === "Summary" && (
-                  <RegistrationSummary
-                    user={user}
-                    formData={teamDetails}
-                    eventId={eventDetails.eventId}
-                    setRegisterStage={setRegisterStage}
-                  />
-                )}
+      //       <div className="EventPage__container--middle">
+      //         <div className="EventPage__container--header">
+      //           <h2>{eventTab}</h2>
+      //           <hr />
+      //         </div>
+      //         <div className="EventPage__register">
+      //           <RegistrationTimeline
+      //             tabs={["Details", "Summary"]}
+      //             currentTab={registerStage}
+      //           />
 
-                {registerStage === "Success" && <RegistrationSuccess />}
-              </div>
-            </div>
-          </div>
-        );
+      //           {registerStage === "Details" && (
+      //             <RegistrationForm
+      //               minPlayers={eventDetails.minPlayers}
+      //               maxPlayers={eventDetails.maxPlayers}
+      //               eventId={eventDetails.eventId}
+      //               onSubmitForm={(formData) => {
+      //                 setTeamDetails(formData);
+      //                 setTempTeamDetails(formData);
+      //                 setRegisterStage("Summary");
+      //               }}
+      //               user={user}
+      //             />
+      //           )}
+      //           {registerStage === "Summary" && (
+      //             <RegistrationSummary
+      //               user={user}
+      //               formData={teamDetails}
+      //               eventId={eventDetails.eventId}
+      //               setRegisterStage={setRegisterStage}
+      //             />
+      //           )}
+
+      //           {registerStage === "Success" && <RegistrationSuccess />}
+      //         </div>
+      //       </div>
+      //     </div>
+      //   );
     }
   }
 

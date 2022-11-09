@@ -49,7 +49,7 @@ export default function EventGist({ className, from, venue, price, event }) {
           <p>Min. {event.minPlayers} players per team.</p>
           <p>Max. {event.maxPlayers} players per team.</p>
         </div>
-        <Link href={`/event/${event.eventId}/register`}>
+        {/* <Link href={`/event/${event.eventId}/register`}>
           <a
             className="eventGist__bottom__payment__cta--cta"
             aria-label="Register for this event"
@@ -61,8 +61,8 @@ export default function EventGist({ className, from, venue, price, event }) {
               src="/Img/Arrow 9.svg"
             />
           </a>
-        </Link>
-        <div className="eventGist__bottom--divider" />
+        </Link> */}
+        {/* <div className="eventGist__bottom--divider" /> */}
         {/* <div className="eventGist__bottom__register">
           <p className="eventGist__bottom__register__closes">
             REGISTRATION CLOSING IN

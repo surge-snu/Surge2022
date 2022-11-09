@@ -114,7 +114,7 @@ function EventTabs({ eventId, currentTab }) {
             </a>
           </Link>
         </li>
-        <li
+        {/* <li
           className={`EventTabs--item ${
             activeTab === "register" ? "EventTabs--activeItem" : ""
           }`}
@@ -139,11 +139,11 @@ function EventTabs({ eventId, currentTab }) {
               REGISTER
             </a>
           </Link>
-        </li>
+        </li> */}
       </ul>
 
       <ul className="EventTabs--mobile" style={{ height: "50.5px" }}>
-        {["overview", "general", "prizes", "register"]
+        {["overview", "general", "prizes"]
           .filter((x) => x !== activeTab)
           .concat([activeTab])
           .reverse()
