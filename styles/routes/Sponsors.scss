@@ -41,17 +41,17 @@
     }
 
     &--spons {
-      @include box(250px, 125px);
+      @include box(auto, 125px);
       @include make-flex();
       background-color: aliceblue;
       border-radius: 8px;
+			flex-grow: 1;
       padding: 20px;
+			min-width:250px;
       img {
-        height: 100%;
-      }
-
-      img.widthFill {
-        width: 100%;
+				@include box(auto, 100%);
+				max-width: 100%;
+				max-height: 100%;
       }
     }
   }
